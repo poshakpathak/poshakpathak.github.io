@@ -15,7 +15,7 @@
         roll2: 0,
         rollSum: 0,
         index: 0,
-        gameEnd:29
+        gameEnd:99
     };
 
     startGame.addEventListener("click", function(){
@@ -59,13 +59,13 @@
             gameData.index ? (gameData.index = 0) : (gameData.index = 1);
            
             showCurrentScore();
-            setTimeout(setUpTurn, 2000);
+            setTimeout(setUpTurn, 3000);
 
         }
         else if (gameData.roll1 === 1 || gameData.roll2 === 1){
             gameData.index ? (gameData.index = 0) : (gameData.index = 1);
             game.innerHTML += `<p> Sorry, one of your rolls was a one, switching to ${gameData.players[gameData.index]} </p>`;
-            setTimeout(setUpTurn, 2000);
+            setTimeout(setUpTurn, 4000);
 
         }
         else{
