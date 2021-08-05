@@ -23,3 +23,8 @@ div {
 #actions {
     background-color: silver;
 }
+
+.githublink{
+    text-decoration: none;
+    color: #AF8023 ;
+}
