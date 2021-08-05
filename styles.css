@@ -71,7 +71,7 @@ header nav ul li a {
 
 
 .selected {
-	/*background: #9370DB;*/
+	
 	transition: all 1s;
 }
 
