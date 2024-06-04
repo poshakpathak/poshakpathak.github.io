@@ -21,7 +21,7 @@ const Sidebar = () => (
         <div className="profile-info">
             <h1>Poshak Pathak</h1>
             <p>Computer Science & Mathematics</p>
-            <p>Monroe, Louisiana</p>
+            <p>University of Louisiana Monroe</p>
             <p><i> Life is hard as a single mom if you're a man in his early twenties <br/>
             -Sun Tzu </i></p>
         </div>
@@ -32,9 +32,9 @@ const Sidebar = () => (
             <Link to="/contact">Contact</Link>
         </nav>
         <div className="contact-info">
-            <p>555 your office number</p>
-            <p>123 your address street</p>
-            <p>Your City, State 12345</p>
+            <p>Monroe, Louisiana</p>
+
+
         </div>
         <div className="social-icons">
             <a href="https://www.linkedin.com/in/poshak-pathak/" target="_blank" rel="noopener noreferrer" className="linkedin">
@@ -88,7 +88,7 @@ const Portfolio = () => (
                 src={`${process.env.PUBLIC_URL}/Resume.pdf`}
                 title="Resume"
                 width="100%"
-                height="1100px">
+                height="1200px">
             </iframe>
         </div>
     </section>
