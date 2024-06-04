@@ -34,13 +34,13 @@ const Sidebar = () => (
             <p>Your City, State 12345</p>
         </div>
         <div className="social-icons">
-            <a href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener noreferrer" className="linkedin">
+            <a href="https://www.linkedin.com/in/poshak-pathak/" target="_blank" rel="noopener noreferrer" className="linkedin">
                 <i className="fab fa-linkedin"></i>
             </a>
-            <a href="https://www.youtube.com/YOUR_YOUTUBE" target="_blank" rel="noopener noreferrer" className="youtube">
+            <a href="https://www.youtube.com/@PoshakPathak" target="_blank" rel="noopener noreferrer" className="youtube">
                 <i className="fab fa-youtube"></i>
             </a>
-            <a href="https://twitter.com/YOUR_TWITTER" target="_blank" rel="noopener noreferrer" className="twitter">
+            <a href="https://x.com/PathakPoshak" target="_blank" rel="noopener noreferrer" className="twitter">
                 <i className="fab fa-twitter"></i>
             </a>
         </div>
