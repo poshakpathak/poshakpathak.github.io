@@ -77,6 +77,9 @@ const Portfolio = () => (
     <section>
         <h2>Portfolio</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel mauris quam. Phasellus nec pretium mi.</p>
+        <a href={`${process.env.PUBLIC_URL}/Resume.pdf`} target="_blank" rel="noopener noreferrer">
+            View My Resume
+        </a>
     </section>
 );
 
