@@ -75,8 +75,11 @@ const About = () => (
 
 const Portfolio = () => (
     <section>
-        <h2>Portfolio</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel mauris quam. Phasellus nec pretium mi.</p>
+        <h2>Resume</h2>
+        <p>My resume shows my current experiences and the projects I have completed so far. If I work
+        on a project worthy of replacing the current projects on my resume, I will make sure to reflect the changes.
+        </p>
+        <p> Projects not included on my resume can be found elsewhere on this website. </p>
         <div className="resume-container">
             <iframe
                 src={`${process.env.PUBLIC_URL}/Resume.pdf`}
