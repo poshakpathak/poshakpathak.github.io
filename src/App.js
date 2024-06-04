@@ -16,11 +16,14 @@ function App() {
 const Sidebar = () => (
     <div className="sidebar">
         <div className="profile-pic">
-            <img src={`${process.env.PUBLIC_URL}/prof_pic.jpg`} alt="Profile" />
+            <img src={`${process.env.PUBLIC_URL}/prof_pic.png`} alt="Profile" />
         </div>
         <div className="profile-info">
-            <h1>You R. Name</h1>
-            <p>Affiliations. Address. Contacts. Moto. Etc.</p>
+            <h1>Poshak Pathak</h1>
+            <p>Computer Science & Mathematics</p>
+            <p>Monroe, Louisiana</p>
+            <p><i> Life is hard as a single mom if you're a man in his early twenties <br/>
+            -Sun Tzu </i></p>
         </div>
         <nav>
             <Link to="/about">About Me</Link>
@@ -85,7 +88,7 @@ const Portfolio = () => (
                 src={`${process.env.PUBLIC_URL}/Resume.pdf`}
                 title="Resume"
                 width="100%"
-                height="1000px">
+                height="1100px">
             </iframe>
         </div>
     </section>
