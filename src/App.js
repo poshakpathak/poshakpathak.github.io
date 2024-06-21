@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import './App.css';
+import Contact from './Contact';
 
 function App() {
     return (
@@ -56,7 +57,7 @@ const MainContent = () => (
             <Route path="/about" element={<About />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="/contact" element={<Contact />} /> {/* Add the Contact route */}
             <Route path="/" element={<Home />} />
         </Routes>
     </div>
@@ -114,11 +115,5 @@ const Blog = () => {
     );
 };
 
-const Contact = () => (
-    <section>
-        <h2>Contact</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel mauris quam. Phasellus nec pretium mi.</p>
-    </section>
-);
 
 export default App;
