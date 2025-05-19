@@ -1,0 +1,9 @@
+title: My Personal Website
+description: Portfolio and Blog
+
+# Navigation
+nav:
+  - Home: /
+  - About: /about
+  - Projects: /projects
+  - Blog: /blog
