@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title }}</title>
+
+  <!-- Tailwind CSS with dark mode class support -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/blog.css" />
+
+  <style>
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 6px;
+      width: 0%;
+      z-index: 50;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #facc15, #f472b6, #60a5fa);
+      background-size: 200% 200%;
+      animation: gradient-shift 4s ease infinite;
+      transition: width 0.2s ease-out;
+    }
+
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fade-in {
+      from { opacity: 0; transform: scale(0.98); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    .animate-fade-in {
+      animation: fade-in 0.7s ease-out forwards;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #progress-bar {
+        box-shadow: 0 0 6px rgba(250, 204, 21, 0.3);
+      }
+
+      #scrollToTopBtn {
+        background-color: #facc15;
+        color: #111827;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-800 dark:bg-[#121212] dark:text-gray-100 font-sans leading-relaxed">
+
+  <!-- Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Scroll-to-Top Button -->
+  <button id="scrollToTopBtn"
+    class="hidden fixed bottom-6 right-6 z-50 p-3 rounded-full bg-yellow-400 text-white shadow-lg hover:bg-yellow-500 transition"
+    aria-label="Scroll to top">↑</button>
+
+  <!-- Dark Mode Toggle -->
+  <button id="darkToggle"
+    class="fixed bottom-6 left-6 z-50 p-2 bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-white rounded shadow text-sm hover:ring-2 ring-yellow-400 transition"
+    aria-label="Toggle dark mode">🌓</button>
+
+  <!-- Blog Content -->
+  <main class="max-w-7xl mx-auto px-5 py-10">
+    <header class="mb-6 text-center">
+      <h1 class="text-4xl font-bold mb-2">{{ title }}</h1>
+      <p class="text-sm text-gray-500 dark:text-gray-400 flex justify-center items-center gap-2">
+        Posted on <time datetime="{{ date }}">{{ dateReadable }}</time>
+        <span class="bg-yellow-200 text-yellow-900 px-2 py-1 rounded text-xs">{{ tag }}</span>
+      </p>
+      <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+        ⏱️ Estimated read time: <span id="read-time">...</span>
+      </p>
+    </header>
+
+    <figure class="mb-6">
+      <img src="{{ image }}" alt="Cover image"
+        class="rounded-lg shadow-md mx-auto max-w-full transition-opacity duration-700 opacity-0 animate-fade-in" />
+      <figcaption class="text-sm text-center text-gray-500 dark:text-gray-400 mt-2">
+        <em>Figure 1:</em> {{ caption }}
+      </figcaption>
+    </figure>
+
+    <!-- Markdown-injected content goes here -->
+    <article class="prose prose-lg prose-slate dark:prose-invert max-w-none">
+      {{ content }}
+    </article>
+
+    <footer class="mt-12 text-center">
+      <div class="mb-4">
+        <p class="text-gray-500 dark:text-gray-400 mb-2 text-sm">Share this post:</p>
+        <div class="flex justify-center gap-4 text-sm">
+          <a href="https://twitter.com/intent/tweet?url={{ fullUrl }}" target="_blank"
+            class="text-blue-500 hover:underline">Twitter</a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ fullUrl }}" target="_blank"
+            class="text-blue-700 hover:underline">LinkedIn</a>
+          <a href="mailto:?subject=Check out this article&body={{ fullUrl }}"
+            class="text-green-600 hover:underline">Email</a>
+        </div>
+      </div>
+
+      <a href="../index.html" class="text-indigo-600 hover:underline font-medium">← Back to homepage</a>
+    </footer>
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    // Progress bar
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const percent = (scrollTop / docHeight) * 100;
+      document.getElementById("progress-bar").style.width = `${percent}%`;
+    });
+
+    // Scroll-to-top button
+    const btn = document.getElementById("scrollToTopBtn");
+    window.addEventListener("scroll", () => {
+      btn.classList.toggle("hidden", window.scrollY < 300);
+    });
+    btn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Read time estimator
+    document.addEventListener("DOMContentLoaded", function () {
+      const content = document.querySelector("article");
+      const words = content.innerText.trim().split(/\s+/).length;
+      const time = Math.ceil(words / 200);
+      document.getElementById("read-time").textContent = `${time} min read`;
+    });
+
+    // Dark mode toggle with preference saving
+    const toggleBtn = document.getElementById("darkToggle");
+    toggleBtn.addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+      const isDark = document.documentElement.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+
+    // Load saved theme on page load
+    window.addEventListener("DOMContentLoaded", () => {
+      const saved = localStorage.getItem("theme");
+      if (saved === "dark") document.documentElement.classList.add("dark");
+    });
+
+    //scrollspy
+    const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const id = entry.target.getAttribute("id");
+      const link = document.querySelector(`.toc-link[href="#${id}"]`);
+      if (entry.isIntersecting) {
+        document.querySelectorAll('.toc-link').forEach(el => el.classList.remove("font-bold", "text-yellow-500"));
+        if (link) link.classList.add("font-bold", "text-yellow-500");
+      }
+      });
+    }, { rootMargin: "0px 0px -60% 0px", threshold: 0 });
+
+    document.querySelectorAll("article h2, article h3").forEach((section) => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>

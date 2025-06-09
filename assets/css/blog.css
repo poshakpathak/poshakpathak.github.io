@@ -1,0 +1,53 @@
+/* Blog article enhancements */
+article blockquote {
+  border-left: 4px solid #facc15;
+  background: #232323;
+  color: #f3f3f3;
+  margin: 1.5em 0;
+  padding: 1em 1.5em;
+  font-style: italic;
+  border-radius: 0.5em;
+  font-size: 1.08em;
+}
+
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  background: #181818;
+  color: #f3f3f3;
+  border-radius: 0.5em;
+  overflow: hidden;
+  font-size: 1em;
+}
+article th, article td {
+  border: 1px solid #333;
+  padding: 0.5em 0.8em;
+  text-align: center;
+}
+article th {
+  background: #2d2d2d;
+  color: #facc15;
+  font-weight: 600;
+}
+article tr:nth-child(even) {
+  background: #222;
+}
+
+article p {
+  margin-bottom: 1.2em;
+  line-height: 1.7;
+}
+
+article h1, article h2, article h3, article h4, article h5, article h6 {
+  color: #facc15;
+  font-weight: 700;
+  margin-top: 2.2em;
+  margin-bottom: 0.7em;
+  line-height: 1.2;
+}
+
+article h1 { font-size: 2.2em; }
+article h2 { font-size: 1.7em; border-bottom: 2px solid #444; padding-bottom: 0.2em; }
+article h3 { font-size: 1.3em; }
+article h4, article h5, article h6 { font-size: 1.1em; } 
