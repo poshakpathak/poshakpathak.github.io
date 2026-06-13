@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imposter Game Tracker</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+
+  <style>
+    :root {
+      --jet: hsl(0, 0%, 20%);
+      --onyx: hsl(240, 1%, 15%);
+      --eerie-black-1: rgba(20, 20, 25, 0.7); /* Translucent base for glassmorphism */
+      --eerie-black-2: rgba(30, 30, 35, 0.4);
+      --smoky-black: #0c0c0e;
+      --white-1: #ffffff;
+      --white-2: #f3f4f6;
+      --orange-yellow-crayola: hsl(45, 100%, 65%);
+      --light-gray: #9ca3af;
+      --accent-glow: rgba(250, 204, 21, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--smoky-black);
+      font-family: 'Poppins', sans-serif;
+      color: var(--white-1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* Outer Wrapper Body Design */
+    .game-container {
+      background: radial-gradient(circle at top left, rgba(250, 204, 21, 0.03), transparent 40%), #121214;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 24px;
+      padding: 40px;
+      width: 100%;
+      max-width: 540px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .accent-title {
+      font-size: 2.2rem;
+      color: var(--white-1);
+      background: linear-gradient(to right, #ffffff, var(--orange-yellow-crayola));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 25px;
+    }
+
+    p {
+      color: var(--light-gray);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    /* Smooth Human-Style Card Panels */
+    .card-panel {
+      background: var(--eerie-black-1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .form-group {
+      margin-bottom: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    label {
+      color: var(--white-2);
+      margin-bottom: 12px;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    /* Polished Input Field */
+    input[type="number"] {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 12px 20px;
+      border-radius: 12px;
+      color: #fff;
+      width: 110px;
+      text-align: center;
+      font-size: 18px;
+      font-family: inherit;
+      font-weight: 600;
+      outline: none;
+      transition: all 0.25s ease;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    input[type="number"]:focus {
+      border-color: var(--orange-yellow-crayola);
+      box-shadow: 0 0 15px var(--accent-glow), inset 0 2px 4px rgba(0,0,0,0.2);
+      transform: scale(1.02);
+    }
+
+    /* Premium Animated Interaction Button Component */
+    .btn {
+      background: linear-gradient(135deg, var(--orange-yellow-crayola) 0%, #d97706 100%);
+      color: #0c0c0e;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(217, 119, 6, 0.45);
+      filter: brightness(1.05);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    /* Overrides for utility elements to keep structural harmony */
+    .btn::before { display: none; } /* Strip out the awkward hardcoded double-border trick */
+
+    .btn-reset {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--white-2);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: none;
+    }
+
+    .btn-reset:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      filter: none;
+    }
+
+    .reveal-box {
+      font-size: 32px;
+      font-weight: 700;
+      text-align: center;
+      margin: 20px 0;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .crewmate-style {
+      color: #10b981;
+      text-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+    }
+
+    .imposter-style {
+      color: #ef4444;
+      text-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+    }
+
+    .stopwatch-display {
+      font-family: 'Poppins', monospace;
+      font-weight: 600;
+      font-size: 58px;
+      color: #fff;
+      text-align: center;
+      margin: 25px 0;
+      letter-spacing: 1px;
+    }
+
+    .stopwatch-controls {
+      display: flex;
+      gap: 15px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--light-gray);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 25px;
+      transition: color 0.2s ease;
+    }
+
+    .back-btn:hover {
+      color: var(--orange-yellow-crayola);
+    }
+
+    #play-again-btn {
+      background: linear-gradient(135deg, var(--orange-yellow-crayola) 0%, #d97706 100%);
+      color: #579697;
+      box-shadow: 0 4px 15px rgba(217, 119, 6, 0.2);
+    }
+
+    #play-again-btn:hover {
+      box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="game-container">
+    <a href="index.html" class="back-btn">
+      <ion-icon name="arrow-back-outline"></ion-icon> Return to Portfolio
+    </a>
+
+    <h1 class="accent-title">Imposter Game</h1>
+    
+    <div id="setup-view" class="card-panel">
+      <h3>Game Setup</h3>
+      <p>Pass the device around. Crewmates will see a time target, while the Imposter has to try and fake it</p>
+      
+      <div class="form-group">
+        <label for="player-count">How many players?</label>
+        <input type="number" id="player-count" min="3" max="12" value="3">
+      </div>
+
+      <button class="btn" id="init-btn">Start Game</button>
+    </div>
+
+    <div id="names-view" class="card-panel" style="display: none;">
+      <h3>Player Names</h3>
+      <p>Enter names for each player, or leave them blank to use defaults.</p>
+      
+      <div id="names-inputs-container" style="margin-bottom: 20px; display: flex; flex-direction: column; gap: 15px; align-items: center;">
+        </div>
+
+      <div style="display: flex; gap: 15px;">
+        <button class="btn btn-reset" id="skip-names-btn">Use Defaults</button>
+        <button class="btn" id="submit-names-btn">Start Game</button>
+      </div>
+    </div>
+
+    <div id="play-view" class="card-panel" style="display: none;">
+      <h2 id="turn-indicator">Player 1's Turn</h2>
+      <p id="handoff-instruction">Click below to see your role and hide yo phone.</p>
+      
+      <button class="btn" id="reveal-btn">Tap to Reveal</button>
+      
+      <div id="role-box" style="display: none;">
+        <div id="role-title" class="reveal-box">CREWMATE</div>
+        <p id="role-details">Your target time is: <strong>12 seconds</strong></p>
+      </div>
+
+      <button class="btn" id="continue-btn" style="display: none; margin-top: 20px;">Click here & pass</button>
+    </div>
+
+    <div id="stopwatch-view" class="card-panel" style="display: none;">
+      <h3 id="sw-player-title">Player 1's Turn</h3>
+      <p>Hit Start and count the seconds in your head. The clock is hidden.</p>
+      
+      <div class="stopwatch-display" id="sw-time" style="color: var(--orange-yellow-crayola);">XX:XX.XX</div>
+      
+      <div class="stopwatch-controls" style="flex-direction: column; gap: 15px;">
+        <button class="btn" id="sw-toggle-btn" style="background: #1e3a8a; color: #fff;">Start</button>
+        <button class="btn" id="sw-next-btn" style="display: none; background: #334155; color: #fff;">
+          <span>Tap and Pass</span>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </button>
+      </div>
+    </div>
+
+    <div id="deduction-view" class="card-panel" style="display: none; text-align: center;">
+      <h2 class="accent-title" style="font-size: 26px; margin-bottom: 10px;">Find the Imposter!</h2>
+      <p>Discuss amongst yourselves to find out who was sus</p>
+      
+      <div id="imposter-reveal-zone" style="margin: 25px 0;">
+        <button class="btn" id="reveal-imposter-btn" style="background: #b91c1c; color: #fff;">Reveal Imposter</button>
+        
+        <div id="imposter-identity-card" style="display: none; padding: 20px; background: rgba(239, 64, 64, 0.15); border: 1px solid #ef4444; border-radius: 12px; margin-top: 15px;">
+          <h3 style="color: #ef4444; margin-bottom: 5px; font-size: 24px;">REVEALED </h3>
+          <p style="font-size: 18px; color: #fff; margin-bottom: 20px;">The Imposter was: <strong id="imposter-name-span" style="text-transform: uppercase; color: #ef4444;"></strong></p>
+          
+          <div id="logs-zone" style="border-top: 1px solid var(--jet); padding-top: 20px; margin-bottom: 15px;">
+            <button class="btn btn-reset" id="toggle-logs-btn" style="width: max-content; padding: 10px 20px; font-size: 14px; margin: 0 auto;">
+              <ion-icon name="analytics-outline"></ion-icon>
+              <span>Show time logs for all players</span>
+            </button>
+            
+            <div id="time-logs-wrapper" style="display: none; margin-top: 20px; text-align: left;">
+              <h4 style="color: var(--white-2); margin-bottom: 10px; border-bottom: 1px solid var(--jet); padding-bottom: 5px;">Game Summary Logs:</h4>
+              <ul id="logs-list-element" style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-family: monospace; font-size: 15px;">
+                </ul>
+            </div>
+          </div>
+
+          <button class="btn" id="play-again-btn" style="margin-top: 15px; background: var(--border-gradient-onyx);">Play Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Global Game Context Arrays
+    let playersCount = 3;
+    let currentPlayer = 0;
+    let imposterIndex = -1;
+    let targetTimeInSeconds = 0;
+    let playerNames = []; 
+    let recordedTrialTimes = []; // Tracks elapsed total ms per player index
+
+    // Audio Feedback Generator using Web Audio API
+    function triggerAudioTone(freq, length) {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.value = freq;
+        gain.gain.setValueAtTime(0.1, ctx.currentTime);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        gain.gain.exponentialRampToValueAtTime(0.00001, ctx.currentTime + length);
+        osc.stop(ctx.currentTime + length);
+      } catch (err) { console.warn("Audio interaction delayed", err); }
+    }
+
+    // Dom Layout Navigation Selectors
+    const viewSetup = document.getElementById('setup-view');
+    const viewNames = document.getElementById('names-view');
+    const viewPlay = document.getElementById('play-view');
+    const viewStopwatch = document.getElementById('stopwatch-view');
+    const viewDeduction = document.getElementById('deduction-view');
+    const namesContainer = document.getElementById('names-inputs-container');
+    
+    // Phase 1 -> Dynamic Names Initialization Screen Trigger
+    document.getElementById('init-btn').addEventListener('click', () => {
+      playersCount = parseInt(document.getElementById('player-count').value, 10) || 3;
+      if (playersCount < 3 || playersCount > 6) {
+        alert("This game can only be played between 3 and 6 players lol");
+        return;
+      }
+      namesContainer.innerHTML = '';
+      for (let i = 1; i <= playersCount; i++) {
+        const div = document.createElement('div');
+        div.style.width = '100%'; div.style.maxWidth = '300px';
+        div.innerHTML = `
+          <label style="display: block; font-size: 14px; margin-bottom: 5px; text-align: left;">Player ${i} Name:</label>
+          <input type="text" class="player-name-input" placeholder="Player ${i} (Optional)" 
+                 style="background: var(--smoky-black); border: 1px solid var(--jet); padding: 10px; border-radius: 8px; color: #fff; width: 100%; font-family: inherit; font-size: 15px; outline: none;">
+        `;
+        namesContainer.appendChild(div);
+      }
+      viewSetup.style.display = 'none';
+      viewNames.style.display = 'block';
+    });
+
+    function startMatch() {
+      currentPlayer = 0;
+      recordedTrialTimes = [];
+      imposterIndex = Math.floor(Math.random() * playersCount);
+      
+      targetTimeInSeconds = (Math.floor(Math.random() * 24) + 1) * 0.5;
+      
+      viewNames.style.display = 'none';
+      viewPlay.style.display = 'block';
+      renderTurnCard();
+    }
+
+    document.getElementById('submit-names-btn').addEventListener('click', () => {
+      playerNames = [];
+      document.querySelectorAll('.player-name-input').forEach((input, index) => {
+        let val = input.value.trim();
+        playerNames.push(val ? val : `Player ${index + 1}`);
+      });
+      startMatch();
+    });
+
+    document.getElementById('skip-names-btn').addEventListener('click', () => {
+      playerNames = [];
+      for (let i = 1; i <= playersCount; i++) { playerNames.push(`Player ${i}`); }
+      startMatch();
+    });
+
+    function renderTurnCard() {
+      document.getElementById('turn-indicator').textContent = `${playerNames[currentPlayer]}'s Turn`;
+      document.getElementById('reveal-btn').style.display = 'block';
+      document.getElementById('handoff-instruction').style.display = 'block';
+      document.getElementById('role-box').style.display = 'none';
+      document.getElementById('continue-btn').style.display = 'none';
+    }
+
+    document.getElementById('reveal-btn').addEventListener('click', () => {
+      document.getElementById('reveal-btn').style.display = 'none';
+      document.getElementById('handoff-instruction').style.display = 'none';
+      const titleEl = document.getElementById('role-title');
+      const detailEl = document.getElementById('role-details');
+      
+      if(currentPlayer === imposterIndex) {
+        titleEl.textContent = "IMPOSTER ";
+        titleEl.className = "reveal-box imposter-style";
+        detailEl.innerHTML = "You are the imposter. Do your best to survive";
+      } else {
+        titleEl.textContent = "CREWMATE";
+        titleEl.className = "reveal-box crewmate-style";
+        
+        detailEl.innerHTML = `Your  time is: <strong style='color:var(--orange-yellow-crayola);'>${targetTimeInSeconds.toFixed(1)} seconds</strong>`;
+      }
+      document.getElementById('role-box').style.display = 'block';
+      document.getElementById('continue-btn').style.display = 'block';
+    });
+
+    document.getElementById('continue-btn').addEventListener('click', () => {
+      currentPlayer++;
+      if(currentPlayer < playersCount) {
+        renderTurnCard();
+      } else {
+        // Reset player index pointers to run the trials sequentially
+        currentPlayer = 0;
+        viewPlay.style.display = 'none';
+        viewPlay.innerHTML = ""; // Wipe DOM strings for anti-cheat
+        viewStopwatch.style.display = 'block';
+        initiatePlayerStopwatchTrial();
+      }
+    });
+
+    /**
+     * Blind Running Stopwatch Logic
+     */
+    let swRunnerToken = null;
+    let swStartTimestamp = 0;
+    let currentElapsedBacklog = 0;
+    let swIsRunning = false;
+    
+    const swDisplay = document.getElementById('sw-time');
+    const swToggleBtn = document.getElementById('sw-toggle-btn');
+    const swNextBtn = document.getElementById('sw-next-btn');
+
+    function initiatePlayerStopwatchTrial() {
+      swIsRunning = false;
+      currentElapsedBacklog = 0;
+      swToggleBtn.style.display = 'block';
+      swToggleBtn.textContent = "Start";
+      swToggleBtn.style.background = "#1e3a8a";
+      swNextBtn.style.display = 'none';
+      swDisplay.textContent = "XX:XX.XX";
+      document.getElementById('sw-player-title').textContent = `${playerNames[currentPlayer]}'s Trial`;
+    }
+
+    function formatTimeStrings(totalMs) {
+      let runningMinutes = Math.floor(totalMs / 60000);
+      let runningSeconds = Math.floor((totalMs % 60000) / 1000);
+      let fractionalCentiseconds = Math.floor((totalMs % 1000) / 10);
+      return `${runningMinutes.toString().padStart(2,'0')}:${runningSeconds.toString().padStart(2,'0')}.${fractionalCentiseconds.toString().padStart(2,'0')}`;
+    }
+
+    swToggleBtn.addEventListener('click', () => {
+      if(!swIsRunning) {
+        // START BUTTON ACTION
+        triggerAudioTone(880, 0.12); // Start beep
+        swIsRunning = true;
+        swStartTimestamp = Date.now();
+        swToggleBtn.textContent = "Stop";
+        swToggleBtn.style.background = "#b91c1c";
+        
+        // Continually paint mask to screen while running
+        swRunnerToken = setInterval(() => {
+          swDisplay.textContent = "XX:XX.XX";
+        }, 50);
+      } else {
+        // STOP BUTTON ACTION
+        triggerAudioTone(440, 0.18); // Stop beep
+        swIsRunning = false;
+        clearInterval(swRunnerToken);
+        
+        let finalRecordedTime = currentElapsedBacklog + (Date.now() - swStartTimestamp);
+        recordedTrialTimes.push(finalRecordedTime);
+        
+        swToggleBtn.style.display = 'none';
+        
+        // Render the exact score on the screen instantly for evaluation
+        swDisplay.textContent = formatTimeStrings(finalRecordedTime);
+        
+        // Evaluate if we pass the phone or cut straight to accusation screen
+        if (currentPlayer < playersCount - 1) {
+          // Normal loop: show the pass button choice
+          swNextBtn.style.display = 'block';
+        } else {
+          // Final player loop logic execution
+          setTimeout(() => {
+            viewStopwatch.style.display = 'none';
+            viewDeduction.style.display = 'block';
+            buildDashboardLogs();
+          }, 1000); // Wait exactly 1 second before flipping screen automatically
+        }
+      }
+    });
+
+    swNextBtn.addEventListener('click', () => {
+      currentPlayer++;
+      initiatePlayerStopwatchTrial();
+    });
+
+    /**
+     * Accusation and Analysis Dashboard Dashboard
+     */
+    function buildDashboardLogs() {
+      // Hide logs by default upon fresh round compilation
+      document.getElementById('imposter-identity-card').style.display = 'none';
+      document.getElementById('reveal-imposter-btn').style.display = 'block';
+      document.getElementById('time-logs-wrapper').style.display = 'none';
+      document.getElementById('toggle-logs-btn').querySelector('span').textContent = "Show Time Logs for All Players";
+
+      document.getElementById('imposter-name-span').textContent = playerNames[imposterIndex];
+      
+      const logsUl = document.getElementById('logs-list-element');
+      logsUl.innerHTML = '';
+      
+      playerNames.forEach((name, idx) => {
+        const li = document.createElement('li');
+        li.style.padding = '6px 10px';
+        li.style.borderRadius = '6px';
+        li.style.background = 'rgba(255,255,255,0.03)';
+        
+        let formattedTime = formatTimeStrings(recordedTrialTimes[idx]);
+        
+        if(idx === imposterIndex) {
+          li.style.color = '#ef4444';
+          li.style.fontWeight = 'bold';
+          li.innerHTML = `<span style="display:inline-block; width: 140px;">⚠️ ${name} (Imposter):</span> <span>${formattedTime}</span>`;
+        } else {
+          li.style.color = 'var(--white-2)';
+          let difference = ((recordedTrialTimes[idx] / 1000) - targetTimeInSeconds).toFixed(2);
+          let sign = difference >= 0 ? "+" : "";
+          li.innerHTML = `<span style="display:inline-block; width: 140px;">🚀 ${name}:</span> <span>${formattedTime} (${sign}${difference}s vs target)</span>`;
+        }
+        logsUl.appendChild(li);
+      });
+    }
+
+    document.getElementById('reveal-imposter-btn').addEventListener('click', () => {
+      triggerAudioTone(600, 0.3);
+      document.getElementById('reveal-imposter-btn').style.display = 'none';
+      document.getElementById('imposter-identity-card').style.display = 'block';
+    });
+
+    document.getElementById('toggle-logs-btn').addEventListener('click', () => {
+      const logBox = document.getElementById('time-logs-wrapper');
+      const btnTxt = document.getElementById('toggle-logs-btn').querySelector('span');
+      if (logBox.style.display === 'none') {
+        logBox.style.display = 'block';
+        btnTxt.textContent = "Hide Time Logs";
+      } else {
+        logBox.style.display = 'none';
+        btnTxt.textContent = "Show Time Logs for All Players";
+      }
+    });
+
+    document.getElementById('play-again-btn').addEventListener('click', () => {
+      window.location.reload();
+    });
+  </script>
+</body>
+</html>

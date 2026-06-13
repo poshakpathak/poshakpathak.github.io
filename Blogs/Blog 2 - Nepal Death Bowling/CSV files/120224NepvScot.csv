@@ -1,0 +1,198 @@
+BowlingTeam,BattingTeam,Over,Bowler,Batter,Event,Over_Num,Phase,IsDot,IsExtra,EstimatedRuns,MatchDate,Venue
+Nepal,Scotland,0.1,Dipendra Singh Airee,George Munsey,no run,0,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,0.2,Dipendra Singh Airee,George Munsey,FOUR runs,0,Powerplay,False,False,4,2022-12-04,Windhoek
+Nepal,Scotland,0.3,Dipendra Singh Airee,George Munsey,2 runs,0,Powerplay,False,False,2,2022-12-04,Windhoek
+Nepal,Scotland,0.4,Dipendra Singh Airee,George Munsey,1 run,0,Powerplay,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,0.5,Dipendra Singh Airee,Christopher McBride,1 run,0,Powerplay,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,0.6,Dipendra Singh Airee,George Munsey,no run,0,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,1.1,Karan KC,Christopher McBride,1 run,1,Powerplay,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,1.2,Karan KC,George Munsey,no run,1,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,1.3,Karan KC,George Munsey,2 runs,1,Powerplay,False,False,2,2022-12-04,Windhoek
+Nepal,Scotland,1.4,Karan KC,George Munsey,1 wide,1,Powerplay,False,True,0,2022-12-04,Windhoek
+Nepal,Scotland,1.4,Karan KC,George Munsey,no run,1,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,1.5,Karan KC,George Munsey,no run,1,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,1.6,Karan KC,George Munsey,FOUR runs,1,Powerplay,False,False,4,2022-12-04,Windhoek
+Nepal,Scotland,2.1,Sagar Dhakal,Christopher McBride,1 run,2,Powerplay,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,2.2,Sagar Dhakal,George Munsey,no run,2,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,2.3,Sagar Dhakal,George Munsey,no run,2,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,2.4,Sagar Dhakal,George Munsey,FOUR runs,2,Powerplay,False,False,4,2022-12-04,Windhoek
+Nepal,Scotland,2.5,Sagar Dhakal,George Munsey,no run,2,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,2.6,Sagar Dhakal,George Munsey,OUT,2,Powerplay,False,False,0,2022-12-04,Windhoek
+Nepal,Scotland,3.1,Karan KC,Christopher McBride,no run,3,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,3.2,Karan KC,Christopher McBride,no run,3,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,3.3,Karan KC,Christopher McBride,no run,3,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,3.4,Karan KC,Christopher McBride,no run,3,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,3.5,Karan KC,Christopher McBride,no run,3,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,3.6,Karan KC,Christopher McBride,FOUR runs,3,Powerplay,False,False,4,2022-12-04,Windhoek
+Nepal,Scotland,4.1,Sagar Dhakal,Kyle Coetzer,no run,4,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,4.2,Sagar Dhakal,Kyle Coetzer,no run,4,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,4.3,Sagar Dhakal,Kyle Coetzer,no run,4,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,4.4,Sagar Dhakal,Kyle Coetzer,no run,4,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,4.5,Sagar Dhakal,Kyle Coetzer,no run,4,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,4.6,Sagar Dhakal,Kyle Coetzer,no run,4,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,5.1,Karan KC,Christopher McBride,no run,5,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,5.2,Karan KC,Christopher McBride,no run,5,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,5.3,Karan KC,Christopher McBride,no run,5,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,5.4,Karan KC,Christopher McBride,1 run,5,Powerplay,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,5.5,Karan KC,Kyle Coetzer,3 runs,5,Powerplay,False,False,3,2022-12-04,Windhoek
+Nepal,Scotland,5.6,Karan KC,Christopher McBride,1 wide,5,Powerplay,False,True,0,2022-12-04,Windhoek
+Nepal,Scotland,5.6,Karan KC,Christopher McBride,1 run,5,Powerplay,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,6.1,Sagar Dhakal,Christopher McBride,no run,6,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,6.2,Sagar Dhakal,Christopher McBride,no run,6,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,6.3,Sagar Dhakal,Christopher McBride,FOUR runs,6,Powerplay,False,False,4,2022-12-04,Windhoek
+Nepal,Scotland,6.4,Sagar Dhakal,Christopher McBride,no run,6,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,6.5,Sagar Dhakal,Christopher McBride,no run,6,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,6.6,Sagar Dhakal,Christopher McBride,2 runs,6,Powerplay,False,False,2,2022-12-04,Windhoek
+Nepal,Scotland,7.1,Gulsan Jha,Kyle Coetzer,1 wide,7,Powerplay,False,True,0,2022-12-04,Windhoek
+Nepal,Scotland,7.1,Gulsan Jha,Kyle Coetzer,no run,7,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,7.2,Gulsan Jha,Kyle Coetzer,no run,7,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,7.3,Gulsan Jha,Kyle Coetzer,OUT,7,Powerplay,False,False,0,2022-12-04,Windhoek
+Nepal,Scotland,7.4,Gulsan Jha,Richie Berrington,1 wide,7,Powerplay,False,True,0,2022-12-04,Windhoek
+Nepal,Scotland,7.4,Gulsan Jha,Richie Berrington,no run,7,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,7.5,Gulsan Jha,Richie Berrington,2 runs,7,Powerplay,False,False,2,2022-12-04,Windhoek
+Nepal,Scotland,7.6,Gulsan Jha,Richie Berrington,no run,7,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,8.1,Kushal Bhurtel,Christopher McBride,1 run,8,Powerplay,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,8.2,Kushal Bhurtel,Richie Berrington,no run,8,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,8.3,Kushal Bhurtel,Richie Berrington,1 run,8,Powerplay,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,8.4,Kushal Bhurtel,Christopher McBride,no run,8,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,8.5,Kushal Bhurtel,Christopher McBride,FOUR runs,8,Powerplay,False,False,4,2022-12-04,Windhoek
+Nepal,Scotland,8.6,Kushal Bhurtel,Christopher McBride,no run,8,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,9.1,Gulsan Jha,Richie Berrington,no run,9,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,9.2,Gulsan Jha,Richie Berrington,no run,9,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,9.3,Gulsan Jha,Richie Berrington,no run,9,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,9.4,Gulsan Jha,Richie Berrington,no run,9,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,9.5,Gulsan Jha,Richie Berrington,OUT,9,Powerplay,False,False,0,2022-12-04,Windhoek
+Nepal,Scotland,9.6,Gulsan Jha,Matthew Cross,no run,9,Powerplay,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,10.1,Kushal Bhurtel,Christopher McBride,FOUR runs,10,Middle,False,False,4,2022-12-04,Windhoek
+Nepal,Scotland,10.2,Kushal Bhurtel,Christopher McBride,no run,10,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,10.3,Kushal Bhurtel,Christopher McBride,no run,10,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,10.4,Kushal Bhurtel,Christopher McBride,no run,10,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,10.5,Kushal Bhurtel,Christopher McBride,1 run,10,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,10.6,Kushal Bhurtel,Matthew Cross,no run,10,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,11.1,Gulsan Jha,Christopher McBride,no run,11,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,11.2,Gulsan Jha,Christopher McBride,no run,11,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,11.3,Gulsan Jha,Christopher McBride,FOUR runs,11,Middle,False,False,4,2022-12-04,Windhoek
+Nepal,Scotland,11.4,Gulsan Jha,Christopher McBride,no run,11,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,11.5,Gulsan Jha,Christopher McBride,no run,11,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,11.6,Gulsan Jha,Christopher McBride,FOUR runs,11,Middle,False,False,4,2022-12-04,Windhoek
+Nepal,Scotland,12.1,Lalit Rajbanshi,Matthew Cross,no run,12,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,12.2,Lalit Rajbanshi,Matthew Cross,no run,12,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,12.3,Lalit Rajbanshi,Matthew Cross,no run,12,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,12.4,Lalit Rajbanshi,Matthew Cross,no run,12,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,12.5,Lalit Rajbanshi,Matthew Cross,1 run,12,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,12.6,Lalit Rajbanshi,Christopher McBride,no run,12,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,13.1,Sagar Dhakal,Matthew Cross,1 run,13,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,13.2,Sagar Dhakal,Christopher McBride,FOUR runs,13,Middle,False,False,4,2022-12-04,Windhoek
+Nepal,Scotland,13.3,Sagar Dhakal,Christopher McBride,no run,13,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,13.4,Sagar Dhakal,Christopher McBride,1 run,13,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,13.5,Sagar Dhakal,Matthew Cross,1 run,13,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,13.6,Sagar Dhakal,Christopher McBride,1 run,13,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,14.1,Lalit Rajbanshi,Christopher McBride,no run,14,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,14.2,Lalit Rajbanshi,Christopher McBride,1 run,14,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,14.3,Lalit Rajbanshi,Matthew Cross,no run,14,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,14.4,Lalit Rajbanshi,Matthew Cross,FOUR runs,14,Middle,False,False,4,2022-12-04,Windhoek
+Nepal,Scotland,14.5,Lalit Rajbanshi,Matthew Cross,no run,14,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,14.6,Lalit Rajbanshi,Matthew Cross,no run,14,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,15.1,Aarif Sheikh,Christopher McBride,1 run,15,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,15.2,Aarif Sheikh,Matthew Cross,no run,15,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,15.3,Aarif Sheikh,Matthew Cross,no run,15,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,15.4,Aarif Sheikh,Matthew Cross,1 run,15,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,15.5,Aarif Sheikh,Christopher McBride,no run,15,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,15.6,Aarif Sheikh,Christopher McBride,no run,15,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,16.1,Lalit Rajbanshi,Matthew Cross,no run,16,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,16.2,Lalit Rajbanshi,Matthew Cross,no run,16,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,16.3,Lalit Rajbanshi,Matthew Cross,1 run,16,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,16.4,Lalit Rajbanshi,Christopher McBride,2 runs,16,Middle,False,False,2,2022-12-04,Windhoek
+Nepal,Scotland,16.5,Lalit Rajbanshi,Christopher McBride,OUT,16,Middle,False,False,0,2022-12-04,Windhoek
+Nepal,Scotland,16.6,Lalit Rajbanshi,Brandon McMullen,no run,16,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,17.1,Aarif Sheikh,Matthew Cross,no run,17,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,17.2,Aarif Sheikh,Matthew Cross,1 run,17,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,17.3,Aarif Sheikh,Brandon McMullen,1 run,17,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,17.4,Aarif Sheikh,Matthew Cross,no run,17,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,17.5,Aarif Sheikh,Matthew Cross,2 runs,17,Middle,False,False,2,2022-12-04,Windhoek
+Nepal,Scotland,17.6,Aarif Sheikh,Matthew Cross,no run,17,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,18.1,Lalit Rajbanshi,Brandon McMullen,no run,18,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,18.2,Lalit Rajbanshi,Brandon McMullen,no run,18,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,18.3,Lalit Rajbanshi,Brandon McMullen,1 run,18,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,18.4,Lalit Rajbanshi,Matthew Cross,no run,18,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,18.5,Lalit Rajbanshi,Matthew Cross,no run,18,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,18.6,Lalit Rajbanshi,Matthew Cross,no run,18,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,19.1,Aarif Sheikh,Brandon McMullen,no run,19,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,19.2,Aarif Sheikh,Brandon McMullen,no run,19,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,19.3,Aarif Sheikh,Brandon McMullen,1 run,19,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,19.4,Aarif Sheikh,Matthew Cross,no run,19,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,19.5,Aarif Sheikh,Matthew Cross,no run,19,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,19.6,Aarif Sheikh,Matthew Cross,1 run,19,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,20.1,Lalit Rajbanshi,Matthew Cross,no run,20,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,20.2,Lalit Rajbanshi,Matthew Cross,no run,20,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,20.3,Lalit Rajbanshi,Matthew Cross,no run,20,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,20.4,Lalit Rajbanshi,Matthew Cross,OUT,20,Middle,False,False,0,2022-12-04,Windhoek
+Nepal,Scotland,20.5,Lalit Rajbanshi,Michael Leask,no run,20,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,20.6,Lalit Rajbanshi,Michael Leask,FOUR runs,20,Middle,False,False,4,2022-12-04,Windhoek
+Nepal,Scotland,21.1,Aarif Sheikh,Brandon McMullen,no run,21,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,21.2,Aarif Sheikh,Brandon McMullen,no run,21,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,21.3,Aarif Sheikh,Brandon McMullen,no run,21,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,21.4,Aarif Sheikh,Brandon McMullen,1 run,21,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,21.5,Aarif Sheikh,Michael Leask,no run,21,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,21.6,Aarif Sheikh,Michael Leask,no run,21,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,22.1,Lalit Rajbanshi,Brandon McMullen,FOUR runs,22,Middle,False,False,4,2022-12-04,Windhoek
+Nepal,Scotland,22.2,Lalit Rajbanshi,Brandon McMullen,1 run,22,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,22.3,Lalit Rajbanshi,Michael Leask,no run,22,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,22.4,Lalit Rajbanshi,Michael Leask,no run,22,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,22.5,Lalit Rajbanshi,Michael Leask,no run,22,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,22.6,Lalit Rajbanshi,Michael Leask,1 run,22,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,23.1,Karan KC,Michael Leask,no run,23,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,23.2,Karan KC,Michael Leask,no run,23,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,23.3,Karan KC,Michael Leask,1 run,23,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,23.4,Karan KC,Brandon McMullen,FOUR runs,23,Middle,False,False,4,2022-12-04,Windhoek
+Nepal,Scotland,23.5,Karan KC,Brandon McMullen,no run,23,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,23.6,Karan KC,Brandon McMullen,no run,23,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,24.1,Kushal Bhurtel,Michael Leask,2 runs,24,Middle,False,False,2,2022-12-04,Windhoek
+Nepal,Scotland,24.2,Kushal Bhurtel,Michael Leask,1 run,24,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,24.3,Kushal Bhurtel,Brandon McMullen,no run,24,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,24.4,Kushal Bhurtel,Brandon McMullen,2 runs,24,Middle,False,False,2,2022-12-04,Windhoek
+Nepal,Scotland,24.5,Kushal Bhurtel,Brandon McMullen,1 run,24,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,24.6,Kushal Bhurtel,Michael Leask,1 run,24,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,25.1,Karan KC,Michael Leask,no run,25,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,25.2,Karan KC,Michael Leask,no run,25,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,25.3,Karan KC,Michael Leask,1 run,25,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,25.4,Karan KC,Brandon McMullen,1 run,25,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,25.5,Karan KC,Michael Leask,no run,25,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,25.6,Karan KC,Michael Leask,no run,25,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,26.1,Kushal Bhurtel,Brandon McMullen,1 run,26,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,26.2,Kushal Bhurtel,Michael Leask,FOUR runs,26,Middle,False,False,4,2022-12-04,Windhoek
+Nepal,Scotland,26.3,Kushal Bhurtel,Michael Leask,no run,26,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,26.4,Kushal Bhurtel,Michael Leask,1 run,26,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,26.5,Kushal Bhurtel,Brandon McMullen,1 run,26,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,26.6,Kushal Bhurtel,Michael Leask,no run,26,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,27.1,Gulsan Jha,Brandon McMullen,no run,27,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,27.2,Gulsan Jha,Brandon McMullen,1 run,27,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,27.3,Gulsan Jha,Michael Leask,no run,27,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,27.4,Gulsan Jha,Michael Leask,no run,27,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,27.5,Gulsan Jha,Michael Leask,FOUR runs,27,Middle,False,False,4,2022-12-04,Windhoek
+Nepal,Scotland,27.6,Gulsan Jha,Michael Leask,2 runs,27,Middle,False,False,2,2022-12-04,Windhoek
+Nepal,Scotland,28.1,Sagar Dhakal,Brandon McMullen,1 run,28,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,28.2,Sagar Dhakal,Michael Leask,no run,28,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,28.3,Sagar Dhakal,Michael Leask,OUT,28,Middle,False,False,0,2022-12-04,Windhoek
+Nepal,Scotland,28.4,Sagar Dhakal,Mark Watt,no run,28,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,28.5,Sagar Dhakal,Mark Watt,no run,28,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,28.6,Sagar Dhakal,Mark Watt,1 run,28,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,29.1,Dipendra Singh Airee,Mark Watt,1 run,29,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,29.2,Dipendra Singh Airee,Brandon McMullen,1 run,29,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,29.3,Dipendra Singh Airee,Mark Watt,2 runs,29,Middle,False,False,2,2022-12-04,Windhoek
+Nepal,Scotland,29.4,Dipendra Singh Airee,Mark Watt,no run,29,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,29.5,Dipendra Singh Airee,Mark Watt,OUT,29,Middle,False,False,0,2022-12-04,Windhoek
+Nepal,Scotland,29.6,Dipendra Singh Airee,Safyaan Sharif,no run,29,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,30.1,Sagar Dhakal,Brandon McMullen,no run,30,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,30.2,Sagar Dhakal,Brandon McMullen,no run,30,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,30.3,Sagar Dhakal,Brandon McMullen,no run,30,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,30.4,Sagar Dhakal,Brandon McMullen,2 runs,30,Middle,False,False,2,2022-12-04,Windhoek
+Nepal,Scotland,30.5,Sagar Dhakal,Brandon McMullen,1 run,30,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,30.6,Sagar Dhakal,Safyaan Sharif,1 run,30,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,31.1,Dipendra Singh Airee,Safyaan Sharif,no run,31,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,31.2,Dipendra Singh Airee,Safyaan Sharif,no run,31,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,31.3,Dipendra Singh Airee,Safyaan Sharif,no run,31,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,31.4,Dipendra Singh Airee,Safyaan Sharif,no run,31,Middle,True,False,0,2022-12-04,Windhoek
+Nepal,Scotland,31.5,Dipendra Singh Airee,Safyaan Sharif,1 run,31,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,31.6,Dipendra Singh Airee,Brandon McMullen,1 run,31,Middle,False,False,1,2022-12-04,Windhoek
+Nepal,Scotland,32.1,Sagar Dhakal,Brandon McMullen,SIX runs,32,Middle,False,False,6,2022-12-04,Windhoek

@@ -1,0 +1,303 @@
+BowlingTeam,BattingTeam,Innings,Over,Bowler,Batter,Event,Over_Num,Phase,IsDot,IsExtra,EstimatedRuns,MatchDate,Venue
+Nepal,Scotland,1,0.1,Gulsan Jha,Lo-handre Louwrens,no run,0,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,0.2,Gulsan Jha,Lo-handre Louwrens,no run,0,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,0.3,Gulsan Jha,Lo-handre Louwrens,no run,0,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,0.4,Gulsan Jha,Lo-handre Louwrens,2 runs,0,Powerplay,FALSE,FALSE,2,12/7/22,Windhoek
+Nepal,Scotland,1,0.5,Gulsan Jha,Lo-handre Louwrens,2 runs,0,Powerplay,FALSE,FALSE,2,12/7/22,Windhoek
+Nepal,Scotland,1,0.6,Gulsan Jha,Lo-handre Louwrens,no run,0,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,1.1,Sompal Sompal Kami,Divan la Cock,no run,1,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,1.2,Sompal Sompal Kami,Divan la Cock,3 runs,1,Powerplay,FALSE,FALSE,3,12/7/22,Windhoek
+Nepal,Scotland,1,1.3,Sompal Sompal Kami,Lo-handre Louwrens,no run,1,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,1.4,Sompal Sompal Kami,Lo-handre Louwrens,no run,1,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,1.5,Sompal Sompal Kami,Lo-handre Louwrens,no run,1,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,1.6,Sompal Sompal Kami,Lo-handre Louwrens,no run,1,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,2.1,Gulsan Jha,Divan la Cock,no run,2,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,2.2,Gulsan Jha,Divan la Cock,FOUR runs,2,Powerplay,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,2.3,Gulsan Jha,Divan la Cock,2 runs,2,Powerplay,FALSE,FALSE,2,12/7/22,Windhoek
+Nepal,Scotland,1,2.4,Gulsan Jha,Divan la Cock,no run,2,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,2.5,Gulsan Jha,Divan la Cock,FOUR runs,2,Powerplay,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,2.6,Gulsan Jha,Divan la Cock,no run,2,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,3.1,Sompal Sompal Kami,Lo-handre Louwrens,no run,3,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,3.2,Sompal Sompal Kami,Lo-handre Louwrens,1 run,3,Powerplay,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,3.3,Sompal Sompal Kami,Divan la Cock,no run,3,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,3.4,Sompal Sompal Kami,Divan la Cock,1 run,3,Powerplay,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,3.5,Sompal Sompal Kami,Lo-handre Louwrens,no run,3,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,3.6,Sompal Sompal Kami,Lo-handre Louwrens,no run,3,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,4.1,Gulsan Jha,Divan la Cock,no run,4,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,4.2,Gulsan Jha,Divan la Cock,no run,4,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,4.3,Gulsan Jha,Divan la Cock,no run,4,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,4.4,Gulsan Jha,Divan la Cock,no run,4,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,4.5,Gulsan Jha,Divan la Cock,no run,4,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,4.6,Gulsan Jha,Divan la Cock,no run,4,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,5.1,Sompal Sompal Kami,Lo-handre Louwrens,no run,5,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,5.2,Sompal Sompal Kami,Lo-handre Louwrens,no run,5,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,5.3,Sompal Sompal Kami,Lo-handre Louwrens,no run,5,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,5.4,Sompal Sompal Kami,Lo-handre Louwrens,no run,5,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,5.5,Sompal Sompal Kami,Lo-handre Louwrens,no run,5,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,5.6,Sompal Sompal Kami,Lo-handre Louwrens,no run,5,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,6.1,Sagar Sagar Dhakal,Divan la Cock,no run,6,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,6.2,Sagar Sagar Dhakal,Divan la Cock,no run,6,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,6.3,Sagar Sagar Dhakal,Divan la Cock,1 leg bye,6,Powerplay,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,6.4,Sagar Sagar Dhakal,Lo-handre Louwrens,no run,6,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,6.5,Sagar Sagar Dhakal,Lo-handre Louwrens,FOUR runs,6,Powerplay,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,6.6,Sagar Sagar Dhakal,Lo-handre Louwrens,no run,6,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,7.1,Sompal Sompal Kami,Divan la Cock,FOUR runs,7,Powerplay,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,7.2,Sompal Sompal Kami,Divan la Cock,no run,7,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,7.3,Sompal Sompal Kami,Divan la Cock,no run,7,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,7.4,Sompal Sompal Kami,Divan la Cock,no run,7,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,7.5,Sompal Sompal Kami,Divan la Cock,OUT,7,Powerplay,FALSE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,7.6,Sompal Sompal Kami,Michael van Lingen,no run,7,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,8.1,Sagar Sagar Dhakal,Lo-handre Louwrens,no run,8,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,8.2,Sagar Sagar Dhakal,Lo-handre Louwrens,no run,8,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,8.3,Sagar Sagar Dhakal,Lo-handre Louwrens,FOUR runs,8,Powerplay,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,8.4,Sagar Sagar Dhakal,Lo-handre Louwrens,no run,8,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,8.5,Sagar Sagar Dhakal,Lo-handre Louwrens,no run,8,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,8.6,Sagar Sagar Dhakal,Lo-handre Louwrens,no run,8,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,9.1,Sompal Sompal Kami,Michael van Lingen,1 run,9,Powerplay,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,9.2,Sompal Sompal Kami,Lo-handre Louwrens,no run,9,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,9.3,Sompal Sompal Kami,Lo-handre Louwrens,no run,9,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,9.4,Sompal Sompal Kami,Lo-handre Louwrens,no run,9,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,9.5,Sompal Sompal Kami,Lo-handre Louwrens,no run,9,Powerplay,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,9.6,Sompal Sompal Kami,Lo-handre Louwrens,1 run,9,Powerplay,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,10.1,Sagar Sagar Dhakal,Lo-handre Louwrens,OUT,10,Middle,FALSE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,10.2,Sagar Sagar Dhakal,Gerhard Erasmus,no run,10,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,10.3,Sagar Sagar Dhakal,Gerhard Erasmus,no run,10,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,10.4,Sagar Sagar Dhakal,Gerhard Erasmus,no run,10,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,10.5,Sagar Sagar Dhakal,Gerhard Erasmus,1 run,10,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,10.6,Sagar Sagar Dhakal,Michael van Lingen,no run,10,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,11.1,Gulsan Jha,Gerhard Erasmus,no run,11,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,11.2,Gulsan Jha,Gerhard Erasmus,no run,11,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,11.3,Gulsan Jha,Gerhard Erasmus,no run,11,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,11.4,Gulsan Jha,Gerhard Erasmus,FOUR runs,11,Middle,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,11.5,Gulsan Jha,Gerhard Erasmus,no run,11,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,11.6,Gulsan Jha,Gerhard Erasmus,1 run,11,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,12.1,Sagar Sagar Dhakal,Gerhard Erasmus,1 run,12,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,12.2,Sagar Sagar Dhakal,Michael van Lingen,no run,12,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,12.3,Sagar Sagar Dhakal,Michael van Lingen,1 run,12,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,12.4,Sagar Sagar Dhakal,Gerhard Erasmus,no run,12,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,12.5,Sagar Sagar Dhakal,Gerhard Erasmus,no run,12,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,12.6,Sagar Sagar Dhakal,Gerhard Erasmus,no run,12,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,13.1,Gulsan Jha,Michael van Lingen,1 run,13,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,13.2,Gulsan Jha,Gerhard Erasmus,1 run,13,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,13.3,Gulsan Jha,Michael van Lingen,no run,13,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,13.4,Gulsan Jha,Michael van Lingen,1 run,13,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,13.5,Gulsan Jha,Gerhard Erasmus,no run,13,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,13.6,Gulsan Jha,Gerhard Erasmus,no run,13,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,14.1,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,no run,14,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,14.2,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,no run,14,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,14.3,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,no run,14,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,14.4,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,no run,14,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,14.5,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,no run,14,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,14.6,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,1 run,14,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,15.1,Lalit Lalit Rajbanshi,Michael van Lingen,1 run,15,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,15.2,Lalit Lalit Rajbanshi,Gerhard Erasmus,no run,15,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,15.3,Lalit Lalit Rajbanshi,Gerhard Erasmus,1 run,15,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,15.4,Lalit Lalit Rajbanshi,Michael van Lingen,2 runs,15,Middle,FALSE,FALSE,2,12/7/22,Windhoek
+Nepal,Scotland,1,15.5,Lalit Lalit Rajbanshi,Michael van Lingen,no run,15,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,15.6,Lalit Lalit Rajbanshi,Michael van Lingen,no run,15,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,16.1,Dipendra Singh Dipendra Singh Airee,Gerhard Erasmus,1 run,16,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,16.2,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,1 run,16,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,16.3,Dipendra Singh Dipendra Singh Airee,Gerhard Erasmus,1 run,16,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,16.4,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,no run,16,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,16.5,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,no run,16,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,16.6,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,no run,16,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,17.1,Lalit Lalit Rajbanshi,Gerhard Erasmus,no run,17,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,17.2,Lalit Lalit Rajbanshi,Gerhard Erasmus,2 runs,17,Middle,FALSE,FALSE,2,12/7/22,Windhoek
+Nepal,Scotland,1,17.3,Lalit Lalit Rajbanshi,Gerhard Erasmus,no run,17,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,17.4,Lalit Lalit Rajbanshi,Gerhard Erasmus,no run,17,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,17.5,Lalit Lalit Rajbanshi,Gerhard Erasmus,1 run,17,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,17.6,Lalit Lalit Rajbanshi,Michael van Lingen,no run,17,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,18.1,Dipendra Singh Dipendra Singh Airee,Gerhard Erasmus,no run,18,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,18.2,Dipendra Singh Dipendra Singh Airee,Gerhard Erasmus,no run,18,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,18.3,Dipendra Singh Dipendra Singh Airee,Gerhard Erasmus,no run,18,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,18.4,Dipendra Singh Dipendra Singh Airee,Gerhard Erasmus,1 run,18,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,18.5,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,no run,18,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,18.6,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,1 run,18,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,19.1,Lalit Lalit Rajbanshi,Michael van Lingen,1 run,19,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,19.2,Lalit Lalit Rajbanshi,Gerhard Erasmus,2 runs,19,Middle,FALSE,FALSE,2,12/7/22,Windhoek
+Nepal,Scotland,1,19.3,Lalit Lalit Rajbanshi,Gerhard Erasmus,no run,19,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,19.4,Lalit Lalit Rajbanshi,Gerhard Erasmus,no run,19,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,19.5,Lalit Lalit Rajbanshi,Gerhard Erasmus,no run,19,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,19.6,Lalit Lalit Rajbanshi,Gerhard Erasmus,no run,19,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,20.1,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,no run,20,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,20.2,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,1 run,20,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,20.3,Dipendra Singh Dipendra Singh Airee,Gerhard Erasmus,no run,20,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,20.4,Dipendra Singh Dipendra Singh Airee,Gerhard Erasmus,no run,20,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,20.5,Dipendra Singh Dipendra Singh Airee,Gerhard Erasmus,1 run,20,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,20.6,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,1 run,20,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,21.1,Lalit Lalit Rajbanshi,Michael van Lingen,no run,21,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,21.2,Lalit Lalit Rajbanshi,Michael van Lingen,no run,21,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,21.3,Lalit Lalit Rajbanshi,Michael van Lingen,1 run,21,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,21.4,Lalit Lalit Rajbanshi,Gerhard Erasmus,1 run,21,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,21.5,Lalit Lalit Rajbanshi,Michael van Lingen,no run,21,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,21.6,Lalit Lalit Rajbanshi,Michael van Lingen,1 run,21,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,22.1,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,no run,22,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,22.2,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,1 run,22,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,22.3,Dipendra Singh Dipendra Singh Airee,Gerhard Erasmus,no run,22,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,22.4,Dipendra Singh Dipendra Singh Airee,Gerhard Erasmus,no run,22,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,22.5,Dipendra Singh Dipendra Singh Airee,Gerhard Erasmus,no run,22,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,22.6,Dipendra Singh Dipendra Singh Airee,Gerhard Erasmus,3 runs,22,Middle,FALSE,FALSE,3,12/7/22,Windhoek
+Nepal,Scotland,1,23.1,Kushal Kushal Bhurtel,Gerhard Erasmus,no run,23,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,23.2,Kushal Kushal Bhurtel,Gerhard Erasmus,no run,23,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,23.3,Kushal Kushal Bhurtel,Gerhard Erasmus,no run,23,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,23.4,Kushal Kushal Bhurtel,Gerhard Erasmus,1 run,23,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,23.5,Kushal Kushal Bhurtel,Michael van Lingen,FOUR runs,23,Middle,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,23.6,Kushal Kushal Bhurtel,Michael van Lingen,1 wide,23,Middle,FALSE,TRUE,1,12/7/22,Windhoek
+Nepal,Scotland,1,23.6,Kushal Kushal Bhurtel,Michael van Lingen,1 wide,23,Middle,FALSE,TRUE,1,12/7/22,Windhoek
+Nepal,Scotland,1,23.6,Kushal Kushal Bhurtel,Michael van Lingen,no run,23,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,24.1,Dipendra Singh Dipendra Singh Airee,Gerhard Erasmus,2 runs,24,Middle,FALSE,FALSE,2,12/7/22,Windhoek
+Nepal,Scotland,1,24.2,Dipendra Singh Dipendra Singh Airee,Gerhard Erasmus,no run,24,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,24.3,Dipendra Singh Dipendra Singh Airee,Gerhard Erasmus,1 run,24,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,24.4,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,no run,24,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,24.5,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,no run,24,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,24.6,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,1 run,24,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,25.1,Kushal Kushal Bhurtel,Michael van Lingen,1 run,25,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,25.2,Kushal Kushal Bhurtel,Gerhard Erasmus,1 run,25,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,25.3,Kushal Kushal Bhurtel,Michael van Lingen,FOUR runs,25,Middle,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,25.4,Kushal Kushal Bhurtel,Michael van Lingen,1 run,25,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,25.5,Kushal Kushal Bhurtel,Gerhard Erasmus,1 run,25,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,25.6,Kushal Kushal Bhurtel,Michael van Lingen,1 run,25,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,26.1,Sagar Sagar Dhakal,Michael van Lingen,2 byes,26,Middle,FALSE,TRUE,2,12/7/22,Windhoek
+Nepal,Scotland,1,26.2,Sagar Sagar Dhakal,Michael van Lingen,1 run,26,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,26.3,Sagar Sagar Dhakal,Gerhard Erasmus,SIX runs,26,Middle,FALSE,FALSE,6,12/7/22,Windhoek
+Nepal,Scotland,1,26.4,Sagar Sagar Dhakal,Gerhard Erasmus,1 run,26,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,26.5,Sagar Sagar Dhakal,Michael van Lingen,1 run,26,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,26.6,Sagar Sagar Dhakal,Gerhard Erasmus,1 run,26,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,27.1,Kushal Kushal Bhurtel,Gerhard Erasmus,2 runs,27,Middle,FALSE,FALSE,2,12/7/22,Windhoek
+Nepal,Scotland,1,27.2,Kushal Kushal Bhurtel,Gerhard Erasmus,SIX runs,27,Middle,FALSE,FALSE,6,12/7/22,Windhoek
+Nepal,Scotland,1,27.3,Kushal Kushal Bhurtel,Gerhard Erasmus,no run,27,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,27.4,Kushal Kushal Bhurtel,Gerhard Erasmus,2 runs,27,Middle,FALSE,FALSE,2,12/7/22,Windhoek
+Nepal,Scotland,1,27.5,Kushal Kushal Bhurtel,Gerhard Erasmus,no run,27,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,27.6,Kushal Kushal Bhurtel,Gerhard Erasmus,no run,27,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,28.1,Sompal Sompal Kami,Michael van Lingen,FOUR runs,28,Middle,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,28.2,Sompal Sompal Kami,Michael van Lingen,no run,28,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,28.3,Sompal Sompal Kami,Michael van Lingen,1 run,28,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,28.4,Sompal Sompal Kami,Gerhard Erasmus,no run,28,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,28.5,Sompal Sompal Kami,Gerhard Erasmus,1 run,28,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,28.6,Sompal Sompal Kami,Michael van Lingen,no run,28,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,29.1,Lalit Lalit Rajbanshi,Gerhard Erasmus,no run,29,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,29.2,Lalit Lalit Rajbanshi,Gerhard Erasmus,1 run,29,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,29.3,Lalit Lalit Rajbanshi,Michael van Lingen,1 run,29,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,29.4,Lalit Lalit Rajbanshi,Gerhard Erasmus,no run,29,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,29.5,Lalit Lalit Rajbanshi,Gerhard Erasmus,no run,29,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,29.6,Lalit Lalit Rajbanshi,Gerhard Erasmus,1 run,29,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,30.1,Sompal Sompal Kami,Gerhard Erasmus,no run,30,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,30.2,Sompal Sompal Kami,Gerhard Erasmus,1 run,30,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,30.3,Sompal Sompal Kami,Michael van Lingen,FOUR runs,30,Middle,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,30.4,Sompal Sompal Kami,Michael van Lingen,no run,30,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,30.5,Sompal Sompal Kami,Michael van Lingen,1 run,30,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,30.6,Sompal Sompal Kami,Gerhard Erasmus,1 run,30,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,31.1,Lalit Lalit Rajbanshi,Gerhard Erasmus,1 run,31,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,31.2,Lalit Lalit Rajbanshi,Michael van Lingen,no run,31,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,31.3,Lalit Lalit Rajbanshi,Michael van Lingen,no run,31,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,31.4,Lalit Lalit Rajbanshi,Michael van Lingen,no run,31,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,31.5,Lalit Lalit Rajbanshi,Michael van Lingen,1 run,31,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,31.6,Lalit Lalit Rajbanshi,Gerhard Erasmus,no run,31,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,32.1,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,no run,32,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,32.2,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,no run,32,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,32.3,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,no run,32,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,32.4,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,1 run,32,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,32.5,Dipendra Singh Dipendra Singh Airee,Gerhard Erasmus,no run,32,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,32.6,Dipendra Singh Dipendra Singh Airee,Gerhard Erasmus,1 run,32,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,33.1,Lalit Lalit Rajbanshi,Gerhard Erasmus,OUT,33,Middle,FALSE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,33.2,Lalit Lalit Rajbanshi,JN Jan Nicol Loftie-Eaton,no run,33,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,33.3,Lalit Lalit Rajbanshi,JN Jan Nicol Loftie-Eaton,1 run,33,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,33.4,Lalit Lalit Rajbanshi,Michael van Lingen,no run,33,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,33.5,Lalit Lalit Rajbanshi,Michael van Lingen,FOUR runs,33,Middle,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,33.6,Lalit Lalit Rajbanshi,Michael van Lingen,2 byes,33,Middle,FALSE,TRUE,0,12/7/22,Windhoek
+Nepal,Scotland,1,34.1,Dipendra Singh Dipendra Singh Airee,JN Jan Nicol Loftie-Eaton,1 run,34,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,34.2,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,no run,34,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,34.3,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,1 run,34,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,34.4,Dipendra Singh Dipendra Singh Airee,JN Jan Nicol Loftie-Eaton,no run,34,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,34.5,Dipendra Singh Dipendra Singh Airee,JN Jan Nicol Loftie-Eaton,1 run,34,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,34.6,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,FOUR runs,34,Middle,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,35.1,Gyanendra Gyanendra Malla,JN Jan Nicol Loftie-Eaton,no run,35,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,35.2,Gyanendra Gyanendra Malla,JN Jan Nicol Loftie-Eaton,2 runs,35,Middle,FALSE,FALSE,2,12/7/22,Windhoek
+Nepal,Scotland,1,35.3,Gyanendra Gyanendra Malla,JN Jan Nicol Loftie-Eaton,FOUR runs,35,Middle,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,35.4,Gyanendra Gyanendra Malla,JN Jan Nicol Loftie-Eaton,SIX runs,35,Middle,FALSE,FALSE,6,12/7/22,Windhoek
+Nepal,Scotland,1,35.5,Gyanendra Gyanendra Malla,JN Jan Nicol Loftie-Eaton,no run,35,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,35.6,Gyanendra Gyanendra Malla,JN Jan Nicol Loftie-Eaton,no run,35,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,36.1,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,1 run,36,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,36.2,Dipendra Singh Dipendra Singh Airee,JN Jan Nicol Loftie-Eaton,1 run,36,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,36.3,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,1 run,36,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,36.4,Dipendra Singh Dipendra Singh Airee,JN Jan Nicol Loftie-Eaton,1 run,36,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,36.5,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,1 run,36,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,36.6,Dipendra Singh Dipendra Singh Airee,JN Jan Nicol Loftie-Eaton,1 run,36,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,37.1,Sagar Sagar Dhakal,JN Jan Nicol Loftie-Eaton,no run,37,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,37.2,Sagar Sagar Dhakal,JN Jan Nicol Loftie-Eaton,FOUR runs,37,Middle,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,37.3,Sagar Sagar Dhakal,JN Jan Nicol Loftie-Eaton,1 run,37,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,37.4,Sagar Sagar Dhakal,Michael van Lingen,no run,37,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,37.5,Sagar Sagar Dhakal,Michael van Lingen,1 run,37,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,37.6,Sagar Sagar Dhakal,JN Jan Nicol Loftie-Eaton,no run,37,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,38.1,Gulsan Jha,Michael van Lingen,no run,38,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,38.2,Gulsan Jha,Michael van Lingen,2 runs,38,Middle,FALSE,FALSE,2,12/7/22,Windhoek
+Nepal,Scotland,1,38.3,Gulsan Jha,Michael van Lingen,1 run,38,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,38.4,Gulsan Jha,JN Jan Nicol Loftie-Eaton,no run,38,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,38.5,Gulsan Jha,JN Jan Nicol Loftie-Eaton,1 run,38,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,38.6,Gulsan Jha,Michael van Lingen,1 run,38,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,39.1,Aarif Aarif Sheikh,Michael van Lingen,FOUR runs,39,Middle,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,39.2,Aarif Aarif Sheikh,Michael van Lingen,FOUR runs,39,Middle,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,39.3,Aarif Aarif Sheikh,Michael van Lingen,2 runs,39,Middle,FALSE,FALSE,2,12/7/22,Windhoek
+Nepal,Scotland,1,39.4,Aarif Aarif Sheikh,Michael van Lingen,FOUR runs,39,Middle,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,39.5,Aarif Aarif Sheikh,Michael van Lingen,no run,39,Middle,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,39.6,Aarif Aarif Sheikh,Michael van Lingen,1 run,39,Middle,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,40.1,Gulsan Jha,Michael van Lingen,no run,40,Death,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,40.2,Gulsan Jha,Michael van Lingen,FOUR runs,40,Death,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,40.3,Gulsan Jha,Michael van Lingen,1 run,40,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,40.4,Gulsan Jha,JN Jan Nicol Loftie-Eaton,1 run,40,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,40.5,Gulsan Jha,Michael van Lingen,1 run,40,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,40.6,Gulsan Jha,JN Jan Nicol Loftie-Eaton,1 leg bye,40,Death,FALSE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,41.1,Dipendra Singh Dipendra Singh Airee,JN Jan Nicol Loftie-Eaton,2 runs,41,Death,FALSE,FALSE,2,12/7/22,Windhoek
+Nepal,Scotland,1,41.2,Dipendra Singh Dipendra Singh Airee,JN Jan Nicol Loftie-Eaton,1 run,41,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,41.3,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,1 run,41,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,41.4,Dipendra Singh Dipendra Singh Airee,JN Jan Nicol Loftie-Eaton,no run,41,Death,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,41.5,Dipendra Singh Dipendra Singh Airee,JN Jan Nicol Loftie-Eaton,1 run,41,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,41.6,Dipendra Singh Dipendra Singh Airee,Michael van Lingen,FOUR runs,41,Death,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,42.1,Gulsan Jha,JN Jan Nicol Loftie-Eaton,1 run,42,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,42.2,Gulsan Jha,Michael van Lingen,1 run,42,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,42.3,Gulsan Jha,JN Jan Nicol Loftie-Eaton,FOUR runs,42,Death,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,42.4,Gulsan Jha,JN Jan Nicol Loftie-Eaton,1 bye,42,Death,FALSE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,42.5,Gulsan Jha,Michael van Lingen,1 run,42,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,42.6,Gulsan Jha,JN Jan Nicol Loftie-Eaton,2 runs,42,Death,FALSE,FALSE,2,12/7/22,Windhoek
+Nepal,Scotland,1,43.1,Lalit Lalit Rajbanshi,Michael van Lingen,no run,43,Death,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,43.2,Lalit Lalit Rajbanshi,Michael van Lingen,1 run,43,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,43.3,Lalit Lalit Rajbanshi,JN Jan Nicol Loftie-Eaton,FOUR runs,43,Death,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,43.4,Lalit Lalit Rajbanshi,JN Jan Nicol Loftie-Eaton,OUT,43,Death,FALSE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,43.5,Lalit Lalit Rajbanshi,Smit,1 run,43,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,43.6,Lalit Lalit Rajbanshi,Michael van Lingen,1 run,43,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,44.1,Sompal Sompal Kami,Michael van Lingen,no run,44,Death,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,44.2,Sompal Sompal Kami,Michael van Lingen,no run,44,Death,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,44.3,Sompal Sompal Kami,Michael van Lingen,1 run,44,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,44.4,Sompal Sompal Kami,Smit,no run,44,Death,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,44.5,Sompal Sompal Kami,Smit,1 run,44,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,44.6,Sompal Sompal Kami,Michael van Lingen,2 runs,44,Death,FALSE,FALSE,2,12/7/22,Windhoek
+Nepal,Scotland,1,45.1,Lalit Lalit Rajbanshi,Smit,no run,45,Death,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,45.2,Lalit Lalit Rajbanshi,Smit,OUT,45,Death,FALSE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,45.3,Lalit Lalit Rajbanshi,Zane Green,1 run,45,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,45.4,Lalit Lalit Rajbanshi,Michael van Lingen,1 run,45,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,45.5,Lalit Lalit Rajbanshi,Zane Green,1 run,45,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,45.6,Lalit Lalit Rajbanshi,Michael van Lingen,1 run,45,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,46.1,Sompal Sompal Kami,Michael van Lingen,1 run,46,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,46.2,Sompal Sompal Kami,Zane Green,2 runs,46,Death,FALSE,FALSE,2,12/7/22,Windhoek
+Nepal,Scotland,1,46.3,Sompal Sompal Kami,Zane Green,1 run,46,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,46.4,Sompal Sompal Kami,Michael van Lingen,1 run,46,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,46.5,Sompal Sompal Kami,Zane Green,1 run,46,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,46.6,Sompal Sompal Kami,Michael van Lingen,FOUR runs,46,Death,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,47.1,Gulsan Jha,Zane Green,no run,47,Death,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,47.2,Gulsan Jha,Zane Green,1 run,47,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,47.3,Gulsan Jha,Michael van Lingen,no run,47,Death,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,47.4,Gulsan Jha,Michael van Lingen,SIX runs,47,Death,FALSE,FALSE,6,12/7/22,Windhoek
+Nepal,Scotland,1,47.5,Gulsan Jha,Michael van Lingen,FOUR runs,47,Death,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,47.6,Gulsan Jha,Michael van Lingen,FOUR runs,47,Death,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,48.1,Sompal Sompal Kami,Zane Green,1 run,48,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,48.2,Sompal Sompal Kami,Michael van Lingen,FOUR runs,48,Death,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,48.3,Sompal Sompal Kami,Michael van Lingen,OUT,48,Death,FALSE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,48.4,Sompal Sompal Kami,Pikky Ya France,FOUR runs,48,Death,FALSE,FALSE,4,12/7/22,Windhoek
+Nepal,Scotland,1,48.5,Sompal Sompal Kami,Pikky Ya France,SIX runs,48,Death,FALSE,FALSE,6,12/7/22,Windhoek
+Nepal,Scotland,1,48.6,Sompal Sompal Kami,Pikky Ya France,no run,48,Death,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,49.1,Lalit Lalit Rajbanshi,Zane Green,1 run,49,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,49.2,Lalit Lalit Rajbanshi,Pikky Ya France,no run,49,Death,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,49.3,Lalit Lalit Rajbanshi,Pikky Ya France,no run,49,Death,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,49.4,Lalit Lalit Rajbanshi,Pikky Ya France,no run,49,Death,TRUE,FALSE,0,12/7/22,Windhoek
+Nepal,Scotland,1,49.5,Lalit Lalit Rajbanshi,Pikky Ya France,1 run,49,Death,FALSE,FALSE,1,12/7/22,Windhoek
+Nepal,Scotland,1,49.6,Lalit Lalit Rajbanshi,Zane Green,OUT,49,Death,FALSE,FALSE,0,12/7/22,Windhoek

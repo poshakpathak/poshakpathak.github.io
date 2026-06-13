@@ -1,0 +1,312 @@
+BowlingTeam,BattingTeam,Innings,Over,Bowler,Batter,Event,Over_Num,Phase,IsDot,IsExtra,EstimatedRuns,MatchDate,Venue
+Nepal,Namibia,1,0.1,Sompal Kami,Lo-handre Louwrens,1 run,0,Powerplay,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,0.2,Sompal Kami,Karl Birkenstock,no run,0,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,0.3,Sompal Kami,Karl Birkenstock,no run,0,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,0.4,Sompal Kami,Karl Birkenstock,no run,0,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,0.5,Sompal Kami,Karl Birkenstock,no run,0,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,0.6,Sompal Kami,Karl Birkenstock,2 runs,0,Powerplay,False,False,2,2023/02/18,Kirtipur
+Nepal,Namibia,1,1.1,Karan KC,Lo-handre Louwrens,no run,1,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,1.2,Karan KC,Lo-handre Louwrens,no run,1,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,1.3,Karan KC,Lo-handre Louwrens,FOUR runs,1,Powerplay,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,1.4,Karan KC,Lo-handre Louwrens,no run,1,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,1.5,Karan KC,Lo-handre Louwrens,no run,1,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,1.6,Karan KC,Lo-handre Louwrens,no run,1,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,2.1,Sompal Kami,Karl Birkenstock,no run,2,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,2.2,Sompal Kami,Karl Birkenstock,no run,2,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,2.3,Sompal Kami,Karl Birkenstock,no run,2,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,2.4,Sompal Kami,Karl Birkenstock,no run,2,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,2.5,Sompal Kami,Karl Birkenstock,no run,2,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,2.6,Sompal Kami,Karl Birkenstock,no run,2,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,3.1,Karan KC,Lo-handre Louwrens,FOUR runs,3,Powerplay,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,3.2,Karan KC,Lo-handre Louwrens,no run,3,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,3.3,Karan KC,Lo-handre Louwrens,no run,3,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,3.4,Karan KC,Lo-handre Louwrens,no run,3,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,3.5,Karan KC,Lo-handre Louwrens,1 leg bye,3,Powerplay,False,True,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,3.6,Karan KC,Karl Birkenstock,no run,3,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,4.1,Sompal Kami,Lo-handre Louwrens,FOUR runs,4,Powerplay,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,4.2,Sompal Kami,Lo-handre Louwrens,no run,4,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,4.3,Sompal Kami,Lo-handre Louwrens,1 run,4,Powerplay,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,4.4,Sompal Kami,Karl Birkenstock,no run,4,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,4.5,Sompal Kami,Karl Birkenstock,no run,4,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,4.6,Sompal Kami,Karl Birkenstock,no run,4,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,5.1,Karan KC,Lo-handre Louwrens,no run,5,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,5.2,Karan KC,Lo-handre Louwrens,no run,5,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,5.3,Karan KC,Lo-handre Louwrens,no run,5,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,5.4,Karan KC,Lo-handre Louwrens,FOUR runs,5,Powerplay,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,5.5,Karan KC,Lo-handre Louwrens,no run,5,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,5.6,Karan KC,Lo-handre Louwrens,FOUR runs,5,Powerplay,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,6.1,Sompal Kami,Karl Birkenstock,no run,6,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,6.2,Sompal Kami,Karl Birkenstock,1 run,6,Powerplay,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,6.3,Sompal Kami,Lo-handre Louwrens,no run,6,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,6.4,Sompal Kami,Lo-handre Louwrens,no run,6,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,6.5,Sompal Kami,Lo-handre Louwrens,no run,6,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,6.6,Sompal Kami,Lo-handre Louwrens,no run,6,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,7.1,Gulsan Jha,Karl Birkenstock,2 runs,7,Powerplay,False,False,2,2023/02/18,Kirtipur
+Nepal,Namibia,1,7.2,Gulsan Jha,Karl Birkenstock,1 wide,7,Powerplay,False,True,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,7.2,Gulsan Jha,Karl Birkenstock,1 run,7,Powerplay,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,7.3,Gulsan Jha,Lo-handre Louwrens,no run,7,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,7.4,Gulsan Jha,Lo-handre Louwrens,no run,7,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,7.5,Gulsan Jha,Lo-handre Louwrens,1 run,7,Powerplay,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,7.6,Gulsan Jha,Karl Birkenstock,1 wide,7,Powerplay,False,True,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,7.6,Gulsan Jha,Karl Birkenstock,no run,7,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,8.1,Sompal Kami,Lo-handre Louwrens,no run,8,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,8.2,Sompal Kami,Lo-handre Louwrens,no run,8,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,8.3,Sompal Kami,Lo-handre Louwrens,no run,8,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,8.4,Sompal Kami,Lo-handre Louwrens,no run,8,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,8.5,Sompal Kami,Lo-handre Louwrens,no run,8,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,8.6,Sompal Kami,Lo-handre Louwrens,no run,8,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,9.1,Gulsan Jha,Karl Birkenstock,no run,9,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,9.2,Gulsan Jha,Karl Birkenstock,1 wide,9,Powerplay,False,True,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,9.2,Gulsan Jha,Karl Birkenstock,1 run,9,Powerplay,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,9.3,Gulsan Jha,Lo-handre Louwrens,FOUR runs,9,Powerplay,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,9.4,Gulsan Jha,Lo-handre Louwrens,no run,9,Powerplay,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,9.5,Gulsan Jha,Lo-handre Louwrens,FOUR runs,9,Powerplay,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,9.6,Gulsan Jha,Lo-handre Louwrens,FOUR runs,9,Powerplay,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,10.1,Sandeep Lamichhane,Karl Birkenstock,no run,10,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,10.2,Sandeep Lamichhane,Karl Birkenstock,no run,10,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,10.3,Sandeep Lamichhane,Karl Birkenstock,no run,10,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,10.4,Sandeep Lamichhane,Karl Birkenstock,1 run,10,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,10.5,Sandeep Lamichhane,Lo-handre Louwrens,1 run,10,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,10.6,Sandeep Lamichhane,Karl Birkenstock,2 runs,10,Middle,False,False,2,2023/02/18,Kirtipur
+Nepal,Namibia,1,11.1,Kushal Malla,Lo-handre Louwrens,1 run,11,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,11.2,Kushal Malla,Karl Birkenstock,no run,11,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,11.3,Kushal Malla,Karl Birkenstock,no run,11,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,11.4,Kushal Malla,Karl Birkenstock,FOUR runs,11,Middle,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,11.5,Kushal Malla,Karl Birkenstock,no run,11,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,11.6,Kushal Malla,Karl Birkenstock,1 run,11,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,12.1,Sandeep Lamichhane,Karl Birkenstock,no run,12,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,12.2,Sandeep Lamichhane,Karl Birkenstock,no run,12,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,12.3,Sandeep Lamichhane,Karl Birkenstock,no run,12,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,12.4,Sandeep Lamichhane,Karl Birkenstock,1 run,12,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,12.5,Sandeep Lamichhane,Lo-handre Louwrens,no run,12,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,12.6,Sandeep Lamichhane,Lo-handre Louwrens,1 run,12,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,13.1,Kushal Malla,Lo-handre Louwrens,1 run,13,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,13.2,Kushal Malla,Karl Birkenstock,no run,13,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,13.3,Kushal Malla,Karl Birkenstock,no run,13,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,13.4,Kushal Malla,Karl Birkenstock,no run,13,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,13.5,Kushal Malla,Karl Birkenstock,no run,13,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,13.6,Kushal Malla,Karl Birkenstock,no run,13,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,14.1,Sandeep Lamichhane,Lo-handre Louwrens,1 run,14,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,14.2,Sandeep Lamichhane,Karl Birkenstock,FOUR runs,14,Middle,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,14.3,Sandeep Lamichhane,Karl Birkenstock,OUT,14,Middle,False,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,14.4,Sandeep Lamichhane,Michael van Lingen,no run,14,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,14.5,Sandeep Lamichhane,Michael van Lingen,1 run,14,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,14.6,Sandeep Lamichhane,Lo-handre Louwrens,no run,14,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,15.1,Dipendra Singh Airee,Michael van Lingen,no run,15,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,15.2,Dipendra Singh Airee,Michael van Lingen,1 run,15,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,15.3,Dipendra Singh Airee,Lo-handre Louwrens,no run,15,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,15.4,Dipendra Singh Airee,Lo-handre Louwrens,no run,15,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,15.5,Dipendra Singh Airee,Lo-handre Louwrens,no run,15,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,15.6,Dipendra Singh Airee,Lo-handre Louwrens,1 run,15,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,16.1,Sandeep Lamichhane,Lo-handre Louwrens,no run,16,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,16.2,Sandeep Lamichhane,Lo-handre Louwrens,no run,16,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,16.3,Sandeep Lamichhane,Lo-handre Louwrens,no run,16,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,16.4,Sandeep Lamichhane,Lo-handre Louwrens,no run,16,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,16.5,Sandeep Lamichhane,Lo-handre Louwrens,OUT,16,Middle,False,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,16.6,Sandeep Lamichhane,Gerhard Erasmus,1 run,16,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,17.1,Karan KC,Gerhard Erasmus,1 run,17,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,17.2,Karan KC,Michael van Lingen,no run,17,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,17.3,Karan KC,Michael van Lingen,no run,17,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,17.4,Karan KC,Michael van Lingen,no run,17,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,17.5,Karan KC,Michael van Lingen,1 run,17,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,17.6,Karan KC,Gerhard Erasmus,1 wide,17,Middle,False,True,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,17.6,Karan KC,Gerhard Erasmus,no run,17,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,18.1,Sandeep Lamichhane,Michael van Lingen,no run,18,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,18.2,Sandeep Lamichhane,Michael van Lingen,no run,18,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,18.3,Sandeep Lamichhane,Michael van Lingen,no run,18,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,18.4,Sandeep Lamichhane,Michael van Lingen,1 run,18,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,18.5,Sandeep Lamichhane,Gerhard Erasmus,1 run,18,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,18.6,Sandeep Lamichhane,Michael van Lingen,no run,18,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,19.1,Karan KC,Gerhard Erasmus,no run,19,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,19.2,Karan KC,Gerhard Erasmus,no run,19,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,19.3,Karan KC,Gerhard Erasmus,1 run,19,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,19.4,Karan KC,Michael van Lingen,no run,19,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,19.5,Karan KC,Michael van Lingen,1 run,19,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,19.6,Karan KC,Gerhard Erasmus,no run,19,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,20.1,Dipendra Singh Airee,Michael van Lingen,no run,20,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,20.2,Dipendra Singh Airee,Michael van Lingen,no run,20,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,20.3,Dipendra Singh Airee,Michael van Lingen,1 run,20,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,20.4,Dipendra Singh Airee,Gerhard Erasmus,1 run,20,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,20.5,Dipendra Singh Airee,Michael van Lingen,no run,20,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,20.6,Dipendra Singh Airee,Michael van Lingen,no run,20,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,21.1,Kushal Malla,Gerhard Erasmus,no run,21,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,21.2,Kushal Malla,Gerhard Erasmus,no run,21,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,21.3,Kushal Malla,Gerhard Erasmus,1 run,21,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,21.4,Kushal Malla,Michael van Lingen,1 wide,21,Middle,False,True,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,21.4,Kushal Malla,Michael van Lingen,1 run,21,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,21.5,Kushal Malla,Gerhard Erasmus,no run,21,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,21.6,Kushal Malla,Gerhard Erasmus,1 run,21,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,22.1,Sompal Kami,Gerhard Erasmus,no run,22,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,22.2,Sompal Kami,Gerhard Erasmus,no run,22,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,22.3,Sompal Kami,Gerhard Erasmus,no run,22,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,22.4,Sompal Kami,Gerhard Erasmus,1 run,22,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,22.5,Sompal Kami,Michael van Lingen,FOUR runs,22,Middle,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,22.6,Sompal Kami,Michael van Lingen,no run,22,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,23.1,Kushal Malla,Gerhard Erasmus,1 run,23,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,23.2,Kushal Malla,Michael van Lingen,1 run,23,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,23.3,Kushal Malla,Gerhard Erasmus,1 run,23,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,23.4,Kushal Malla,Michael van Lingen,FOUR runs,23,Middle,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,23.5,Kushal Malla,Michael van Lingen,1 run,23,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,23.6,Kushal Malla,Gerhard Erasmus,no run,23,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,24.1,Sompal Kami,Michael van Lingen,no run,24,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,24.2,Sompal Kami,Michael van Lingen,no run,24,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,24.3,Sompal Kami,Michael van Lingen,1 run,24,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,24.4,Sompal Kami,Gerhard Erasmus,1 run,24,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,24.5,Sompal Kami,Michael van Lingen,2 runs,24,Middle,False,False,2,2023/02/18,Kirtipur
+Nepal,Namibia,1,24.6,Sompal Kami,Michael van Lingen,no run,24,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,25.1,Dipendra Singh Airee,Gerhard Erasmus,no run,25,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,25.2,Dipendra Singh Airee,Gerhard Erasmus,3 runs,25,Middle,False,False,3,2023/02/18,Kirtipur
+Nepal,Namibia,1,25.3,Dipendra Singh Airee,Michael van Lingen,2 runs,25,Middle,False,False,2,2023/02/18,Kirtipur
+Nepal,Namibia,1,25.4,Dipendra Singh Airee,Michael van Lingen,no run,25,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,25.5,Dipendra Singh Airee,Michael van Lingen,no run,25,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,25.6,Dipendra Singh Airee,Michael van Lingen,OUT,25,Middle,False,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,26.1,Sandeep Lamichhane,Jan Nicol Loftie-Eaton,no run,26,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,26.2,Sandeep Lamichhane,Jan Nicol Loftie-Eaton,no run,26,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,26.3,Sandeep Lamichhane,Jan Nicol Loftie-Eaton,1 run,26,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,26.4,Sandeep Lamichhane,Gerhard Erasmus,no run,26,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,26.5,Sandeep Lamichhane,Gerhard Erasmus,no run,26,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,26.6,Sandeep Lamichhane,Gerhard Erasmus,no run,26,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,27.1,Dipendra Singh Airee,Jan Nicol Loftie-Eaton,no run,27,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,27.2,Dipendra Singh Airee,Jan Nicol Loftie-Eaton,no run,27,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,27.3,Dipendra Singh Airee,Jan Nicol Loftie-Eaton,1 run,27,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,27.4,Dipendra Singh Airee,Gerhard Erasmus,1 run,27,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,27.5,Dipendra Singh Airee,Jan Nicol Loftie-Eaton,no run,27,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,27.6,Dipendra Singh Airee,Jan Nicol Loftie-Eaton,1 run,27,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,28.1,Sandeep Lamichhane,Jan Nicol Loftie-Eaton,1 run,28,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,28.2,Sandeep Lamichhane,Gerhard Erasmus,OUT,28,Middle,False,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,28.3,Sandeep Lamichhane,Zane Green,no run,28,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,28.4,Sandeep Lamichhane,Zane Green,no run,28,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,28.5,Sandeep Lamichhane,Zane Green,FOUR runs,28,Middle,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,28.6,Sandeep Lamichhane,Zane Green,no run,28,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,29.1,Dipendra Singh Airee,Jan Nicol Loftie-Eaton,1 run,29,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,29.2,Dipendra Singh Airee,Zane Green,no run,29,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,29.3,Dipendra Singh Airee,Zane Green,1 run,29,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,29.4,Dipendra Singh Airee,Jan Nicol Loftie-Eaton,no run,29,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,29.5,Dipendra Singh Airee,Jan Nicol Loftie-Eaton,no run,29,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,29.6,Dipendra Singh Airee,Jan Nicol Loftie-Eaton,no run,29,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,30.1,Rohit Paudel,Zane Green,no run,30,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,30.2,Rohit Paudel,Zane Green,no run,30,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,30.3,Rohit Paudel,Zane Green,no run,30,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,30.4,Rohit Paudel,Zane Green,no run,30,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,30.5,Rohit Paudel,Zane Green,1 run,30,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,30.6,Rohit Paudel,Jan Nicol Loftie-Eaton,no run,30,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,31.1,Dipendra Singh Airee,Zane Green,no run,31,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,31.2,Dipendra Singh Airee,Zane Green,no run,31,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,31.3,Dipendra Singh Airee,Zane Green,no run,31,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,31.4,Dipendra Singh Airee,Zane Green,no run,31,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,31.5,Dipendra Singh Airee,Zane Green,no run,31,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,31.6,Dipendra Singh Airee,Zane Green,no run,31,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,32.1,Rohit Paudel,Jan Nicol Loftie-Eaton,1 run,32,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,32.2,Rohit Paudel,Zane Green,1 run,32,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,32.3,Rohit Paudel,Jan Nicol Loftie-Eaton,no run,32,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,32.4,Rohit Paudel,Jan Nicol Loftie-Eaton,1 run,32,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,32.5,Rohit Paudel,Zane Green,no run,32,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,32.6,Rohit Paudel,Zane Green,2 runs,32,Middle,False,False,2,2023/02/18,Kirtipur
+Nepal,Namibia,1,33.1,Dipendra Singh Airee,Jan Nicol Loftie-Eaton,1 run,33,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,33.2,Dipendra Singh Airee,Zane Green,1 run,33,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,33.3,Dipendra Singh Airee,Jan Nicol Loftie-Eaton,no run,33,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,33.4,Dipendra Singh Airee,Jan Nicol Loftie-Eaton,1 run,33,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,33.5,Dipendra Singh Airee,Zane Green,no run,33,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,33.6,Dipendra Singh Airee,Zane Green,FOUR runs,33,Middle,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,34.1,Rohit Paudel,Jan Nicol Loftie-Eaton,1 run,34,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,34.2,Rohit Paudel,Zane Green,no run,34,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,34.3,Rohit Paudel,Zane Green,no run,34,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,34.4,Rohit Paudel,Zane Green,no run,34,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,34.5,Rohit Paudel,Zane Green,1 run,34,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,34.6,Rohit Paudel,Jan Nicol Loftie-Eaton,2 runs,34,Middle,False,False,2,2023/02/18,Kirtipur
+Nepal,Namibia,1,35.1,Dipendra Singh Airee,Zane Green,1 run,35,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,35.2,Dipendra Singh Airee,Jan Nicol Loftie-Eaton,1 run,35,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,35.3,Dipendra Singh Airee,Zane Green,no run,35,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,35.4,Dipendra Singh Airee,Zane Green,no run,35,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,35.5,Dipendra Singh Airee,Zane Green,1 run,35,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,35.6,Dipendra Singh Airee,Jan Nicol Loftie-Eaton,no run,35,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,36.1,Rohit Paudel,Zane Green,1 run,36,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,36.2,Rohit Paudel,Jan Nicol Loftie-Eaton,no run,36,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,36.3,Rohit Paudel,Jan Nicol Loftie-Eaton,2 runs,36,Middle,False,False,2,2023/02/18,Kirtipur
+Nepal,Namibia,1,36.4,Rohit Paudel,Jan Nicol Loftie-Eaton,no run,36,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,36.5,Rohit Paudel,Jan Nicol Loftie-Eaton,no run,36,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,36.6,Rohit Paudel,Jan Nicol Loftie-Eaton,no run,36,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,37.1,Karan KC,Zane Green,no run,37,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,37.2,Karan KC,Zane Green,1 run,37,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,37.3,Karan KC,Jan Nicol Loftie-Eaton,OUT,37,Middle,False,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,37.4,Karan KC,Pikky Ya France,1 run,37,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,37.5,Karan KC,Zane Green,no run,37,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,37.6,Karan KC,Zane Green,FOUR runs,37,Middle,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,38.1,Sandeep Lamichhane,Pikky Ya France,no run,38,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,38.2,Sandeep Lamichhane,Pikky Ya France,2 runs,38,Middle,False,False,2,2023/02/18,Kirtipur
+Nepal,Namibia,1,38.3,Sandeep Lamichhane,Pikky Ya France,1 run,38,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,38.4,Sandeep Lamichhane,Zane Green,FOUR runs,38,Middle,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,38.5,Sandeep Lamichhane,Zane Green,no run,38,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,38.6,Sandeep Lamichhane,Zane Green,FOUR runs,38,Middle,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,39.1,Rohit Paudel,Pikky Ya France,no run,39,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,39.2,Rohit Paudel,Pikky Ya France,no run,39,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,39.3,Rohit Paudel,Pikky Ya France,no run,39,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,39.4,Rohit Paudel,Pikky Ya France,FOUR runs,39,Middle,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,39.5,Rohit Paudel,Pikky Ya France,no run,39,Middle,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,39.6,Rohit Paudel,Pikky Ya France,1 run,39,Middle,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,40.1,Sandeep Lamichhane,Pikky Ya France,no run,40,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,40.2,Sandeep Lamichhane,Pikky Ya France,no run,40,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,40.3,Sandeep Lamichhane,Pikky Ya France,no run,40,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,40.4,Sandeep Lamichhane,Pikky Ya France,no run,40,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,40.5,Sandeep Lamichhane,Pikky Ya France,no run,40,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,40.6,Sandeep Lamichhane,Pikky Ya France,1 wide,40,Death,False,True,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,40.6,Sandeep Lamichhane,Pikky Ya France,no run,40,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,41.1,Rohit Paudel,Zane Green,no run,41,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,41.2,Rohit Paudel,Zane Green,1 run,41,Death,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,41.3,Rohit Paudel,Pikky Ya France,no run,41,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,41.4,Rohit Paudel,Pikky Ya France,no run,41,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,41.5,Rohit Paudel,Pikky Ya France,1 run,41,Death,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,41.6,Rohit Paudel,Zane Green,FOUR runs,41,Death,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,42.1,Karan KC,Pikky Ya France,FOUR runs,42,Death,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,42.2,Karan KC,Pikky Ya France,no run,42,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,42.3,Karan KC,Pikky Ya France,FOUR runs,42,Death,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,42.4,Karan KC,Pikky Ya France,2 runs,42,Death,False,False,2,2023/02/18,Kirtipur
+Nepal,Namibia,1,42.5,Karan KC,Pikky Ya France,no run,42,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,42.6,Karan KC,Pikky Ya France,no run,42,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,43.1,Dipendra Singh Airee,Zane Green,1 run,43,Death,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,43.2,Dipendra Singh Airee,Pikky Ya France,1 run,43,Death,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,43.3,Dipendra Singh Airee,Zane Green,no run,43,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,43.4,Dipendra Singh Airee,Zane Green,no run,43,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,43.5,Dipendra Singh Airee,Zane Green,no run,43,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,43.6,Dipendra Singh Airee,Zane Green,no run,43,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,44.1,Karan KC,Pikky Ya France,FOUR runs,44,Death,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,44.2,Karan KC,Pikky Ya France,1 wide,44,Death,False,True,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,44.2,Karan KC,Pikky Ya France,no run,44,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,44.3,Karan KC,Pikky Ya France,1 run,44,Death,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,44.4,Karan KC,Zane Green,no run,44,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,44.5,Karan KC,Zane Green,2 runs,44,Death,False,False,2,2023/02/18,Kirtipur
+Nepal,Namibia,1,44.6,Karan KC,Zane Green,FOUR runs,44,Death,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,45.1,Sandeep Lamichhane,Pikky Ya France,1 run,45,Death,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,45.2,Sandeep Lamichhane,Zane Green,SIX runs,45,Death,False,False,6,2023/02/18,Kirtipur
+Nepal,Namibia,1,45.3,Sandeep Lamichhane,Zane Green,1 run,45,Death,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,45.4,Sandeep Lamichhane,Pikky Ya France,no run,45,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,45.5,Sandeep Lamichhane,Pikky Ya France,1 run,45,Death,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,45.6,Sandeep Lamichhane,Zane Green,FOUR runs,45,Death,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,46.1,Sompal Kami,Pikky Ya France,1 run,46,Death,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,46.2,Sompal Kami,Zane Green,1 wide,46,Death,False,True,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,46.2,Sompal Kami,Zane Green,2 runs,46,Death,False,False,2,2023/02/18,Kirtipur
+Nepal,Namibia,1,46.3,Sompal Kami,Zane Green,1 run,46,Death,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,46.4,Sompal Kami,Pikky Ya France,1 wide,46,Death,False,True,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,46.4,Sompal Kami,Pikky Ya France,no run,46,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,46.5,Sompal Kami,Pikky Ya France,SIX runs,46,Death,False,False,6,2023/02/18,Kirtipur
+Nepal,Namibia,1,46.6,Sompal Kami,Pikky Ya France,SIX runs,46,Death,False,False,6,2023/02/18,Kirtipur
+Nepal,Namibia,1,47.1,Dipendra Singh Airee,Zane Green,1 run,47,Death,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,47.2,Dipendra Singh Airee,Pikky Ya France,1 run,47,Death,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,47.3,Dipendra Singh Airee,Zane Green,1 run,47,Death,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,47.4,Dipendra Singh Airee,Pikky Ya France,1 run,47,Death,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,47.5,Dipendra Singh Airee,Zane Green,1 run,47,Death,False,False,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,47.6,Dipendra Singh Airee,Pikky Ya France,SIX runs,47,Death,False,False,6,2023/02/18,Kirtipur
+Nepal,Namibia,1,48.1,Sompal Kami,Zane Green,OUT,48,Death,False,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,48.2,Sompal Kami,Zane Green,FOUR runs,48,Death,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,48.3,Sompal Kami,Zane Green,FOUR runs,48,Death,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,48.4,Sompal Kami,Zane Green,3 runs,48,Death,False,False,3,2023/02/18,Kirtipur
+Nepal,Namibia,1,48.5,Sompal Kami,Ruben Trumpelmann,SIX runs,48,Death,False,False,6,2023/02/18,Kirtipur
+Nepal,Namibia,1,48.6,Sompal Kami,Ruben Trumpelmann,no run,48,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,49.1,Karan KC,Zane Green,FOUR runs,49,Death,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,49.2,Karan KC,Zane Green,2 wide,49,Death,False,True,2,2023/02/18,Kirtipur
+Nepal,Namibia,1,49.2,Karan KC,Ruben Trumpelmann,SIX runs,49,Death,False,False,6,2023/02/18,Kirtipur
+Nepal,Namibia,1,49.3,Karan KC,Ruben Trumpelmann,no run,49,Death,True,False,0,2023/02/18,Kirtipur
+Nepal,Namibia,1,49.4,Karan KC,Ruben Trumpelmann,1 wide,49,Death,False,True,1,2023/02/18,Kirtipur
+Nepal,Namibia,1,49.4,Karan KC,Ruben Trumpelmann,FOUR runs,49,Death,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,49.5,Karan KC,Ruben Trumpelmann,FOUR runs,49,Death,False,False,4,2023/02/18,Kirtipur
+Nepal,Namibia,1,49.6,Karan KC,Ruben Trumpelmann,FOUR runs,49,Death,False,False,4,2023/02/18,Kirtipur

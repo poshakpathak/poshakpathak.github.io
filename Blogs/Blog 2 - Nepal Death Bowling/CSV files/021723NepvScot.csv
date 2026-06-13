@@ -1,0 +1,307 @@
+BowlingTeam,BattingTeam,Innings,Over,Bowler,Batter,Event,Over_Num,Phase,IsDot,IsExtra,EstimatedRuns,MatchDate,Venue
+Nepal,Scotland,1,0.1,Sompal Kami,Christopher McBride,no run,0,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,0.2,Sompal Kami,Christopher McBride,no run,0,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,0.3,Sompal Kami,Christopher McBride,no run,0,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,0.4,Sompal Kami,Christopher McBride,no run,0,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,0.5,Sompal Kami,Christopher McBride,no run,0,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,0.6,Sompal Kami,Christopher McBride,no run,0,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,1.1,Karan KC,Richie Berrington,no run,1,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,1.2,Karan KC,Richie Berrington,no run,1,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,1.3,Karan KC,Richie Berrington,no run,1,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,1.4,Karan KC,Richie Berrington,no run,1,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,1.5,Karan KC,Richie Berrington,no run,1,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,1.6,Karan KC,Richie Berrington,no run,1,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,2.1,Sompal Kami,Christopher McBride,no run,2,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,2.2,Sompal Kami,Christopher McBride,no run,2,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,2.3,Sompal Kami,Christopher McBride,no run,2,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,2.4,Sompal Kami,Christopher McBride,no run,2,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,2.5,Sompal Kami,Christopher McBride,1 run,2,Powerplay,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,2.6,Sompal Kami,Richie Berrington,no run,2,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,3.1,Karan KC,Christopher McBride,FOUR runs,3,Powerplay,False,False,4,2023-02-17,Kirtipur
+Nepal,Scotland,1,3.2,Karan KC,Christopher McBride,1 run,3,Powerplay,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,3.3,Karan KC,Richie Berrington,no run,3,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,3.4,Karan KC,Richie Berrington,SIX runs,3,Powerplay,False,False,6,2023-02-17,Kirtipur
+Nepal,Scotland,1,3.5,Karan KC,Richie Berrington,1 run,3,Powerplay,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,3.6,Karan KC,Christopher McBride,no run,3,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,4.1,Sompal Kami,Richie Berrington,no run,4,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,4.2,Sompal Kami,Richie Berrington,no run,4,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,4.3,Sompal Kami,Richie Berrington,no run,4,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,4.4,Sompal Kami,Richie Berrington,no run,4,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,4.5,Sompal Kami,Richie Berrington,no run,4,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,4.6,Sompal Kami,Richie Berrington,1 run,4,Powerplay,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,5.1,Karan KC,Richie Berrington,no run,5,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,5.2,Karan KC,Richie Berrington,2 runs,5,Powerplay,False,False,2,2023-02-17,Kirtipur
+Nepal,Scotland,1,5.3,Karan KC,Richie Berrington,no run,5,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,5.4,Karan KC,Richie Berrington,FOUR runs,5,Powerplay,False,False,4,2023-02-17,Kirtipur
+Nepal,Scotland,1,5.5,Karan KC,Richie Berrington,no run,5,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,5.6,Karan KC,Richie Berrington,FOUR runs,5,Powerplay,False,False,4,2023-02-17,Kirtipur
+Nepal,Scotland,1,6.1,Sompal Kami,Christopher McBride,FOUR runs,6,Powerplay,False,False,4,2023-02-17,Kirtipur
+Nepal,Scotland,1,6.2,Sompal Kami,Christopher McBride,no run,6,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,6.3,Sompal Kami,Christopher McBride,FOUR runs,6,Powerplay,False,False,4,2023-02-17,Kirtipur
+Nepal,Scotland,1,6.4,Sompal Kami,Christopher McBride,no run,6,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,6.5,Sompal Kami,Christopher McBride,no run,6,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,6.6,Sompal Kami,Christopher McBride,no run,6,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,7.1,Kushal Malla,Richie Berrington,1 run,7,Powerplay,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,7.2,Kushal Malla,Christopher McBride,1 run,7,Powerplay,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,7.3,Kushal Malla,Richie Berrington,no run,7,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,7.4,Kushal Malla,Richie Berrington,OUT,7,Powerplay,False,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,7.5,Kushal Malla,Tomas Mackintosh,FOUR runs,7,Powerplay,False,False,4,2023-02-17,Kirtipur
+Nepal,Scotland,1,7.6,Kushal Malla,Tomas Mackintosh,no run,7,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,8.1,Sandeep Lamichhane,Christopher McBride,1 run,8,Powerplay,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,8.2,Sandeep Lamichhane,Tomas Mackintosh,no run,8,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,8.3,Sandeep Lamichhane,Tomas Mackintosh,FOUR runs,8,Powerplay,False,False,4,2023-02-17,Kirtipur
+Nepal,Scotland,1,8.4,Sandeep Lamichhane,Tomas Mackintosh,no run,8,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,8.5,Sandeep Lamichhane,Tomas Mackintosh,no run,8,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,8.6,Sandeep Lamichhane,Tomas Mackintosh,no run,8,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,9.1,Kushal Malla,Christopher McBride,no run,9,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,9.2,Kushal Malla,Christopher McBride,3 runs,9,Powerplay,False,False,3,2023-02-17,Kirtipur
+Nepal,Scotland,1,9.3,Kushal Malla,Tomas Mackintosh,1 run,9,Powerplay,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,9.4,Kushal Malla,Christopher McBride,2 runs,9,Powerplay,False,False,2,2023-02-17,Kirtipur
+Nepal,Scotland,1,9.5,Kushal Malla,Christopher McBride,no run,9,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,9.6,Kushal Malla,Christopher McBride,no run,9,Powerplay,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,10.1,Sandeep Lamichhane,Tomas Mackintosh,no run,10,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,10.2,Sandeep Lamichhane,Tomas Mackintosh,no run,10,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,10.3,Sandeep Lamichhane,Tomas Mackintosh,no run,10,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,10.4,Sandeep Lamichhane,Tomas Mackintosh,1 run,10,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,10.5,Sandeep Lamichhane,Christopher McBride,1 run,10,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,10.6,Sandeep Lamichhane,Tomas Mackintosh,no run,10,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,11.1,Kushal Malla,Christopher McBride,OUT,11,Middle,False,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,11.2,Kushal Malla,Matthew Cross,no run,11,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,11.3,Kushal Malla,Matthew Cross,no run,11,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,11.4,Kushal Malla,Matthew Cross,no run,11,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,11.5,Kushal Malla,Matthew Cross,no run,11,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,11.6,Kushal Malla,Matthew Cross,no run,11,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,12.1,Sandeep Lamichhane,Tomas Mackintosh,no run,12,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,12.2,Sandeep Lamichhane,Tomas Mackintosh,1 run,12,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,12.3,Sandeep Lamichhane,Matthew Cross,no run,12,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,12.4,Sandeep Lamichhane,Matthew Cross,1 run,12,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,12.5,Sandeep Lamichhane,Tomas Mackintosh,1 run,12,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,12.6,Sandeep Lamichhane,Matthew Cross,no run,12,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,13.1,Kushal Malla,Tomas Mackintosh,1 run,13,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,13.2,Kushal Malla,Matthew Cross,1 run,13,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,13.3,Kushal Malla,Tomas Mackintosh,no run,13,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,13.4,Kushal Malla,Tomas Mackintosh,1 run,13,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,13.5,Kushal Malla,Matthew Cross,no run,13,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,13.6,Kushal Malla,Matthew Cross,no run,13,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,14.1,Sandeep Lamichhane,Tomas Mackintosh,no run,14,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,14.2,Sandeep Lamichhane,Tomas Mackintosh,no run,14,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,14.3,Sandeep Lamichhane,Tomas Mackintosh,1 run,14,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,14.4,Sandeep Lamichhane,Matthew Cross,no run,14,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,14.5,Sandeep Lamichhane,Matthew Cross,OUT,14,Middle,False,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,14.6,Sandeep Lamichhane,Brandon McMullen,no run,14,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,15.1,Kushal Malla,Tomas Mackintosh,2 runs,15,Middle,False,False,2,2023-02-17,Kirtipur
+Nepal,Scotland,1,15.2,Kushal Malla,Tomas Mackintosh,no run,15,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,15.3,Kushal Malla,Tomas Mackintosh,1 run,15,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,15.4,Kushal Malla,Brandon McMullen,1 run,15,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,15.5,Kushal Malla,Tomas Mackintosh,no run,15,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,15.6,Kushal Malla,Tomas Mackintosh,1 run,15,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,16.1,Sandeep Lamichhane,Tomas Mackintosh,OUT,16,Middle,False,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,16.2,Sandeep Lamichhane,Chris Greaves,1 run,16,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,16.3,Sandeep Lamichhane,Brandon McMullen,no run,16,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,16.4,Sandeep Lamichhane,Brandon McMullen,1 wide,16,Middle,False,True,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,16.4,Sandeep Lamichhane,Brandon McMullen,no run,16,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,16.5,Sandeep Lamichhane,Brandon McMullen,1 run,16,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,16.6,Sandeep Lamichhane,Chris Greaves,no run,16,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,17.1,Kushal Bhurtel,Brandon McMullen,1 run,17,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,17.2,Kushal Bhurtel,Chris Greaves,1 run,17,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,17.3,Kushal Bhurtel,Brandon McMullen,1 leg bye,17,Middle,False,True,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,17.4,Kushal Bhurtel,Chris Greaves,1 run,17,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,17.5,Kushal Bhurtel,Brandon McMullen,no run,17,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,17.6,Kushal Bhurtel,Brandon McMullen,1 run,17,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,18.1,Sandeep Lamichhane,Brandon McMullen,no run,18,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,18.2,Sandeep Lamichhane,Brandon McMullen,1 run,18,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,18.3,Sandeep Lamichhane,Chris Greaves,no run,18,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,18.4,Sandeep Lamichhane,Chris Greaves,4 leg byes,18,Middle,False,True,4,2023-02-17,Kirtipur
+Nepal,Scotland,1,18.5,Sandeep Lamichhane,Chris Greaves,1 run,18,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,18.6,Sandeep Lamichhane,Brandon McMullen,1 run,18,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,19.1,Kushal Bhurtel,Brandon McMullen,3 byes,19,Middle,False,True,3,2023-02-17,Kirtipur
+Nepal,Scotland,1,19.2,Kushal Bhurtel,Chris Greaves,no run,19,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,19.3,Kushal Bhurtel,Chris Greaves,no run,19,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,19.4,Kushal Bhurtel,Chris Greaves,1 run,19,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,19.5,Kushal Bhurtel,Brandon McMullen,3 runs,19,Middle,False,False,3,2023-02-17,Kirtipur
+Nepal,Scotland,1,19.6,Kushal Bhurtel,Chris Greaves,no run,19,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,20.1,Kushal Malla,Brandon McMullen,1 run,20,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,20.2,Kushal Malla,Chris Greaves,1 run,20,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,20.3,Kushal Malla,Brandon McMullen,2 runs,20,Middle,False,False,2,2023-02-17,Kirtipur
+Nepal,Scotland,1,20.4,Kushal Malla,Brandon McMullen,SIX runs,20,Middle,False,False,6,2023-02-17,Kirtipur
+Nepal,Scotland,1,20.5,Kushal Malla,Brandon McMullen,no run,20,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,20.6,Kushal Malla,Brandon McMullen,no run,20,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,21.1,Kushal Bhurtel,Chris Greaves,no run,21,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,21.2,Kushal Bhurtel,Chris Greaves,no run,21,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,21.3,Kushal Bhurtel,Chris Greaves,2 runs,21,Middle,False,False,2,2023-02-17,Kirtipur
+Nepal,Scotland,1,21.4,Kushal Bhurtel,Chris Greaves,1 run,21,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,21.5,Kushal Bhurtel,Brandon McMullen,1 run,21,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,21.6,Kushal Bhurtel,Chris Greaves,no run,21,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,22.1,Gulsan Jha,Brandon McMullen,1 run,22,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,22.2,Gulsan Jha,Chris Greaves,2 runs,22,Middle,False,False,2,2023-02-17,Kirtipur
+Nepal,Scotland,1,22.3,Gulsan Jha,Chris Greaves,1 run,22,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,22.4,Gulsan Jha,Brandon McMullen,1 run,22,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,22.5,Gulsan Jha,Chris Greaves,no run,22,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,22.6,Gulsan Jha,Chris Greaves,FOUR runs,22,Middle,False,False,4,2023-02-17,Kirtipur
+Nepal,Scotland,1,23.1,Kushal Bhurtel,Brandon McMullen,1 run,23,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,23.2,Kushal Bhurtel,Chris Greaves,OUT,23,Middle,False,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,23.3,Kushal Bhurtel,Michael Leask,no run,23,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,23.4,Kushal Bhurtel,Michael Leask,1 bye,23,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,23.5,Kushal Bhurtel,Brandon McMullen,no run,23,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,23.6,Kushal Bhurtel,Brandon McMullen,no run,23,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,24.1,Sandeep Lamichhane,Michael Leask,1 run,24,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,24.2,Sandeep Lamichhane,Brandon McMullen,OUT,24,Middle,False,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,24.3,Sandeep Lamichhane,Jack Jarvis,1 run,24,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,24.4,Sandeep Lamichhane,Michael Leask,no run,24,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,24.5,Sandeep Lamichhane,Michael Leask,no run,24,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,24.6,Sandeep Lamichhane,Michael Leask,1 run,24,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,25.1,Kushal Bhurtel,Michael Leask,no run,25,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,25.2,Kushal Bhurtel,Michael Leask,no run,25,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,25.3,Kushal Bhurtel,Michael Leask,1 run,25,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,25.4,Kushal Bhurtel,Jack Jarvis,1 run,25,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,25.5,Kushal Bhurtel,Michael Leask,1 run,25,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,25.6,Kushal Bhurtel,Jack Jarvis,no run,25,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,26.1,Sandeep Lamichhane,Michael Leask,no run,26,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,26.2,Sandeep Lamichhane,Michael Leask,1 run,26,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,26.3,Sandeep Lamichhane,Jack Jarvis,1 run,26,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,26.4,Sandeep Lamichhane,Michael Leask,no run,26,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,26.5,Sandeep Lamichhane,Michael Leask,1 run,26,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,26.6,Sandeep Lamichhane,Jack Jarvis,no run,26,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,27.1,Kushal Bhurtel,Michael Leask,1 run,27,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,27.2,Kushal Bhurtel,Jack Jarvis,2 runs,27,Middle,False,False,2,2023-02-17,Kirtipur
+Nepal,Scotland,1,27.3,Kushal Bhurtel,Jack Jarvis,1 run,27,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,27.4,Kushal Bhurtel,Michael Leask,no run,27,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,27.5,Kushal Bhurtel,Michael Leask,1 wide,27,Middle,False,True,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,27.5,Kushal Bhurtel,Michael Leask,1 run,27,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,27.6,Kushal Bhurtel,Jack Jarvis,no run,27,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,28.1,Karan KC,Michael Leask,1 run,28,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,28.2,Karan KC,Jack Jarvis,1 wide,28,Middle,False,True,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,28.2,Karan KC,Jack Jarvis,no run,28,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,28.3,Karan KC,Jack Jarvis,no run,28,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,28.4,Karan KC,Jack Jarvis,1 run,28,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,28.5,Karan KC,Michael Leask,no run,28,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,28.6,Karan KC,Michael Leask,1 run,28,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,29.1,Kushal Malla,Michael Leask,no run,29,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,29.2,Kushal Malla,Michael Leask,no run,29,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,29.3,Kushal Malla,Michael Leask,no run,29,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,29.4,Kushal Malla,Michael Leask,1 run,29,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,29.5,Kushal Malla,Jack Jarvis,no run,29,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,29.6,Kushal Malla,Jack Jarvis,FOUR runs,29,Middle,False,False,4,2023-02-17,Kirtipur
+Nepal,Scotland,1,30.1,Karan KC,Michael Leask,no run,30,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,30.2,Karan KC,Michael Leask,1 leg bye,30,Middle,False,True,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,30.3,Karan KC,Jack Jarvis,no run,30,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,30.4,Karan KC,Jack Jarvis,no run,30,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,30.5,Karan KC,Jack Jarvis,no run,30,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,30.6,Karan KC,Jack Jarvis,1 run,30,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,31.1,Kushal Malla,Jack Jarvis,1 run,31,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,31.2,Kushal Malla,Michael Leask,1 run,31,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,31.3,Kushal Malla,Jack Jarvis,no run,31,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,31.4,Kushal Malla,Jack Jarvis,no run,31,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,31.5,Kushal Malla,Jack Jarvis,1 run,31,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,31.6,Kushal Malla,Michael Leask,1 run,31,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,32.1,Karan KC,Michael Leask,no run,32,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,32.2,Karan KC,Michael Leask,FOUR runs,32,Middle,False,False,4,2023-02-17,Kirtipur
+Nepal,Scotland,1,32.3,Karan KC,Michael Leask,SIX runs,32,Middle,False,False,6,2023-02-17,Kirtipur
+Nepal,Scotland,1,32.4,Karan KC,Michael Leask,no run,32,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,32.5,Karan KC,Michael Leask,no run,32,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,32.6,Karan KC,Michael Leask,1 run,32,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,33.1,Kushal Malla,Michael Leask,2 runs,33,Middle,False,False,2,2023-02-17,Kirtipur
+Nepal,Scotland,1,33.2,Kushal Malla,Michael Leask,no run,33,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,33.3,Kushal Malla,Michael Leask,no run,33,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,33.4,Kushal Malla,Michael Leask,1 run,33,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,33.5,Kushal Malla,Jack Jarvis,SIX runs,33,Middle,False,False,6,2023-02-17,Kirtipur
+Nepal,Scotland,1,33.6,Kushal Malla,Jack Jarvis,1 run,33,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,34.1,Sompal Kami,Jack Jarvis,no run,34,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,34.2,Sompal Kami,Jack Jarvis,no run,34,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,34.3,Sompal Kami,Jack Jarvis,no run,34,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,34.4,Sompal Kami,Jack Jarvis,no run,34,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,34.5,Sompal Kami,Jack Jarvis,no run,34,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,34.6,Sompal Kami,Jack Jarvis,1 run,34,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,35.1,Dipendra Singh Airee,Jack Jarvis,no run,35,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,35.2,Dipendra Singh Airee,Jack Jarvis,no run,35,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,35.3,Dipendra Singh Airee,Jack Jarvis,no run,35,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,35.4,Dipendra Singh Airee,Jack Jarvis,1 run,35,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,35.5,Dipendra Singh Airee,Michael Leask,SIX runs,35,Middle,False,False,6,2023-02-17,Kirtipur
+Nepal,Scotland,1,35.6,Dipendra Singh Airee,Michael Leask,no run,35,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,36.1,Sompal Kami,Jack Jarvis,no run,36,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,36.2,Sompal Kami,Jack Jarvis,1 run,36,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,36.3,Sompal Kami,Michael Leask,no run,36,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,36.4,Sompal Kami,Michael Leask,no run,36,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,36.5,Sompal Kami,Michael Leask,no run,36,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,36.6,Sompal Kami,Michael Leask,1 run,36,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,37.1,Dipendra Singh Airee,Michael Leask,no run,37,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,37.2,Dipendra Singh Airee,Michael Leask,no run,37,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,37.3,Dipendra Singh Airee,Michael Leask,no run,37,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,37.4,Dipendra Singh Airee,Michael Leask,1 run,37,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,37.5,Dipendra Singh Airee,Jack Jarvis,1 run,37,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,37.6,Dipendra Singh Airee,Michael Leask,1 run,37,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,38.1,Sompal Kami,Michael Leask,no run,38,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,38.2,Sompal Kami,Michael Leask,FOUR runs,38,Middle,False,False,4,2023-02-17,Kirtipur
+Nepal,Scotland,1,38.3,Sompal Kami,Michael Leask,no run,38,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,38.4,Sompal Kami,Michael Leask,no run,38,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,38.5,Sompal Kami,Michael Leask,SIX runs,38,Middle,False,False,6,2023-02-17,Kirtipur
+Nepal,Scotland,1,38.6,Sompal Kami,Michael Leask,SIX runs,38,Middle,False,False,6,2023-02-17,Kirtipur
+Nepal,Scotland,1,39.1,Dipendra Singh Airee,Jack Jarvis,1 run,39,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,39.2,Dipendra Singh Airee,Michael Leask,1 run,39,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,39.3,Dipendra Singh Airee,Jack Jarvis,OUT,39,Middle,False,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,39.4,Dipendra Singh Airee,Mark Watt,no run,39,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,39.5,Dipendra Singh Airee,Mark Watt,1 run,39,Middle,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,39.6,Dipendra Singh Airee,Michael Leask,no run,39,Middle,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,40.1,Sandeep Lamichhane,Mark Watt,no run,40,Death,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,40.2,Sandeep Lamichhane,Mark Watt,no run,40,Death,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,40.3,Sandeep Lamichhane,Mark Watt,no run,40,Death,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,40.4,Sandeep Lamichhane,Mark Watt,no run,40,Death,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,40.5,Sandeep Lamichhane,Mark Watt,no run,40,Death,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,40.6,Sandeep Lamichhane,Mark Watt,1 run,40,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,41.1,Dipendra Singh Airee,Mark Watt,no run,41,Death,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,41.2,Dipendra Singh Airee,Mark Watt,FOUR runs,41,Death,False,False,4,2023-02-17,Kirtipur
+Nepal,Scotland,1,41.3,Dipendra Singh Airee,Mark Watt,no run,41,Death,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,41.4,Dipendra Singh Airee,Mark Watt,1 run,41,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,41.5,Dipendra Singh Airee,Michael Leask,1 run,41,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,41.6,Dipendra Singh Airee,Mark Watt,1 run,41,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,42.1,Gulsan Jha,Mark Watt,no run,42,Death,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,42.2,Gulsan Jha,Mark Watt,no run,42,Death,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,42.3,Gulsan Jha,Mark Watt,1 run,42,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,42.4,Gulsan Jha,Michael Leask,SIX runs,42,Death,False,False,6,2023-02-17,Kirtipur
+Nepal,Scotland,1,42.5,Gulsan Jha,Michael Leask,FOUR runs,42,Death,False,False,4,2023-02-17,Kirtipur
+Nepal,Scotland,1,42.6,Gulsan Jha,Michael Leask,1 run,42,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,43.1,Dipendra Singh Airee,Michael Leask,1 run,43,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,43.2,Dipendra Singh Airee,Mark Watt,1 run,43,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,43.3,Dipendra Singh Airee,Michael Leask,1 run,43,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,43.4,Dipendra Singh Airee,Mark Watt,1 run,43,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,43.5,Dipendra Singh Airee,Michael Leask,1 run,43,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,43.6,Dipendra Singh Airee,Mark Watt,no run,43,Death,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,44.1,Karan KC,Michael Leask,no run,44,Death,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,44.2,Karan KC,Michael Leask,1 run,44,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,44.3,Karan KC,Mark Watt,no run,44,Death,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,44.4,Karan KC,Mark Watt,1 wide,44,Death,False,True,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,44.4,Karan KC,Mark Watt,1 run,44,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,44.5,Karan KC,Michael Leask,SIX runs,44,Death,False,False,6,2023-02-17,Kirtipur
+Nepal,Scotland,1,44.6,Karan KC,Michael Leask,1 run,44,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,45.1,Sandeep Lamichhane,Michael Leask,no run,45,Death,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,45.2,Sandeep Lamichhane,Michael Leask,1 run,45,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,45.3,Sandeep Lamichhane,Mark Watt,no run,45,Death,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,45.4,Sandeep Lamichhane,Mark Watt,no run,45,Death,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,45.5,Sandeep Lamichhane,Mark Watt,2 runs,45,Death,False,False,2,2023-02-17,Kirtipur
+Nepal,Scotland,1,45.6,Sandeep Lamichhane,Mark Watt,no run,45,Death,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,46.1,Karan KC,Michael Leask,1 run,46,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,46.2,Karan KC,Mark Watt,1 run,46,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,46.3,Karan KC,Michael Leask,1 run,46,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,46.4,Karan KC,Mark Watt,1 run,46,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,46.5,Karan KC,Michael Leask,SIX runs,46,Death,False,False,6,2023-02-17,Kirtipur
+Nepal,Scotland,1,46.6,Karan KC,Michael Leask,1 wide,46,Death,False,True,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,46.6,Karan KC,Michael Leask,1 run,46,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,47.1,Sompal Kami,Michael Leask,SIX runs,47,Death,False,False,6,2023-02-17,Kirtipur
+Nepal,Scotland,1,47.2,Sompal Kami,Michael Leask,1 run,47,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,47.3,Sompal Kami,Mark Watt,1 run,47,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,47.4,Sompal Kami,Michael Leask,no run,47,Death,True,False,0,2023-02-17,Kirtipur
+Nepal,Scotland,1,47.5,Sompal Kami,Michael Leask,SIX runs,47,Death,False,False,6,2023-02-17,Kirtipur
+Nepal,Scotland,1,47.6,Sompal Kami,Michael Leask,1 run,47,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,48.1,Karan KC,Michael Leask,1 run,48,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,48.2,Karan KC,Mark Watt,1 run,48,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,48.3,Karan KC,Michael Leask,2 runs,48,Death,False,False,2,2023-02-17,Kirtipur
+Nepal,Scotland,1,48.4,Karan KC,Michael Leask,1 wide,48,Death,False,True,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,48.4,Karan KC,Michael Leask,1 run,48,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,48.5,Karan KC,Mark Watt,1 run,48,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,48.6,Karan KC,Michael Leask,1 run,48,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,49.1,Sompal Kami,Michael Leask,1 run,49,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,49.2,Sompal Kami,Mark Watt,"1 run, OUT",49,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,49.3,Sompal Kami,Chris Sole,1 run,49,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,49.4,Sompal Kami,Michael Leask,1 run,49,Death,False,False,1,2023-02-17,Kirtipur
+Nepal,Scotland,1,49.5,Sompal Kami,Chris Sole,FOUR runs,49,Death,False,False,4,2023-02-17,Kirtipur
+Nepal,Scotland,1,49.6,Sompal Kami,Chris Sole,OUT,49,Death,False,False,0,2023-02-17,Kirtipur
