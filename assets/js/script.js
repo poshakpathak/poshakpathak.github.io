@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     {
       title: 'Imposter Game',
-      img: './assets/images/imposter.png', // Replace with an image or screenshot later!
+      img: './assets/images/imposter.png',
       desc: 'A digital social deduction party game. Pass the phone around to discover your secret assignments, then use the internal audio-reactive stopwatch to find out who is faking the target time.',
       skills: ['JavaScript', 'Web Audio API', 'CSS Grid', 'Game Logic'],
       link: 'Projects/imposter.html' 
