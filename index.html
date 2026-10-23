@@ -230,6 +230,12 @@ button.card.post{gap:16px;text-align:left}
 #os[data-era="1984"] .art .tw,#os[data-era="1984"] .art .stats div,#os[data-era="1984"] .art .vs{border-radius:0;border-color:#000}
 #os[data-era="1984"] .art .vs i,#os[data-era="1984"] .rdbar i{background:#000}
 #os[data-era="1995"] .art .tw,#os[data-era="1995"] .art .stats div,#os[data-era="1995"] .art .vs,#os[data-era="1995"] .art figure img{border-radius:0}
+.embed{display:flex;flex-direction:column;height:100%}.embed iframe{flex:1;width:100%;border:0;background:#f5f7f9;min-height:0}
+.embed .eb{display:flex;gap:8px}.embed .rbar>span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#os.phone .embed .rbar>span:first-child{display:none}#os.phone .embed .eb{width:100%;justify-content:flex-end}
+.win[data-app="abs"] .bd{overflow:hidden}
+.fitem .th.absth{background:linear-gradient(160deg,#0f1b2d,#2a78d6);display:grid;place-items:center}.fitem .th.absth i{width:30%;height:52%;border:2px solid rgba(255,255,255,.85);border-radius:2px}
+.post .im.absth{background:linear-gradient(160deg,#0f1b2d,#2a78d6);display:grid;place-items:center}.post .im.absth i{width:34%;height:50%;border:2px solid rgba(255,255,255,.85);border-radius:2px}
 .rbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(--line);background:rgba(240,242,246,.75);font-size:13px;color:var(--soft);position:sticky;top:0}
 
 .tm{padding:22px 28px 26px;text-align:center}
@@ -830,7 +836,7 @@ const I={
   music:'<svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>',
   folder:'<svg viewBox="0 0 24 24" style="width:15px;height:15px"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>'
 };
-I.post=I.notes;I.projects=I.folder;I.papers=I.folder;I.blogs=I.folder;
+I.post=I.notes;I.abs=I.notes;I.projects=I.folder;I.papers=I.folder;I.blogs=I.folder;
 const PAPERS=[["ITNG 2025","GAN defense against data poisoning"],["Int. J. Bilingualism 2025","Immersion and first-language attrition"],["Biling.: Lang. & Cog. 2024","Trilingual parallel processing"],["J Cult Cogn Sci 2021","Second-language instruction and L1 abilities"]];
 const FOLDERS=[["papers","Research",I.research],["projects","Projects",I.work],["blogs","Blogs",I.notes]];
 const COLORS={term:"#1d2433",about:"#2f7bf5",work:"#f5822f",research:"#1fae8c",notes:"#f2b51b",resume:"#e8456b",tm:"#8e5cf0",settings:"#7b8494",hello:"#2f7bf5",music:"#fa2d55"};
@@ -897,8 +903,10 @@ const APPS={
   notes:{t:"Notes",w:640,h:520,html:()=>`<div class="pad">
     <p class="sect">Writing</p>
     <div class="list">
+      <button class="card post" data-b="abs"><div class="im absth"><i></i></div><div><span class="k">October 2026 · Baseball research</span><h3>The Challenge Problem</h3><p>How MLB teams spent their ABS challenges in 2026, and the 36 wins they left on the table.</p></div></button>
       <button class="card post" data-b="ohtani"><div class="im" style="background-image:${IMG.ohtani}"></div><div><span class="k">June 2025 · Baseball · 4 min read</span><h3>Ohtani's impact in year 2 with the Dodgers</h3><p>Exploring Ohtani's offensive explosion in his second season, so far.</p></div></button>
     </div></div>`},
+  abs:{t:"The Challenge Problem",w:1000,h:700,html:()=>`<div class="embed"><div class="rbar"><span>The Challenge Problem · October 2026</span><span class="eb"><a class="btn ghost" href="https://www.alphaxiv.org/abs/2610.baseball-abs-challenge" target="_blank" rel="noopener">Read the paper ↗</a><a class="btn ghost" href="blog/challenge-problem/" target="_blank" rel="noopener">Full page ↗</a></span></div><iframe src="blog/challenge-problem/" title="The Challenge Problem" loading="lazy"></iframe></div>`},
   post:{t:"Ohtani's impact in year 2",w:760,h:640,html:()=>`<div class="rd"><div class="rdbar"><i></i></div>
     <article class="art">
       <header><span class="tag">Baseball analysis</span><h1>What the numbers say about Shohei Ohtani’s impact in year 2 with the Dodgers</h1><p class="by">Poshak Pathak · <time datetime="2025-06-07">June 7, 2025</time> · 4 min read</p></header>
@@ -992,7 +1000,7 @@ const APPS={
     <div class="grp sys"><div><span>Version</span>PoshakOS 0.2</div><div><span>Built with</span>HTML, CSS, JavaScript</div><div><span>Renderer</span>WebGL ocean shader</div></div>
   </div>`},
   projects:{t:"Projects",w:720,h:520,html:()=>`<div class="fpath">${I.folder}Desktop › Projects · ${PROJECTS.length} items</div><div class="finder">${PROJECTS.map(p=>`<button class="fitem" data-p="${p.id}"><span class="th ${p.img?'':'gan'}" style="${p.img?`background-image:${IMG[p.img]}`:''}"></span><span>${p.name}<small>${p.tags.split(' · ')[0]}</small></span></button>`).join('')}</div>`},
-  blogs:{t:"Blogs",w:620,h:420,html:()=>`<div class="fpath">${I.folder}Desktop › Blogs · 1 item</div><div class="finder"><button class="fitem" data-b="ohtani"><span class="th" style="background-image:${IMG.ohtani}"></span><span>Ohtani's impact in year 2<small>June 2025 · Baseball</small></span></button></div>`},
+  blogs:{t:"Blogs",w:620,h:420,html:()=>`<div class="fpath">${I.folder}Desktop › Blogs · 2 items</div><div class="finder"><button class="fitem" data-b="abs"><span class="th absth"><i></i></span><span>The Challenge Problem<small>Oct 2026 · Baseball research</small></span></button><button class="fitem" data-b="ohtani"><span class="th" style="background-image:${IMG.ohtani}"></span><span>Ohtani's impact in year 2<small>June 2025 · Baseball</small></span></button></div>`},
   papers:{t:"Research",w:720,h:520,html:()=>`<div class="fpath">${I.folder}Desktop › Research · ${PAPERS.length+1} items</div><div class="finder">${PAPERS.map((x,i)=>`<button class="fitem" data-r="${i}"><span class="pdf"><i></i><i></i><i></i><b>PDF</b></span><span>${x[1]}<small>${x[0]}</small></span></button>`).join('')}<button class="fitem" data-r="talks"><span class="pdf"><i></i><i></i><i></i><b>TALKS</b></span><span>Talks &amp; awards<small>2024 – 2025</small></span></button></div>`},
   music:{t:"Music",w:860,h:560,html:()=>`<div class="work mus"><div class="side"><h4>Spotify</h4><button data-v="spotify"><span class="sic">${SPOTIFY_IC}</span>Poshak's playlist</button><h4>Library</h4><button data-v="radio">${I.music}PoshakOS Radio</button></div>
     <div class="mcol"><div class="wmain" id="mmain"></div>
@@ -1046,7 +1054,7 @@ function open(app,opts={}){
   if(app==="term")wireTerm(w);
   if(app==="research"&&opts.r!=null)hlPaper(opts.r);
   w.querySelectorAll('.fitem[data-p]').forEach(b=>b.onclick=()=>open('work',{p:b.dataset.p}));
-  w.querySelectorAll('[data-b="ohtani"]').forEach(b=>b.onclick=()=>open('post'));
+  w.querySelectorAll('[data-b="ohtani"],[data-b="abs"]').forEach(b=>b.onclick=()=>open(b.dataset.b==='abs'?'abs':'post'));
   if(app==="post")wirePost(w);
   w.querySelectorAll('.fitem[data-r]').forEach(b=>b.onclick=()=>open('research',{r:b.dataset.r}));
   return w;
@@ -1245,6 +1253,7 @@ const PAL_BASE=[
 const PAL_EXTRA=[
   ...PROJECTS.map(p=>({t:p.name,d:'Project · '+p.tags,ic:I.work,go:()=>open('work',{p:p.id})})),
   ...PAPERS.map((p,i)=>({t:p[1],d:'Paper · '+p[0],ic:I.research,go:()=>open('research',{r:String(i)})})),
+  {t:'The Challenge Problem',d:'Blog · October 2026',ic:I.notes,go:()=>open('abs')},
   {t:'Ohtani’s impact in year 2 with the Dodgers',d:'Blog · June 2025',ic:I.notes,go:()=>open('post')},
   ...ERAS.map(e=>({t:'Go to '+(e.k==='now'?'the present':e.k),d:'Time Machine · '+e.t,ic:I.tm,go:()=>setEra(e.k)})),
   {t:'Restart PoshakOS',d:'Reload the desktop',ic:I.settings,go:restart}
@@ -1550,7 +1559,7 @@ var FS={
   '~':['about.txt','contact.txt','resume.pdf','projects/','research/','blogs/','music/'],
   '~/projects':PROJECTS.map(p=>p.id),
   '~/research':PAPERS.map((p,i)=>'paper-'+(i+1)+'.txt').concat(['talks.txt']),
-  '~/blogs':['ohtani-year-2.md'],
+  '~/blogs':['challenge-problem.md','ohtani-year-2.md'],
   '~/music':['poshakos-radio/','poshaks-playlist.spotify']
 };
 var HIDDEN=['.secrets'];
@@ -1572,6 +1581,7 @@ function wireTerm(w){
     '~/.secrets':()=>`Some things to try:\n  snake        a quick game\n  matrix       follow the white rabbit\n  storm        summon a storm over the ocean\n  ↑↑↓↓←→←→BA   the classic, anywhere on the desktop\n  Click the black dot in the top-left corner five times fast.`,
     '~/research/talks.txt':()=>`2025  ITNG Conference, Las Vegas\n2024  ULM Research Symposium, 1st place\n2024  Louisiana Academy of Science`,
     '~/music/poshaks-playlist.spotify':()=>`Open it with: open music`,
+    '~/blogs/challenge-problem.md':()=>`The Challenge Problem: ABS challenge economics, 2026 season (October 2026). Read it with: open abs`,
     '~/blogs/ohtani-year-2.md':()=>`Ohtani's impact in year 2 with the Dodgers (June 2025). Read it with: open ohtani`
   };
   PROJECTS.forEach(p=>files['~/projects/'+p.id]=()=>`${p.name}\n${p.tags}\n\n${p.desc}\n\nOpen it with: open ${p.id}`);
@@ -1603,7 +1613,7 @@ function wireTerm(w){
       case 'pwd':P(st.cwd.replace('~','/Users/poshak'));break;
       case 'cat':{if(!args[0]){P('cat: which file?');break;}const f=resolve(args[0]),fn=files[f]||files['~/'+args[0]];fn?P(fn()):P(`cat: ${a}: No such file`);break;}
       case 'open':{const n=(args[0]||'').toLowerCase().replace(/\/$/,'');
-        const map={about:'about',resume:'resume',music:'music',settings:'settings',tm:'tm','time-machine':'tm',timemachine:'tm',projects:'projects',research:'papers',papers:'papers',blogs:'blogs',notes:'notes',post:'post',ohtani:'post',hello:'hello',contact:'hello',terminal:'term'};
+        const map={about:'about',resume:'resume',music:'music',settings:'settings',tm:'tm','time-machine':'tm',timemachine:'tm',projects:'projects',research:'papers',papers:'papers',blogs:'blogs',notes:'notes',post:'post',ohtani:'post',abs:'abs',challenge:'abs',hello:'hello',contact:'hello',terminal:'term'};
         if(map[n]){open(map[n]);P(`Opening ${APPS[map[n]].t}…`);}
         else if(PROJECTS.find(p=>p.id===n)){open('work',{p:n});P(`Opening ${PROJECTS.find(p=>p.id===n).name}…`);}
         else P(n?`open: can't find "${n}". Try: open projects`:'open: what should I open? Try: open about');break;}
@@ -1611,7 +1621,7 @@ function wireTerm(w){
       case 'contact':case 'hello':P(files['~/contact.txt']());print(link('Say hello →','hello'));break;
       case 'projects':print(PROJECTS.map(p=>`${link(escT(p.name),'work',{p:p.id})}  <span class="tdim">${escT(p.tags)}</span>`).join('\n'));break;
       case 'research':case 'papers':print(PAPERS.map((p,i)=>`${link(escT(p[1]),'research',{r:String(i)})}  <span class="tdim">${escT(p[0])}</span>`).join('\n'));break;
-      case 'blogs':print(`${link("Ohtani's impact in year 2 with the Dodgers",'post')}  <span class="tdim">June 2025</span>`);break;
+      case 'blogs':print(`${link("The Challenge Problem",'abs')}  <span class="tdim">Oct 2026</span>\n${link("Ohtani's impact in year 2 with the Dodgers",'post')}  <span class="tdim">June 2025</span>`);break;
       case 'resume':open('resume');P('Opening Résumé…');break;
       case 'music':case 'play':musPlay();P(`♪ Now playing: ${RADIO[MUS.idx].t} · PoshakOS Radio`);break;
       case 'pause':case 'stop':musPause();P('Paused.');break;
