@@ -272,8 +272,6 @@ button.card:focus-visible{outline:2px solid var(--accent)}
 #os.phone .phw{display:grid;justify-items:center;gap:4px;padding:40px 20px 6px;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.3);text-align:center}
 #os.phone .pht{font-size:84px;font-weight:600;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
 #os.phone .phd{font-size:17px;font-weight:500;opacity:.95}
-#os.phone .phl{margin-top:16px;padding:11px 15px;border-radius:18px;background:rgba(255,255,255,.2);-webkit-backdrop-filter:blur(20px) saturate(1.4);backdrop-filter:blur(20px) saturate(1.4);border:1px solid rgba(255,255,255,.3);font-size:13px;max-width:330px;text-shadow:none;color:#fff;text-align:left}
-#os.phone .phl .muted{color:rgba(255,255,255,.82)}
 #os.phone .dicons{position:static;display:grid;grid-template-columns:repeat(4,72px);justify-content:center;gap:20px 14px;padding:30px 16px 0;overflow:visible}
 #os.phone .folder{width:72px;gap:6px}
 #os.phone .folder .fi,#os.phone .folder .fi>svg{width:64px;height:52px}
@@ -527,6 +525,8 @@ button.card:focus-visible{outline:2px solid var(--accent)}
 .mrow input{flex:1;min-width:0;accent-color:#fa2d55}
 .mctl{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .mctl .cov{width:42px;height:42px;border-radius:6px;flex:none}
+.mctl .cov{display:grid;place-items:center;color:#fff}.mctl .cov svg{width:24px;height:24px}
+.mbar.spot-src #msh,.mbar.spot-src #mrp,.mbar.spot-src #mnext{opacity:.3;pointer-events:none}
 .mctl .mt{flex:1;min-width:120px;display:grid}.mctl .mt b{font-size:15px;font-weight:600}.mctl .mt small{font-size:12.5px;color:var(--soft)}
 .mbtns{display:flex;align-items:center;gap:6px}
 .mbtns button{all:unset;cursor:pointer;width:34px;height:34px;display:grid;place-items:center;border-radius:50%;color:var(--fg)}
@@ -540,8 +540,6 @@ button.card:focus-visible{outline:2px solid var(--accent)}
 .eq i:nth-child(2){animation-delay:-.3s}.eq i:nth-child(3){animation-delay:-.6s}
 .eq.still i{animation:none;height:40%}.eq.still i:nth-child(2){height:75%}
 @keyframes eq{0%,100%{height:25%}50%{height:100%}}
-.listening{display:flex;gap:10px;align-items:center;font-size:13.5px;line-height:1.35}
-.listening b{font-weight:600}
 .lcard{background:var(--chip);border-radius:10px;padding:10px 14px;margin:-6px 0 20px}
 .mb.np{flex:none;gap:7px;max-width:240px;overflow:hidden;text-overflow:ellipsis}
 .mb.np>span:last-child{overflow:hidden;text-overflow:ellipsis}
@@ -569,7 +567,7 @@ html,body{margin:0;height:100%;background:#0b1626}
     <span class="rt"><button class="mb mute mutebtn" id="mutebtn" aria-label="Mute site" data-tip="Mute site"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="w1" d="M16.5 8.5a5 5 0 0 1 0 7"/><path class="w2" d="M19 6a8.5 8.5 0 0 1 0 12"/><path class="x" d="m16 9 6 6m0-6-6 6"/></svg></button><button class="mb np" id="np" hidden aria-label="Now playing"><span class="eq"><i></i><i></i><i></i></span><span></span></button><button class="mb srch" id="srchbtn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button><span class="date" id="date"></span><span id="time"></span></span>
   </div>
   <div class="desk" id="desk">
-    <div class="phw" aria-hidden="false"><div class="pht" id="phTime"></div><div class="phd" id="phDate"></div><div class="listening phl"></div></div>
+    <div class="phw" aria-hidden="false"><div class="pht" id="phTime"></div><div class="phd" id="phDate"></div></div>
     <div class="dicons" id="dicons"></div>
     <div class="sysicons" id="sysicons"></div>
     <nav class="dock" id="dock" aria-label="Apps"></nav>
@@ -801,7 +799,6 @@ const ERAS=[
 const APPS={
   about:{t:"About",w:620,h:null,html:()=>`<div class="pad">
     <div class="about-h"><div class="avatar" role="img" aria-label="Poshak"></div><div><h1>Poshak Pathak</h1><p>Data person who builds.</p><span class="status"><i></i>${STATUS}</span></div></div>
-    <div class="listening lcard"></div>
     <div class="prose">
       <p>I came to the University of Louisiana Monroe in 2022 to study computer science and math. Somewhere between problem sets I figured out that my favorite part of any project is the moment the data starts telling a story.</p>
       <p>Since 2024 I've been an undergraduate research assistant, building a <span class="lnk" role="button" tabindex="0" data-open="work" data-p="gan">GAN-based defense</span> against data poisoning in federated learning. I presented it in Las Vegas at ITNG 2025. I've also co-authored <span class="lnk" role="button" tabindex="0" data-open="research">papers on how bilingual people process language</span>.</p>
@@ -867,7 +864,7 @@ const APPS={
   projects:{t:"Projects",w:720,h:520,html:()=>`<div class="fpath">${I.folder}Desktop › Projects · ${PROJECTS.length} items</div><div class="finder">${PROJECTS.map(p=>`<button class="fitem" data-p="${p.id}"><span class="th ${p.img?'':'gan'}" style="${p.img?`background-image:${IMG[p.img]}`:''}"></span><span>${p.name}<small>${p.tags.split(' · ')[0]}</small></span></button>`).join('')}</div>`},
   blogs:{t:"Blogs",w:620,h:420,html:()=>`<div class="fpath">${I.folder}Desktop › Blogs · 2 items</div><div class="finder"><button class="fitem" data-b="ohtani"><span class="th" style="background-image:${IMG.ohtani}"></span><span>Ohtani's impact in year 2<small>June 2025 · Baseball</small></span></button><button class="fitem" data-b="nepal"><span class="pdf"><i></i><i></i><i></i><b>DRAFT</b></span><span>Nepal's death bowling<small>Coming soon · Cricket</small></span></button></div>`},
   papers:{t:"Research",w:720,h:520,html:()=>`<div class="fpath">${I.folder}Desktop › Research · ${PAPERS.length+1} items</div><div class="finder">${PAPERS.map((x,i)=>`<button class="fitem" data-r="${i}"><span class="pdf"><i></i><i></i><i></i><b>PDF</b></span><span>${x[1]}<small>${x[0]}</small></span></button>`).join('')}<button class="fitem" data-r="talks"><span class="pdf"><i></i><i></i><i></i><b>TALKS</b></span><span>Talks &amp; awards<small>2024 – 2025</small></span></button></div>`},
-  music:{t:"Music",w:860,h:560,html:()=>`<div class="work mus"><div class="side"><h4>Library</h4><button data-v="radio">${I.music}PoshakOS Radio</button><h4>Spotify</h4><button data-v="spotify"><span class="sic">${SPOTIFY_IC}</span>Poshak's playlist</button><div class="sfoot"><div class="listening"></div></div></div>
+  music:{t:"Music",w:860,h:560,html:()=>`<div class="work mus"><div class="side"><h4>Library</h4><button data-v="radio">${I.music}PoshakOS Radio</button><h4>Spotify</h4><button data-v="spotify"><span class="sic">${SPOTIFY_IC}</span>Poshak's playlist</button></div>
     <div class="mcol"><div class="wmain" id="mmain"></div>
     <div class="mbar"><div class="mrow"><span id="mcur">0:00</span><input type="range" id="mprog" min="0" max="1000" value="0" aria-label="Song position"><span id="mdur">0:00</span></div>
     <div class="mctl"><span class="cov"></span><div class="mt"><b></b><small>PoshakOS Radio</small></div>
@@ -916,7 +913,6 @@ function open(app,opts={}){
   if(app==="tm")renderTM();
   if(app==="settings")renderSettings();
   if(app==="music")wireMusic(w);
-  renderListening();
   if(app==="research"&&opts.r!=null)hlPaper(opts.r);
   w.querySelectorAll('.fitem[data-p]').forEach(b=>b.onclick=()=>open('work',{p:b.dataset.p}));
   w.querySelectorAll('.fitem[data-b]').forEach(b=>b.onclick=()=>open('notes'));
@@ -1152,13 +1148,12 @@ document.addEventListener('keydown',e=>{
   else if(e.key==='Escape'){if(pal)closePalette();else closeMenu();}
 });
 
-/* music: in-browser lo-fi demo radio, Spotify tab, Last.fm "listening to" */
+/* music: in-browser lo-fi radio and the Spotify playlist, sharing one player bar */
 const SPOTIFY_URL='https://open.spotify.com/playlist/70Kqu0jx1Njlo0RwCMl0Ke';
 const SPOTIFY_EMBED='https://open.spotify.com/embed/playlist/70Kqu0jx1Njlo0RwCMl0Ke?utm_source=generator&theme=0';
 /* true on the real site; the Claude preview runs in a sandboxed frame that blocks Spotify and Last.fm */
 const LIVE=location.protocol==='https:'&&window.top===window;
 const escH=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
-const LASTFM={user:'PoshakPathak',key:'e2dc1014f803a49d6cbf7da28b4fe96c'}; /* public read-only Last.fm key */
 const RADIO=[
   {t:'Lake Monroe',bpm:72,len:120,art:'linear-gradient(160deg,#9cc3ea,#3f6fa8 55%,#1e3557)',prog:[[57,60,64,67],[53,57,60,64],[50,53,57,60],[52,55,59,62]]},
   {t:'Midnight Stockfish',bpm:78,len:108,art:'linear-gradient(160deg,#2b2f45,#5b4b8a 55%,#e0a46a)',prog:[[50,53,57,60],[55,58,62,65],[48,52,55,59],[53,57,60,64]]},
@@ -1193,7 +1188,7 @@ function schedule(){
   }
 }
 function musPlay(i){
-  musInit();try{if(SPOT)SPOT.pause()}catch(e){}if(i!=null&&i!==MUS.idx){MUS.idx=i;MUS.elapsed=0;MUS.step=0;}
+  musInit();try{if(SPOT)SPOT.pause()}catch(e){}SP.on=false;if(i!=null&&i!==MUS.idx){MUS.idx=i;MUS.elapsed=0;MUS.step=0;}
   MUS.ctx.resume();MUS.playing=true;MUS.nextT=MUS.ctx.currentTime+.06;MUS.lastT=performance.now();
   MUS.master.gain.cancelScheduledValues(MUS.ctx.currentTime);MUS.master.gain.setTargetAtTime(MUS.vol*.5,MUS.ctx.currentTime,.05);
   clearInterval(MUS.timer);MUS.timer=setInterval(schedule,25);musRender();
@@ -1205,22 +1200,28 @@ function musTick(){
   const now=performance.now();
   if(MUS.playing){MUS.elapsed+=(now-MUS.lastT)/1000;if(MUS.elapsed>=RADIO[MUS.idx].len){if(MUS.repeat){MUS.elapsed=0;}else musNext(1);}}
   MUS.lastT=now;
-  const w=wins.music;if(w){const tr=RADIO[MUS.idx];const p=w.querySelector('#mprog');if(p){p.value=MUS.elapsed/tr.len*1000;w.querySelector('#mcur').textContent=fmt(MUS.elapsed);}}
+  if(SPOT_EL&&!SPOT_EL.isConnected)spotGone();
+  const w=wins.music;if(w){const p=w.querySelector('#mprog');if(p){
+    if(SP.on){const pos=Math.min(SP.dur,SP.pos+(SP.paused?0:(now-SP.at)/1000));p.value=SP.dur?pos/SP.dur*1000:0;w.querySelector('#mcur').textContent=fmt(pos);}
+    else{const tr=RADIO[MUS.idx];p.value=MUS.elapsed/tr.len*1000;w.querySelector('#mcur').textContent=fmt(MUS.elapsed);}}}
   requestAnimationFrame(musTick);
 }
 requestAnimationFrame(musTick);
 function nowLine(){return MUS.playing?`${RADIO[MUS.idx].t} · PoshakOS Radio`:'';}
 function musRender(){
-  const np=document.getElementById('np');if(np){np.hidden=!MUS.playing;np.querySelector('span:last-child').textContent=MUS.playing?RADIO[MUS.idx].t:'';}
-  renderListening();
+  const spPlaying=SP.on&&!SP.paused,spName=SP.title||"Poshak's playlist";
+  const np=document.getElementById('np');if(np){np.hidden=!(MUS.playing||spPlaying);np.querySelector('span:last-child').textContent=MUS.playing?RADIO[MUS.idx].t:spPlaying?spName:'';}
   const w=wins.music;if(!w)return;
   const tr=RADIO[MUS.idx];
   w.querySelectorAll('.trk').forEach(b=>{b.classList.toggle('on',+b.dataset.i===MUS.idx);b.querySelector('.tn').innerHTML=+b.dataset.i===MUS.idx&&MUS.playing?'<span class="eq"><i></i><i></i><i></i></span>':String(+b.dataset.i+1);});
   const bar=w.querySelector('.mbar');if(!bar)return;
-  bar.querySelector('.cov').style.background=tr.art;bar.querySelector('.mt b').textContent=tr.t;
-  bar.querySelector('#mpp').innerHTML=MUS.playing?'<svg viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>':'<svg viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><path d="M8 5.5v13l11-6.5z"/></svg>';
-  bar.querySelector('#mpp').setAttribute('aria-label',MUS.playing?'Pause':'Play');
-  bar.querySelector('#mdur').textContent=fmt(tr.len);
+  const cov=bar.querySelector('.cov'),playing=SP.on?spPlaying:MUS.playing;
+  bar.classList.toggle('spot-src',SP.on);
+  if(SP.on){cov.style.background=SP.art?`center/cover url("${SP.art}")`:'#1db954';cov.innerHTML=SP.art?'':SPOTIFY_IC;}else{cov.style.background=tr.art;cov.innerHTML='';}
+  bar.querySelector('.mt b').textContent=SP.on?spName:tr.t;bar.querySelector('.mt small').textContent=SP.on?(SP.title?"Spotify · Poshak's playlist":'Spotify'):'PoshakOS Radio';
+  bar.querySelector('#mpp').innerHTML=playing?'<svg viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>':'<svg viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><path d="M8 5.5v13l11-6.5z"/></svg>';
+  bar.querySelector('#mpp').setAttribute('aria-label',playing?'Pause':'Play');
+  bar.querySelector('#mdur').textContent=fmt(SP.on?SP.dur:tr.len);
   bar.querySelector('#msh').classList.toggle('on',MUS.shuffle);bar.querySelector('#mrp').classList.toggle('on',MUS.repeat);
 }
 function musView(v){
@@ -1240,10 +1241,25 @@ function musView(v){
   musRender();
 }
 /* Spotify embed via its iFrame API, so the radio and Spotify never play over each other */
-let SPOT=null,spotApi=null,spotWait=[];
+let SPOT=null,SPOT_EL=null,spotApi=null,spotWait=[];
+/* what the Spotify embed is playing; the bar shows it while Spotify is the active source */
+const SP={on:false,paused:true,uri:'',title:'',art:'',pos:0,dur:0,at:0};
+function spotUpdate(d){
+  if(!d)return;
+  SP.paused=!!d.isPaused;SP.pos=(d.position||0)/1000;SP.dur=(d.duration||0)/1000;SP.at=performance.now();
+  if(!SP.paused){SP.on=true;if(MUS.playing)musPause();}
+  if(d.playingURI&&d.playingURI!==SP.uri){SP.uri=d.playingURI;SP.title='';SP.art='';spotMeta(d.playingURI);}
+  musRender();
+}
+async function spotMeta(uri){
+  const [,kind,id]=uri.split(':');if(!id)return;
+  try{const r=await fetch('https://open.spotify.com/oembed?url='+encodeURIComponent(`https://open.spotify.com/${kind}/${id}`));const j=await r.json();
+    if(SP.uri===uri){SP.title=j.title||'';SP.art=j.thumbnail_url||'';musRender();}}catch(e){}
+}
+function spotGone(){SPOT=null;SPOT_EL=null;if(SP.on){SP.on=false;SP.paused=true;musRender();}}
 function mountSpotify(box){
   const go=api=>{box.innerHTML='<div></div>';api.createController(box.firstChild,{uri:'spotify:playlist:'+SPOTIFY_URL.split('/').pop(),width:'100%',height:380},c=>{
-    SPOT=c;c.addListener('playback_update',e=>{if(e&&e.data&&!e.data.isPaused&&MUS.playing)musPause();});});};
+    SPOT=c;SPOT_EL=box.querySelector('iframe');c.addListener('playback_update',e=>spotUpdate(e&&e.data));});};
   if(spotApi)return go(spotApi);
   spotWait.push(go);
   if(!document.getElementById('spotapi')){
@@ -1257,33 +1273,17 @@ function mountSpotify(box){
 addEventListener('blur',()=>setTimeout(()=>{const f=document.activeElement;if(f&&f.tagName==='IFRAME'&&f.closest('#spotframe')&&MUS.playing)musPause();},0));
 function wireMusic(w){
   w.querySelectorAll('.side [data-v]').forEach(b=>b.onclick=()=>musView(b.dataset.v));
-  w.querySelector('#mpp').onclick=()=>MUS.playing?musPause():musPlay();
-  w.querySelector('#mprev').onclick=()=>{if(MUS.elapsed>3){MUS.elapsed=0;musRender();}else musNext(-1);};
-  w.querySelector('#mnext').onclick=()=>musNext(1);
+  w.querySelector('#mpp').onclick=()=>{if(SP.on&&SPOT){SPOT.togglePlay();return;}MUS.playing?musPause():musPlay();};
+  w.querySelector('#mprev').onclick=()=>{if(SP.on){if(SPOT)SPOT.seek(0);return;}if(MUS.elapsed>3){MUS.elapsed=0;musRender();}else musNext(-1);};
+  w.querySelector('#mnext').onclick=()=>{if(SP.on)return;musNext(1);};
   w.querySelector('#msh').onclick=()=>{MUS.shuffle=!MUS.shuffle;musRender();};
   w.querySelector('#mrp').onclick=()=>{MUS.repeat=!MUS.repeat;musRender();};
-  w.querySelector('#mprog').oninput=e=>{MUS.elapsed=e.target.value/1000*RADIO[MUS.idx].len;};
+  w.querySelector('#mprog').oninput=e=>{if(SP.on){if(SPOT&&SP.dur)SPOT.seek(e.target.value/1000*SP.dur);return;}MUS.elapsed=e.target.value/1000*RADIO[MUS.idx].len;};
   const v=w.querySelector('#mvol');v.value=MUS.vol*100;v.oninput=e=>{MUS.vol=e.target.value/100;if(MUS.ctx&&MUS.playing)MUS.master.gain.setTargetAtTime(MUS.vol*.5,MUS.ctx.currentTime,.05);};
   musView('radio');
 }
 const SPOTIFY_IC='<svg viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm5.5 17.3a.75.75 0 0 1-1 .25c-2.8-1.7-6.4-2.1-10.6-1.2a.75.75 0 1 1-.33-1.46c4.6-1 8.6-.6 11.7 1.4.35.2.46.67.24 1.01zm1.47-3.27a.94.94 0 0 1-1.3.31c-3.2-2-8.1-2.5-11.9-1.4a.94.94 0 0 1-.54-1.8c4.3-1.3 9.7-.7 13.4 1.6.44.27.58.85.31 1.29zm.13-3.4C15.3 8.4 8.9 8.2 5.2 9.3a1.13 1.13 0 1 1-.65-2.16c4.3-1.3 11.3-1.1 15.7 1.6a1.13 1.13 0 1 1-1.15 1.94z"/></svg>';
 
-/* "listening to": Last.fm recent track when configured, otherwise the in-site radio */
-let LFM=null;
-async function pollLastfm(){
-  if(!LIVE||!LASTFM.user||!LASTFM.key)return;
-  try{const r=await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${encodeURIComponent(LASTFM.user)}&api_key=${LASTFM.key}&format=json&limit=1`);const j=await r.json();
-    const t=j.recenttracks.track[0];LFM={name:t.name,artist:t.artist['#text'],now:!!(t['@attr']&&t['@attr'].nowplaying),url:t.url};}catch(e){LFM=null;}
-  renderListening();
-}
-pollLastfm();setInterval(pollLastfm,60000);
-function renderListening(){
-  document.querySelectorAll('.listening').forEach(el=>{
-    if(LFM)el.innerHTML=`<span class="eq${LFM.now?'':' still'}"><i></i><i></i><i></i></span><span><b>${LFM.now?'Listening to':'Last played'}</b> ${escH(LFM.name)} · ${escH(LFM.artist)}</span>`;
-    else if(MUS.playing)el.innerHTML=`<span class="eq"><i></i><i></i><i></i></span><span><b>Playing</b> ${RADIO[MUS.idx].t} · PoshakOS Radio</span>`;
-    else el.innerHTML=`<span class="eq still"><i></i><i></i><i></i></span><span><b>Listening to</b> <span class="muted">${LIVE?'Nothing playing right now':'My live Spotify listening shows here on the live site'}</span></span>`;
-  });
-}
 
 /* background lo-fi on open + "Mute site" button. Browsers hold audio until the first click or key, so start then. */
 function setMuted(v){
@@ -1301,7 +1301,6 @@ document.querySelectorAll('.mutebtn').forEach(b=>b.onclick=e=>{e.stopPropagation
   ev.forEach(t=>addEventListener(t,go,true));
 })();
 
-renderListening();
 document.getElementById('np').onclick=e=>{e.stopPropagation();open('music');};
 /* boot */
 let saved=null;try{saved=localStorage.getItem('poshakos-era')}catch(e){}
@@ -1311,7 +1310,7 @@ const PHONE=matchMedia('(max-width:700px)');
 function setPhone(){os.classList.toggle('phone',PHONE.matches);}
 try{PHONE.addEventListener('change',setPhone)}catch(e){PHONE.addListener(setPhone)}
 setPhone();
-if(!PHONE.matches)open('about');renderListening();
+if(!PHONE.matches)open('about');
 </script>
 
 </body>
