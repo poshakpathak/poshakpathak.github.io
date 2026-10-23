@@ -1,0 +1,30 @@
+name: Update Spotify playlist
+
+on:
+  schedule:
+    - cron: '17 9 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/spotify-playlist.yml', '.github/scripts/spotify-playlist.mjs']
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node .github/scripts/spotify-playlist.mjs 70Kqu0jx1Njlo0RwCMl0Ke
+      - name: Commit if the playlist changed
+        run: |
+          git add playlist.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update Spotify playlist"
+          git push
