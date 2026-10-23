@@ -526,7 +526,8 @@ button.card:focus-visible{outline:2px solid var(--accent)}
 .mctl{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .mctl .cov{width:42px;height:42px;border-radius:6px;flex:none}
 .mctl .cov{display:grid;place-items:center;color:#fff}.mctl .cov svg{width:24px;height:24px}
-.mbar.spot-src #msh,.mbar.spot-src #mrp,.mbar.spot-src #mnext{opacity:.3;pointer-events:none}
+.mbar.spot-src #msh,.mbar.spot-src #mrp,.mbar.spot-src:not(.spot-skip) #mnext{opacity:.3;pointer-events:none}
+.mbar.spot-src #mvol{opacity:.35}
 .mctl .mt{flex:1;min-width:120px;display:grid}.mctl .mt b{font-size:15px;font-weight:600}.mctl .mt small{font-size:12.5px;color:var(--soft)}
 .mbtns{display:flex;align-items:center;gap:6px}
 .mbtns button{all:unset;cursor:pointer;width:34px;height:34px;display:grid;place-items:center;border-radius:50%;color:var(--fg)}
@@ -1209,16 +1210,17 @@ function musTick(){
 requestAnimationFrame(musTick);
 function nowLine(){return MUS.playing?`${RADIO[MUS.idx].t} · PoshakOS Radio`:'';}
 function musRender(){
-  const spPlaying=SP.on&&!SP.paused,spName=SP.title||"Poshak's playlist";
+  const spPlaying=SP.on&&!SP.paused,spName=SP.title||"Poshak's playlist",canSkip=!!(PL&&SPOT);
   const np=document.getElementById('np');if(np){np.hidden=!(MUS.playing||spPlaying);np.querySelector('span:last-child').textContent=MUS.playing?RADIO[MUS.idx].t:spPlaying?spName:'';}
   const w=wins.music;if(!w)return;
   const tr=RADIO[MUS.idx];
   w.querySelectorAll('.trk').forEach(b=>{b.classList.toggle('on',+b.dataset.i===MUS.idx);b.querySelector('.tn').innerHTML=+b.dataset.i===MUS.idx&&MUS.playing?'<span class="eq"><i></i><i></i><i></i></span>':String(+b.dataset.i+1);});
   const bar=w.querySelector('.mbar');if(!bar)return;
   const cov=bar.querySelector('.cov'),playing=SP.on?spPlaying:MUS.playing;
-  bar.classList.toggle('spot-src',SP.on);
+  bar.classList.toggle('spot-src',SP.on);bar.classList.toggle('spot-skip',SP.on&&canSkip);
+  const vol=bar.querySelector('#mvol');vol.disabled=SP.on;vol.title=SP.on?'Spotify plays at your device volume':'';
   if(SP.on){cov.style.background=SP.art?`center/cover url("${SP.art}")`:'#1db954';cov.innerHTML=SP.art?'':SPOTIFY_IC;}else{cov.style.background=tr.art;cov.innerHTML='';}
-  bar.querySelector('.mt b').textContent=SP.on?spName:tr.t;bar.querySelector('.mt small').textContent=SP.on?(SP.title?"Spotify · Poshak's playlist":'Spotify'):'PoshakOS Radio';
+  bar.querySelector('.mt b').textContent=SP.on?spName:tr.t;bar.querySelector('.mt small').textContent=SP.on?(SP.title?(SP.artist?SP.artist+' · Spotify':'Spotify'):'Spotify'):'PoshakOS Radio';
   bar.querySelector('#mpp').innerHTML=playing?'<svg viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>':'<svg viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><path d="M8 5.5v13l11-6.5z"/></svg>';
   bar.querySelector('#mpp').setAttribute('aria-label',playing?'Pause':'Play');
   bar.querySelector('#mdur').textContent=fmt(SP.on?SP.dur:tr.len);
@@ -1234,7 +1236,7 @@ function musView(v){
     main.querySelector('#mplayall').onclick=()=>MUS.playing?musPause():musPlay();
   } else {
     main.innerHTML=`<div class="spot">
-      <div class="spot-h"><span class="spot-ic">${SPOTIFY_IC}</span><div><span class="k">Spotify playlist</span><h2>Poshak's playlist</h2><p class="muted">What I actually listen to. Logged-in Spotify listeners hear full songs; everyone else gets 30-second previews.</p></div></div>
+      <div class="spot-h"><span class="spot-ic">${SPOTIFY_IC}</span><div><span class="k">Spotify playlist</span><h2>Poshak's playlist</h2></div></div>
       <div class="spot-frame" id="spotframe"><div class="spot-ph"><b>The Spotify player appears here on the live site.</b><span>This preview can't load players from other sites.</span><a class="btn" href="${SPOTIFY_URL}" target="_blank" rel="noopener">Open in Spotify ↗</a></div></div></div>`;
     if(LIVE)mountSpotify(main.querySelector('#spotframe'));
   }
@@ -1242,21 +1244,45 @@ function musView(v){
 }
 /* Spotify embed via its iFrame API, so the radio and Spotify never play over each other */
 let SPOT=null,SPOT_EL=null,spotApi=null,spotWait=[];
-/* what the Spotify embed is playing; the bar shows it while Spotify is the active source */
-const SP={on:false,paused:true,uri:'',title:'',art:'',pos:0,dur:0,at:0};
+/* what the Spotify embed is playing; the bar shows it while Spotify is the active source.
+   The embed only reports the playlist, position and duration, so the song is looked up in
+   playlist.json (refreshed daily by a GitHub Action) by its duration, or by the track we loaded. */
+const SP={on:false,paused:true,uri:'',idx:-1,title:'',artist:'',art:'',pos:0,dur:0,at:0,single:false,nearEnd:false};
+let PL=null;
+if(LIVE)fetch('playlist.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{if(j&&j.tracks&&j.tracks.length)PL=j;}).catch(()=>{});
+function spotFind(dur){
+  if(!PL)return -1;
+  const ms=dur*1000,c=PL.tracks.map((t,i)=>[i,Math.abs(t.ms-ms)]).filter(x=>x[1]<1500);
+  if(!c.length)return -1;
+  const want=SP.idx+1;c.sort((x,y)=>x[1]-y[1]||Math.abs(x[0]-want)-Math.abs(y[0]-want));return c[0][0];
+}
+function spotSet(i){
+  if(!PL||i<0||i>=PL.tracks.length)return;
+  if(i!==SP.idx){const t=PL.tracks[i];SP.idx=i;SP.title=t.title;SP.artist=t.artist||'';SP.art='';spotArt(t.uri);}
+}
 function spotUpdate(d){
   if(!d)return;
-  SP.paused=!!d.isPaused;SP.pos=(d.position||0)/1000;SP.dur=(d.duration||0)/1000;SP.at=performance.now();
+  const dur=(d.duration||0)/1000,pos=(d.position||0)/1000,newDur=Math.abs(dur-SP.dur)>.5;
+  /* our own queue: when a song we loaded ends, load the next one */
+  if(SP.single&&SP.nearEnd&&d.isPaused&&(pos<1||pos>=dur-1.5)){SP.nearEnd=false;spotGo(SP.idx+1);return;}
+  SP.paused=!!d.isPaused;SP.pos=pos;SP.dur=dur;SP.at=performance.now();SP.nearEnd=dur>0&&dur-pos<2;
   if(!SP.paused){SP.on=true;if(MUS.playing)musPause();}
-  if(d.playingURI&&d.playingURI!==SP.uri){SP.uri=d.playingURI;SP.title='';SP.art='';spotMeta(d.playingURI);}
+  if(d.playingURI&&d.playingURI!==SP.uri){SP.uri=d.playingURI;SP.single=/^spotify:track:/.test(d.playingURI);
+    if(SP.single&&PL)spotSet(PL.tracks.findIndex(t=>t.uri===d.playingURI));}
+  if(!SP.single&&newDur&&dur>0)spotSet(spotFind(dur));
   musRender();
 }
-async function spotMeta(uri){
-  const [,kind,id]=uri.split(':');if(!id)return;
-  try{const r=await fetch('https://open.spotify.com/oembed?url='+encodeURIComponent(`https://open.spotify.com/${kind}/${id}`));const j=await r.json();
-    if(SP.uri===uri){SP.title=j.title||'';SP.art=j.thumbnail_url||'';musRender();}}catch(e){}
+function spotGo(i){
+  if(!SPOT||!PL)return;
+  i=(i+PL.tracks.length)%PL.tracks.length;spotSet(i);SP.nearEnd=false;
+  SPOT.loadUri(PL.tracks[i].uri);setTimeout(()=>{try{SPOT.play()}catch(e){}},500);musRender();
 }
-function spotGone(){SPOT=null;SPOT_EL=null;if(SP.on){SP.on=false;SP.paused=true;musRender();}}
+async function spotArt(uri){
+  const id=uri.split(':')[2];if(!id)return;
+  try{const r=await fetch('https://open.spotify.com/oembed?url='+encodeURIComponent('https://open.spotify.com/track/'+id));const j=await r.json();
+    if(PL&&PL.tracks[SP.idx]&&PL.tracks[SP.idx].uri===uri){SP.art=j.thumbnail_url||'';musRender();}}catch(e){}
+}
+function spotGone(){SPOT=null;SPOT_EL=null;SP.uri='';SP.single=false;if(SP.on){SP.on=false;SP.paused=true;musRender();}}
 function mountSpotify(box){
   const go=api=>{box.innerHTML='<div></div>';api.createController(box.firstChild,{uri:'spotify:playlist:'+SPOTIFY_URL.split('/').pop(),width:'100%',height:380},c=>{
     SPOT=c;SPOT_EL=box.querySelector('iframe');c.addListener('playback_update',e=>spotUpdate(e&&e.data));});};
@@ -1274,8 +1300,8 @@ addEventListener('blur',()=>setTimeout(()=>{const f=document.activeElement;if(f&
 function wireMusic(w){
   w.querySelectorAll('.side [data-v]').forEach(b=>b.onclick=()=>musView(b.dataset.v));
   w.querySelector('#mpp').onclick=()=>{if(SP.on&&SPOT){SPOT.togglePlay();return;}MUS.playing?musPause():musPlay();};
-  w.querySelector('#mprev').onclick=()=>{if(SP.on){if(SPOT)SPOT.seek(0);return;}if(MUS.elapsed>3){MUS.elapsed=0;musRender();}else musNext(-1);};
-  w.querySelector('#mnext').onclick=()=>{if(SP.on)return;musNext(1);};
+  w.querySelector('#mprev').onclick=()=>{if(SP.on){const pos=SP.pos+(SP.paused?0:(performance.now()-SP.at)/1000);if(pos>3||!PL||SP.idx<0){if(SPOT)SPOT.seek(0);}else spotGo(SP.idx-1);return;}if(MUS.elapsed>3){MUS.elapsed=0;musRender();}else musNext(-1);};
+  w.querySelector('#mnext').onclick=()=>{if(SP.on){if(PL)spotGo(SP.idx+1);return;}musNext(1);};
   w.querySelector('#msh').onclick=()=>{MUS.shuffle=!MUS.shuffle;musRender();};
   w.querySelector('#mrp').onclick=()=>{MUS.repeat=!MUS.repeat;musRender();};
   w.querySelector('#mprog').oninput=e=>{if(SP.on){if(SPOT&&SP.dur)SPOT.seek(e.target.value/1000*SP.dur);return;}MUS.elapsed=e.target.value/1000*RADIO[MUS.idx].len;};
