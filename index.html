@@ -546,6 +546,7 @@ button.card:focus-visible{outline:2px solid var(--accent)}
 .mb.np{flex:none;gap:7px;max-width:240px;overflow:hidden;text-overflow:ellipsis}
 .mb.np>span:last-child{overflow:hidden;text-overflow:ellipsis}
 .spot{display:grid;gap:18px}
+#spotframe iframe{border-radius:12px;display:block}
 .spot-h{display:flex;gap:18px;align-items:center}
 .spot-h h2{margin:2px 0 4px;font-size:26px;font-weight:600}.spot-h p{margin:0;max-width:52ch}.spot-h .k{font-size:13px;color:var(--soft)}
 .spot-ic{width:64px;height:64px;color:#1db954;flex:none}.spot-ic svg{width:64px;height:64px}
@@ -1192,7 +1193,7 @@ function schedule(){
   }
 }
 function musPlay(i){
-  musInit();if(i!=null&&i!==MUS.idx){MUS.idx=i;MUS.elapsed=0;MUS.step=0;}
+  musInit();try{if(SPOT)SPOT.pause()}catch(e){}if(i!=null&&i!==MUS.idx){MUS.idx=i;MUS.elapsed=0;MUS.step=0;}
   MUS.ctx.resume();MUS.playing=true;MUS.nextT=MUS.ctx.currentTime+.06;MUS.lastT=performance.now();
   MUS.master.gain.cancelScheduledValues(MUS.ctx.currentTime);MUS.master.gain.setTargetAtTime(MUS.vol*.5,MUS.ctx.currentTime,.05);
   clearInterval(MUS.timer);MUS.timer=setInterval(schedule,25);musRender();
@@ -1234,10 +1235,26 @@ function musView(v){
     main.innerHTML=`<div class="spot">
       <div class="spot-h"><span class="spot-ic">${SPOTIFY_IC}</span><div><span class="k">Spotify playlist</span><h2>Poshak's playlist</h2><p class="muted">What I actually listen to. Logged-in Spotify listeners hear full songs; everyone else gets 30-second previews.</p></div></div>
       <div class="spot-frame" id="spotframe"><div class="spot-ph"><b>The Spotify player appears here on the live site.</b><span>This preview can't load players from other sites.</span><a class="btn" href="${SPOTIFY_URL}" target="_blank" rel="noopener">Open in Spotify ↗</a></div></div></div>`;
-    if(LIVE){main.querySelector('#spotframe').innerHTML=`<iframe title="Poshak's Spotify playlist" src="${SPOTIFY_EMBED}" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="border-radius:12px"></iframe>`;}
+    if(LIVE)mountSpotify(main.querySelector('#spotframe'));
   }
   musRender();
 }
+/* Spotify embed via its iFrame API, so the radio and Spotify never play over each other */
+let SPOT=null,spotApi=null,spotWait=[];
+function mountSpotify(box){
+  const go=api=>{box.innerHTML='<div></div>';api.createController(box.firstChild,{uri:'spotify:playlist:'+SPOTIFY_URL.split('/').pop(),width:'100%',height:380},c=>{
+    SPOT=c;c.addListener('playback_update',e=>{if(e&&e.data&&!e.data.isPaused&&MUS.playing)musPause();});});};
+  if(spotApi)return go(spotApi);
+  spotWait.push(go);
+  if(!document.getElementById('spotapi')){
+    window.onSpotifyIframeApiReady=api=>{spotApi=api;spotWait.splice(0).forEach(f=>f(api));};
+    const s=document.createElement('script');s.id='spotapi';s.src='https://open.spotify.com/embed/iframe-api/v1';s.async=true;
+    s.onerror=()=>{box.innerHTML=`<iframe title="Poshak's Spotify playlist" src="${SPOTIFY_EMBED}" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" style="border-radius:12px"></iframe>`;};
+    document.head.appendChild(s);
+  }
+}
+/* backup: clicking into the Spotify player moves focus to its frame, so pause the radio then too */
+addEventListener('blur',()=>setTimeout(()=>{const f=document.activeElement;if(f&&f.tagName==='IFRAME'&&f.closest('#spotframe')&&MUS.playing)musPause();},0));
 function wireMusic(w){
   w.querySelectorAll('.side [data-v]').forEach(b=>b.onclick=()=>musView(b.dataset.v));
   w.querySelector('#mpp').onclick=()=>MUS.playing?musPause():musPlay();
