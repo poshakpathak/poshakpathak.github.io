@@ -302,6 +302,44 @@ button.card:focus-visible{outline:2px solid var(--accent)}
 #os.phone[data-era="1984"] .tb .back{color:#000}
 #os.phone[data-era="1995"] .tasks button{max-width:110px}
 
+/* ---------- terminal, toasts, easter eggs ---------- */
+.folder.appi .fi{display:grid;place-items:center}
+.termi{width:58px;height:50px;border-radius:12px;background:linear-gradient(#2a3242,#141a24);color:#e7edf7;font:600 19px/50px var(--mono);text-align:left;padding-left:9px;box-sizing:border-box;box-shadow:0 6px 10px rgba(10,20,40,.3),inset 0 1px rgba(255,255,255,.15)}
+#os.phone .termi{width:50px;height:44px;line-height:44px;font-size:17px}
+#os[data-era="1995"] .termi{border-radius:0;background:#000;color:#c0c0c0;box-shadow:inset -1px -1px #fff,inset 1px 1px #808080;font-family:"Courier New",monospace}
+#os[data-era="1984"] .termi{border-radius:4px;background:#fff;color:#000;border:2px solid #000;box-shadow:none;font-family:"VT323",monospace}
+#os[data-era="2001"] .termi,#os[data-era="2007"] .termi{background:linear-gradient(#fff,#d9dde3);color:#111;border:1px solid #8a93a0}
+#os[data-era="2013"] .termi{border-radius:10px;background:#1d2433;box-shadow:none}
+.win[data-app="term"] .bd{background:#0f141c;overflow:hidden}
+.term{height:100%;box-sizing:border-box;overflow-y:auto;padding:14px 16px 18px;background:#0f141c;color:#d6deeb;font:13.5px/1.55 var(--mono);cursor:text;overscroll-behavior:contain}
+.term .tln{white-space:pre-wrap;word-break:break-word}
+.term b{color:#fff;font-weight:600}
+.term .tdim{color:#7f8ea3}
+.term .tdir{color:#7cc4ff}
+.term .tneo{color:#5ec2ff}
+.term .tps{color:#3cff7a;margin-right:8px;white-space:pre}
+.term .tline{display:flex;align-items:baseline}
+.term input{all:unset;flex:1;min-width:0;color:inherit;font:inherit;caret-color:#3cff7a}
+.term input:disabled{opacity:0}
+.tlink{all:unset;cursor:pointer;color:#7cc4ff;text-decoration:underline;text-underline-offset:2px}
+.tlink:hover{color:#fff}
+.tgame{margin:8px 0}.tgame canvas{display:block;background:#05080d;border:1px solid #2a3242;margin:6px 0;touch-action:none;max-width:100%}
+.sk-h{display:flex;justify-content:space-between;max-width:330px;color:#3cff7a}
+#os[data-era="1995"] .term,#os[data-era="1995"] .win[data-app="term"] .bd{background:#000;color:#c0c0c0;font-family:"Courier New",monospace}
+#os[data-era="1995"] .term .tps{color:#c0c0c0}
+#os[data-era="1984"] .term,#os[data-era="1984"] .win[data-app="term"] .bd{background:#fff;color:#000}
+#os[data-era="1984"] .term .tps,#os[data-era="1984"] .term b,#os[data-era="1984"] .term .tdir,#os[data-era="1984"] .tlink,#os[data-era="1984"] .term .tneo{color:#000}
+#os[data-era="1984"] .term .tdim{color:#555}
+#os[data-era="1984"] .term input{caret-color:#000}
+.linkbtn{all:unset;cursor:pointer;color:var(--accent);font-weight:500;text-decoration:underline;text-underline-offset:2px}
+.toast{position:absolute;left:50%;top:44px;transform:translate(-50%,-12px);z-index:1700;background:rgba(20,28,40,.9);color:#fff;padding:9px 16px;border-radius:999px;font-size:14px;font-weight:500;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);white-space:nowrap;max-width:calc(100% - 32px);overflow:hidden;text-overflow:ellipsis}
+.toast.in{opacity:1;transform:translate(-50%,0)}
+#os[data-era="1995"] .toast,#os[data-era="1984"] .toast{border-radius:0;background:#ffffe1;color:#000;border:1px solid #000}
+.matrix{position:absolute;inset:0;z-index:1800;background:#000;cursor:pointer;transition:opacity .5s}
+.matrix.out{opacity:0}
+#os.roll{animation:roll 1.2s cubic-bezier(.5,0,.3,1)}
+@keyframes roll{to{transform:rotate(360deg)}}
+
 /* =================== ERAS =================== */
 
 /* ---- 2013: flat ---- */
@@ -601,7 +639,7 @@ const SEA=(()=>{
   };
   const autoTod=()=>{const h=new Date().getHours()+new Date().getMinutes()/60;return h<5?'night':h<7.5?'dawn':h<11?'morning':h<15?'midday':h<18?'afternoon':h<20.5?'dusk':'night';};
   const state={tod:'auto',wx:'auto'};
-  const target=()=>Object.assign({},TOD[state.tod==='auto'?autoTod():state.tod],WX[state.wx==='auto'?'clear':state.wx]);
+  const target=()=>Object.assign({},TOD[state.tod==='auto'?autoTod():state.tod],WX[state.wx==='auto'?(state.live||'clear'):state.wx]);
   let cur=JSON.parse(JSON.stringify(target()));
   const ok=!!gl;
   if(!ok){cv.style.display='none';return {ok,state,set(){},TOD,WX,autoTod};}
@@ -753,6 +791,7 @@ const I={
   resume:'<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.6-1.5 1.7-2.2 3-2.2s2.4.7 3 2.2M14 10h4M14 14h4"/></svg>',
   tm:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
   settings:'<svg viewBox="0 0 24 24"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg>',
+  term:'<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3M12 15h5"/></svg>',
   hello:'<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
   music:'<svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>',
   folder:'<svg viewBox="0 0 24 24" style="width:15px;height:15px"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>'
@@ -760,7 +799,7 @@ const I={
 I.projects=I.folder;I.papers=I.folder;I.blogs=I.folder;
 const PAPERS=[["ITNG 2025","GAN defense against data poisoning"],["Int. J. Bilingualism 2025","Immersion and first-language attrition"],["Biling.: Lang. & Cog. 2024","Trilingual parallel processing"],["J Cult Cogn Sci 2021","Second-language instruction and L1 abilities"]];
 const FOLDERS=[["papers","Research",I.research],["projects","Projects",I.work],["blogs","Blogs",I.notes]];
-const COLORS={about:"#2f7bf5",work:"#f5822f",research:"#1fae8c",notes:"#f2b51b",resume:"#e8456b",tm:"#8e5cf0",settings:"#7b8494",hello:"#2f7bf5",music:"#fa2d55"};
+const COLORS={term:"#1d2433",about:"#2f7bf5",work:"#f5822f",research:"#1fae8c",notes:"#f2b51b",resume:"#e8456b",tm:"#8e5cf0",settings:"#7b8494",hello:"#2f7bf5",music:"#fa2d55"};
 
 const PROJECTS=[
   {id:"gan",name:"GAN Defense",tags:"Research · Federated learning · 2025",img:null,
@@ -851,11 +890,12 @@ const APPS={
   tm:{t:"Time Machine",w:620,h:null,html:()=>`<div class="tm"><h2>Time Machine</h2><p class="sub">Travel through interface design history</p>
     <div class="tmcard" id="tmcard"></div><div class="tl" id="tl"></div>
     <div class="keys"><kbd>1</kbd> – <kbd>6</kbd> to switch</div></div>`},
+  term:{t:"Terminal",w:680,h:440,html:()=>`<div class="term"><div id="tout"></div><div class="tline"><span class="tps" id="tps"></span><input id="tin" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Terminal input" enterkeyhint="go"></div></div>`},
   settings:{t:"Settings",w:720,h:600,html:()=>`<div class="set">
     <h4>Environment</h4>
     <div class="grp note" id="presentNote" hidden><div class="row"><div class="hd"><b>You're in <span id="pnEra"></span></b><span>Time of day and weather change the present-day desktop. Switch to present to see them take effect.</span></div><button class="btn" id="toPresent">Switch to present</button></div></div>
     <div class="grp"><div class="hd"><b>Time of day</b><span>Follows your local time</span></div><div class="chips" id="todc"></div></div>
-    <div class="grp"><div class="hd"><b>Weather</b><span>Live weather turns on in the real site. For now, Auto means clear skies.</span></div><div class="chips" id="wxc"></div></div>
+    <div class="grp"><div class="hd"><b>Weather</b><span id="wxnote">Auto shows the live weather.</span></div><div class="chips" id="wxc"></div></div>
     <div class="grp"><div class="hd"><b>Era</b><span>Same as the Time Machine</span></div><div class="chips" id="erachips"></div></div>
     <h4>Sound</h4>
     <div class="grp"><div class="row"><div class="hd"><b>Sound effects</b><span>Soft clicks when windows open and close</span></div><button class="tog" role="switch" aria-checked="false" id="snd" aria-label="Sound effects"></button></div></div>
@@ -914,6 +954,7 @@ function open(app,opts={}){
   if(app==="tm")renderTM();
   if(app==="settings")renderSettings();
   if(app==="music")wireMusic(w);
+  if(app==="term")wireTerm(w);
   if(app==="research"&&opts.r!=null)hlPaper(opts.r);
   w.querySelectorAll('.fitem[data-p]').forEach(b=>b.onclick=()=>open('work',{p:b.dataset.p}));
   w.querySelectorAll('.fitem[data-b]').forEach(b=>b.onclick=()=>open('notes'));
@@ -985,6 +1026,7 @@ function renderSettings(){
   chips(w.querySelector('#wxc'),WXN,SEA.state.wx,k=>{SEA.set('wx',k);renderSettings();blip(520);});
   w.querySelector('#todc').previousElementSibling.querySelector('span').textContent=SEA.state.tod==='auto'?`Follows your local time · now ${TODN[SEA.autoTod()].toLowerCase()}`:'Pinned. Pick Auto to follow your clock.';
   const pn=w.querySelector('#presentNote');pn.hidden=os.dataset.era==='now';w.querySelector('#pnEra').textContent=os.dataset.era;w.querySelector('#toPresent').onclick=()=>setEra('now');
+  if(typeof wxNoteRender==='function')wxNoteRender(w);
   const t=w.querySelector('#snd');t.setAttribute('aria-checked',sound);t.onclick=()=>{sound=!sound;t.setAttribute('aria-checked',sound);blip(700);};
 }
 
@@ -994,19 +1036,19 @@ function markDock(){dock.querySelectorAll('button').forEach(b=>b.classList.toggl
 
 const FOLDSVG='<svg viewBox="0 0 64 52"><path d="M2 7a4 4 0 0 1 4-4h15l6 6h31a4 4 0 0 1 4 4v33a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z" fill="var(--f1)"/><rect x="7" y="11" width="50" height="20" rx="2" fill="var(--pp)"/><path d="M2 17a3 3 0 0 1 3-3h54a3 3 0 0 1 3 3v29a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4z" fill="var(--f2)"/></svg>';
 const di=document.getElementById('dicons');
-di.innerHTML=FOLDERS.map(([a,n,g])=>`<button class="folder" data-a="${a}"><span class="fi">${FOLDSVG}<span class="gl">${g}</span></span><b>${n}</b></button>`).join('');
+di.innerHTML=FOLDERS.map(([a,n,g])=>`<button class="folder" data-a="${a}"><span class="fi">${FOLDSVG}<span class="gl">${g}</span></span><b>${n}</b></button>`).join('')+`<button class="folder appi" data-a="term"><span class="fi"><span class="termi">&gt;_</span></span><b>Terminal</b></button>`;
 di.querySelectorAll('.folder').forEach(b=>b.onclick=()=>open(b.dataset.a));
 
 const si=document.getElementById('sysicons');
 const sm=document.getElementById('startmenu'),items=document.getElementById('startitems');
 function renderIcons(){
   const e=os.dataset.era,x=a=>ERA_ICONS[e]&&ERA_ICONS[e][a]?' x':'';
-  const lbl=a=>a==="settings"&&e==="1995"?"Control Panel":APPS[a].t;
+  const lbl=a=>e==="1995"&&a==="settings"?"Control Panel":e==="1995"&&a==="term"?"MS-DOS Prompt":APPS[a].t;
   dock.innerHTML=DOCK.map(a=>`<button data-a="${a}" aria-label="${APPS[a].t}"><span class="ic${x(a)}" style="--c:${COLORS[a]}">${eraIcon(a,e,"d")}</span><span class="tip">${APPS[a].t}</span></button>`).join('');
   dock.querySelectorAll('button').forEach(b=>b.onclick=()=>open(b.dataset.a));markDock();
   si.innerHTML=DOCK.map(a=>`<button data-a="${a}"><span class="si${x(a)}">${eraIcon(a,e,"s")}</span><span>${lbl(a)}</span></button>`).join('');
   si.querySelectorAll('button').forEach(b=>b.onclick=()=>open(b.dataset.a));
-  items.innerHTML=["projects","papers","blogs",...DOCK,"hello"].map(a=>`<button data-a="${a}">${eraIcon(a,e,"m")}<span>${a==="papers"?"Research papers":lbl(a)}</span></button>`).join('');
+  items.innerHTML=["projects","papers","blogs",...DOCK,"term","hello"].map(a=>`<button data-a="${a}">${eraIcon(a,e,"m")}<span>${a==="papers"?"Research papers":lbl(a)}</span></button>`).join('');
   items.querySelectorAll('button').forEach(b=>b.onclick=()=>open(b.dataset.a));
 }
 renderIcons();
@@ -1051,6 +1093,7 @@ const MENUS={
     {label:'Open Music',act:()=>open('music')},
     {label:'Open Time Machine',act:()=>open('tm')},
     {label:'Open Settings',act:()=>open('settings')},
+    {label:'Open Terminal',act:()=>open('term')},
     {sep:true},
     {label:'Close Window',disabled:!fk,act:()=>fk&&close(fk)}
   ];},
@@ -1105,6 +1148,7 @@ const PAL_BASE=[
   {t:'Résumé',d:'Education, experience and awards',ic:I.resume,go:()=>open('resume')},
   {t:'Time Machine',d:'Travel through interface design history',ic:I.tm,go:()=>open('tm')},
   {t:'Settings',d:'Time of day, weather and sound',ic:I.settings,go:()=>open('settings')},
+  {t:'Terminal',d:'Type help to start. Press ` to toggle',ic:I.term,go:()=>open('term')},
   {t:'Say hello',d:'Email, LinkedIn and X',ic:I.hello,go:()=>open('hello')}
 ];
 const PAL_EXTRA=[
@@ -1326,6 +1370,239 @@ document.querySelectorAll('.mutebtn').forEach(b=>b.onclick=e=>{e.stopPropagation
   try{musInit();if(MUS.ctx.state==='running'){go();return;}}catch(e){}
   ev.forEach(t=>addEventListener(t,go,true));
 })();
+
+/* live weather, the Terminal app and a few easter eggs */
+
+/* ---------- live weather (Open-Meteo, no key) ----------
+   Auto weather follows Dallas–Fort Worth, where I live. "Use my location" swaps in the visitor's
+   coordinates (asked once, kept only in their browser). */
+var WXLIVE={place:'Dallas–Fort Worth',lat:32.78,lon:-96.8,mine:false,kind:null,label:'',t:null};
+try{const s=JSON.parse(localStorage.getItem('poshakos-wxloc')||'null');if(s&&isFinite(s.lat)&&isFinite(s.lon))Object.assign(WXLIVE,{lat:s.lat,lon:s.lon,place:'your location',mine:true});}catch(e){}
+function wmoKind(c){
+  if(c===0||c===1)return['clear',c?'Mostly clear':'Clear'];
+  if(c===2)return['partly','Partly cloudy'];
+  if(c===3)return['overcast','Overcast'];
+  if(c===45||c===48)return['foggy','Foggy'];
+  if((c>=51&&c<=67)||(c>=80&&c<=82))return['rainy',c>=61?'Rainy':'Drizzly'];
+  if((c>=71&&c<=77)||c===85||c===86)return['snowy','Snowy'];
+  if(c>=95)return['stormy','Thunderstorms'];
+  return['clear','Clear'];
+}
+async function wxFetch(){
+  try{
+    const r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${WXLIVE.lat}&longitude=${WXLIVE.lon}&current=weather_code,temperature_2m&temperature_unit=fahrenheit&timezone=auto`);
+    const j=await r.json(),c=j.current;if(!c)return;
+    const [k,l]=wmoKind(c.weather_code);WXLIVE.kind=k;WXLIVE.label=`${l}, ${Math.round(c.temperature_2m)}°F`;SEA.state.live=k;
+    if(typeof renderSettings==='function')renderSettings();
+  }catch(e){}
+}
+wxFetch();setInterval(wxFetch,15*60*1000);
+function wxUseMine(btn){
+  if(!navigator.geolocation){btn.textContent='Not available here';return;}
+  btn.textContent='Finding you…';
+  navigator.geolocation.getCurrentPosition(p=>{
+    Object.assign(WXLIVE,{lat:+p.coords.latitude.toFixed(2),lon:+p.coords.longitude.toFixed(2),place:'your location',mine:true});
+    try{localStorage.setItem('poshakos-wxloc',JSON.stringify({lat:WXLIVE.lat,lon:WXLIVE.lon}))}catch(e){}
+    wxFetch();
+  },()=>{btn.textContent='Location blocked';},{maximumAge:36e5,timeout:1e4});
+}
+function wxUsePoshak(){
+  Object.assign(WXLIVE,{lat:32.78,lon:-96.8,place:'Dallas–Fort Worth',mine:false});
+  try{localStorage.removeItem('poshakos-wxloc')}catch(e){}
+  wxFetch();
+}
+function wxNoteRender(w){
+  const n=w.querySelector('#wxnote');if(!n)return;
+  const now=WXLIVE.kind?`Auto shows the live weather in ${WXLIVE.place}: ${WXLIVE.label.charAt(0).toLowerCase()+WXLIVE.label.slice(1)}.`:`Auto shows the live weather in ${WXLIVE.place}.`;
+  n.innerHTML=`${now} <button class="linkbtn" id="wxloc">${WXLIVE.mine?'Use Poshak’s weather':'Use my location'}</button>`;
+  n.querySelector('#wxloc').onclick=e=>{e.stopPropagation();WXLIVE.mine?wxUsePoshak():wxUseMine(e.target);};
+}
+
+/* ---------- toast ---------- */
+function toast(msg,ms=3200){
+  const t=document.createElement('div');t.className='toast';t.textContent=msg;os.appendChild(t);
+  requestAnimationFrame(()=>t.classList.add('in'));setTimeout(()=>{t.classList.remove('in');setTimeout(()=>t.remove(),300)},ms);
+}
+
+/* ---------- easter eggs ---------- */
+var STORM_T=null;
+function summonStorm(){
+  if(os.dataset.era!=='now')setEra('now');
+  const prev=SEA.state.wx;SEA.state.wx='stormy';clearTimeout(STORM_T);
+  STORM_T=setTimeout(()=>{if(SEA.state.wx==='stormy')SEA.state.wx=prev==='stormy'?'auto':prev;},30000);
+  toast('⚡ Storm summoned. It clears in 30 seconds.');blip(110);
+}
+var KONAMI=['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'],kpos=0;
+document.addEventListener('keydown',e=>{
+  const k=e.key.length===1?e.key.toLowerCase():e.key;
+  kpos=k===KONAMI[kpos]?kpos+1:(k===KONAMI[0]?1:0);
+  if(kpos===KONAMI.length){kpos=0;summonStorm();}
+});
+function matrix(ms=7000){
+  const c=document.createElement('canvas');c.className='matrix';os.appendChild(c);
+  const x=c.getContext('2d'),W=c.width=os.clientWidth,H=c.height=os.clientHeight,fs=16,cols=Math.ceil(W/fs),y=Array(cols).fill(0).map(()=>Math.random()*-40);
+  const chars='アイウエオカキクケコサシスセソ0123456789POSHAK';let alive=true;
+  const end=()=>{if(!alive)return;alive=false;c.classList.add('out');setTimeout(()=>c.remove(),500);};
+  c.onclick=end;setTimeout(end,ms);
+  (function f(){if(!alive)return;x.fillStyle='rgba(0,0,0,.08)';x.fillRect(0,0,W,H);x.fillStyle='#3cff7a';x.font=fs+'px monospace';
+    y.forEach((v,i)=>{x.fillText(chars[Math.random()*chars.length|0],i*fs,v*fs);y[i]=v*fs>H&&Math.random()>.975?0:v+1;});requestAnimationFrame(f);})();
+}
+/* click the PoshakOS logo five times quickly */
+(function(){let n=0,t=0;const b=document.querySelector('.mb[data-m="sys"]');if(!b)return;
+  b.addEventListener('pointerdown',()=>{const now=Date.now();n=now-t<600?n+1:1;t=now;
+    if(n>=5){n=0;setTimeout(()=>{closeMenu();os.classList.remove('roll');void os.offsetWidth;os.classList.add('roll');toast('Do a barrel roll!');setTimeout(()=>os.classList.remove('roll'),1300);},50);}});})();
+
+/* ---------- Terminal ---------- */
+var FS={
+  '~':['about.txt','contact.txt','resume.pdf','projects/','research/','blogs/','music/'],
+  '~/projects':PROJECTS.map(p=>p.id),
+  '~/research':PAPERS.map((p,i)=>'paper-'+(i+1)+'.txt').concat(['talks.txt']),
+  '~/blogs':['ohtani-year-2.md','nepal-death-bowling.md'],
+  '~/music':['poshakos-radio/','poshaks-playlist.spotify']
+};
+var HIDDEN=['.secrets'];
+var CMDS=['help','ls','cd','pwd','cat','open','whoami','about','contact','projects','research','blogs','resume','music','play','pause','next','weather','date','era','time','sky','mute','unmute','clear','history','echo','neofetch','snake','matrix','storm','sudo','fortune','exit'];
+var FORTUNES=['There are 10 kinds of people: those who read binary and those who skip this line.','The best model is the one that ships.','Correlation is not causation, but it is a great place to start digging.','Overfitting: when your model remembers the homework but fails the test.','Every chess game starts the same. That is the only easy part.','Clean data is a myth. Cleaned data is a lot of work.'];
+function termPrompt(cwd){const e=os.dataset.era;return e==='1995'?`C:\\POSHAK${cwd==='~'?'':'\\'+cwd.slice(2).toUpperCase()}>`:e==='1984'?'>':`poshak@poshakos ${cwd} %`;}
+function escT(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);}
+function wireTerm(w){
+  const out=w.querySelector('#tout'),inp=w.querySelector('#tin'),ps=w.querySelector('#tps'),box=w.querySelector('.term');
+  const st={cwd:'~',hist:[],hi:0,game:null};
+  const print=(h,cls)=>{const d=document.createElement('div');d.className='tln'+(cls?' '+cls:'');d.innerHTML=h;out.appendChild(d);box.scrollTop=box.scrollHeight;return d;};
+  const setPs=()=>{ps.textContent=termPrompt(st.cwd);};
+  const resolve=p=>{if(!p||p==='~')return'~';if(p==='..')return'~';if(p.startsWith('~/'))p=p.slice(2);p=p.replace(/\/$/,'');return st.cwd==='~'?'~/'+p:st.cwd+'/'+p;};
+  const link=(label,app,opts)=>`<button class="tlink" data-a="${app}"${opts?` data-o='${JSON.stringify(opts)}'`:''}>${label}</button>`;
+  const files={
+    '~/about.txt':()=>`Poshak Pathak. Data person who builds.\nCS + Math at the University of Louisiana Monroe, graduating December 2026.\nResearch: GAN-based defenses for federated learning, and bilingual language processing.\nAlso: chess, baseball, cricket and anything with a good dataset.`,
+    '~/contact.txt':()=>`email     ${EMAIL}\nlinkedin  ${LINKEDIN}\nx         ${XURL}`,
+    '~/resume.pdf':()=>`This one is a PDF. Try: open resume`,
+    '~/.secrets':()=>`Some things to try:\n  snake        a quick game\n  matrix       follow the white rabbit\n  storm        summon a storm over the ocean\n  ↑↑↓↓←→←→BA   the classic, anywhere on the desktop\n  Click the black dot in the top-left corner five times fast.`,
+    '~/research/talks.txt':()=>`2025  ITNG Conference, Las Vegas\n2024  ULM Research Symposium, 1st place\n2024  Louisiana Academy of Science`,
+    '~/music/poshaks-playlist.spotify':()=>`Open it with: open music`,
+    '~/blogs/ohtani-year-2.md':()=>`Ohtani's impact in year 2 with the Dodgers (June 2025). Read it with: open notes`,
+    '~/blogs/nepal-death-bowling.md':()=>`Nepal's death bowling. Draft, coming soon.`
+  };
+  PROJECTS.forEach(p=>files['~/projects/'+p.id]=()=>`${p.name}\n${p.tags}\n\n${p.desc}\n\nOpen it with: open ${p.id}`);
+  PAPERS.forEach((p,i)=>files['~/research/paper-'+(i+1)+'.txt']=()=>`${p[1]}\n${p[0]}`);
+  const run=raw=>{
+    const line=raw.trim();print(`<span class="tps">${escT(termPrompt(st.cwd))}</span> ${escT(line)}`);
+    if(!line)return;st.hist.push(line);st.hi=st.hist.length;
+    const [cmd,...args]=line.split(/\s+/),a=args.join(' '),c=cmd.toLowerCase();
+    const P=t=>print(escT(t));
+    switch(c){
+      case 'help':if(box.clientWidth<520){print(`<span class="tdim">Things you can type:</span>
+`+[['ls','list files'],['cd','change folder'],['cat','read a file'],['open','open an app or project'],['whoami','who I am'],['projects','my projects'],['research','papers and talks'],['blogs','my writing'],['resume','my résumé'],['contact','say hello'],['music','play, pause, next'],['weather','the live weather'],['sky','e.g. sky night'],['era','time travel'],['neofetch','system info'],['clear','clean the screen']].map(([c,d])=>`  <b>${c.padEnd(9)}</b>${d}`).join('\n')+`
+<span class="tdim">There are a few secrets in here too. Try ls -a.</span>`);break;}
+        print(`<span class="tdim">Things you can type:</span>
+  <b>ls</b> [dir]       list files        <b>cd</b> dir     change folder
+  <b>cat</b> file       read a file       <b>open</b> name  open an app or project
+  <b>whoami</b>         who I am          <b>projects</b>   my projects
+  <b>research</b>       papers and talks  <b>blogs</b>      my writing
+  <b>resume</b>         my résumé         <b>contact</b>    say hello
+  <b>music</b> | play | pause | next       PoshakOS Radio
+  <b>weather</b>        the live weather  <b>sky</b> time  e.g. sky night
+  <b>era</b> year       time travel       <b>neofetch</b>   system info
+  <b>clear</b>  <b>history</b>  <b>echo</b>  <b>date</b>  <b>fortune</b>  <b>exit</b>
+<span class="tdim">There are a few secrets in here too. Try ls -a.</span>`);break;
+      case 'ls':{const all=args.includes('-a');const d=resolve(args.filter(x=>x!=='-a')[0]||(st.cwd==='~'?'~':st.cwd));
+        const list=FS[d];if(!list){P(`ls: ${a}: No such directory`);break;}
+        print((all&&d==='~'?HIDDEN.concat(list):list).map(f=>f.endsWith('/')?`<span class="tdir">${escT(f)}</span>`:escT(f)).join('   '));break;}
+      case 'cd':{const d=resolve(args[0]);if(FS[d]){st.cwd=d;setPs();}else P(`cd: no such directory: ${a}`);break;}
+      case 'pwd':P(st.cwd.replace('~','/Users/poshak'));break;
+      case 'cat':{if(!args[0]){P('cat: which file?');break;}const f=resolve(args[0]),fn=files[f]||files['~/'+args[0]];fn?P(fn()):P(`cat: ${a}: No such file`);break;}
+      case 'open':{const n=(args[0]||'').toLowerCase().replace(/\/$/,'');
+        const map={about:'about',resume:'resume',music:'music',settings:'settings',tm:'tm','time-machine':'tm',timemachine:'tm',projects:'projects',research:'papers',papers:'papers',blogs:'blogs',notes:'notes',hello:'hello',contact:'hello',terminal:'term'};
+        if(map[n]){open(map[n]);P(`Opening ${APPS[map[n]].t}…`);}
+        else if(PROJECTS.find(p=>p.id===n)){open('work',{p:n});P(`Opening ${PROJECTS.find(p=>p.id===n).name}…`);}
+        else P(n?`open: can't find "${n}". Try: open projects`:'open: what should I open? Try: open about');break;}
+      case 'whoami':case 'about':P(files['~/about.txt']());print(link('Open About →','about'));break;
+      case 'contact':case 'hello':P(files['~/contact.txt']());print(link('Say hello →','hello'));break;
+      case 'projects':print(PROJECTS.map(p=>`${link(escT(p.name),'work',{p:p.id})}  <span class="tdim">${escT(p.tags)}</span>`).join('\n'));break;
+      case 'research':case 'papers':print(PAPERS.map((p,i)=>`${link(escT(p[1]),'research',{r:String(i)})}  <span class="tdim">${escT(p[0])}</span>`).join('\n'));break;
+      case 'blogs':print(`${link("Ohtani's impact in year 2 with the Dodgers",'notes')}  <span class="tdim">June 2025</span>\nNepal's death bowling  <span class="tdim">Draft</span>`);break;
+      case 'resume':open('resume');P('Opening Résumé…');break;
+      case 'music':case 'play':musPlay();P(`♪ Now playing: ${RADIO[MUS.idx].t} · PoshakOS Radio`);break;
+      case 'pause':case 'stop':musPause();P('Paused.');break;
+      case 'next':musNext(1);if(!MUS.playing)musPlay();P(`♪ Now playing: ${RADIO[MUS.idx].t}`);break;
+      case 'mute':setMuted(true);P('Site muted.');break;
+      case 'unmute':setMuted(false);P('Sound on.');break;
+      case 'weather':P(WXLIVE.kind?`${WXLIVE.label} in ${WXLIVE.place}.`:`Couldn't reach the weather service just now.`);break;
+      case 'date':P(new Date().toString());break;
+      case 'era':{const y=(args[0]||'').toLowerCase();const e=ERAS.find(x=>x.k===y||(y==='today'||y==='2026')&&x.k==='now');
+        if(e){setEra(e.k);setPs();P(`Welcome to ${e.k==='now'?'the present':e.k}. ${e.t}.`);}else P(`Pick one: ${ERAS.map(x=>x.k==='now'?'now':x.k).join(', ')}`);break;}
+      case 'time':case 'sky':{const v=(args[0]||'').toLowerCase();
+        if(SEA.TOD[v]||v==='auto'){SEA.set('tod',v);if(os.dataset.era!=='now')setEra('now');renderSettings();P(`The sky is now set to ${v}.`);}
+        else if(SEA.WX[v]){SEA.set('wx',v);if(os.dataset.era!=='now')setEra('now');renderSettings();P(`Weather set to ${v}.`);}
+        else P(`Try: sky dawn | morning | midday | afternoon | dusk | night | auto\n  or: sky clear | partly | overcast | foggy | rainy | snowy | stormy`);break;}
+      case 'clear':out.innerHTML='';break;
+      case 'history':P(st.hist.map((h,i)=>`${String(i+1).padStart(4)}  ${h}`).join('\n'));break;
+      case 'echo':P(a);break;
+      case 'neofetch':print(`<span class="tneo">   ~~~~      </span><b>poshak</b>@<b>poshakos</b>
+<span class="tneo">  ~ ~~ ~     </span>OS: PoshakOS 0.2 (${os.dataset.era==='now'?'Now':os.dataset.era})
+<span class="tneo"> ~~~~~~~~    </span>Host: ${escT(location.host||'localhost')}
+<span class="tneo">~~ ~~~~ ~~   </span>Shell: poshsh
+<span class="tneo"> ~~~~~~~~    </span>Wallpaper: live ocean, ${escT(SEA.state.tod==='auto'?SEA.autoTod():SEA.state.tod)}
+<span class="tneo">  ~~~~~~     </span>Weather: ${escT(WXLIVE.label||'unknown')}
+<span class="tneo">             </span>Music: ${MUS.playing?escT(RADIO[MUS.idx].t):'paused'}
+<span class="tneo">             </span>Uptime: ${Math.round(performance.now()/60000)} min`);break;
+      case 'fortune':P(FORTUNES[Math.random()*FORTUNES.length|0]);break;
+      case 'snake':snake(print,box,()=>{inp.disabled=false;inp.focus();});inp.disabled=true;break;
+      case 'matrix':P('Wake up, Neo… (click to exit)');matrix();break;
+      case 'storm':summonStorm();P('⚡');break;
+      case 'sudo':P(`${a?`sudo ${a}: `:''}Nice try. This incident will be reported to Poshak.`);break;
+      case 'rm':P(/-rf?\s+\/|-rf?\s+\*/.test(a)?'Absolutely not. The ocean stays.':`rm: permission denied`);break;
+      case 'vim':case 'vi':case 'nano':case 'emacs':P(`${c}: this is a read-only OS. You're safe. (Also, :q!)`);break;
+      case 'exit':case 'quit':close('term');break;
+      default:P(`poshsh: command not found: ${cmd}. Type help.`);
+    }
+  };
+  const complete=()=>{
+    const v=inp.value,parts=v.split(/\s+/),last=parts[parts.length-1];
+    let pool;if(parts.length===1)pool=CMDS;else{const dir=last.includes('/')?resolve(last.slice(0,last.lastIndexOf('/'))):st.cwd;pool=(FS[dir]||[]).map(f=>(last.includes('/')?last.slice(0,last.lastIndexOf('/')+1):'')+f);}
+    const m=pool.filter(x=>x.startsWith(last));
+    if(m.length===1){parts[parts.length-1]=m[0];inp.value=parts.join(' ')+(m[0].endsWith('/')?'':' ');}
+    else if(m.length>1)print(m.map(escT).join('   '),'tdim');
+  };
+  inp.addEventListener('keydown',e=>{
+    if(e.key==='Enter'){run(inp.value);inp.value='';}
+    else if(e.key==='ArrowUp'){e.preventDefault();if(st.hi>0){st.hi--;inp.value=st.hist[st.hi];}}
+    else if(e.key==='ArrowDown'){e.preventDefault();if(st.hi<st.hist.length-1){st.hi++;inp.value=st.hist[st.hi];}else{st.hi=st.hist.length;inp.value='';}}
+    else if(e.key==='Tab'){e.preventDefault();complete();}
+    else if(e.key==='l'&&e.ctrlKey){e.preventDefault();out.innerHTML='';}
+    e.stopPropagation();
+  });
+  box.addEventListener('click',e=>{const l=e.target.closest('.tlink');if(l){const o=l.dataset.o?JSON.parse(l.dataset.o):{};open(l.dataset.a,o);return;}if(!getSelection().toString()&&!inp.disabled)inp.focus();});
+  setPs();
+  print(`PoshakOS Terminal. Type <b>help</b> to see what you can do.`,'tdim');
+  setTimeout(()=>inp.focus({preventScroll:true}),60);
+}
+/* backtick opens the Terminal from anywhere */
+document.addEventListener('keydown',e=>{if(e.key==='`'&&!e.target.closest('input,textarea')&&!e.metaKey&&!e.ctrlKey){e.preventDefault();wins.term?close('term'):open('term');}});
+
+/* snake, inside the terminal. Arrows/WASD or swipe; Q or Esc quits. */
+function snake(print,box,done){
+  const N=20,cs=Math.max(10,Math.min(16,Math.floor((box.clientWidth-40)/N)));
+  const d=print('','tgame');d.innerHTML=`<div class="sk-h"><span>SNAKE</span><span class="sk-s">score 0 · best ${+(localStorage.getItem('poshakos-snake')||0)}</span></div><canvas width="${N*cs}" height="${N*cs}"></canvas><div class="tdim">Arrows or WASD to move, swipe on a phone. Q to quit.</div>`;
+  const c=d.querySelector('canvas'),x=c.getContext('2d'),sc=d.querySelector('.sk-s');box.scrollTop=box.scrollHeight;
+  let s=[[10,10],[9,10],[8,10]],dir=[1,0],nd=[1,0],food=[15,10],score=0,alive=true,best=+(localStorage.getItem('poshakos-snake')||0);
+  const place=()=>{do{food=[Math.random()*N|0,Math.random()*N|0];}while(s.some(p=>p[0]===food[0]&&p[1]===food[1]));};
+  const key=e=>{const k=e.key.toLowerCase();const m={arrowup:[0,-1],w:[0,-1],arrowdown:[0,1],s:[0,1],arrowleft:[-1,0],a:[-1,0],arrowright:[1,0],d:[1,0]}[k];
+    if(m){e.preventDefault();e.stopPropagation();if(m[0]!==-dir[0]||m[1]!==-dir[1])nd=m;}else if(k==='q'||k==='escape'){e.preventDefault();e.stopPropagation();stop('Quit.');}};
+  let tx=0,ty=0;const ts=e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY;},te=e=>{const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.max(Math.abs(dx),Math.abs(dy))<20)return;const m=Math.abs(dx)>Math.abs(dy)?[Math.sign(dx),0]:[0,Math.sign(dy)];if(m[0]!==-dir[0]||m[1]!==-dir[1])nd=m;};
+  document.addEventListener('keydown',key,true);c.addEventListener('touchstart',ts,{passive:true});c.addEventListener('touchend',te);
+  const css=getComputedStyle(box),fg=css.color,ac='#3cff7a',fd='#ff5f6d';
+  const draw=()=>{x.clearRect(0,0,c.width,c.height);x.fillStyle=fd;x.fillRect(food[0]*cs+2,food[1]*cs+2,cs-4,cs-4);s.forEach((p,i)=>{x.fillStyle=i?fg:ac;x.fillRect(p[0]*cs+1,p[1]*cs+1,cs-2,cs-2);});};
+  const stop=msg=>{if(!alive)return;alive=false;clearInterval(t);document.removeEventListener('keydown',key,true);
+    if(score>best){best=score;try{localStorage.setItem('poshakos-snake',best)}catch(e){}msg+=' New best!';}
+    print(`${msg} Score: ${score}.`);done();};
+  const t=setInterval(()=>{
+    if(!c.isConnected)return stop('');
+    dir=nd;const h=[s[0][0]+dir[0],s[0][1]+dir[1]];
+    if(h[0]<0||h[1]<0||h[0]>=N||h[1]>=N||s.some(p=>p[0]===h[0]&&p[1]===h[1])){blip(160);return stop('Game over.');}
+    s.unshift(h);if(h[0]===food[0]&&h[1]===food[1]){score++;blip(900);place();sc.textContent=`score ${score} · best ${Math.max(best,score)}`;}else s.pop();draw();
+  },110);
+  draw();
+}
 
 document.getElementById('np').onclick=e=>{e.stopPropagation();open('music');};
 /* boot */
