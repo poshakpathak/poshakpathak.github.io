@@ -189,6 +189,7 @@ button.card:focus-visible{outline:2px solid var(--accent)}
 .sect{font-size:13px;color:var(--soft);font-weight:500;margin:0 0 14px}
 .sect.mt{margin-top:28px}
 .post{display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;align-items:center}
+button.card.post{gap:16px;text-align:left}
 .post .im{aspect-ratio:1;border-radius:10px;background-size:cover;background-position:center}
 
 .doc{background:#fff;margin:22px auto;max-width:640px;padding:36px 40px;box-shadow:0 2px 12px rgba(0,0,0,.08);border-radius:4px;font-size:14.5px;line-height:1.5;color:#1b1f27}
@@ -199,6 +200,36 @@ button.card:focus-visible{outline:2px solid var(--accent)}
 .doc .r span{color:#667085;font-variant-numeric:tabular-nums;font-size:13px}
 .doc ul{margin:4px 0 10px;padding-left:18px}
 .doc p{margin:2px 0 8px}
+.rd{background:var(--card);min-height:100%}
+.rdbar{position:sticky;top:0;height:3px;z-index:2}.rdbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#005a9c,#2f6fec,#ef3e42);transition:width .1s}
+.art{max-width:620px;margin:0 auto;padding:30px 32px 48px;font-size:15.5px;line-height:1.68;color:var(--fg)}
+.art .tag{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#005a9c;background:color-mix(in srgb,#005a9c 10%,transparent);padding:3px 9px;border-radius:99px}
+.art h1{font-size:28px;line-height:1.2;letter-spacing:-.02em;margin:12px 0 8px;text-wrap:balance}
+.art .by{color:var(--soft);font-size:13px;margin:0}
+.art figure{margin:22px -12px 8px}.art figure img{width:100%;display:block;border-radius:12px;aspect-ratio:16/9;object-fit:cover;background:var(--chip)}
+.art figcaption{font-size:12.5px;color:var(--soft);text-align:center;margin-top:8px}
+.art h2{font-size:19px;letter-spacing:-.01em;margin:32px 0 6px}
+.art p{margin:0 0 14px}.art ul,.art ol{margin:0 0 14px;padding-left:22px}.art li{margin:4px 0}
+.art .tw{overflow-x:auto;margin:6px 0 16px;border:1px solid var(--line);border-radius:12px}
+.art table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+.art th{text-align:left;font-size:12px;font-weight:600;color:var(--soft);background:var(--chip);padding:9px 14px;white-space:nowrap}
+.art td{padding:9px 14px;border-top:1px solid var(--line);white-space:nowrap}.art td:first-child{font-weight:500}
+.art td.up{color:#005a9c;font-weight:600}
+.art .call{border-left:3px solid #005a9c;padding:4px 0 4px 14px;color:var(--soft);font-style:italic}
+.art .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:10px;margin:8px 0 18px}
+.art .stats div{border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;gap:2px}
+.art .stats b{font-size:22px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:#005a9c}
+.art .stats span{font-size:13px;font-weight:500;line-height:1.3}.art .stats small{font-size:12px;color:var(--soft)}
+.art .vs{display:grid;gap:10px;margin:8px 0 18px;padding:14px 16px;border:1px solid var(--line);border-radius:12px}
+.art .vs div{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font-size:13.5px}.art .vs b{font-variant-numeric:tabular-nums}
+.art .vs i{grid-column:1/-1;height:8px;border-radius:99px;background:#005a9c}.art .vs div+div i{background:#9aa4b2}
+.art blockquote{margin:26px 0 0;padding:18px 0 0;border-top:1px solid var(--line);font-size:21px;font-weight:600;letter-spacing:-.01em;text-align:center;font-style:italic}
+#os.phone .art{padding:22px 18px 40px;font-size:15px}#os.phone .art h1{font-size:23px}#os.phone .art figure{margin:18px 0 8px}
+#os[data-era="1984"] .art figure img{filter:grayscale(1) contrast(1.15);border-radius:0}
+#os[data-era="1984"] .art .tag,#os[data-era="1984"] .art td.up,#os[data-era="1984"] .art .stats b{color:#000;background:none}
+#os[data-era="1984"] .art .tw,#os[data-era="1984"] .art .stats div,#os[data-era="1984"] .art .vs{border-radius:0;border-color:#000}
+#os[data-era="1984"] .art .vs i,#os[data-era="1984"] .rdbar i{background:#000}
+#os[data-era="1995"] .art .tw,#os[data-era="1995"] .art .stats div,#os[data-era="1995"] .art .vs,#os[data-era="1995"] .art figure img{border-radius:0}
 .rbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(--line);background:rgba(240,242,246,.75);font-size:13px;color:var(--soft);position:sticky;top:0}
 
 .tm{padding:22px 28px 26px;text-align:center}
@@ -785,7 +816,7 @@ function applyWall(era){
 
 </script>
 <script>
-const IMG={chess:"url(assets/os/Chess.jpg)",breast:"url(assets/os/Breast.jpg)",pict:"url(assets/os/Pict.jpg)",marky:"url(assets/os/Marky.jpg)",mart:"url(assets/os/martingale.jpg)",imp:"url(assets/os/imposter.jpg)",ohtani:"url(assets/os/ohtani.jpg)"};
+const IMG={chess:"url(assets/os/Chess.jpg)",breast:"url(assets/os/Breast.jpg)",pict:"url(assets/os/Pict.jpg)",marky:"url(assets/os/Marky.jpg)",mart:"url(assets/os/martingale.jpg)",imp:"url(assets/os/imposter.jpg)",ohtani:"url(assets/os/ohtani.jpg)",homer:"assets/os/ohtanihomer.jpg"};
 const I={
   about:'<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>',
   work:'<svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg>',
@@ -799,7 +830,7 @@ const I={
   music:'<svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>',
   folder:'<svg viewBox="0 0 24 24" style="width:15px;height:15px"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>'
 };
-I.projects=I.folder;I.papers=I.folder;I.blogs=I.folder;
+I.post=I.notes;I.projects=I.folder;I.papers=I.folder;I.blogs=I.folder;
 const PAPERS=[["ITNG 2025","GAN defense against data poisoning"],["Int. J. Bilingualism 2025","Immersion and first-language attrition"],["Biling.: Lang. & Cog. 2024","Trilingual parallel processing"],["J Cult Cogn Sci 2021","Second-language instruction and L1 abilities"]];
 const FOLDERS=[["papers","Research",I.research],["projects","Projects",I.work],["blogs","Blogs",I.notes]];
 const COLORS={term:"#1d2433",about:"#2f7bf5",work:"#f5822f",research:"#1fae8c",notes:"#f2b51b",resume:"#e8456b",tm:"#8e5cf0",settings:"#7b8494",hello:"#2f7bf5",music:"#fa2d55"};
@@ -866,9 +897,64 @@ const APPS={
   notes:{t:"Notes",w:640,h:520,html:()=>`<div class="pad">
     <p class="sect">Writing</p>
     <div class="list">
-      <div class="card post"><div class="im" style="background-image:${IMG.ohtani}"></div><div><span class="k">June 2025 · Baseball</span><h3>Ohtani's impact in year 2 with the Dodgers</h3><p>Exploring Ohtani's offensive explosion in his second season, so far.</p></div></div>
-      <div class="card"><span class="k">Draft · Cricket</span><h3>Nepal's death bowling, by the numbers</h3><p>Ball-by-ball data from the final overs against Scotland, Namibia and the Netherlands.</p></div>
+      <button class="card post" data-b="ohtani"><div class="im" style="background-image:${IMG.ohtani}"></div><div><span class="k">June 2025 · Baseball · 4 min read</span><h3>Ohtani's impact in year 2 with the Dodgers</h3><p>Exploring Ohtani's offensive explosion in his second season, so far.</p></div></button>
     </div></div>`},
+  post:{t:"Ohtani's impact in year 2",w:760,h:640,html:()=>`<div class="rd"><div class="rdbar"><i></i></div>
+    <article class="art">
+      <header><span class="tag">Baseball analysis</span><h1>What the numbers say about Shohei Ohtani’s impact in year 2 with the Dodgers</h1><p class="by">Poshak Pathak · <time datetime="2025-06-07">June 7, 2025</time> · 4 min read</p></header>
+      <figure><img src="${IMG.homer}" alt="Shohei Ohtani rounding the bases after a home run" loading="lazy"><figcaption>Ohtani homers against his former team, the Angels.</figcaption></figure>
+      <h2>The big picture</h2>
+      <p>Shohei Ohtani’s first season with the Dodgers was full of spectacle: towering homers, elite velocity, and his uncanny ability to make routine games feel like major events. But 2025 had something which put him in a less than ideal situation: a UCL injury which sidelined his pitching, limiting him to DH duties.</p>
+      <p>Some thought losing half his value would hurt the Dodgers. Instead, he proved them wrong, shifting the narrative. Shohei might not be throwing 100 this season, but his bat is doing more than enough heavy lifting, and he has the numbers to back it up.</p>
+      <p>Ohtani hasn’t pitched in 2025 yet but he’s still the most impactful player on the field. Whether it’s a 440-foot no-doubter or a disciplined two-strike walk, he’s doing things most hitters can’t. Let’s dive into the analytics behind his offensive explosion in Year 2 with the Dodgers.</p>
+      <h2>Ohtani at the plate: the raw output</h2>
+      <div class="tw"><table><thead><tr><th>Stat</th><th>2024</th><th>2025</th><th>League avg</th></tr></thead><tbody>
+        <tr><td>wOBA</td><td>.387</td><td class="up">.413</td><td>.318</td></tr>
+        <tr><td>xwOBA</td><td>.374</td><td class="up">.402</td><td>.318</td></tr>
+        <tr><td>SLG / xSLG</td><td>.654 / .627</td><td class="up">.689 / .675</td><td>.410 / .400</td></tr>
+        <tr><td>K% / BB%</td><td>24.4% / 10.4%</td><td class="up">22.1% / 11.9%</td><td>22.5% / 8.4%</td></tr>
+      </tbody></table></div>
+      <p>Ohtani is not just hitting well, he is outperforming his expected stats. His xSLG of .675 places him among the elite power hitters in the league, while his reduced strikeout rate and improved walk rate show growth in plate discipline.</p>
+      <p>What stands out most is that despite his power, he’s not over-relying on it. He’s walking more, chasing less, and making better swing decisions. He is any pitcher’s nightmare (well, maybe not Paul Skenes’).</p>
+      <p class="call">Key takeaway: has he improved his discipline or power? Is he over- or underperforming his expected stats?</p>
+      <h2>Under the hood: plate discipline changes</h2>
+      <div class="stats">
+        <div><b>23.4%</b><span>Chase rate</span><small>down from 26.1%</small></div>
+        <div><b>78.3%</b><span>Contact rate</span><small>up from 75.6%</small></div>
+        <div><b>67.8%</b><span>Zone swing</span><small>steady</small></div>
+        <div><b>24.5%</b><span>Whiff rate</span><small>improved</small></div>
+      </div>
+      <p>This tells us two key things:</p>
+      <ol><li>He’s swinging at better pitches, evident by fewer chases and more in-zone swings.</li><li>He’s making more contact when he does swing.</li></ol>
+      <p>The result? More walks, fewer strikeouts, and consistently high-quality contact.</p>
+      <h2>Splits and situational impact</h2>
+      <p>Ohtani’s splits show he’s not just feasting on fastballs or right-handed pitchers. He’s crushing everything.</p>
+      <div class="tw"><table><thead><tr><th>Situation</th><th>wOBA</th><th>OPS</th></tr></thead><tbody>
+        <tr><td>vs RHP</td><td>.421</td><td>1.089</td></tr>
+        <tr><td>vs LHP</td><td>.389</td><td>.985</td></tr>
+        <tr><td>RISP</td><td>.445</td><td>1.112</td></tr>
+        <tr><td>Late &amp; close</td><td class="up">.453</td><td class="up">1.139</td></tr>
+        <tr><td>Home</td><td>.432</td><td>1.144</td></tr>
+        <tr><td>Away</td><td>.398</td><td>1.012</td></tr>
+      </tbody></table></div>
+      <p>These numbers show that he is performing better in pressure moments and with runners on base. He is a reliable run creator for the 2025 Dodgers, not just someone who is Instagram-reel worthy.</p>
+      <h2>The Ohtani effect</h2>
+      <p>Here’s where we zoom out a bit. Shohei’s presence reshapes how pitchers approach the entire Dodgers lineup:</p>
+      <ul><li><strong>Zone % to hitters before him</strong> is down, with pitchers trying to navigate the top carefully.</li><li><strong>Freddie Freeman’s walk rate</strong> has increased with Ohtani batting behind him.</li></ul>
+      <div class="vs"><div><span>Team wRC+ with Ohtani</span><b>122</b><i style="width:100%"></i></div><div><span>Without him (rest days)</span><b>106</b><i style="width:86.9%"></i></div></div>
+      <p>Even when he’s not hitting homers, his presence forces tougher pitch decisions across the board. He expands the Dodgers’ margin of error with every plate appearance.</p>
+      <h2>More impact: WPA and run value</h2>
+      <div class="stats">
+        <div><b>+2.91</b><span>Win probability added</span><small>top 5 in MLB</small></div>
+        <div><b>+15</b><span>Run value vs fastballs</span></div>
+        <div><b>+7</b><span>Run value vs offspeed</span></div>
+        <div><b>+9</b><span>Run value, high leverage</span></div>
+      </div>
+      <p>That +2.91 WPA means he is directly responsible for almost 3 additional wins for the Dodgers. Now combine that with elite level performance across pitch types and clutch moments and you’ve got an MVP-level offensive profile. Ohtani remains a unicorn. Not only does he hit harder than anyone else, he’s also fast enough to leg out infield hits and convert doubles into triples.</p>
+      <p>Many assumed during the preseason that a one-way Shohei would mean a step back, but if this is the “limited” version of him, what does his peak even look like?</p>
+      <p>Even as a full-time DH, he’s among the top offensive players in baseball. His WAR is climbing, his process is getting cleaner, and he’s showing no signs of slowing down.</p>
+      <blockquote>Is this the best version of Ohtani we’ve seen yet?</blockquote>
+    </article></div>`},
   resume:{t:"Résumé",w:720,h:620,html:()=>`<div class="rbar"><span>Poshak_Pathak_Resume.pdf</span><a class="btn ghost" href="Poshak_Pathak_Resume.pdf" download="Poshak_Pathak_Resume.pdf">Download PDF</a></div>
     <div class="doc">
       <h1>Poshak Pathak</h1>
@@ -906,7 +992,7 @@ const APPS={
     <div class="grp sys"><div><span>Version</span>PoshakOS 0.2</div><div><span>Built with</span>HTML, CSS, JavaScript</div><div><span>Renderer</span>WebGL ocean shader</div></div>
   </div>`},
   projects:{t:"Projects",w:720,h:520,html:()=>`<div class="fpath">${I.folder}Desktop › Projects · ${PROJECTS.length} items</div><div class="finder">${PROJECTS.map(p=>`<button class="fitem" data-p="${p.id}"><span class="th ${p.img?'':'gan'}" style="${p.img?`background-image:${IMG[p.img]}`:''}"></span><span>${p.name}<small>${p.tags.split(' · ')[0]}</small></span></button>`).join('')}</div>`},
-  blogs:{t:"Blogs",w:620,h:420,html:()=>`<div class="fpath">${I.folder}Desktop › Blogs · 2 items</div><div class="finder"><button class="fitem" data-b="ohtani"><span class="th" style="background-image:${IMG.ohtani}"></span><span>Ohtani's impact in year 2<small>June 2025 · Baseball</small></span></button><button class="fitem" data-b="nepal"><span class="pdf"><i></i><i></i><i></i><b>DRAFT</b></span><span>Nepal's death bowling<small>Coming soon · Cricket</small></span></button></div>`},
+  blogs:{t:"Blogs",w:620,h:420,html:()=>`<div class="fpath">${I.folder}Desktop › Blogs · 1 item</div><div class="finder"><button class="fitem" data-b="ohtani"><span class="th" style="background-image:${IMG.ohtani}"></span><span>Ohtani's impact in year 2<small>June 2025 · Baseball</small></span></button></div>`},
   papers:{t:"Research",w:720,h:520,html:()=>`<div class="fpath">${I.folder}Desktop › Research · ${PAPERS.length+1} items</div><div class="finder">${PAPERS.map((x,i)=>`<button class="fitem" data-r="${i}"><span class="pdf"><i></i><i></i><i></i><b>PDF</b></span><span>${x[1]}<small>${x[0]}</small></span></button>`).join('')}<button class="fitem" data-r="talks"><span class="pdf"><i></i><i></i><i></i><b>TALKS</b></span><span>Talks &amp; awards<small>2024 – 2025</small></span></button></div>`},
   music:{t:"Music",w:860,h:560,html:()=>`<div class="work mus"><div class="side"><h4>Spotify</h4><button data-v="spotify"><span class="sic">${SPOTIFY_IC}</span>Poshak's playlist</button><h4>Library</h4><button data-v="radio">${I.music}PoshakOS Radio</button></div>
     <div class="mcol"><div class="wmain" id="mmain"></div>
@@ -960,7 +1046,8 @@ function open(app,opts={}){
   if(app==="term")wireTerm(w);
   if(app==="research"&&opts.r!=null)hlPaper(opts.r);
   w.querySelectorAll('.fitem[data-p]').forEach(b=>b.onclick=()=>open('work',{p:b.dataset.p}));
-  w.querySelectorAll('.fitem[data-b]').forEach(b=>b.onclick=()=>open('notes'));
+  w.querySelectorAll('[data-b="ohtani"]').forEach(b=>b.onclick=()=>open('post'));
+  if(app==="post")wirePost(w);
   w.querySelectorAll('.fitem[data-r]').forEach(b=>b.onclick=()=>open('research',{r:b.dataset.r}));
   return w;
 }
@@ -978,6 +1065,7 @@ function drag(w){
     tb.addEventListener('pointermove',mv);tb.addEventListener('pointerup',up);
   });
 }
+function wirePost(w){const bd=w.querySelector('.bd'),bar=w.querySelector('.rdbar i');bd.addEventListener('scroll',()=>{const m=bd.scrollHeight-bd.clientHeight;bar.style.width=(m>0?bd.scrollTop/m*100:0)+'%';},{passive:true});}
 function wire(w,app){
   w.querySelectorAll('[data-open]').forEach(b=>{b.onclick=()=>open(b.dataset.open,{p:b.dataset.p});b.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();b.onclick()}}});
   w.querySelectorAll('[data-act="copy"]').forEach(b=>b.onclick=()=>{
@@ -1157,8 +1245,7 @@ const PAL_BASE=[
 const PAL_EXTRA=[
   ...PROJECTS.map(p=>({t:p.name,d:'Project · '+p.tags,ic:I.work,go:()=>open('work',{p:p.id})})),
   ...PAPERS.map((p,i)=>({t:p[1],d:'Paper · '+p[0],ic:I.research,go:()=>open('research',{r:String(i)})})),
-  {t:'Ohtani’s impact in year 2 with the Dodgers',d:'Blog · June 2025',ic:I.notes,go:()=>open('notes')},
-  {t:'Nepal’s death bowling',d:'Blog · Draft',ic:I.notes,go:()=>open('notes')},
+  {t:'Ohtani’s impact in year 2 with the Dodgers',d:'Blog · June 2025',ic:I.notes,go:()=>open('post')},
   ...ERAS.map(e=>({t:'Go to '+(e.k==='now'?'the present':e.k),d:'Time Machine · '+e.t,ic:I.tm,go:()=>setEra(e.k)})),
   {t:'Restart PoshakOS',d:'Reload the desktop',ic:I.settings,go:restart}
 ];
@@ -1463,7 +1550,7 @@ var FS={
   '~':['about.txt','contact.txt','resume.pdf','projects/','research/','blogs/','music/'],
   '~/projects':PROJECTS.map(p=>p.id),
   '~/research':PAPERS.map((p,i)=>'paper-'+(i+1)+'.txt').concat(['talks.txt']),
-  '~/blogs':['ohtani-year-2.md','nepal-death-bowling.md'],
+  '~/blogs':['ohtani-year-2.md'],
   '~/music':['poshakos-radio/','poshaks-playlist.spotify']
 };
 var HIDDEN=['.secrets'];
@@ -1485,8 +1572,7 @@ function wireTerm(w){
     '~/.secrets':()=>`Some things to try:\n  snake        a quick game\n  matrix       follow the white rabbit\n  storm        summon a storm over the ocean\n  ↑↑↓↓←→←→BA   the classic, anywhere on the desktop\n  Click the black dot in the top-left corner five times fast.`,
     '~/research/talks.txt':()=>`2025  ITNG Conference, Las Vegas\n2024  ULM Research Symposium, 1st place\n2024  Louisiana Academy of Science`,
     '~/music/poshaks-playlist.spotify':()=>`Open it with: open music`,
-    '~/blogs/ohtani-year-2.md':()=>`Ohtani's impact in year 2 with the Dodgers (June 2025). Read it with: open notes`,
-    '~/blogs/nepal-death-bowling.md':()=>`Nepal's death bowling. Draft, coming soon.`
+    '~/blogs/ohtani-year-2.md':()=>`Ohtani's impact in year 2 with the Dodgers (June 2025). Read it with: open ohtani`
   };
   PROJECTS.forEach(p=>files['~/projects/'+p.id]=()=>`${p.name}\n${p.tags}\n\n${p.desc}\n\nOpen it with: open ${p.id}`);
   PAPERS.forEach((p,i)=>files['~/research/paper-'+(i+1)+'.txt']=()=>`${p[1]}\n${p[0]}`);
@@ -1517,7 +1603,7 @@ function wireTerm(w){
       case 'pwd':P(st.cwd.replace('~','/Users/poshak'));break;
       case 'cat':{if(!args[0]){P('cat: which file?');break;}const f=resolve(args[0]),fn=files[f]||files['~/'+args[0]];fn?P(fn()):P(`cat: ${a}: No such file`);break;}
       case 'open':{const n=(args[0]||'').toLowerCase().replace(/\/$/,'');
-        const map={about:'about',resume:'resume',music:'music',settings:'settings',tm:'tm','time-machine':'tm',timemachine:'tm',projects:'projects',research:'papers',papers:'papers',blogs:'blogs',notes:'notes',hello:'hello',contact:'hello',terminal:'term'};
+        const map={about:'about',resume:'resume',music:'music',settings:'settings',tm:'tm','time-machine':'tm',timemachine:'tm',projects:'projects',research:'papers',papers:'papers',blogs:'blogs',notes:'notes',post:'post',ohtani:'post',hello:'hello',contact:'hello',terminal:'term'};
         if(map[n]){open(map[n]);P(`Opening ${APPS[map[n]].t}…`);}
         else if(PROJECTS.find(p=>p.id===n)){open('work',{p:n});P(`Opening ${PROJECTS.find(p=>p.id===n).name}…`);}
         else P(n?`open: can't find "${n}". Try: open projects`:'open: what should I open? Try: open about');break;}
@@ -1525,7 +1611,7 @@ function wireTerm(w){
       case 'contact':case 'hello':P(files['~/contact.txt']());print(link('Say hello →','hello'));break;
       case 'projects':print(PROJECTS.map(p=>`${link(escT(p.name),'work',{p:p.id})}  <span class="tdim">${escT(p.tags)}</span>`).join('\n'));break;
       case 'research':case 'papers':print(PAPERS.map((p,i)=>`${link(escT(p[1]),'research',{r:String(i)})}  <span class="tdim">${escT(p[0])}</span>`).join('\n'));break;
-      case 'blogs':print(`${link("Ohtani's impact in year 2 with the Dodgers",'notes')}  <span class="tdim">June 2025</span>\nNepal's death bowling  <span class="tdim">Draft</span>`);break;
+      case 'blogs':print(`${link("Ohtani's impact in year 2 with the Dodgers",'post')}  <span class="tdim">June 2025</span>`);break;
       case 'resume':open('resume');P('Opening Résumé…');break;
       case 'music':case 'play':musPlay();P(`♪ Now playing: ${RADIO[MUS.idx].t} · PoshakOS Radio`);break;
       case 'pause':case 'stop':musPause();P('Paused.');break;
