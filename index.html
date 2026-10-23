@@ -580,7 +580,10 @@ button.card:focus-visible{outline:2px solid var(--accent)}
 .eq.still i{animation:none;height:40%}.eq.still i:nth-child(2){height:75%}
 @keyframes eq{0%,100%{height:25%}50%{height:100%}}
 .lcard{background:var(--chip);border-radius:10px;padding:10px 14px;margin:-6px 0 20px}
-.mb.np{flex:none;gap:7px;max-width:240px;overflow:hidden;text-overflow:ellipsis}
+.mb.np{flex:none;gap:7px;max-width:240px;overflow:hidden;text-overflow:ellipsis;margin:0;padding:3px 5px}
+.mb.np .npic{display:grid;color:#1db954;flex:none}.mb.np .npic svg{width:16px;height:16px}
+.mb.np>span:last-child:empty{display:none}
+#os[data-era="1984"] .mb.np .npic{color:#000}
 .mb.np>span:last-child{overflow:hidden;text-overflow:ellipsis}
 .spot{display:grid;gap:18px}
 #spotframe iframe{border-radius:12px;display:block}
@@ -590,7 +593,7 @@ button.card:focus-visible{outline:2px solid var(--accent)}
 .spot-ph{border:1.5px dashed #c9cfd9;border-radius:12px;padding:30px 20px;display:grid;justify-items:center;gap:8px;text-align:center;color:var(--soft)}
 .spot-ph b{color:var(--fg)}
 .spot-ph .btn{margin-top:8px;background:#1db954}
-@media (max-width:700px){#mvol{display:none}.mart{width:110px;height:110px}.mb.np{display:none}}
+@media (max-width:700px){#mvol{display:none}.mart{width:110px;height:110px}.mb.np>span:last-child{display:none}}
 #os[data-era="1984"] .eq i{background:#000}#os[data-era="1984"] .mart,#os[data-era="1984"] .mctl .cov{filter:grayscale(1)}
 #os[data-era="1995"] .mbtns .pp,#os[data-era="1995"] .mbtns button{border-radius:0}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
@@ -603,7 +606,7 @@ html,body{margin:0;height:100%;background:#0b1626}
   <div class="menubar">
     <button class="mb" data-m="sys" aria-label="PoshakOS menu"><span class="logo"></span></button><button class="mb" data-m="me"><b id="mb-name">Poshak Pathak</b></button><button class="mb mi" data-m="file">File</button><button class="mb mi" data-m="view">View</button><span class="greet" id="greet">Good afternoon</span>
     <span class="sp"></span>
-    <span class="rt"><button class="mb mute mutebtn" id="mutebtn" aria-label="Mute site" data-tip="Mute site"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="w1" d="M16.5 8.5a5 5 0 0 1 0 7"/><path class="w2" d="M19 6a8.5 8.5 0 0 1 0 12"/><path class="x" d="m16 9 6 6m0-6-6 6"/></svg></button><button class="mb np" id="np" hidden aria-label="Now playing"><span class="eq"><i></i><i></i><i></i></span><span></span></button><button class="mb srch" id="srchbtn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button><span class="date" id="date"></span><span id="time"></span></span>
+    <span class="rt"><button class="mb srch" id="srchbtn" aria-label="Search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button><button class="mb np" id="np" aria-label="Music" title="Music"><span class="npic"></span><span></span></button><button class="mb mute mutebtn" id="mutebtn" aria-label="Mute site" data-tip="Mute site"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="w1" d="M16.5 8.5a5 5 0 0 1 0 7"/><path class="w2" d="M19 6a8.5 8.5 0 0 1 0 12"/><path class="x" d="m16 9 6 6m0-6-6 6"/></svg></button><span class="date" id="date"></span><span id="time"></span></span>
   </div>
   <div class="desk" id="desk">
     <div class="phw" aria-hidden="false"><div class="pht" id="phTime"></div><div class="phd" id="phDate"></div></div>
@@ -905,7 +908,7 @@ const APPS={
   projects:{t:"Projects",w:720,h:520,html:()=>`<div class="fpath">${I.folder}Desktop › Projects · ${PROJECTS.length} items</div><div class="finder">${PROJECTS.map(p=>`<button class="fitem" data-p="${p.id}"><span class="th ${p.img?'':'gan'}" style="${p.img?`background-image:${IMG[p.img]}`:''}"></span><span>${p.name}<small>${p.tags.split(' · ')[0]}</small></span></button>`).join('')}</div>`},
   blogs:{t:"Blogs",w:620,h:420,html:()=>`<div class="fpath">${I.folder}Desktop › Blogs · 2 items</div><div class="finder"><button class="fitem" data-b="ohtani"><span class="th" style="background-image:${IMG.ohtani}"></span><span>Ohtani's impact in year 2<small>June 2025 · Baseball</small></span></button><button class="fitem" data-b="nepal"><span class="pdf"><i></i><i></i><i></i><b>DRAFT</b></span><span>Nepal's death bowling<small>Coming soon · Cricket</small></span></button></div>`},
   papers:{t:"Research",w:720,h:520,html:()=>`<div class="fpath">${I.folder}Desktop › Research · ${PAPERS.length+1} items</div><div class="finder">${PAPERS.map((x,i)=>`<button class="fitem" data-r="${i}"><span class="pdf"><i></i><i></i><i></i><b>PDF</b></span><span>${x[1]}<small>${x[0]}</small></span></button>`).join('')}<button class="fitem" data-r="talks"><span class="pdf"><i></i><i></i><i></i><b>TALKS</b></span><span>Talks &amp; awards<small>2024 – 2025</small></span></button></div>`},
-  music:{t:"Music",w:860,h:560,html:()=>`<div class="work mus"><div class="side"><h4>Library</h4><button data-v="radio">${I.music}PoshakOS Radio</button><h4>Spotify</h4><button data-v="spotify"><span class="sic">${SPOTIFY_IC}</span>Poshak's playlist</button></div>
+  music:{t:"Music",w:860,h:560,html:()=>`<div class="work mus"><div class="side"><h4>Spotify</h4><button data-v="spotify"><span class="sic">${SPOTIFY_IC}</span>Poshak's playlist</button><h4>Library</h4><button data-v="radio">${I.music}PoshakOS Radio</button></div>
     <div class="mcol"><div class="wmain" id="mmain"></div>
     <div class="mbar"><div class="mrow"><span id="mcur">0:00</span><input type="range" id="mprog" min="0" max="1000" value="0" aria-label="Song position"><span id="mdur">0:00</span></div>
     <div class="mctl"><span class="cov"></span><div class="mt"><b></b><small>PoshakOS Radio</small></div>
@@ -1255,7 +1258,7 @@ requestAnimationFrame(musTick);
 function nowLine(){return MUS.playing?`${RADIO[MUS.idx].t} · PoshakOS Radio`:'';}
 function musRender(){
   const spPlaying=SP.on&&!SP.paused,spName=SP.title||"Poshak's playlist",canSkip=!!(PL&&SPOT);
-  const np=document.getElementById('np');if(np){np.hidden=!(MUS.playing||spPlaying);np.querySelector('span:last-child').textContent=MUS.playing?RADIO[MUS.idx].t:spPlaying?spName:'';}
+  const np=document.getElementById('np');if(np){np.querySelector('span:last-child').textContent=MUS.playing?RADIO[MUS.idx].t:spPlaying?spName:'';}
   const w=wins.music;if(!w)return;
   const tr=RADIO[MUS.idx];
   w.querySelectorAll('.trk').forEach(b=>{b.classList.toggle('on',+b.dataset.i===MUS.idx);b.querySelector('.tn').innerHTML=+b.dataset.i===MUS.idx&&MUS.playing?'<span class="eq"><i></i><i></i><i></i></span>':String(+b.dataset.i+1);});
@@ -1350,7 +1353,7 @@ function wireMusic(w){
   w.querySelector('#mrp').onclick=()=>{MUS.repeat=!MUS.repeat;musRender();};
   w.querySelector('#mprog').oninput=e=>{if(SP.on){if(SPOT&&SP.dur)SPOT.seek(e.target.value/1000*SP.dur);return;}MUS.elapsed=e.target.value/1000*RADIO[MUS.idx].len;};
   const v=w.querySelector('#mvol');v.value=MUS.vol*100;v.oninput=e=>{MUS.vol=e.target.value/100;if(MUS.ctx&&MUS.playing)MUS.master.gain.setTargetAtTime(MUS.vol*.5,MUS.ctx.currentTime,.05);};
-  musView('radio');
+  musView('spotify');
 }
 const SPOTIFY_IC='<svg viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm5.5 17.3a.75.75 0 0 1-1 .25c-2.8-1.7-6.4-2.1-10.6-1.2a.75.75 0 1 1-.33-1.46c4.6-1 8.6-.6 11.7 1.4.35.2.46.67.24 1.01zm1.47-3.27a.94.94 0 0 1-1.3.31c-3.2-2-8.1-2.5-11.9-1.4a.94.94 0 0 1-.54-1.8c4.3-1.3 9.7-.7 13.4 1.6.44.27.58.85.31 1.29zm.13-3.4C15.3 8.4 8.9 8.2 5.2 9.3a1.13 1.13 0 1 1-.65-2.16c4.3-1.3 11.3-1.1 15.7 1.6a1.13 1.13 0 1 1-1.15 1.94z"/></svg>';
 
@@ -1370,6 +1373,9 @@ document.querySelectorAll('.mutebtn').forEach(b=>b.onclick=e=>{e.stopPropagation
   try{musInit();if(MUS.ctx.state==='running'){go();return;}}catch(e){}
   ev.forEach(t=>addEventListener(t,go,true));
 })();
+
+/* menu-bar music button shows the Spotify logo */
+{const n=document.querySelector('#np .npic');if(n)n.innerHTML=SPOTIFY_IC;}
 
 /* live weather, the Terminal app and a few easter eggs */
 
