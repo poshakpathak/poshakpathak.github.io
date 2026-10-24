@@ -1,0 +1,29 @@
+rules_version = '2';
+// Rules for the guestbook. Paste these into Firebase console > Firestore > Rules.
+// Visitors can add a note (always unapproved) and read approved notes. Only the
+// owner, signed in with Google, can see pending notes, approve them or delete them.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isOwner() {
+      return request.auth != null
+        && request.auth.token.email == 'poshakcodes@gmail.com'
+        && request.auth.token.email_verified == true;
+    }
+    function text(v, max) {
+      return v is string && v.size() > 0 && v.size() <= max;
+    }
+    match /guestbook/{id} {
+      allow read: if resource.data.approved == true || isOwner();
+      allow create: if request.resource.data.keys().hasOnly(['name', 'text', 'color', 'created', 'approved'])
+        && text(request.resource.data.name, 40)
+        && text(request.resource.data.text, 280)
+        && request.resource.data.color in ['yellow', 'pink', 'blue', 'green']
+        && request.resource.data.approved == false
+        && request.resource.data.created == request.time;
+      allow update, delete: if isOwner();
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
