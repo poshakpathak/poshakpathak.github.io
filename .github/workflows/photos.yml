@@ -1,0 +1,29 @@
+name: Prepare photos
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['photos/**', '.github/workflows/photos.yml', '.github/scripts/photos.py']
+
+permissions:
+  contents: write
+
+jobs:
+  photos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow pillow-heif
+      - run: python .github/scripts/photos.py photos
+      - name: Commit if anything changed
+        run: |
+          git add -A photos
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Prepare photos"
+          git push
