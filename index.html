@@ -643,12 +643,24 @@ const SEA=(()=>{
     snowy:   {clouds:.8,fog:.3,rain:0,snow:1,storm:.1,waves:.7},
     stormy:  {clouds:1,fog:.2,rain:1,snow:0,storm:1,waves:1.8}
   };
-  const autoTod=()=>{const h=new Date().getHours()+new Date().getMinutes()/60;return h<5?'night':h<7.5?'dawn':h<11?'morning':h<15?'midday':h<18?'afternoon':h<20.5?'dusk':'night';};
+  // Sunrise and sunset in local clock hours (NOAA approximation), for the weather location or DFW.
+  const sunTimes=(d=new Date())=>{const loc=(typeof WXLIVE!=='undefined'&&WXLIVE)||{lat:32.78,lon:-96.8},R=Math.PI/180;
+    const n=Math.floor((d-new Date(d.getFullYear(),0,0))/864e5),g=2*Math.PI/365*(n-1);
+    const eq=229.18*(.000075+.001868*Math.cos(g)-.032077*Math.sin(g)-.014615*Math.cos(2*g)-.040849*Math.sin(2*g));
+    const dec=.006918-.399912*Math.cos(g)+.070257*Math.sin(g)-.006758*Math.cos(2*g)+.000907*Math.sin(2*g)-.002697*Math.cos(3*g)+.00148*Math.sin(3*g);
+    const c=Math.cos(90.833*R)/(Math.cos(loc.lat*R)*Math.cos(dec))-Math.tan(loc.lat*R)*Math.tan(dec);
+    if(c>1)return {rise:12,set:12,polar:'night'};if(c<-1)return {rise:0,set:24,polar:'day'};
+    const ha=Math.acos(c)/R,off=-d.getTimezoneOffset();
+    return {rise:(720-4*(loc.lon+ha)-eq+off)/60,set:(720-4*(loc.lon-ha)-eq+off)/60};};
+  const autoTod=()=>{const d=new Date(),h=d.getHours()+d.getMinutes()/60,{rise:r,set:t,polar}=sunTimes(d);
+    if(polar)return polar==='night'?'night':h<9||h>18?'afternoon':'midday';
+    const noon=(r+t)/2;
+    return h<r-.75?'night':h<r+.75?'dawn':h<noon-2?'morning':h<noon+2?'midday':h<t-1?'afternoon':h<t+.3?'dusk':'night';};
   const state={tod:'auto',wx:'auto'};
   const target=()=>Object.assign({},TOD[state.tod==='auto'?autoTod():state.tod],WX[state.wx==='auto'?(state.live||'clear'):state.wx]);
   let cur=JSON.parse(JSON.stringify(target()));
   const ok=!!gl;
-  if(!ok){cv.style.display='none';return {ok,state,set(){},TOD,WX,autoTod};}
+  if(!ok){cv.style.display='none';return {ok,state,set(){},TOD,WX,autoTod,sunTimes};}
   const vs='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
   const fs=`precision highp float;
 uniform vec2 R;uniform float T;uniform vec3 skyTop,skyHor,sunCol,deep;uniform float sunEl,light,clouds,fog,rain,snow,storm,flash,waves,stars;
@@ -709,7 +721,7 @@ void main(){vec2 uv=(gl_FragCoord.xy-.5*R)/R.y;vec3 ro=vec3(0.,2.,0.);vec3 rd=no
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
-  return {ok,state,TOD,WX,autoTod,set(k,v){state[k]=v;try{localStorage.setItem('poshakos-'+k,v)}catch(e){}}};
+  return {ok,state,TOD,WX,autoTod,sunTimes,set(k,v){state[k]=v;try{localStorage.setItem('poshakos-'+k,v)}catch(e){}}};
 })();
 try{const a=localStorage.getItem('poshakos-tod'),b=localStorage.getItem('poshakos-wx');if(a&&(a==='auto'||SEA.TOD[a]))SEA.state.tod=a;if(b&&(b==='auto'||SEA.WX[b]))SEA.state.wx=b;}catch(e){}
 
@@ -1029,12 +1041,13 @@ document.addEventListener('keydown',e=>{if(e.target.closest('input,textarea'))re
 const TODN={auto:"Auto (real time)",dawn:"Dawn",morning:"Morning",midday:"Midday",afternoon:"Afternoon",dusk:"Dusk",night:"Night"};
 const WXN={auto:"Auto",clear:"Clear",partly:"Partly cloudy",overcast:"Overcast",foggy:"Foggy",rainy:"Rainy",snowy:"Snowy",stormy:"Stormy"};
 function chips(el,names,curv,fn){el.innerHTML=Object.entries(names).map(([k,n])=>`<button data-k="${k}" class="${k===curv?'on':''}">${n}</button>`).join('');el.querySelectorAll('button').forEach(b=>b.onclick=()=>fn(b.dataset.k));}
+function fmtHr(x){x=((x%24)+24)%24;let h=Math.floor(x),m=Math.round((x-h)*60);if(m===60){h=(h+1)%24;m=0}return `${h%12||12}:${String(m).padStart(2,'0')} ${h<12?'AM':'PM'}`}
 function renderSettings(){
   const w=wins.settings;if(!w)return;
   chips(w.querySelector('#erachips'),Object.fromEntries(ERAS.map(x=>[x.k,x.k==="now"?"Now":x.k])),os.dataset.era,setEra);
   chips(w.querySelector('#todc'),TODN,SEA.state.tod,k=>{SEA.set('tod',k);renderSettings();blip(620);});
   chips(w.querySelector('#wxc'),WXN,SEA.state.wx,k=>{SEA.set('wx',k);renderSettings();blip(520);});
-  w.querySelector('#todc').previousElementSibling.querySelector('span').textContent=SEA.state.tod==='auto'?`Follows your local time · now ${TODN[SEA.autoTod()].toLowerCase()}`:'Pinned. Pick Auto to follow your clock.';
+  w.querySelector('#todc').previousElementSibling.querySelector('span').textContent=SEA.state.tod==='auto'?`Follows the sun · now ${TODN[SEA.autoTod()].toLowerCase()} · sunset ${fmtHr(SEA.sunTimes().set)}`:'Pinned. Pick Auto to follow your clock.';
   const pn=w.querySelector('#presentNote');pn.hidden=os.dataset.era==='now';w.querySelector('#pnEra').textContent=os.dataset.era;w.querySelector('#toPresent').onclick=()=>setEra('now');
   if(typeof wxNoteRender==='function')wxNoteRender(w);
   const t=w.querySelector('#snd');t.setAttribute('aria-checked',sound);t.onclick=()=>{sound=!sound;t.setAttribute('aria-checked',sound);blip(700);};
