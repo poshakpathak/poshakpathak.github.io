@@ -12,7 +12,7 @@
    so put the newest first. The first photo is the album cover, unless the
    album names one with cover:"name.jpg". */
 window.PHOTOS=[
-  {album:"Las Vegas",about:"A trip to Vegas.",cover:"vegas-7341.jpg",photos:[
+  {album:"Las Vegas",about:"My trip to present at the ITNG 2025 conference.",cover:"vegas-7341.jpg",photos:[
     {file:"vegas-7321.jpg",caption:"The Sphere through the palms",place:"Las Vegas",date:"2025-04"},
     {file:"vegas-7341.jpg",caption:"The Sphere at night",place:"Las Vegas",date:"2025-04"},
     {file:"vegas-7346.jpg",caption:"Bikes parked under the Sphere",place:"Las Vegas",date:"2025-04"},
@@ -29,6 +29,9 @@ window.PHOTOS=[
     {file:"vegas-7412.jpg",caption:"The Eiffel Tower at Paris Las Vegas",place:"Las Vegas",date:"2025-04"},
     {file:"vegas-7427.jpg",caption:"The Strip, late",place:"Las Vegas",date:"2025-04"},
     {file:"vegas-7431.jpg",caption:"The 202 Flamingo bus",place:"Las Vegas",date:"2025-04"},
+    {file:"vegas-7438.jpg",caption:"The Bellagio across the lake",place:"Las Vegas",date:"2025-04"},
+    {file:"vegas-7457.jpg",caption:"The Strip through the glass",place:"Las Vegas",date:"2025-04"},
+    {file:"vegas-7460.jpg",caption:"Late night outside Planet Hollywood",place:"Las Vegas",date:"2025-04"},
   ]},
   {album:"Ballparks",about:"Games I've been to.",photos:[
     {file:"rangers.jpg",caption:"Rangers game at dusk",place:"Globe Life Field, Arlington"},
