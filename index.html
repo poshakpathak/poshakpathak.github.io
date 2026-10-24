@@ -1627,6 +1627,7 @@ function setPhone(){os.classList.toggle('phone',PHONE.matches);}
 try{PHONE.addEventListener('change',setPhone)}catch(e){PHONE.addListener(setPhone)}
 setPhone();
 if(!PHONE.matches)open('about');
+{const r={blogs:'blogs',ohtani:'post','challenge-problem':'abs',research:'papers',projects:'projects',music:'music',resume:'resume'}[location.hash.slice(1)];if(r)open(r);}
 </script>
 
 </body>
