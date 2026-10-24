@@ -833,7 +833,7 @@ const I={
   folder:'<svg viewBox="0 0 24 24" style="width:15px;height:15px"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>'
 };
 I.post=I.notes;I.abs=I.notes;I.projects=I.folder;I.papers=I.folder;I.blogs=I.folder;
-const PAPERS=[["alphaXiv 2026","Optimal challenge policy for MLB’s ABS system"],["ITNG 2025","GAN defense against data poisoning"],["Int. J. Bilingualism 2025","Immersion and first-language attrition"],["Biling.: Lang. & Cog. 2024","Trilingual parallel processing"],["J Cult Cogn Sci 2021","Second-language instruction and L1 abilities"]];
+const PAPERS=[["alphaXiv 2026","Optimal challenge policy for MLB’s ABS system"],["Int. J. Bilingualism 2026","Immersion and first-language attrition"],["Biling.: Lang. & Cog. 2025","Trilingual parallel processing"],["ITNG 2025","GAN defense against data poisoning"],["Nepalese Linguistics 2022","Bilingual Stroop effect in Nepali–English bilinguals"],["J Cult Cogn Sci 2021","Second-language instruction and L1 abilities"]];
 const FOLDERS=[["papers","Research",I.research],["projects","Projects",I.work],["blogs","Blogs",I.notes]];
 const COLORS={term:"#1d2433",about:"#2f7bf5",work:"#f5822f",research:"#1fae8c",notes:"#f2b51b",resume:"#e8456b",tm:"#8e5cf0",settings:"#7b8494",hello:"#2f7bf5",music:"#fa2d55"};
 
@@ -883,13 +883,14 @@ const APPS={
     </div></div>`},
   work:{t:"Work",w:960,h:600,html:()=>`<div class="work"><div class="side" id="wside"></div><div class="wmain" id="wmain"></div></div>`},
   research:{t:"Research",w:680,h:560,html:()=>`<div class="pad">
-    <p class="sect">Publications</p>
+    <p class="sect">Publications · <a href="https://scholar.google.com/citations?user=z4VicvEAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar ↗</a></p>
     <div class="list">
       <div class="card" id="pp0"><span class="k">2026 · Preprint, alphaXiv</span><h3>Spending a Scarce Option Under Perceptual Noise: Optimal Challenge Policy for Major League Baseball’s Automated Ball–Strike System</h3><p>Pathak, P. Every 2026 regular-season pitch, a signal-detection model of how players see the zone, and a proof that the optimal challenge policy is a threshold rule. Teams left 36.0 wins on the table.</p><a href="https://www.alphaxiv.org/abs/2610.baseball-abs-challenge" target="_blank" rel="noopener">Read paper ↗</a></div>
-      <div class="card" id="pp1"><span class="k">2025 · ITNG, Advances in Intelligent Systems and Computing</span><h3>Adaptive GAN-Based Defense Against Data Poisoning in Federated Learning</h3><p>Pathak, P., Sreekumari, P. A GAN-based framework for real-time detection of poisoned data, effective against targeted and untargeted attacks.</p><a href="https://doi.org/10.1007/978-3-031-89063-5_1" target="_blank" rel="noopener">Read paper ↗</a></div>
-      <div class="card" id="pp2"><span class="k">2025 · International Journal of Bilingualism</span><h3>Immersion in second language does not always attenuate and attrite first language</h3><p>Pathak, L. S., Pathak, P., &amp; Mishra, R. K. Evidence from Nepali–English bilinguals in an immigrant population.</p><a href="https://doi.org/10.1177/13670069251331880" target="_blank" rel="noopener">Read paper ↗</a></div>
-      <div class="card" id="pp3"><span class="k">2024 · Bilingualism: Language and Cognition</span><h3>Trilingual parallel processing: Do the dominant languages grab all the attention?</h3><p>Pathak, L. S., Vulchanova, M., Pathak, P., &amp; Mishra, R. K. Cognitive load and attention in trilingual speakers.</p><a href="https://doi.org/10.1017/S1366728924000257" target="_blank" rel="noopener">Read paper ↗</a></div>
-      <div class="card" id="pp4"><span class="k">2021 · Journal of Cultural Cognitive Science</span><h3>Instruction in second language enhances linguistic and cognitive abilities in first language as well</h3><p>Pathak, L. S., Rijal, S., &amp; Pathak, P. Positive transfer from second to first language in Nepali public school children.</p><a href="https://doi.org/10.1007/s41809-021-00084-7" target="_blank" rel="noopener">Read paper ↗</a></div>
+      <div class="card" id="pp1"><span class="k">2026 · International Journal of Bilingualism</span><h3>Immersion in second language does not always attenuate and attrite first language</h3><p>Pathak, L. S., Pathak, P., &amp; Mishra, R. K. Evidence from Nepali–English bilinguals in an immigrant population.</p><a href="https://doi.org/10.1177/13670069251331880" target="_blank" rel="noopener">Read paper ↗</a></div>
+      <div class="card" id="pp2"><span class="k">2025 · Bilingualism: Language and Cognition</span><h3>Trilingual parallel processing: Do the dominant languages grab all the attention?</h3><p>Pathak, L. S., Vulchanova, M., Pathak, P., &amp; Mishra, R. K. Cognitive load and attention in trilingual speakers.</p><a href="https://doi.org/10.1017/S1366728924000257" target="_blank" rel="noopener">Read paper ↗</a></div>
+      <div class="card" id="pp3"><span class="k">2025 · ITNG, Advances in Intelligent Systems and Computing</span><h3>Adaptive GAN-Based Defense Against Data Poisoning in Federated Learning</h3><p>Pathak, P., Sreekumari, P. A GAN-based framework for real-time detection of poisoned data, effective against targeted and untargeted attacks.</p><a href="https://doi.org/10.1007/978-3-031-89063-5_1" target="_blank" rel="noopener">Read paper ↗</a></div>
+      <div class="card" id="pp4"><span class="k">2022 · Nepalese Linguistics</span><h3>Bilingual Stroop effect in high and low proficient Nepali-English bilinguals</h3><p>Pathak, L. S., &amp; Pathak, P. How proficiency in a second language shapes Stroop interference in Nepali–English bilinguals.</p><a href="https://nepjol.info/index.php/lsnj/article/view/46570" target="_blank" rel="noopener">Read paper ↗</a></div>
+      <div class="card" id="pp5"><span class="k">2021 · Journal of Cultural Cognitive Science</span><h3>Instruction in second language enhances linguistic and cognitive abilities in first language as well</h3><p>Pathak, L. S., Rijal, S., &amp; Pathak, P. Positive transfer from second to first language in Nepali public school children.</p><a href="https://doi.org/10.1007/s41809-021-00084-7" target="_blank" rel="noopener">Read paper ↗</a></div>
     </div>
     <p class="sect mt" id="pptalks">Talks</p>
     <div class="list">
@@ -1238,7 +1239,7 @@ const isMac=/Mac|iPhone|iPad/.test(navigator.platform||navigator.userAgent);
 const PAL_BASE=[
   {t:'About',d:'Who I am and what I’m looking for',ic:I.about,go:()=>open('about')},
   {t:'Projects',d:'Chess engine, BayesSurgeon and 5 more',ic:I.work,go:()=>open('projects')},
-  {t:'Research',d:'5 papers and conference talks',ic:I.research,go:()=>open('papers')},
+  {t:'Research',d:'6 papers and conference talks',ic:I.research,go:()=>open('papers')},
   {t:'Blogs',d:'Baseball and cricket, by the numbers',ic:I.notes,go:()=>open('blogs')},
   {t:'Music',d:'PoshakOS Radio and my Spotify playlist',ic:I.music,go:()=>open('music')},
   {t:'Résumé',d:'Education, experience and awards',ic:I.resume,go:()=>open('resume')},
