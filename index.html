@@ -63,6 +63,8 @@ button{font:inherit;color:inherit}
 /* ---------- desktop ---------- */
 .desk{position:relative;z-index:1;min-height:0}
 .dicons{position:absolute;top:24px;right:max(20px,env(safe-area-inset-right,0px));display:grid;gap:22px;justify-items:center;z-index:2}
+/* when the icons outgrow the screen they wrap into another column to the left */
+#os:not(.phone) .dicons{display:flex;flex-direction:column;flex-wrap:wrap-reverse;align-items:center;align-content:flex-start;max-height:calc(100% - 150px)}
 .proj{all:unset;cursor:pointer;display:grid;justify-items:center;gap:8px;width:108px;text-align:center}
 .stack{position:relative;width:82px;height:96px}
 .stack i,.stack span{position:absolute;inset:0;border-radius:10px;background-size:cover;background-position:center;box-shadow:0 8px 18px rgba(10,20,40,.35)}
@@ -641,6 +643,59 @@ button.card.post{gap:16px;text-align:left}
 @media (max-width:700px){#mvol{display:none}.mart{width:110px;height:110px}.mb.np>span:last-child{display:none}}
 #os[data-era="1984"] .eq i{background:#000}#os[data-era="1984"] .mart,#os[data-era="1984"] .mctl .cov{filter:grayscale(1)}
 #os[data-era="1995"] .mbtns .pp,#os[data-era="1995"] .mbtns button{border-radius:0}
+/* ---------- photos ---------- */
+.photoi svg{display:block;width:54px;height:54px;filter:drop-shadow(0 6px 10px rgba(10,20,40,.3))}
+#os.phone .photoi svg{width:48px;height:48px}
+#os[data-era="1984"] .photoi,#os[data-era="1984"] .pho img{filter:grayscale(1) contrast(1.3)}
+.pho{display:grid;grid-template-columns:210px minmax(0,1fr);height:100%;min-height:0;position:relative}
+.pmain{overflow:auto;min-height:0;padding:22px 22px 30px}
+.pmain h2{margin:0;font-size:24px;font-weight:700;letter-spacing:-.02em}
+.psub{margin:4px 0 18px;color:var(--soft);font-size:13.5px}
+.pgrp+.pgrp{margin-top:28px}
+.pgrp h3{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;margin:0 0 10px;font-size:16px;font-weight:600}
+.pgrp h3 small{font-weight:400;color:var(--soft);font-size:13px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:3px}
+.pt{all:unset;cursor:zoom-in;position:relative;aspect-ratio:1;overflow:hidden;background:rgba(127,137,150,.18)}
+.pt img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.pt:hover img{transform:scale(1.04)}
+.pt span{position:absolute;left:0;right:0;bottom:0;padding:22px 9px 7px;font-size:12px;line-height:1.3;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.6));opacity:0;transition:opacity .2s}
+.pt:hover span,.pt:focus-visible span{opacity:1}
+.pt:focus-visible{outline:2px solid var(--accent);outline-offset:2px;z-index:1}
+.palbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:22px 16px}
+.palb{all:unset;cursor:pointer;display:grid;gap:3px;font-size:14px}
+.palb .im{aspect-ratio:1;border-radius:9px;background:rgba(127,137,150,.18) center/cover;margin-bottom:6px;box-shadow:inset 0 0 0 .5px rgba(0,0,0,.15)}
+.palb small{color:var(--soft);font-size:12.5px}
+.palb:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:9px}
+.pnone{color:var(--soft);font-size:14px}
+.pview{position:absolute;inset:0;z-index:5;display:grid;grid-template-rows:auto minmax(0,1fr) auto;background:#0d0e11;color:#f2f4f7;opacity:0;transition:opacity .2s}
+.pview.on{opacity:1}
+.pview[hidden]{display:none}
+.pvbar{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;font-size:13px;color:#a9afba}
+.pview button{all:unset;cursor:pointer;color:#f2f4f7}
+.pvx{display:flex;align-items:center;gap:2px;padding:4px 8px;border-radius:7px;font-size:14px;font-weight:500}
+.pvx svg,.pvimg button svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.pview button:hover{background:rgba(255,255,255,.1)}
+.pview button:focus-visible{outline:2px solid #fff}
+.pvimg{position:relative;min-height:0;touch-action:pan-y}
+.pvimg img{position:absolute;top:0;left:60px;width:calc(100% - 120px);height:100%;object-fit:contain;display:block;user-select:none;-webkit-user-drag:none;transition:opacity .18s}
+.pvimg img.fade{opacity:0}
+.pvimg button{position:absolute;top:50%;width:40px;height:40px;margin-top:-20px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.08)}
+.pvimg .pvp{left:10px}.pvimg .pvn{right:10px}
+.pvimg button[disabled]{opacity:.25;pointer-events:none}
+.pvcap{padding:14px 20px 18px;text-align:center;display:grid;gap:3px}
+.pvcap b{font-size:15px;font-weight:600}
+.pvcap span{font-size:12.5px;color:#a9afba}
+@media (max-width:700px){
+  .pho{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr)}
+  .pmain{padding:16px 0 24px}
+  .pmain h2,.psub,.pgrp h3,.palbs,.pnone{padding:0 16px}
+  .pgrid{grid-template-columns:repeat(3,1fr);gap:2px}
+  .pt span{display:none}
+  .palbs{grid-template-columns:repeat(2,1fr)}
+  .pvimg img{left:0;width:100%}
+  .pvimg button{display:none}
+  .pvcap{padding-bottom:max(18px,env(safe-area-inset-bottom,0px))}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 html,body{margin:0;height:100%;background:#0b1626}
 </style>
@@ -841,6 +896,7 @@ function applyWall(era){
 }
 
 </script>
+<script src="photos/photos.js"></script>
 <script src="assets/os/games.js"></script>
 <script>
 const IMG={chess:"url(assets/os/Chess.jpg)",breast:"url(assets/os/Breast.jpg)",pict:"url(assets/os/Pict.jpg)",marky:"url(assets/os/Marky.jpg)",mart:"url(assets/os/martingale.jpg)",imp:"url(assets/os/imposter.jpg)",ohtani:"url(assets/os/ohtani.jpg)",abs:"url(assets/os/abs.jpg)",homer:"assets/os/ohtanihomer.jpg"};
@@ -855,6 +911,7 @@ const I={
   term:'<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m7 9 3 3-3 3M12 15h5"/></svg>',
   calc:'<svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2.5"/><rect x="8" y="5" width="8" height="5" rx="1"/><path d="M8.5 14h.01M12 14h.01M15.5 14h.01M8.5 18h.01M12 18h.01M15.5 18h.01"/></svg>',
   hello:'<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
+  photos:'<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="m21 16-5-5L5 20"/></svg>',
   music:'<svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>',
   folder:'<svg viewBox="0 0 24 24" style="width:15px;height:15px"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>'
 };
@@ -862,7 +919,7 @@ I.post=I.notes;I.abs=I.notes;I.projects=I.folder;I.papers=I.folder;I.blogs=I.fol
 Object.assign(I,GAMES.icons);
 const PAPERS=[["alphaXiv 2026","Optimal challenge policy for MLB’s ABS system"],["Int. J. Bilingualism 2026","Immersion and first-language attrition"],["Biling.: Lang. & Cog. 2025","Trilingual parallel processing"],["ITNG 2025","GAN defense against data poisoning"],["Nepalese Linguistics 2022","Bilingual Stroop effect in Nepali–English bilinguals"],["J Cult Cogn Sci 2021","Second-language instruction and L1 abilities"]];
 const FOLDERS=[["papers","Research",I.research],["projects","Projects",I.work],["blogs","Blogs",I.notes],["games","Games",I.games]];
-const COLORS={term:"#1d2433",calc:"#16171a",about:"#2f7bf5",work:"#f5822f",research:"#1fae8c",notes:"#f2b51b",resume:"#e8456b",tm:"#8e5cf0",settings:"#7b8494",hello:"#2f7bf5",music:"#fa2d55"};
+const COLORS={term:"#1d2433",calc:"#16171a",photos:"#f5a623",about:"#2f7bf5",work:"#f5822f",research:"#1fae8c",notes:"#f2b51b",resume:"#e8456b",tm:"#8e5cf0",settings:"#7b8494",hello:"#2f7bf5",music:"#fa2d55"};
 
 const PROJECTS=[
   {id:"gan",name:"GAN Defense",tags:"Research · Federated learning · 2025",img:null,
@@ -958,6 +1015,7 @@ const APPS={
     <div class="tmcard" id="tmcard"></div><div class="tl" id="tl"></div>
     <div class="keys"><kbd>1</kbd> – <kbd>6</kbd> to switch</div></div>`},
   calc:{t:"TI-84 Plus CE",w:380,h:840,html:()=>`<div class="ti"></div>`},
+  photos:{t:"Photos",w:940,h:620,html:()=>`<div class="pho"><div class="side"></div><div class="pmain"></div><div class="pview" hidden></div></div>`},
   term:{t:"Terminal",w:680,h:440,html:()=>`<div class="term"><div id="tout"></div><div class="tline"><span class="tps" id="tps"></span><input id="tin" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Terminal input" enterkeyhint="go"></div></div>`},
   settings:{t:"Settings",w:720,h:600,html:()=>`<div class="set">
     <h4>Environment</h4>
@@ -1025,6 +1083,7 @@ function open(app,opts={}){
   if(app==="music")wireMusic(w);
   if(app==="term")wireTerm(w);
   if(app==="calc")wireCalc(w);
+  if(app==="photos")wirePhotos(w);
   if(a.init)a.init(w);
   if(app==="research"&&opts.r!=null)hlPaper(opts.r);
   w.querySelectorAll('.fitem[data-p]').forEach(b=>b.onclick=()=>open('work',{p:b.dataset.p}));
@@ -1110,8 +1169,10 @@ const FOLDSVG='<svg viewBox="0 0 64 52"><path d="M2 7a4 4 0 0 1 4-4h15l6 6h31a4 
 /* little TI-84 for the desktop: screen with a curve, then the keypad in its real colors */
 const CALCSVG=(()=>{let k='';for(let r=0;r<5;r++)for(let c=0;c<5;c++){const f=r===0&&c===0?'#2f80d1':r===1&&c===0?'#80c853':r>=2&&c>=1&&c<=3?'#f4f4f4':c===4&&r>=2?'#c9ccd1':'#3a3d44';k+=`<rect x="${6.6+c*6.4}" y="${30+r*5.6}" width="4.6" height="3.6" rx="1" fill="${f}"/>`;}
   return `<svg viewBox="0 0 44 60"><rect x="1" y="1" width="42" height="58" rx="7" fill="#17181c"/><rect x="5" y="5" width="34" height="21" rx="2" fill="#f2f6fb"/><path d="M8 21c4-12 8-12 12-5s8 6 16-9" fill="none" stroke="#1f5fd6" stroke-width="1.8" stroke-linecap="round"/>${k}</svg>`;})();
+/* Photos icon: the pinwheel of colored petals */
+const PHOTOSVG=`<svg viewBox="0 0 60 60"><rect x="1" y="1" width="58" height="58" rx="13" fill="#fff"/>${["#f6c344","#f39a2e","#ec5a4f","#d9438f","#9b59d0","#4a7ee8","#3bb3d6","#7cc957"].map((c,i)=>`<ellipse cx="30" cy="19" rx="6.2" ry="10.5" fill="${c}" opacity=".85" style="mix-blend-mode:multiply" transform="rotate(${i*45} 30 30)"/>`).join('')}</svg>`;
 const di=document.getElementById('dicons');
-di.innerHTML=FOLDERS.map(([a,n,g])=>`<button class="folder" data-a="${a}"><span class="fi">${FOLDSVG}<span class="gl">${g}</span></span><b>${n}</b></button>`).join('')+`<button class="folder appi" data-a="term"><span class="fi"><span class="termi">&gt;_</span></span><b>Terminal</b></button>`+`<button class="folder appi" data-a="calc"><span class="fi"><span class="calci">${CALCSVG}</span></span><b>TI-84</b></button>`;
+di.innerHTML=FOLDERS.map(([a,n,g])=>`<button class="folder" data-a="${a}"><span class="fi">${FOLDSVG}<span class="gl">${g}</span></span><b>${n}</b></button>`).join('')+`<button class="folder appi" data-a="term"><span class="fi"><span class="termi">&gt;_</span></span><b>Terminal</b></button>`+`<button class="folder appi" data-a="calc"><span class="fi"><span class="calci">${CALCSVG}</span></span><b>TI-84</b></button>`+`<button class="folder appi" data-a="photos"><span class="fi"><span class="photoi">${PHOTOSVG}</span></span><b>Photos</b></button>`;
 di.querySelectorAll('.folder').forEach(b=>b.onclick=()=>open(b.dataset.a));
 
 const si=document.getElementById('sysicons');
@@ -1123,7 +1184,7 @@ function renderIcons(){
   dock.querySelectorAll('button').forEach(b=>b.onclick=()=>open(b.dataset.a));markDock();
   si.innerHTML=DOCK.map(a=>`<button data-a="${a}"><span class="si${x(a)}">${eraIcon(a,e,"s")}</span><span>${lbl(a)}</span></button>`).join('');
   si.querySelectorAll('button').forEach(b=>b.onclick=()=>open(b.dataset.a));
-  items.innerHTML=["projects","papers","blogs","games",...DOCK,"term","calc","hello"].map(a=>`<button data-a="${a}">${eraIcon(a,e,"m")}<span>${a==="papers"?"Research papers":lbl(a)}</span></button>`).join('');
+  items.innerHTML=["projects","papers","blogs","games",...DOCK,"photos","term","calc","hello"].map(a=>`<button data-a="${a}">${eraIcon(a,e,"m")}<span>${a==="papers"?"Research papers":lbl(a)}</span></button>`).join('');
   items.querySelectorAll('button').forEach(b=>b.onclick=()=>open(b.dataset.a));
 }
 renderIcons();
@@ -1212,6 +1273,60 @@ function restart(){
   blip(330);setTimeout(()=>{try{location.reload()}catch(e){s.remove()}},1100);
 }
 
+/* photos app: albums and captions live in photos/photos.js */
+const PHX=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const phDate=d=>{if(!d)return'';const[y,m]=String(d).split('-');return m?new Date(+y,+m-1,1).toLocaleString('en-US',{month:'long',year:'numeric'}):y;};
+const phSpan=ps=>{const d=ps.map(p=>p.date).filter(Boolean).sort();if(!d.length)return'';const a=phDate(d[0]),b=phDate(d[d.length-1]);return a===b?a:a+' – '+b;};
+function wirePhotos(w){
+  const AL=(window.PHOTOS||[]).map(a=>({...a,photos:(a.photos||[]).filter(p=>p&&p.file)})),ALL=AL.flatMap(a=>a.photos);
+  const side=w.querySelector('.side'),main=w.querySelector('.pmain'),pv=w.querySelector('.pview');
+  const n=k=>k+(k===1?' photo':' photos'),thumb=p=>'photos/t/'+encodeURI(p.file),full=p=>'photos/'+encodeURI(p.file);
+  let list=[],at=0,view='library';
+  const grid=(ps,off)=>`<div class="pgrid">${ps.map((p,i)=>`<button class="pt" data-i="${off+i}" aria-label="${PHX(p.caption||'Photo')}"><img src="${thumb(p)}" data-full="${full(p)}" alt="${PHX(p.caption)}" loading="lazy" decoding="async"><span>${PHX(p.caption)}</span></button>`).join('')}</div>`;
+  const wireGrid=()=>{main.querySelectorAll('.pt img').forEach(im=>im.onerror=()=>{im.onerror=null;im.src=im.dataset.full;});
+    main.querySelectorAll('.pt').forEach(b=>b.onclick=()=>show(+b.dataset.i));
+    main.querySelectorAll('.palb').forEach(b=>b.onclick=()=>go(+b.dataset.v));};
+  function go(v){view=v;
+    side.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.v===String(v)));
+    if(!ALL.length){main.innerHTML=`<h2>Library</h2><p class="psub">No photos yet</p>`;return;}
+    if(v==='library'){list=ALL;let off=0;
+      main.innerHTML=`<h2>Library</h2><p class="psub">${n(ALL.length)} · ${AL.length} album${AL.length===1?'':'s'}</p>`+AL.filter(a=>a.photos.length).map(a=>{const h=`<div class="pgrp"><h3>${PHX(a.album)}<small>${PHX(phSpan(a.photos))}</small></h3>${grid(a.photos,off)}</div>`;off+=a.photos.length;return h;}).join('');}
+    else if(v==='albums'){list=[];
+      main.innerHTML=`<h2>Albums</h2><p class="psub">${AL.length} album${AL.length===1?'':'s'}</p><div class="palbs">${AL.map((a,i)=>`<button class="palb" data-v="${i}"><span class="im" style="${a.photos[0]?`background-image:url('${thumb(a.photos[0])}')`:''}"></span><b>${PHX(a.album)}</b><small>${n(a.photos.length)}</small></button>`).join('')}</div>`;}
+    else{const a=AL[v];list=a.photos;
+      main.innerHTML=`<h2>${PHX(a.album)}</h2><p class="psub">${[a.about,phSpan(a.photos),n(a.photos.length)].filter(Boolean).map(PHX).join(' · ')}</p>`+(a.photos.length?grid(a.photos,0):`<p class="pnone">Nothing in this album yet.</p>`);}
+    wireGrid();main.scrollTop=0;}
+  side.innerHTML=`<h4>Photos</h4><button data-v="library">${I.photos}Library</button><button data-v="albums">${I.folder.replace(' style="width:15px;height:15px"','')}Albums</button><h4>My Albums</h4>`+AL.map((a,i)=>`<button data-v="${i}"><span class="th" style="${a.photos[0]?`background-image:url('${thumb(a.photos[0])}')`:''}"></span>${PHX(a.album)}</button>`).join('')+`<div class="sfoot"><b>${n(ALL.length)}</b>Trips and moments</div>`;
+  side.querySelectorAll('button').forEach(b=>b.onclick=()=>go(/^\d+$/.test(b.dataset.v)?+b.dataset.v:b.dataset.v));
+  pv.innerHTML=`<div class="pvbar"><button class="pvx" aria-label="Back to photos"><svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></svg><span></span></button><span class="pvc"></span></div>
+    <div class="pvimg"><img alt=""><button class="pvp" aria-label="Previous photo"><svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></svg></button><button class="pvn" aria-label="Next photo"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button></div>
+    <div class="pvcap"><b></b><span></span></div>`;
+  const img=pv.querySelector('img');
+  function show(i){if(!list.length)return;at=Math.max(0,Math.min(list.length-1,i));const p=list[at];
+    const wasOn=!pv.hidden;pv.hidden=false;requestAnimationFrame(()=>pv.classList.add('on'));
+    pv.querySelector('.pvx span').textContent=typeof view==='number'?AL[view].album:view==='library'?'Library':'Albums';
+    pv.querySelector('.pvc').textContent=list.length>1?`${at+1} of ${list.length}`:'';
+    pv.querySelector('.pvcap b').textContent=p.caption||'';
+    pv.querySelector('.pvcap span').textContent=[p.place,phDate(p.date)].filter(Boolean).join(' · ');
+    pv.querySelector('.pvp').disabled=at===0;pv.querySelector('.pvn').disabled=at===list.length-1;
+    img.alt=p.caption||'Photo';
+    const set=()=>{img.src=thumb(p);img.onerror=()=>{img.onerror=null;img.src=full(p);};
+      const hi=new Image();hi.onload=()=>{if(list[at]===p)img.src=hi.src;};hi.src=full(p);img.classList.remove('fade');};
+    if(wasOn){img.classList.add('fade');setTimeout(set,120);}else set();
+    [at-1,at+1].forEach(j=>{if(list[j])new Image().src=full(list[j]);});}
+  function hide(){pv.classList.remove('on');setTimeout(()=>{pv.hidden=true;img.removeAttribute('src');},180);
+    const t=main.querySelector(`.pt[data-i="${at}"]`);if(t)t.focus({preventScroll:false});}
+  pv.querySelector('.pvx').onclick=hide;
+  pv.querySelector('.pvp').onclick=()=>show(at-1);pv.querySelector('.pvn').onclick=()=>show(at+1);
+  let sx=null;const box=pv.querySelector('.pvimg');
+  box.addEventListener('pointerdown',e=>{if(!e.target.closest('button'))sx=e.clientX;});
+  box.addEventListener('pointerup',e=>{if(sx==null)return;const dx=e.clientX-sx;sx=null;if(Math.abs(dx)>45)show(at+(dx<0?1:-1));});
+  w.phKey=e=>{if(pv.hidden)return false;if(e.key==='ArrowLeft')show(at-1);else if(e.key==='ArrowRight')show(at+1);else if(e.key==='Escape')hide();else return false;return true;};
+  go('library');
+}
+/* arrow keys and Esc in the photo viewer, while Photos is the front window */
+window.addEventListener('keydown',e=>{const w=wins.photos;if(!w||!w.classList.contains('front')||!w.phKey||e.metaKey||e.ctrlKey||e.altKey||e.target.closest('input,textarea'))return;if(w.phKey(e)){e.preventDefault();e.stopPropagation();}},true);
+
 /* command palette */
 const isMac=/Mac|iPhone|iPad/.test(navigator.platform||navigator.userAgent);
 const PAL_BASE=[
@@ -1223,6 +1338,7 @@ const PAL_BASE=[
   {t:'Résumé',d:'Education, experience and awards',ic:I.resume,go:()=>open('resume')},
   {t:'Time Machine',d:'Travel through interface design history',ic:I.tm,go:()=>open('tm')},
   {t:'Settings',d:'Time of day, weather and sound',ic:I.settings,go:()=>open('settings')},
+  {t:'Photos',d:'Trips and moments',ic:I.photos,go:()=>open('photos')},
   {t:'Terminal',d:'Type help to start. Press ` to toggle',ic:I.term,go:()=>open('term')},
   {t:'TI-84 Plus CE',d:'Graphing calculator with Y=, tables, lists and matrices',ic:I.calc,go:()=>open('calc')},
   {t:'Games',d:'Minesweeper, Solitaire and Snake',ic:I.games,go:()=>open('games')},
@@ -1593,7 +1709,7 @@ function wireTerm(w){
       case 'pwd':P(st.cwd.replace('~','/Users/poshak'));break;
       case 'cat':{if(!args[0]){P('cat: which file?');break;}const f=resolve(args[0]),fn=files[f]||files['~/'+args[0]];fn?P(fn()):P(`cat: ${a}: No such file`);break;}
       case 'open':{const n=(args[0]||'').toLowerCase().replace(/\/$/,'');
-        const map={about:'about',resume:'resume',music:'music',settings:'settings',tm:'tm','time-machine':'tm',timemachine:'tm',projects:'projects',research:'papers',papers:'papers',blogs:'blogs',notes:'notes',post:'post',ohtani:'post',abs:'abs',challenge:'abs',hello:'hello',contact:'hello',terminal:'term',calc:'calc',calculator:'calc',ti84:'calc','ti-84':'calc',games:'games',minesweeper:'mines',mines:'mines',solitaire:'sol',sol:'sol'};
+        const map={about:'about',resume:'resume',music:'music',settings:'settings',tm:'tm','time-machine':'tm',timemachine:'tm',projects:'projects',research:'papers',papers:'papers',blogs:'blogs',notes:'notes',post:'post',ohtani:'post',abs:'abs',challenge:'abs',hello:'hello',contact:'hello',terminal:'term',calc:'calc',calculator:'calc',ti84:'calc','ti-84':'calc',photos:'photos',pics:'photos',games:'games',minesweeper:'mines',mines:'mines',solitaire:'sol',sol:'sol'};
         if(map[n]){open(map[n]);P(`Opening ${APPS[map[n]].t}…`);}
         else if(PROJECTS.find(p=>p.id===n)){open('work',{p:n});P(`Opening ${PROJECTS.find(p=>p.id===n).name}…`);}
         else P(n?`open: can't find "${n}". Try: open projects`:'open: what should I open? Try: open about');break;}
@@ -2579,8 +2695,9 @@ function setPhone(){os.classList.toggle('phone',PHONE.matches);}
 try{PHONE.addEventListener('change',setPhone)}catch(e){PHONE.addListener(setPhone)}
 setPhone();
 if(!PHONE.matches)open('about');
-{const r={blogs:'blogs',ohtani:'post','challenge-problem':'abs',research:'papers',projects:'projects',music:'music',resume:'resume',calc:'calc',ti84:'calc',games:'games',minesweeper:'mines',solitaire:'sol'}[location.hash.slice(1)];if(r)open(r);}
+{const r={blogs:'blogs',ohtani:'post','challenge-problem':'abs',research:'papers',projects:'projects',music:'music',resume:'resume',calc:'calc',ti84:'calc',photos:'photos',games:'games',minesweeper:'mines',solitaire:'sol'}[location.hash.slice(1)];if(r)open(r);}
 </script>
+<script src="assets/os/chess.js"></script>
 
 </body>
 </html>
