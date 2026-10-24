@@ -204,7 +204,7 @@ button.card.post{gap:16px;text-align:left}
 .doc ul{margin:4px 0 10px;padding-left:18px}
 .doc p{margin:2px 0 8px}
 .embed{display:flex;flex-direction:column;height:100%}.embed iframe{flex:1;width:100%;border:0;background:#fff;min-height:0}
-.win[data-app="abs"] .bd,.win[data-app="post"] .bd{overflow:hidden}
+.win[data-app="abs"] .bd,.win[data-app="post"] .bd,.win[data-app="framing"] .bd{overflow:hidden}
 .rbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(--line);background:rgba(240,242,246,.75);font-size:13px;color:var(--soft);position:sticky;top:0}
 
 .tm{padding:22px 28px 26px;text-align:center}
@@ -900,7 +900,7 @@ function applyWall(era){
 <script src="photos/photos.js"></script>
 <script src="assets/os/games.js"></script>
 <script>
-const IMG={chess:"url(assets/os/Chess.jpg)",breast:"url(assets/os/Breast.jpg)",pict:"url(assets/os/Pict.jpg)",marky:"url(assets/os/Marky.jpg)",mart:"url(assets/os/martingale.jpg)",imp:"url(assets/os/imposter.jpg)",ohtani:"url(assets/os/ohtani.jpg)",abs:"url(assets/os/abs.jpg)",homer:"assets/os/ohtanihomer.jpg"};
+const IMG={chess:"url(assets/os/Chess.jpg)",breast:"url(assets/os/Breast.jpg)",pict:"url(assets/os/Pict.jpg)",marky:"url(assets/os/Marky.jpg)",mart:"url(assets/os/martingale.jpg)",imp:"url(assets/os/imposter.jpg)",ohtani:"url(assets/os/ohtani.jpg)",abs:"url(assets/os/abs.jpg)",framing:"url(assets/os/framing.jpg)",homer:"assets/os/ohtanihomer.jpg"};
 const I={
   about:'<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>',
   work:'<svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg>',
@@ -916,7 +916,7 @@ const I={
   music:'<svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>',
   folder:'<svg viewBox="0 0 24 24" style="width:15px;height:15px"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>'
 };
-I.post=I.notes;I.abs=I.notes;I.projects=I.folder;I.papers=I.folder;I.blogs=I.folder;
+I.post=I.notes;I.abs=I.notes;I.framing=I.notes;I.projects=I.folder;I.papers=I.folder;I.blogs=I.folder;
 Object.assign(I,GAMES.icons);
 const PAPERS=[["alphaXiv 2026","Optimal challenge policy for MLB’s ABS system"],["Int. J. Bilingualism 2026","Immersion and first-language attrition"],["Biling.: Lang. & Cog. 2025","Trilingual parallel processing"],["ITNG 2025","GAN defense against data poisoning"],["Nepalese Linguistics 2022","Bilingual Stroop effect in Nepali–English bilinguals"],["J Cult Cogn Sci 2021","Second-language instruction and L1 abilities"]];
 const FOLDERS=[["papers","Research",I.research],["projects","Projects",I.work],["blogs","Blogs",I.notes],["games","Games",I.games]];
@@ -986,9 +986,11 @@ const APPS={
   notes:{t:"Notes",w:640,h:520,html:()=>`<div class="pad">
     <p class="sect">Writing</p>
     <div class="list">
+      <button class="card post" data-b="framing"><div class="im" style="background-image:${IMG.framing}"></div><div><span class="k">October 2026 · Baseball · 6 min read</span><h3>What is a stolen strike worth now?</h3><p>How much of catcher framing's value disappeared in the first year of ABS challenges.</p></div></button>
       <button class="card post" data-b="abs"><div class="im" style="background-image:${IMG.abs}"></div><div><span class="k">October 2026 · Baseball research</span><h3>The Challenge Problem</h3><p>How MLB teams spent their ABS challenges in 2026, and the 36 wins they left on the table.</p></div></button>
       <button class="card post" data-b="ohtani"><div class="im" style="background-image:${IMG.ohtani}"></div><div><span class="k">June 2025 · Baseball · 4 min read</span><h3>Ohtani's impact in year 2 with the Dodgers</h3><p>Exploring Ohtani's offensive explosion in his second season, so far.</p></div></button>
     </div></div>`},
+  framing:{t:"What is a stolen strike worth now?",w:780,h:660,html:()=>`<div class="embed"><iframe src="blog/framing/" title="What is a stolen strike worth now?" loading="lazy" allow="clipboard-write; web-share"></iframe></div>`},
   abs:{t:"The Challenge Problem",w:820,h:680,html:()=>`<div class="embed"><iframe src="blog/challenge-problem/" title="The Challenge Problem" loading="lazy" allow="clipboard-write; web-share"></iframe></div>`},
   post:{t:"Ohtani's impact in year 2",w:780,h:660,html:()=>`<div class="embed"><iframe src="blog/ohtani/" title="Ohtani's impact in year 2" loading="lazy" allow="clipboard-write; web-share"></iframe></div>`},
   resume:{t:"Résumé",w:720,h:620,html:()=>`<div class="rbar"><span>Poshak_Pathak_Resume.pdf</span><a class="btn ghost" href="Poshak_Pathak_Resume.pdf" download="Poshak_Pathak_Resume.pdf">Download PDF</a></div>
@@ -1030,7 +1032,7 @@ const APPS={
     <div class="grp sys"><div><span>Version</span>PoshakOS 0.2</div><div><span>Built with</span>HTML, CSS, JavaScript</div><div><span>Renderer</span>WebGL ocean shader</div></div>
   </div>`},
   projects:{t:"Projects",w:720,h:520,html:()=>`<div class="fpath">${I.folder}Desktop › Projects · ${PROJECTS.length} items</div><div class="finder">${PROJECTS.map(p=>`<button class="fitem" data-p="${p.id}"><span class="th ${p.img?'':'gan'}" style="${p.img?`background-image:${IMG[p.img]}`:''}"></span><span>${p.name}<small>${p.tags.split(' · ')[0]}</small></span></button>`).join('')}</div>`},
-  blogs:{t:"Blogs",w:620,h:420,html:()=>`<div class="fpath">${I.folder}Desktop › Blogs · 2 items</div><div class="finder"><button class="fitem" data-b="abs"><span class="th" style="background-image:${IMG.abs}"></span><span>The Challenge Problem<small>Oct 2026 · Baseball research</small></span></button><button class="fitem" data-b="ohtani"><span class="th" style="background-image:${IMG.ohtani}"></span><span>Ohtani's impact in year 2<small>June 2025 · Baseball</small></span></button></div>`},
+  blogs:{t:"Blogs",w:620,h:420,html:()=>`<div class="fpath">${I.folder}Desktop › Blogs · 3 items</div><div class="finder"><button class="fitem" data-b="framing"><span class="th" style="background-image:${IMG.framing}"></span><span>What is a stolen strike worth now?<small>Oct 2026 · Baseball</small></span></button><button class="fitem" data-b="abs"><span class="th" style="background-image:${IMG.abs}"></span><span>The Challenge Problem<small>Oct 2026 · Baseball research</small></span></button><button class="fitem" data-b="ohtani"><span class="th" style="background-image:${IMG.ohtani}"></span><span>Ohtani's impact in year 2<small>June 2025 · Baseball</small></span></button></div>`},
   papers:{t:"Research",w:720,h:520,html:()=>`<div class="fpath">${I.folder}Desktop › Research · ${PAPERS.length+1} items</div><div class="finder">${PAPERS.map((x,i)=>`<button class="fitem" data-r="${i}"><span class="pdf"><i></i><i></i><i></i><b>PDF</b></span><span>${x[1]}<small>${x[0]}</small></span></button>`).join('')}<button class="fitem" data-r="talks"><span class="pdf"><i></i><i></i><i></i><b>TALKS</b></span><span>Talks &amp; awards<small>2024 – 2025</small></span></button></div>`},
   music:{t:"Music",w:860,h:560,html:()=>`<div class="work mus"><div class="side"><h4>Spotify</h4><button data-v="spotify"><span class="sic">${SPOTIFY_IC}</span>Poshak's playlist</button><h4>Library</h4><button data-v="radio">${I.music}PoshakOS Radio</button></div>
     <div class="mcol"><div class="wmain" id="mmain"></div>
@@ -1088,7 +1090,7 @@ function open(app,opts={}){
   if(a.init)a.init(w);
   if(app==="research"&&opts.r!=null)hlPaper(opts.r);
   w.querySelectorAll('.fitem[data-p]').forEach(b=>b.onclick=()=>open('work',{p:b.dataset.p}));
-  w.querySelectorAll('[data-b="ohtani"],[data-b="abs"]').forEach(b=>b.onclick=()=>open(b.dataset.b==='abs'?'abs':'post'));
+  w.querySelectorAll('[data-b="ohtani"],[data-b="abs"],[data-b="framing"]').forEach(b=>b.onclick=()=>open(b.dataset.b==='ohtani'?'post':b.dataset.b));
   w.querySelectorAll('.fitem[data-r]').forEach(b=>b.onclick=()=>open('research',{r:b.dataset.r}));
   return w;
 }
@@ -1350,6 +1352,7 @@ const PAL_BASE=[
 const PAL_EXTRA=[
   ...PROJECTS.map(p=>({t:p.name,d:'Project · '+p.tags,ic:I.work,go:()=>open('work',{p:p.id})})),
   ...PAPERS.map((p,i)=>({t:p[1],d:'Paper · '+p[0],ic:I.research,go:()=>open('research',{r:String(i)})})),
+  {t:'What is a stolen strike worth now?',d:'Blog · October 2026',ic:I.notes,go:()=>open('framing')},
   {t:'The Challenge Problem',d:'Blog · October 2026',ic:I.notes,go:()=>open('abs')},
   {t:'Ohtani’s impact in year 2 with the Dodgers',d:'Blog · June 2025',ic:I.notes,go:()=>open('post')},
   ...ERAS.map(e=>({t:'Go to '+(e.k==='now'?'the present':e.k),d:'Time Machine · '+e.t,ic:I.tm,go:()=>setEra(e.k)})),
@@ -1656,7 +1659,7 @@ var FS={
   '~':['about.txt','contact.txt','resume.pdf','projects/','research/','blogs/','music/'],
   '~/projects':PROJECTS.map(p=>p.id),
   '~/research':PAPERS.map((p,i)=>'paper-'+(i+1)+'.txt').concat(['talks.txt']),
-  '~/blogs':['challenge-problem.md','ohtani-year-2.md'],
+  '~/blogs':['stolen-strike.md','challenge-problem.md','ohtani-year-2.md'],
   '~/music':['poshakos-radio/','poshaks-playlist.spotify']
 };
 var HIDDEN=['.secrets'];
@@ -1678,6 +1681,7 @@ function wireTerm(w){
     '~/.secrets':()=>`Some things to try:\n  snake        a quick game\n  matrix       follow the white rabbit\n  storm        summon a storm over the ocean\n  ↑↑↓↓←→←→BA   the classic, anywhere on the desktop\n  Click the black dot in the top-left corner five times fast.`,
     '~/research/talks.txt':()=>`2025  ITNG Conference, Las Vegas\n2024  ULM Research Symposium, 1st place\n2024  Louisiana Academy of Science`,
     '~/music/poshaks-playlist.spotify':()=>`Open it with: open music`,
+    '~/blogs/stolen-strike.md':()=>`What is a stolen strike worth now? Catcher framing in the first year of ABS (October 2026). Read it with: open framing`,
     '~/blogs/challenge-problem.md':()=>`The Challenge Problem: ABS challenge economics, 2026 season (October 2026). Read it with: open abs`,
     '~/blogs/ohtani-year-2.md':()=>`Ohtani's impact in year 2 with the Dodgers (June 2025). Read it with: open ohtani`
   };
@@ -1710,7 +1714,7 @@ function wireTerm(w){
       case 'pwd':P(st.cwd.replace('~','/Users/poshak'));break;
       case 'cat':{if(!args[0]){P('cat: which file?');break;}const f=resolve(args[0]),fn=files[f]||files['~/'+args[0]];fn?P(fn()):P(`cat: ${a}: No such file`);break;}
       case 'open':{const n=(args[0]||'').toLowerCase().replace(/\/$/,'');
-        const map={about:'about',resume:'resume',music:'music',settings:'settings',tm:'tm','time-machine':'tm',timemachine:'tm',projects:'projects',research:'papers',papers:'papers',blogs:'blogs',notes:'notes',post:'post',ohtani:'post',abs:'abs',challenge:'abs',hello:'hello',contact:'hello',terminal:'term',calc:'calc',calculator:'calc',ti84:'calc','ti-84':'calc',photos:'photos',pics:'photos',games:'games',minesweeper:'mines',mines:'mines',solitaire:'sol',sol:'sol'};
+        const map={about:'about',resume:'resume',music:'music',settings:'settings',tm:'tm','time-machine':'tm',timemachine:'tm',projects:'projects',research:'papers',papers:'papers',blogs:'blogs',notes:'notes',post:'post',ohtani:'post',abs:'abs',challenge:'abs',framing:'framing',hello:'hello',contact:'hello',terminal:'term',calc:'calc',calculator:'calc',ti84:'calc','ti-84':'calc',photos:'photos',pics:'photos',games:'games',minesweeper:'mines',mines:'mines',solitaire:'sol',sol:'sol'};
         if(map[n]){open(map[n]);P(`Opening ${APPS[map[n]].t}…`);}
         else if(PROJECTS.find(p=>p.id===n)){open('work',{p:n});P(`Opening ${PROJECTS.find(p=>p.id===n).name}…`);}
         else P(n?`open: can't find "${n}". Try: open projects`:'open: what should I open? Try: open about');break;}
@@ -1718,7 +1722,7 @@ function wireTerm(w){
       case 'contact':case 'hello':P(files['~/contact.txt']());print(link('Say hello →','hello'));break;
       case 'projects':print(PROJECTS.map(p=>`${link(escT(p.name),'work',{p:p.id})}  <span class="tdim">${escT(p.tags)}</span>`).join('\n'));break;
       case 'research':case 'papers':print(PAPERS.map((p,i)=>`${link(escT(p[1]),'research',{r:String(i)})}  <span class="tdim">${escT(p[0])}</span>`).join('\n'));break;
-      case 'blogs':print(`${link("The Challenge Problem",'abs')}  <span class="tdim">Oct 2026</span>\n${link("Ohtani's impact in year 2 with the Dodgers",'post')}  <span class="tdim">June 2025</span>`);break;
+      case 'blogs':print(`${link("What is a stolen strike worth now?",'framing')}  <span class="tdim">Oct 2026</span>\n${link("The Challenge Problem",'abs')}  <span class="tdim">Oct 2026</span>\n${link("Ohtani's impact in year 2 with the Dodgers",'post')}  <span class="tdim">June 2025</span>`);break;
       case 'resume':open('resume');P('Opening Résumé…');break;
       case 'music':case 'play':musPlay();P(`♪ Now playing: ${RADIO[MUS.idx].t} · PoshakOS Radio`);break;
       case 'pause':case 'stop':musPause();P('Paused.');break;
@@ -2696,7 +2700,7 @@ function setPhone(){os.classList.toggle('phone',PHONE.matches);}
 try{PHONE.addEventListener('change',setPhone)}catch(e){PHONE.addListener(setPhone)}
 setPhone();
 if(!PHONE.matches)open('about');
-{const r={blogs:'blogs',ohtani:'post','challenge-problem':'abs',research:'papers',projects:'projects',music:'music',resume:'resume',calc:'calc',ti84:'calc',photos:'photos',games:'games',minesweeper:'mines',solitaire:'sol'}[location.hash.slice(1)];if(r)open(r);}
+{const r={blogs:'blogs',ohtani:'post','challenge-problem':'abs',framing:'framing',research:'papers',projects:'projects',music:'music',resume:'resume',calc:'calc',ti84:'calc',photos:'photos',games:'games',minesweeper:'mines',solitaire:'sol'}[location.hash.slice(1)];if(r)open(r);}
 </script>
 <script src="assets/os/chess.js"></script>
 
