@@ -12,10 +12,15 @@ if (!token) {
 }
 
 const range = `start=2024-01-01T00:00:00Z&end=${new Date().toISOString().slice(0, 19)}Z`;
-const get = async path => {
+const get = async (path, empty404 = true) => {
   const res = await fetch(`https://${site}.goatcounter.com/api/v0${path}`, {
     headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' },
   });
+  // a brand-new site with no processed visits yet answers 404 instead of an empty list
+  if (res.status === 404 && empty404) {
+    console.log(`GoatCounter has no data for ${path.split('?')[0]} yet`);
+    return { stats: [], more: false };
+  }
   if (!res.ok) throw new Error(`GoatCounter ${path} returned ${res.status}: ${await res.text()}`);
   return res.json();
 };
@@ -27,6 +32,10 @@ const all = async path => {
     if (!r.more) return rows;
   }
 };
+
+// fails loudly if the site code or token is wrong, so the 404s below really mean "no data yet"
+await get('/me', false);
+console.log(`Token works for ${site}.goatcounter.com`);
 
 const countries = (await all('/stats/locations'))
   .filter(s => /^[A-Z]{2}$/.test(s.id || '') && s.count > 0)
