@@ -1282,7 +1282,7 @@ const phSpan=ps=>{const d=ps.map(p=>p.date).filter(Boolean).sort();if(!d.length)
 function wirePhotos(w){
   const AL=(window.PHOTOS||[]).map(a=>({...a,photos:(a.photos||[]).filter(p=>p&&p.file)})),ALL=AL.flatMap(a=>a.photos);
   const side=w.querySelector('.side'),main=w.querySelector('.pmain'),pv=w.querySelector('.pview');
-  const n=k=>k+(k===1?' photo':' photos'),thumb=p=>'photos/t/'+encodeURI(p.file),full=p=>'photos/'+encodeURI(p.file);
+  const n=k=>k+(k===1?' photo':' photos'),thumb=p=>'photos/t/'+encodeURI(p.file),cov=a=>a.photos.find(p=>p.file===a.cover)||a.photos[0],full=p=>'photos/'+encodeURI(p.file);
   let list=[],at=0,view='library';
   const grid=(ps,off)=>`<div class="pgrid">${ps.map((p,i)=>`<button class="pt" data-i="${off+i}" aria-label="${PHX(p.caption||'Photo')}"><img src="${thumb(p)}" data-full="${full(p)}" alt="${PHX(p.caption)}" loading="lazy" decoding="async"><span>${PHX(p.caption)}</span></button>`).join('')}</div>`;
   const wireGrid=()=>{main.querySelectorAll('.pt img').forEach(im=>im.onerror=()=>{im.onerror=null;im.src=im.dataset.full;});
@@ -1294,11 +1294,11 @@ function wirePhotos(w){
     if(v==='library'){list=ALL;let off=0;
       main.innerHTML=`<h2>Library</h2><p class="psub">${n(ALL.length)} · ${AL.length} album${AL.length===1?'':'s'}</p>`+AL.filter(a=>a.photos.length).map(a=>{const h=`<div class="pgrp"><h3>${PHX(a.album)}<small>${PHX(phSpan(a.photos))}</small></h3>${grid(a.photos,off)}</div>`;off+=a.photos.length;return h;}).join('');}
     else if(v==='albums'){list=[];
-      main.innerHTML=`<h2>Albums</h2><p class="psub">${AL.length} album${AL.length===1?'':'s'}</p><div class="palbs">${AL.map((a,i)=>`<button class="palb" data-v="${i}"><span class="im" style="${a.photos[0]?`background-image:url('${thumb(a.photos[0])}')`:''}"></span><b>${PHX(a.album)}</b><small>${n(a.photos.length)}</small></button>`).join('')}</div>`;}
+      main.innerHTML=`<h2>Albums</h2><p class="psub">${AL.length} album${AL.length===1?'':'s'}</p><div class="palbs">${AL.map((a,i)=>`<button class="palb" data-v="${i}"><span class="im" style="${cov(a)?`background-image:url('${thumb(cov(a))}')`:''}"></span><b>${PHX(a.album)}</b><small>${n(a.photos.length)}</small></button>`).join('')}</div>`;}
     else{const a=AL[v];list=a.photos;
       main.innerHTML=`<h2>${PHX(a.album)}</h2><p class="psub">${[a.about,phSpan(a.photos),n(a.photos.length)].filter(Boolean).map(PHX).join(' · ')}</p>`+(a.photos.length?grid(a.photos,0):`<p class="pnone">Nothing in this album yet.</p>`);}
     wireGrid();main.scrollTop=0;}
-  side.innerHTML=`<h4>Photos</h4><button data-v="library">${I.photos}Library</button><button data-v="albums">${I.folder.replace(' style="width:15px;height:15px"','')}Albums</button><h4>My Albums</h4>`+AL.map((a,i)=>`<button data-v="${i}"><span class="th" style="${a.photos[0]?`background-image:url('${thumb(a.photos[0])}')`:''}"></span>${PHX(a.album)}</button>`).join('')+`<div class="sfoot"><b>${n(ALL.length)}</b>Trips and moments</div>`;
+  side.innerHTML=`<h4>Photos</h4><button data-v="library">${I.photos}Library</button><button data-v="albums">${I.folder.replace(' style="width:15px;height:15px"','')}Albums</button><h4>My Albums</h4>`+AL.map((a,i)=>`<button data-v="${i}"><span class="th" style="${cov(a)?`background-image:url('${thumb(cov(a))}')`:''}"></span>${PHX(a.album)}</button>`).join('')+`<div class="sfoot"><b>${n(ALL.length)}</b>Trips and moments</div>`;
   side.querySelectorAll('button').forEach(b=>b.onclick=()=>go(/^\d+$/.test(b.dataset.v)?+b.dataset.v:b.dataset.v));
   pv.innerHTML=`<div class="pvbar"><button class="pvx" aria-label="Back to photos"><svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></svg><span></span></button><span class="pvc"></span></div>
     <div class="pvimg"><img alt=""><button class="pvp" aria-label="Previous photo"><svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></svg></button><button class="pvn" aria-label="Next photo"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button></div>
