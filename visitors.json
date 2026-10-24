@@ -1,6 +1,17 @@
 {
- "updated": null,
- "total": 0,
- "countries": [],
- "us": []
+ "updated": "2026-10-24T16:14:23.119Z",
+ "total": 1,
+ "countries": [
+  [
+   "US",
+   "United States",
+   1
+  ]
+ ],
+ "us": [
+  [
+   "Texas",
+   1
+  ]
+ ]
 }
