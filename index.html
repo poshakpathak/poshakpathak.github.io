@@ -645,6 +645,7 @@ html,body{margin:0;height:100%;background:#0b1626}
 </style>
 </head>
 <body>
+<script src="assets/os/boot.js"></script>
 <div id="os" data-era="now">
   <canvas id="sea" aria-hidden="true"></canvas>
   <div class="menubar">
@@ -1203,6 +1204,7 @@ document.querySelectorAll('.mb[data-m]').forEach(b=>{
 document.addEventListener('pointerdown',e=>{if(menuEl&&!e.target.closest('.menu,.mb'))closeMenu();});
 
 function restart(){
+  try{sessionStorage.setItem('poshakos-reboot','1')}catch(e){}
   const s=document.createElement('div');s.className='boot';s.innerHTML='<span class="logo"></span><div class="bar"><i></i></div>';os.appendChild(s);
   blip(330);setTimeout(()=>{try{location.reload()}catch(e){s.remove()}},1100);
 }
