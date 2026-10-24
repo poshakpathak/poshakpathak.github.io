@@ -3,7 +3,7 @@
    so nothing shows up until I approve it at /#guestbook-admin. */
 (()=>{
 /* public Firebase web config: safe to ship, the Firestore rules do the protecting */
-const FB={apiKey:'',projectId:''};
+const FB={apiKey:'AIzaSyDkyIwps3EjWTvO1a3ULoHU_srKcqbpX2Q',projectId:'poshakos'};
 const OWNER='poshakcodes@gmail.com',SDK='https://www.gstatic.com/firebasejs/10.12.2/';
 const DB=()=>`https://firestore.googleapis.com/v1/projects/${FB.projectId}/databases/(default)/documents`;
 const COLS={yellow:'#ffe884',pink:'#ffc2d6',blue:'#bfe1ff',green:'#c9f2b9'};
