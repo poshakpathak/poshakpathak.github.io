@@ -23,6 +23,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Poshak Pathak","url":"https://poshakpathak.github.io/","alumniOf":"University of Louisiana Monroe","sameAs":["https://www.linkedin.com/in/poshak-pathak/","https://x.com/PathakPoshak","https://github.com/poshakpathak"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=VT323&family=Silkscreen:wght@400;700&display=swap">
+<link rel="stylesheet" href="assets/os/games.css">
 <style>
 /* Layout: a whole-page desktop OS. Menu bar on top, project icons on the desktop, app windows, dock at the bottom.
    The Time Machine swaps the token set below by setting data-era on #os. Single committed look per era, so no light/dark split. */
@@ -62,6 +63,8 @@ button{font:inherit;color:inherit}
 /* ---------- desktop ---------- */
 .desk{position:relative;z-index:1;min-height:0}
 .dicons{position:absolute;top:24px;right:max(20px,env(safe-area-inset-right,0px));display:grid;gap:22px;justify-items:center;z-index:2}
+/* when the icons outgrow the screen they wrap into another column to the left */
+#os:not(.phone) .dicons{display:flex;flex-direction:column;flex-wrap:wrap-reverse;align-items:center;align-content:flex-start;max-height:calc(100% - 150px)}
 .proj{all:unset;cursor:pointer;display:grid;justify-items:center;gap:8px;width:108px;text-align:center}
 .stack{position:relative;width:82px;height:96px}
 .stack i,.stack span{position:absolute;inset:0;border-radius:10px;background-size:cover;background-position:center;box-shadow:0 8px 18px rgba(10,20,40,.35)}
@@ -895,6 +898,7 @@ function applyWall(era){
 
 </script>
 <script src="photos/photos.js"></script>
+<script src="assets/os/games.js"></script>
 <script>
 const IMG={chess:"url(assets/os/Chess.jpg)",breast:"url(assets/os/Breast.jpg)",pict:"url(assets/os/Pict.jpg)",marky:"url(assets/os/Marky.jpg)",mart:"url(assets/os/martingale.jpg)",imp:"url(assets/os/imposter.jpg)",ohtani:"url(assets/os/ohtani.jpg)",abs:"url(assets/os/abs.jpg)",homer:"assets/os/ohtanihomer.jpg"};
 const I={
@@ -913,8 +917,9 @@ const I={
   folder:'<svg viewBox="0 0 24 24" style="width:15px;height:15px"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>'
 };
 I.post=I.notes;I.abs=I.notes;I.projects=I.folder;I.papers=I.folder;I.blogs=I.folder;
+Object.assign(I,GAMES.icons);
 const PAPERS=[["alphaXiv 2026","Optimal challenge policy for MLB’s ABS system"],["Int. J. Bilingualism 2026","Immersion and first-language attrition"],["Biling.: Lang. & Cog. 2025","Trilingual parallel processing"],["ITNG 2025","GAN defense against data poisoning"],["Nepalese Linguistics 2022","Bilingual Stroop effect in Nepali–English bilinguals"],["J Cult Cogn Sci 2021","Second-language instruction and L1 abilities"]];
-const FOLDERS=[["papers","Research",I.research],["projects","Projects",I.work],["blogs","Blogs",I.notes]];
+const FOLDERS=[["papers","Research",I.research],["projects","Projects",I.work],["blogs","Blogs",I.notes],["games","Games",I.games]];
 const COLORS={term:"#1d2433",calc:"#16171a",photos:"#f5a623",about:"#2f7bf5",work:"#f5822f",research:"#1fae8c",notes:"#f2b51b",resume:"#e8456b",tm:"#8e5cf0",settings:"#7b8494",hello:"#2f7bf5",music:"#fa2d55"};
 
 const PROJECTS=[
@@ -1039,6 +1044,7 @@ const APPS={
     <div style="display:flex;gap:18px"><a href="https://www.linkedin.com/in/poshak-pathak/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://x.com/PathakPoshak" target="_blank" rel="noopener">X ↗</a><a href="https://github.com/poshakpathak" target="_blank" rel="noopener">GitHub ↗</a></div>
   </div>`}
 };
+Object.assign(APPS,GAMES.apps);
 /* status line under my name in About; change it as life changes */
 const STATUS="Open to full-time roles · DFW · Dec 2026";
 const DOCK=["about","music","resume","tm","settings"];
@@ -1079,6 +1085,7 @@ function open(app,opts={}){
   if(app==="term")wireTerm(w);
   if(app==="calc")wireCalc(w);
   if(app==="photos")wirePhotos(w);
+  if(a.init)a.init(w);
   if(app==="research"&&opts.r!=null)hlPaper(opts.r);
   w.querySelectorAll('.fitem[data-p]').forEach(b=>b.onclick=()=>open('work',{p:b.dataset.p}));
   w.querySelectorAll('[data-b="ohtani"],[data-b="abs"]').forEach(b=>b.onclick=()=>open(b.dataset.b==='abs'?'abs':'post'));
@@ -1178,7 +1185,7 @@ function renderIcons(){
   dock.querySelectorAll('button').forEach(b=>b.onclick=()=>open(b.dataset.a));markDock();
   si.innerHTML=DOCK.map(a=>`<button data-a="${a}"><span class="si${x(a)}">${eraIcon(a,e,"s")}</span><span>${lbl(a)}</span></button>`).join('');
   si.querySelectorAll('button').forEach(b=>b.onclick=()=>open(b.dataset.a));
-  items.innerHTML=["projects","papers","blogs",...DOCK,"photos","term","calc","hello"].map(a=>`<button data-a="${a}">${eraIcon(a,e,"m")}<span>${a==="papers"?"Research papers":lbl(a)}</span></button>`).join('');
+  items.innerHTML=["projects","papers","blogs","games",...DOCK,"photos","term","calc","hello"].map(a=>`<button data-a="${a}">${eraIcon(a,e,"m")}<span>${a==="papers"?"Research papers":lbl(a)}</span></button>`).join('');
   items.querySelectorAll('button').forEach(b=>b.onclick=()=>open(b.dataset.a));
 }
 renderIcons();
@@ -1336,6 +1343,9 @@ const PAL_BASE=[
   {t:'Photos',d:'Trips and moments',ic:I.photos,go:()=>open('photos')},
   {t:'Terminal',d:'Type help to start. Press ` to toggle',ic:I.term,go:()=>open('term')},
   {t:'TI-84 Plus CE',d:'Graphing calculator with Y=, tables, lists and matrices',ic:I.calc,go:()=>open('calc')},
+  {t:'Games',d:'Minesweeper, Solitaire and Snake',ic:I.games,go:()=>open('games')},
+  {t:'Minesweeper',d:'Beginner, intermediate or expert',ic:I.mines,go:()=>open('mines')},
+  {t:'Solitaire',d:'Klondike, draw 1 or draw 3',ic:I.sol,go:()=>open('sol')},
   {t:'Say hello',d:'Email, LinkedIn and X',ic:I.hello,go:()=>open('hello')}
 ];
 const PAL_EXTRA=[
@@ -1701,7 +1711,7 @@ function wireTerm(w){
       case 'pwd':P(st.cwd.replace('~','/Users/poshak'));break;
       case 'cat':{if(!args[0]){P('cat: which file?');break;}const f=resolve(args[0]),fn=files[f]||files['~/'+args[0]];fn?P(fn()):P(`cat: ${a}: No such file`);break;}
       case 'open':{const n=(args[0]||'').toLowerCase().replace(/\/$/,'');
-        const map={about:'about',resume:'resume',music:'music',settings:'settings',tm:'tm','time-machine':'tm',timemachine:'tm',projects:'projects',research:'papers',papers:'papers',blogs:'blogs',notes:'notes',post:'post',ohtani:'post',abs:'abs',challenge:'abs',hello:'hello',contact:'hello',terminal:'term',calc:'calc',calculator:'calc',ti84:'calc','ti-84':'calc',photos:'photos',pics:'photos'};
+        const map={about:'about',resume:'resume',music:'music',settings:'settings',tm:'tm','time-machine':'tm',timemachine:'tm',projects:'projects',research:'papers',papers:'papers',blogs:'blogs',notes:'notes',post:'post',ohtani:'post',abs:'abs',challenge:'abs',hello:'hello',contact:'hello',terminal:'term',calc:'calc',calculator:'calc',ti84:'calc','ti-84':'calc',photos:'photos',pics:'photos',games:'games',minesweeper:'mines',mines:'mines',solitaire:'sol',sol:'sol'};
         if(map[n]){open(map[n]);P(`Opening ${APPS[map[n]].t}…`);}
         else if(PROJECTS.find(p=>p.id===n)){open('work',{p:n});P(`Opening ${PROJECTS.find(p=>p.id===n).name}…`);}
         else P(n?`open: can't find "${n}". Try: open projects`:'open: what should I open? Try: open about');break;}
@@ -2687,7 +2697,7 @@ function setPhone(){os.classList.toggle('phone',PHONE.matches);}
 try{PHONE.addEventListener('change',setPhone)}catch(e){PHONE.addListener(setPhone)}
 setPhone();
 if(!PHONE.matches)open('about');
-{const r={blogs:'blogs',ohtani:'post','challenge-problem':'abs',research:'papers',projects:'projects',music:'music',resume:'resume',calc:'calc',ti84:'calc',photos:'photos'}[location.hash.slice(1)];if(r)open(r);}
+{const r={blogs:'blogs',ohtani:'post','challenge-problem':'abs',research:'papers',projects:'projects',music:'music',resume:'resume',calc:'calc',ti84:'calc',photos:'photos',games:'games',minesweeper:'mines',solitaire:'sol'}[location.hash.slice(1)];if(r)open(r);}
 </script>
 <script src="assets/os/chess.js"></script>
 
