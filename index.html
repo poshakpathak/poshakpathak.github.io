@@ -1278,7 +1278,6 @@ function restart(){
 /* photos app: albums and captions live in photos/photos.js */
 const PHX=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const phDate=d=>{if(!d)return'';const[y,m]=String(d).split('-');return m?new Date(+y,+m-1,1).toLocaleString('en-US',{month:'long',year:'numeric'}):y;};
-const phSpan=ps=>{const d=ps.map(p=>p.date).filter(Boolean).sort();if(!d.length)return'';const a=phDate(d[0]),b=phDate(d[d.length-1]);return a===b?a:a+' – '+b;};
 function wirePhotos(w){
   const AL=(window.PHOTOS||[]).map(a=>({...a,photos:(a.photos||[]).filter(p=>p&&p.file)})),ALL=AL.flatMap(a=>a.photos);
   const side=w.querySelector('.side'),main=w.querySelector('.pmain'),pv=w.querySelector('.pview');
@@ -1292,11 +1291,11 @@ function wirePhotos(w){
     side.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.v===String(v)));
     if(!ALL.length){main.innerHTML=`<h2>Library</h2><p class="psub">No photos yet</p>`;return;}
     if(v==='library'){list=ALL;let off=0;
-      main.innerHTML=`<h2>Library</h2><p class="psub">${n(ALL.length)} · ${AL.length} album${AL.length===1?'':'s'}</p>`+AL.filter(a=>a.photos.length).map(a=>{const h=`<div class="pgrp"><h3>${PHX(a.album)}<small>${PHX(phSpan(a.photos))}</small></h3>${grid(a.photos,off)}</div>`;off+=a.photos.length;return h;}).join('');}
+      main.innerHTML=`<h2>Library</h2><p class="psub">${n(ALL.length)} · ${AL.length} album${AL.length===1?'':'s'}</p>`+AL.filter(a=>a.photos.length).map(a=>{const h=`<div class="pgrp"><h3>${PHX(a.album)}</h3>${grid(a.photos,off)}</div>`;off+=a.photos.length;return h;}).join('');}
     else if(v==='albums'){list=[];
       main.innerHTML=`<h2>Albums</h2><p class="psub">${AL.length} album${AL.length===1?'':'s'}</p><div class="palbs">${AL.map((a,i)=>`<button class="palb" data-v="${i}"><span class="im" style="${cov(a)?`background-image:url('${thumb(cov(a))}')`:''}"></span><b>${PHX(a.album)}</b><small>${n(a.photos.length)}</small></button>`).join('')}</div>`;}
     else{const a=AL[v];list=a.photos;
-      main.innerHTML=`<h2>${PHX(a.album)}</h2><p class="psub">${[a.about,phSpan(a.photos),n(a.photos.length)].filter(Boolean).map(PHX).join(' · ')}</p>`+(a.photos.length?grid(a.photos,0):`<p class="pnone">Nothing in this album yet.</p>`);}
+      main.innerHTML=`<h2>${PHX(a.album)}</h2><p class="psub">${[a.about,n(a.photos.length)].filter(Boolean).map(PHX).join(' · ')}</p>`+(a.photos.length?grid(a.photos,0):`<p class="pnone">Nothing in this album yet.</p>`);}
     wireGrid();main.scrollTop=0;}
   side.innerHTML=`<h4>Photos</h4><button data-v="library">${I.photos}Library</button><button data-v="albums">${I.folder.replace(' style="width:15px;height:15px"','')}Albums</button><h4>My Albums</h4>`+AL.map((a,i)=>`<button data-v="${i}"><span class="th" style="${cov(a)?`background-image:url('${thumb(cov(a))}')`:''}"></span>${PHX(a.album)}</button>`).join('')+`<div class="sfoot"><b>${n(ALL.length)}</b>Trips and moments</div>`;
   side.querySelectorAll('button').forEach(b=>b.onclick=()=>go(/^\d+$/.test(b.dataset.v)?+b.dataset.v:b.dataset.v));

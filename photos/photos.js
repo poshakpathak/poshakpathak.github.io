@@ -12,7 +12,7 @@
    so put the newest first. The first photo is the album cover, unless the
    album names one with cover:"name.jpg". */
 window.PHOTOS=[
-  {album:"Las Vegas",about:"My trip to present at the ITNG 2025 conference.",cover:"vegas-7341.jpg",photos:[
+  {album:"Las Vegas",cover:"vegas-7341.jpg",photos:[
     {file:"vegas-7321.jpg",caption:"The Sphere through the palms",place:"Las Vegas",date:"2025-04"},
     {file:"vegas-7341.jpg",caption:"The Sphere at night",place:"Las Vegas",date:"2025-04"},
     {file:"vegas-7346.jpg",caption:"Bikes parked under the Sphere",place:"Las Vegas",date:"2025-04"},
