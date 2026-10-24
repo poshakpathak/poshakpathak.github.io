@@ -6,6 +6,11 @@
 const FB={apiKey:'AIzaSyDkyIwps3EjWTvO1a3ULoHU_srKcqbpX2Q',projectId:'poshakos'};
 const OWNER='poshakcodes@gmail.com',SDK='https://www.gstatic.com/firebasejs/10.12.2/';
 const DB=()=>`https://firestore.googleapis.com/v1/projects/${FB.projectId}/databases/(default)/documents`;
+/* the page's open(app) replaces window.open, which breaks the Google sign-in popup.
+   Borrow the browser's real one from a hidden iframe and use it for anything that isn't an app. */
+{const f=document.createElement('iframe');f.hidden=true;document.body.appendChild(f);
+  const real=f.contentWindow.open,app=open;
+  window.open=(a,...r)=>typeof a==='string'&&APPS[a]?app(a,...r):real.call(window,a,...r);}
 const COLS={yellow:'#ffe884',pink:'#ffc2d6',blue:'#bfe1ff',green:'#c9f2b9'};
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
