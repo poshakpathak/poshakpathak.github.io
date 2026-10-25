@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard.html
+Disallow: /posts/
+Disallow: /Blogs/
+Disallow: /node_modules/
+
+Sitemap: https://poshakpathak.github.io/sitemap.xml
