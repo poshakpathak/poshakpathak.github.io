@@ -1,17 +1,29 @@
 {
- "updated": "2026-10-26T05:16:31.931Z",
- "total": 9,
+ "updated": "2026-10-27T22:36:26.051Z",
+ "total": 14,
  "countries": [
   [
    "US",
    "United States",
-   9
+   14
   ]
  ],
  "us": [
   [
    "Texas",
    9
+  ],
+  [
+   "Louisiana",
+   3
+  ],
+  [
+   "Mississippi",
+   1
+  ],
+  [
+   "North Carolina",
+   1
   ]
  ]
 }
