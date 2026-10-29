@@ -83,6 +83,10 @@ body{margin:0;background:#fff;color:#1b1f27;font-family:var(--font)}
 .topnav .me b{display:grid;place-items:center;width:26px;height:26px;border-radius:7px;background:#1b1f27;color:#fff;font-size:14px;font-weight:700}
 .topnav .all{color:#005a9c;font-size:13px;border:1px solid rgba(0,90,156,.35);border-radius:99px;padding:3px 11px}.topnav .all:hover{background:rgba(0,90,156,.08)}
 .embedded .topnav{display:none}
+/* Inside a PoshakOS window, scale the article up when the window is maximized */
+@media (min-width:1100px){.embedded .art,.embedded .home{zoom:1.15}}
+@media (min-width:1400px){.embedded .art,.embedded .home{zoom:1.3}}
+@media (min-width:1700px){.embedded .art,.embedded .home{zoom:1.45}}
 @media (max-width:560px){.topnav div{padding:9px 16px}}
 </style>
 </head>
@@ -228,7 +232,7 @@ const EDGE=[
 const ns="http://www.w3.org/2000/svg";
 const mk=(svg,t,a)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);svg.appendChild(e);return e};
 const usd=v=>"$"+Math.round(v).toLocaleString("en-US");
-function tipAt(fig,html,cx,cy){const tip=fig.querySelector(".tip");tip.innerHTML=html;const fr=fig.getBoundingClientRect(),tw=tip.offsetWidth||160;tip.style.left=Math.max(tw/2+4,Math.min(fr.width-tw/2-4,cx-fr.left))+"px";tip.style.top=(cy-fr.top-8)+"px";tip.style.opacity=1}
+function tipAt(fig,html,cx,cy){const tip=fig.querySelector(".tip");tip.innerHTML=html;const fr=fig.getBoundingClientRect(),z=fr.width/fig.offsetWidth||1,tw=tip.offsetWidth||160;tip.style.left=Math.max(tw/2+4,Math.min(fig.offsetWidth-tw/2-4,(cx-fr.left)/z))+"px";tip.style.top=((cy-fr.top)/z-8)+"px";tip.style.opacity=1}
 function tipOff(fig){fig.querySelector(".tip").style.opacity=0}
 
 /* Growth lines */

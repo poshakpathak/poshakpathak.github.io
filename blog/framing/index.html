@@ -78,6 +78,10 @@ body{margin:0;background:#fff;color:#1b1f27;font-family:var(--font)}
 .topnav .me b{display:grid;place-items:center;width:26px;height:26px;border-radius:7px;background:#1b1f27;color:#fff;font-size:14px;font-weight:700}
 .topnav .all{color:#005a9c;font-size:13px;border:1px solid rgba(0,90,156,.35);border-radius:99px;padding:3px 11px}.topnav .all:hover{background:rgba(0,90,156,.08)}
 .embedded .topnav{display:none}
+/* Inside a PoshakOS window, scale the article up when the window is maximized */
+@media (min-width:1100px){.embedded .art,.embedded .home{zoom:1.15}}
+@media (min-width:1400px){.embedded .art,.embedded .home{zoom:1.3}}
+@media (min-width:1700px){.embedded .art,.embedded .home{zoom:1.45}}
 @media (max-width:560px){.topnav div{padding:9px 16px}}
 </style>
 </head>
@@ -196,7 +200,7 @@ const SEASONS=[[2018,7.4,[["Tucker Barnhart",-17.2],["Robinson Chirinos",-12.6],
       while(placed.some(p=>Math.hypot(p[0]-cx,p[1]-dy)<7.5)&&k<12){k++;dy=(k%2?1:-1)*Math.ceil(k/2)*3.75}
       placed.push([cx,dy]);
       const c=el("circle",{cx,cy:y+dy,r:3.5,fill:now?"#005a9c":"#9aa4b2",stroke:"#fff","stroke-width":1.5,tabindex:0,"aria-label":`${n}, ${yr}: ${v>0?"+":""}${v} framing runs`});
-      const show=()=>{const fr=fig.getBoundingClientRect(),cr=c.getBoundingClientRect();tip.innerHTML=`<b>${n}</b> · ${yr}<br>${v>0?"+":""}${v.toFixed(1)} framing runs`;const tw=tip.offsetWidth||150,cx0=cr.left-fr.left+cr.width/2;tip.style.left=Math.max(tw/2+4,Math.min(fr.width-tw/2-4,cx0))+"px";tip.style.top=(cr.top-fr.top-6)+"px";tip.style.opacity=1;c.setAttribute("r",5.5)};
+      const show=()=>{const fr=fig.getBoundingClientRect(),cr=c.getBoundingClientRect(),z=fr.width/fig.offsetWidth||1;tip.innerHTML=`<b>${n}</b> · ${yr}<br>${v>0?"+":""}${v.toFixed(1)} framing runs`;const tw=tip.offsetWidth||150,cx0=(cr.left-fr.left+cr.width/2)/z;tip.style.left=Math.max(tw/2+4,Math.min(fig.offsetWidth-tw/2-4,cx0))+"px";tip.style.top=((cr.top-fr.top)/z-6)+"px";tip.style.opacity=1;c.setAttribute("r",5.5)};
       const hide=()=>{tip.style.opacity=0;c.setAttribute("r",3.5)};
       c.addEventListener("pointerenter",show);c.addEventListener("pointerleave",hide);c.addEventListener("focus",show);c.addEventListener("blur",hide);
     });
