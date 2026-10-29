@@ -28,11 +28,6 @@ css.textContent=`
 #os[data-era="1995"] .chessi svg{filter:none}
 .chs{display:grid;gap:16px;padding:0 24px 22px;align-content:start}
 .chs .strip{height:10px;margin:0 -24px;background:repeating-conic-gradient(#769656 0 25%,#eeeed2 0 50%) 0 0/20px 20px;opacity:.9}
-.chs .lead{margin:0;color:var(--soft);font-size:14px;line-height:1.5}
-.chs .peak{display:flex;flex-wrap:wrap;gap:8px}
-.chs .peak span{display:inline-flex;align-items:center;gap:6px;background:var(--chip);border-radius:999px;padding:5px 11px;font-size:12.5px;color:var(--soft)}
-.chs .peak b{color:var(--fg);font-variant-numeric:tabular-nums}
-.chs .peak svg{width:14px;height:14px;color:var(--fc)}
 .chs .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;align-items:start}
 .chs .cd{background:var(--chip);border-radius:16px;overflow:hidden;display:grid}
 .chs .ch{display:flex;align-items:center;gap:10px;padding:12px 14px;color:#fff}
@@ -72,9 +67,9 @@ css.textContent=`
 @keyframes chsk{to{background-position:-150% 0}}
 .chs .ft{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12.5px;color:var(--soft)}
 .chs .ft button{all:unset;cursor:pointer;font-weight:600;color:var(--accent)}
-#os[data-era="1995"] .chs .cd,#os[data-era="1995"] .chs .ct,#os[data-era="1995"] .chs .peak span{border-radius:0;box-shadow:inset -1px -1px #fff,inset 1px 1px #808080}
+#os[data-era="1995"] .chs .cd,#os[data-era="1995"] .chs .ct{border-radius:0;box-shadow:inset -1px -1px #fff,inset 1px 1px #808080}
 #os[data-era="1995"] .chs .ch{background:linear-gradient(90deg,#000080,#1084d0)}
-#os[data-era="1984"] .chs .cd,#os[data-era="1984"] .chs .ct,#os[data-era="1984"] .chs .peak span{border-radius:0;border:1px solid #000;background:#fff}
+#os[data-era="1984"] .chs .cd,#os[data-era="1984"] .chs .ct{border-radius:0;border:1px solid #000;background:#fff}
 #os[data-era="1984"] .chs .ch{background:#000}
 #os[data-era="1984"] .chs .ch .nm b i,#os[data-era="1984"] .chs .dl{color:inherit}
 #os[data-era="1984"] .chs .strip,#os[data-era="1984"] .chs .lg,#os[data-era="1984"] .chs .av,#os[data-era="1984"] .chs .ct svg,#os[data-era="1984"] .chs .bar{filter:grayscale(1)}
@@ -82,8 +77,6 @@ css.textContent=`
 document.head.appendChild(css);
 
 APPS.chess={t:"Chess",w:760,h:null,html:()=>`<div class="chs"><div class="strip"></div>
-  <p class="lead">I founded the ULM Chess Club and built a neural chess engine. These are my current ratings, live from Chess.com and Lichess.</p>
-  <div class="peak" id="chpk"></div>
   <div class="cards"><div class="cd" id="chcc"></div><div class="cd" id="chli"></div></div>
   <div class="ft"><span id="chup">Loading…</span><button id="chrf">Refresh</button></div>
 </div>`};
@@ -133,14 +126,6 @@ function liHTML({u,h}){
   const meta=u.createdAt?`<div class="meta">Member since ${mon(u.createdAt)}${pt?` · ${num(Math.round(pt/3600))} hours played`:''}</div>`:'';
   return liHead()+`<div class="inn">${meta}`+(tiles.length?`<div class="rt">${tiles.join('')}</div>${c.all?wdl(c.win||0,c.draw||0,c.loss||0):''}`:'<div class="msg">No rated games yet.</div>')+'</div>';
 }
-/* best current rating across both sites, as chips up top */
-function peaks(){
-  const out=[];
-  if(cache.cc){const s=cache.cc.d.s;[['chess_rapid','rapid','Rapid'],['chess_blitz','blitz','Blitz'],['chess_bullet','bullet','Bullet']].forEach(([k,f,n])=>{if(s[k]&&s[k].best)out.push({f,n,r:s[k].best.rating,site:'Chess.com'});});}
-  if(cache.li&&cache.li.d.h)cache.li.d.h.forEach(x=>{const f=x.name.toLowerCase();if(!FMT[f]||f==='puzzles'||f==='correspondence'||!x.points||!x.points.length)return;out.push({f,n:x.name,r:Math.max(...x.points.map(q=>q[3])),site:'Lichess'});});
-  const best={};out.forEach(o=>{if(!best[o.f]||o.r>best[o.f].r)best[o.f]=o;});
-  return Object.values(best).sort((a,b)=>b.r-a.r).slice(0,3).map(o=>`<span style="--fc:${FMT[o.f][0]}">${FMT[o.f][1]}Peak ${o.n} <b>${num(o.r)}</b> on ${o.site}</span>`).join('');
-}
 
 let cache={};try{cache=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(cache))}catch(e){}};
@@ -153,7 +138,6 @@ function paint(w){
   const cc=w.querySelector('#chcc'),li=w.querySelector('#chli'),up=w.querySelector('#chup');if(!cc)return;
   cc.innerHTML=cache.cc?ccHTML(cache.cc.d):ccHead()+(cache.ccErr?'<div class="inn"><div class="msg">Couldn’t reach Chess.com right now.</div></div>':skel);
   li.innerHTML=cache.li?liHTML(cache.li.d):liHead()+(cache.liErr?'<div class="inn"><div class="msg">Couldn’t reach Lichess right now.</div></div>':skel);
-  w.querySelector('#chpk').innerHTML=peaks();
   const t=Math.min(cache.cc?cache.cc.t:Infinity,cache.li?cache.li.t:Infinity);
   up.textContent=isFinite(t)?'Updated '+ago(t):cache.ccErr&&cache.liErr?'Offline':'Loading…';
 }
