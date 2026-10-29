@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Can You Beat the S&amp;P 500 With $200 a Month? · Poshak Pathak</title>
+<script>if(window.top!==window)document.documentElement.classList.add("embedded")</script>
+<meta name="description" content="I backtested three ways to invest $200 a month since 2010. Buying last year’s ten best S&amp;P 500 stocks doubled the index, with a bumpier ride and real blind spots.">
+<link rel="canonical" href="https://poshakpathak.github.io/blog/sp500/">
+<meta name="author" content="Poshak Pathak">
+<meta property="article:published_time" content="2026-10-29">
+<meta property="article:author" content="https://poshakpathak.github.io/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Can You Beat the S&P 500 With $200 a Month? I Backtested 3 Strategies Since 2010", "description": "I backtested three ways to invest $200 a month since 2010. Buying last year’s ten best S&P 500 stocks doubled the index, with a bumpier ride and real blind spots.", "datePublished": "2026-10-29", "url": "https://poshakpathak.github.io/blog/sp500/", "mainEntityOfPage": "https://poshakpathak.github.io/blog/sp500/", "image": "https://poshakpathak.github.io/blog/sp500/og.jpg", "inLanguage": "en", "author": {"@type": "Person", "@id": "https://poshakpathak.github.io/#me", "name": "Poshak Pathak", "url": "https://poshakpathak.github.io/"}, "publisher": {"@type": "Person", "@id": "https://poshakpathak.github.io/#me", "name": "Poshak Pathak"}}</script>
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Poshak Pathak">
+<meta property="og:title" content="Can You Beat the S&amp;P 500 With $200 a Month?">
+<meta property="og:description" content="I backtested three ways to invest $200 a month since 2010. Buying last year’s ten best S&amp;P 500 stocks doubled the index, with a bumpier ride and real blind spots.">
+<meta property="og:url" content="https://poshakpathak.github.io/blog/sp500/">
+<meta property="og:image" content="https://poshakpathak.github.io/blog/sp500/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Growth of $200 a month from 2010 to 2026 in three strategies: best 10 performers, biggest 10 by size, and SPY">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@PathakPoshak">
+<meta name="twitter:creator" content="@PathakPoshak">
+<meta name="twitter:title" content="Can You Beat the S&amp;P 500 With $200 a Month?">
+<meta name="twitter:description" content="I backtested three ways to invest $200 a month since 2010. Buying last year’s ten best S&amp;P 500 stocks doubled the index, with a bumpier ride and real blind spots.">
+<meta name="twitter:image" content="https://poshakpathak.github.io/blog/sp500/og.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1f27'/%3E%3Ctext x='32' y='44' font-family='Helvetica,Arial,sans-serif' font-size='34' font-weight='700' fill='%23fff' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+:root{--font:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:#1b1f27;font-family:var(--font)}
+#pb{position:fixed;top:0;left:0;height:3px;width:0;z-index:9;background:linear-gradient(90deg,#005a9c,#2f6fec,#ef3e42)}
+.art{max-width:620px;margin:0 auto;padding:30px 32px 48px;font-size:15.5px;line-height:1.68;color:#1b1f27}
+.art a{color:#005a9c;text-underline-offset:2px}
+.art .tag{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#005a9c;background:color-mix(in srgb,#005a9c 10%,transparent);padding:3px 9px;border-radius:99px}
+.art h1{font-size:28px;line-height:1.2;letter-spacing:-.02em;margin:12px 0 8px;text-wrap:balance}
+.art .dek{font-size:17px;line-height:1.55;color:#667085;margin:0 0 12px}
+.art .by{color:#667085;font-size:13px;margin:0;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}
+.art h2{font-size:19px;letter-spacing:-.01em;margin:32px 0 6px}
+.art h3{font-size:16px;line-height:1.35;letter-spacing:-.01em;margin:24px 0 6px;text-wrap:balance}
+.art p{margin:0 0 14px}.art ul,.art ol{margin:0 0 14px;padding-left:22px}.art li{margin:4px 0}
+.art code{font-family:"Geist Mono",ui-monospace,monospace;font-size:.88em;background:#f1f3f7;border-radius:5px;padding:1px 5px}
+.art .tw{overflow-x:auto;margin:6px 0 16px;border:1px solid #e4e7ec;border-radius:12px}
+.art table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+.art th{text-align:left;font-size:12px;font-weight:600;color:#667085;background:#f1f3f7;padding:9px 14px;white-space:nowrap}
+.art td{padding:9px 14px;border-top:1px solid #e4e7ec;white-space:nowrap}.art td:first-child{font-weight:500}
+.art td.wrap{white-space:normal;min-width:10rem}.art td.up{color:#005a9c;font-weight:600}.art td.dn{color:#ef3e42;font-weight:600}
+.art tr.hl td{background:color-mix(in srgb,#005a9c 5%,transparent)}
+.art .tnote{font-size:12.5px;color:#667085;line-height:1.55;margin:-6px 0 16px}
+.art .call{border-left:3px solid #005a9c;padding:4px 0 4px 14px;color:#667085;font-style:italic}
+.art .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:10px;margin:8px 0 18px}
+.art .stats div{border:1px solid #e4e7ec;border-radius:12px;padding:12px 14px;display:grid;gap:2px;align-content:start}
+.art .stats b{font-size:22px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:#005a9c}
+.art .stats span{font-size:13px;font-weight:500;line-height:1.3}.art .stats small{font-size:12px;color:#667085;line-height:1.35}
+.art figure.chart{margin:14px 0 18px;border:1px solid #e4e7ec;border-radius:12px;padding:14px 16px;position:relative}
+.art .ct{font-size:13.5px;font-weight:600;margin:0 0 2px}
+.art .cs{font-size:13px;color:#667085;margin:0 0 8px;line-height:1.5}
+.art figure.chart figcaption{font-size:12px;color:#667085;margin-top:8px;line-height:1.5}
+.art .legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:#667085;margin:0 0 6px}
+.art .legend i{display:inline-block;width:14px;height:3px;border-radius:99px;margin-right:6px;vertical-align:3px}
+.art .legend i.dot{width:10px;height:10px;vertical-align:-1px}
+.art .legend i.dash{background:repeating-linear-gradient(90deg,#b6bdc8 0 4px,transparent 4px 7px)!important}
+.plot svg{width:100%;height:auto;display:block;overflow:visible}
+.plot text{font-family:var(--font);font-size:11px;fill:#667085;font-variant-numeric:tabular-nums}
+.plot .lab{fill:#1b1f27;font-size:11.5px;font-weight:500}.plot .lab.hi{fill:#005a9c;font-weight:700}
+.plot .pt{font-size:12.5px;font-weight:600;fill:#1b1f27}
+.tip{position:absolute;pointer-events:none;background:#1b1f27;color:#fff;font-size:12px;line-height:1.4;padding:6px 9px;border-radius:8px;white-space:nowrap;opacity:0;transform:translate(-50%,-100%);transition:opacity .12s;font-variant-numeric:tabular-nums;z-index:2}
+.tip b{font-weight:600}.tip i{display:inline-block;width:8px;height:8px;border-radius:99px;margin-right:5px}
+.art .note{margin:12px 0 18px;border:1px solid #e4e7ec;border-left:3px solid #005a9c;border-radius:0 12px 12px 0;padding:12px 16px;font-size:14px;color:#3d4451}
+.art .note p{margin:0 0 8px}.art .note p:last-child{margin:0}
+.art .src{margin-top:30px;padding-top:14px;border-top:1px solid #e4e7ec;font-size:12.5px;color:#667085;line-height:1.55}
+.art .src h2{font-size:13px;margin:0 0 6px;color:#1b1f27}
+.art .src p{margin:0 0 8px}
+.share{font:500 13px var(--font);color:#005a9c;background:none;border:1px solid rgba(0,90,156,.35);border-radius:99px;padding:2px 10px;cursor:pointer}.share:hover{background:rgba(0,90,156,.08)}
+.home{max-width:620px;margin:0 auto;padding:0 32px 40px;font-size:12.5px;color:#667085}.home a{color:#005a9c}
+@media (max-width:560px){.art{padding:22px 18px 40px;font-size:15px}.art h1{font-size:23px}.art .dek{font-size:16px}.art figure.chart{margin:14px -4px 18px;padding:12px}.home{padding:0 18px 32px}}
+.topnav{position:sticky;top:0;z-index:8;background:rgba(255,255,255,.88);backdrop-filter:saturate(1.6) blur(12px);-webkit-backdrop-filter:saturate(1.6) blur(12px);border-bottom:1px solid #e4e7ec}
+.topnav div{max-width:660px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;font:500 14px var(--font)}
+.topnav a{color:#1b1f27;text-decoration:none;display:flex;align-items:center;gap:9px}
+.topnav .me b{display:grid;place-items:center;width:26px;height:26px;border-radius:7px;background:#1b1f27;color:#fff;font-size:14px;font-weight:700}
+.topnav .all{color:#005a9c;font-size:13px;border:1px solid rgba(0,90,156,.35);border-radius:99px;padding:3px 11px}.topnav .all:hover{background:rgba(0,90,156,.08)}
+.embedded .topnav{display:none}
+@media (max-width:560px){.topnav div{padding:9px 16px}}
+</style>
+</head>
+<body>
+<div id="pb"></div>
+<nav class="topnav" aria-label="Site"><div><a class="me" href="/" title="Back to the homepage"><b>P</b><span>Poshak Pathak</span></a><a class="all" href="/#blogs">All posts</a></div></nav>
+<article class="art">
+      <header><span class="tag">Investing</span><h1>Can You Beat the S&amp;P 500 With $200 a Month? I Backtested 3 Strategies Since 2010</h1><p class="dek">Yes, at least on paper. Buying last year’s ten best S&amp;P 500 stocks every January would have doubled the index. But the ride was bumpier, and the test has blind spots.</p><div class="by"><span>Poshak Pathak · <time datetime="2026-10-29">October 29, 2026</time> · 8 min read</span><button class="share" type="button" data-url="https://poshakpathak.github.io/blog/sp500/">Copy link</button></div></header>
+
+      <p>If you had put $200 a month into the S&amp;P 500’s ten best-performing stocks every year since January 2010, your $40,400 would be worth about <strong>$319,000</strong> today. The same money in SPY, the most popular S&amp;P 500 fund, would be worth about <strong>$157,000</strong>.</p>
+      <p>I wanted to know if a simple, rules-based stock-picking plan could beat just buying the index. So I wrote a backtest in Python and ran it on almost 17 years of monthly price data for every stock in the S&amp;P 500. I tested three plans side by side, all with the same $200 every month.</p>
+      <p>The short version: both stock-picking plans won, but the bigger win came with a much bumpier ride, and the test has blind spots that probably make the results look better than they really were. Here’s what I found.</p>
+
+      <div class="stats">
+        <div><b>$40,400</b><span>Money put in</span><small>$200 a month, January 2010 to October 2026.</small></div>
+        <div><b>$156,857</b><span>SPY</span><small>The benchmark. About 14.5% a year.</small></div>
+        <div><b>$232,459</b><span>Biggest 10 by size</span><small>48% ahead of SPY, with about the same worst drop.</small></div>
+        <div><b>$318,613</b><span>Best 10 performers</span><small>About 2× SPY, but fell 33% at its worst.</small></div>
+      </div>
+
+      <h2>The three strategies</h2>
+      <p>Every strategy invests exactly $200 on the first trading day of each month, starting January 2010. Nothing is ever sold, so each plan just keeps buying and holding.</p>
+      <div class="tw"><table><thead><tr><th>Strategy</th><th>What it buys</th><th>How the $200 is split</th><th>When the list changes</th></tr></thead><tbody>
+        <tr><td>SPY <span style="font-weight:400;color:#667085">(benchmark)</span></td><td class="wrap">The whole S&amp;P 500 through one fund</td><td class="wrap">All $200 into SPY</td><td>Never</td></tr>
+        <tr><td>Best 10 performers</td><td class="wrap">The 10 S&amp;P 500 stocks with the biggest price gain over the previous 12 months</td><td class="wrap">$20 into each</td><td>Every January</td></tr>
+        <tr><td>Biggest 10 by size</td><td class="wrap">The 10 largest S&amp;P 500 companies by market value, like SPY’s own top 10</td><td class="wrap">By size: bigger companies get more</td><td>Every January</td></tr>
+      </tbody></table></div>
+      <p>The best-performers plan is a <strong>momentum</strong> strategy: it bets that stocks that have been rising keep rising. The biggest-10 plan is a <strong>concentration</strong> bet: it owns only the giants that already dominate the index.</p>
+
+      <h2>How the backtest works</h2>
+      <p>The backtest is a Python script using <code>pandas</code> and <code>yfinance</code>. It downloads monthly prices for every current S&amp;P 500 stock and SPY, adjusted for splits and dividends, so the returns include reinvested dividends.</p>
+      <p>The most important rule is <strong>no hindsight</strong>. It’s easy to “prove” any strategy works by picking stocks you already know did well. So:</p>
+      <ul>
+        <li>Each January, the script ranks stocks using <strong>only data available at that moment</strong>: the previous 12 months.</li>
+        <li>In the stricter version, a stock only counts if it was <strong>already in the S&amp;P 500 on the pick date</strong>. My first run skipped this check and accidentally picked stocks like Carvana in 2019, years before it joined the index. The strict version fixes that, and it’s the one I report.</li>
+        <li>For the biggest-10 plan, I estimated each company’s past market value as price × shares outstanding, using share-count history. Yahoo’s share data had glitches (one made Nvidia look 3–4× too big in 2022), so the script ignores sudden jumps in share counts, since real share counts change gradually.</li>
+      </ul>
+      <p>All three plans get the same deposits on the same dates, so the comparison is fair.</p>
+
+      <h2>The results</h2>
+      <p>The best-performers plan finished with about twice as much money as SPY, and the biggest-10 plan finished about 48% ahead.</p>
+
+      <figure class="chart" id="growfig">
+        <p class="ct">$200 a month in the best 10 performers grew to about $319k, twice SPY</p>
+        <p class="cs">Year-end portfolio value, 2010 to October 2026, $40,400 deposited in total. Hover for each year.</p>
+        <div class="legend"><span><i style="background:#005a9c"></i>Best 10 performers</span><span><i style="background:#3d4451"></i>Biggest 10 by size</span><span><i style="background:#9aa4b2"></i>SPY</span><span><i class="dash"></i>Money put in</span></div>
+        <div class="plot" id="grow" role="img" aria-label="Line chart of portfolio value from 2010 to October 2026. Best 10 performers ends at $318,613, biggest 10 by size at $232,459, SPY at $156,857, against $40,400 put in. All three dip in 2022."></div>
+        <div class="tip"></div>
+        <figcaption>Source: my backtest of monthly yfinance prices, January 2010 to October 2026, dividends reinvested.</figcaption>
+      </figure>
+
+      <div class="tw"><table><thead><tr><th>Strategy</th><th>Ending value</th><th>Annual return</th><th>Worst drop</th></tr></thead><tbody>
+        <tr><td>SPY</td><td>$156,857</td><td>~14.5%</td><td>−22%</td></tr>
+        <tr><td>Biggest 10 by size</td><td>$232,459</td><td>~18.4%</td><td>−21%</td></tr>
+        <tr class="hl"><td>Best 10 performers</td><td class="up">$318,613</td><td class="up">~21.5%</td><td class="dn">−33%</td></tr>
+      </tbody></table></div>
+      <p class="tnote">Annual return is the steady yearly rate that would turn $200 a month into each ending value. Worst drop is the largest fall in portfolio value from a peak, measured month to month.</p>
+      <p>Two things stand out. First, the biggest-10 plan beat SPY <strong>without extra risk</strong>: its worst drop was about the same as the index’s. Second, the best-performers plan earned its extra return the hard way. In 2022 it fell 28% while SPY fell 18%.</p>
+
+      <h2>Digging deeper</h2>
+      <p>The ending numbers hide how differently the two plans got there. Here are five things I found once I looked year by year and stock by stock.</p>
+
+      <h3>1. The best-performers plan won most years. The biggest-10 plan won only once big tech took over.</h3>
+      <figure class="chart" id="edgefig">
+        <p class="ct">Best 10 performers beat SPY in 14 of 17 years; the biggest 10 mostly won after 2016</p>
+        <p class="cs">Each year’s return minus SPY’s return, in percentage points.</p>
+        <div class="legend"><span><i class="dot" style="background:#005a9c"></i>Beat SPY that year</span><span><i class="dot" style="background:#ef3e42"></i>Trailed SPY</span></div>
+        <div class="plot" id="edge" role="img" aria-label="Two bar charts of yearly returns minus SPY. Best 10 performers was ahead in 14 of 17 years, with its worst years in 2011 (minus 14.3 points) and 2022 (minus 9.9). Biggest 10 by size trailed in most years from 2010 to 2015, then was ahead in 9 of 11 years from 2016."></div>
+        <div class="tip"></div>
+        <figcaption>Source: my backtest, calendar-year returns for each strategy minus SPY, 2010 to October 2026. 2026 is January through October. Returns are money-weighted for monthly $200 deposits.</figcaption>
+      </figure>
+      <p>The best-performers plan beat SPY in 14 of 17 years, but its three losing years were painful, especially 2011 (−14 points) and 2022 (−10 points). The biggest-10 plan trailed SPY in five of its first six years, when the largest companies were Exxon, GE, AT&amp;T and Walmart. From 2016 on, as Apple, Microsoft, Google and Amazon took over the top of the index, it beat SPY in 9 of 11 years.</p>
+
+      <h3>2. Two stocks made 40% of the best-performers portfolio</h3>
+      <p>The plan owned 117 different stocks over 17 years, but a handful did almost all the work. The top 5 positions produced 56% of all the gains.</p>
+      <div class="tw"><table><thead><tr><th>Stock</th><th>Total put in</th><th>Value today</th><th>Share of portfolio</th></tr></thead><tbody>
+        <tr><td>Nvidia (NVDA)</td><td>$1,680</td><td>$73,976</td><td class="up">23%</td></tr>
+        <tr><td>Micron (MU)</td><td>$1,160</td><td>$52,973</td><td class="up">17%</td></tr>
+        <tr><td>Apple (AAPL)</td><td>$480</td><td>$11,963</td><td>4%</td></tr>
+        <tr><td>Netflix (NFLX)</td><td>$720</td><td>$11,451</td><td>4%</td></tr>
+        <tr><td>Amazon (AMZN)</td><td>$480</td><td>$10,299</td><td>3%</td></tr>
+      </tbody></table></div>
+      <p>That’s the nature of momentum: most picks are fine, a few are huge. Remove Nvidia and Micron and the portfolio would be worth about $192,000. That still beats SPY’s $157,000, but the gap shrinks from 2× to about 1.2×. Only 19 of the 117 positions lost money, and together they lost just $1,316, because each loser only got $20 a month for a year.</p>
+
+      <h3>3. The biggest-10 plan is really a bet on three companies</h3>
+      <p>Apple, Microsoft and Google make up 66% of the biggest-10 portfolio today. Apple alone is 30%. It only ever owned 21 different stocks, and just one of them lost money. That concentration is why it beat SPY. It’s also the main risk: if those few companies stumble, there’s little else to fall back on.</p>
+
+      <h3>4. The edge holds up no matter when you start</h3>
+      <p>A common trap in backtests is a lucky start date. So I reran every strategy starting each January from 2010 through 2023, always ending in October 2026.</p>
+      <div class="tw"><table><thead><tr><th>Start year</th><th>Put in</th><th>SPY</th><th>Biggest 10</th><th>Best 10 performers</th></tr></thead><tbody>
+        <tr><td>2010</td><td>$40,400</td><td>$156,857</td><td>$232,459</td><td class="up">$318,613</td></tr>
+        <tr><td>2014</td><td>$30,800</td><td>$85,146</td><td>$119,715</td><td class="up">$198,111</td></tr>
+        <tr><td>2018</td><td>$21,200</td><td>$43,606</td><td>$53,188</td><td class="up">$72,148</td></tr>
+        <tr><td>2020</td><td>$16,400</td><td>$28,930</td><td>$32,671</td><td class="up">$38,995</td></tr>
+        <tr><td>2022</td><td>$11,600</td><td>$17,928</td><td>$20,323</td><td class="up">$21,334</td></tr>
+        <tr><td>2023</td><td>$9,200</td><td>$13,103</td><td>$13,592</td><td class="up">$13,958</td></tr>
+      </tbody></table></div>
+      <p>Both plans beat SPY from every one of the 14 start years. The edge shrinks with shorter windows, though: starting in 2023, the best-performers plan was only 7% ahead. Momentum needs years, and a few big winners, to pay off.</p>
+
+      <h3>5. Updating the list every month doesn’t help</h3>
+      <p>What if, instead of refreshing the list once a year, you refreshed it every month? In January you’d buy last December’s top 10, in February January’s top 10, and so on. I reran both plans that way, using the same rules checked monthly.</p>
+      <div class="tw"><table><thead><tr><th>Strategy (start Jan 2010)</th><th>Updated yearly</th><th>Updated monthly</th><th>Different stocks owned</th></tr></thead><tbody>
+        <tr><td>Biggest 10 by size</td><td>$232,459</td><td>$233,147</td><td>21 → 26</td></tr>
+        <tr><td>Best 10 performers</td><td>$318,613</td><td class="dn">$288,933</td><td>117 → 263</td></tr>
+      </tbody></table></div>
+      <p>For the biggest-10 plan it makes almost no difference, because the largest companies barely change from month to month. For the best-performers plan, monthly updates more than doubled the number of stocks owned and cost about $30,000. Each month adds whatever just got hot, and many of those cool off soon after. Starting in 2017 instead, the monthly version roughly tied the yearly one ($99,569 vs. $99,258) but had a deeper worst drop: −30% vs. −26%.</p>
+      <p class="call">The lesson: more trading isn’t better. A once-a-year update gets the same or better results with a twelfth of the work.</p>
+
+      <h2>Why these results are probably too good</h2>
+      <p>I tried hard to keep hindsight out, but no backtest is perfect. These are the biggest reasons the real-world results would likely be worse:</p>
+      <ul>
+        <li><strong>Survivorship bias.</strong> The script only knows today’s S&amp;P 500 members. Companies that were hot, then crashed and got kicked out of the index since 2010, aren’t in the data at all. A momentum strategy would have bought some of them right before they fell. This mostly hurts the best-performers result. It barely affects the biggest-10 plan, since giant companies rarely collapse out of the index.</li>
+        <li><strong>One unusual period.</strong> 2010–2026 was an exceptional run for U.S. tech, and especially for chipmakers in the AI boom. Nvidia and Micron alone made 40% of the best-performers portfolio. A different 17 years might have no Nvidia.</li>
+        <li><strong>Rough size estimates.</strong> Yahoo’s share-count history only starts in 2015, so the biggest-10 rankings for 2010–2014 use approximate company sizes.</li>
+        <li><strong>No taxes or real-world friction.</strong> Because nothing is sold, taxes only hit when you eventually cash out. But the test assumes perfect fractional-share buying, no fees and no mistakes.</li>
+        <li><strong>Behavior.</strong> The hardest part isn’t the math. It’s holding on while your portfolio drops 33%, or while it trails SPY for a whole year, as it did in 2011.</li>
+      </ul>
+      <p>None of these erase the result, but they mean I’d treat the 2× figure as a best case, not a forecast.</p>
+
+      <section class="src">
+        <h2>Methodology and disclaimer</h2>
+        <p><strong>Data:</strong> monthly prices from Yahoo Finance via <code>yfinance</code>, January 2009 to October 2026, adjusted for splits and dividends. S&amp;P 500 membership and join dates come from <a href="https://en.wikipedia.org/wiki/List_of_S%26P_500_companies" target="_blank" rel="noopener">Wikipedia’s list of S&amp;P 500 companies</a>. Company sizes for the biggest-10 plan are price × shares outstanding, using Yahoo’s share-count history.</p>
+        <p><strong>Rules:</strong> $200 invested on the first trading day of every month from January 2010. Picks are set each January using only data available then. Positions are never sold. Fractional shares, no fees, no taxes.</p>
+        <p><strong>Code:</strong> the backtest is two short Python scripts, one for each stock-picking plan. Both compare against SPY using the same deposits.</p>
+      </section>
+    </article>
+<footer class="home">Written by Poshak Pathak · <a href="https://poshakpathak.github.io/" target="_top">poshakpathak.github.io</a></footer>
+<script>(()=>{const b=document.getElementById("pb");const f=()=>{const m=document.documentElement.scrollHeight-innerHeight;b.style.width=(m>0?scrollY/m*100:0)+"%"};addEventListener("scroll",f,{passive:true});f();})();</script>
+<script>document.querySelectorAll(".share").forEach(b=>{const t=b.textContent;b.onclick=async()=>{const u=b.dataset.url;if(navigator.share&&matchMedia("(pointer:coarse)").matches){try{await navigator.share({title:document.title,url:u});return}catch(e){if(e&&e.name==="AbortError")return}}try{await navigator.clipboard.writeText(u)}catch(e){const a=document.createElement("textarea");a.value=u;document.body.append(a);a.select();document.execCommand("copy");a.remove()}b.textContent="Link copied";setTimeout(()=>b.textContent=t,1800)}});</script>
+<script>
+/* Backtest results: year-end portfolio values, and each year's return minus SPY's (percentage points). 2026 runs through October. */
+const YEARS=["2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021","2022","2023","2024","2025","Oct 2026"];
+const GROWTH=[
+  ["Best 10 performers","#005a9c",3,[3022,4840,8678,16144,21202,24666,29525,42335,43691,61277,82964,110142,81464,128016,189868,246035,318613]],
+  ["Biggest 10 by size","#3d4451",2.25,[2606,5206,8423,13477,17819,20415,26061,36146,37969,56424,78004,110314,89227,126887,164703,203638,232459]],
+  ["SPY","#9aa4b2",2.25,[2703,5138,8457,13913,18356,20997,26101,34401,35050,48662,60433,80500,68156,88673,113353,136085,156857]],
+  ["Money put in","#b6bdc8",1.5,[2400,4800,7200,9600,12000,14400,16800,19200,21600,24000,26400,28800,31200,33600,36000,38400,40400]]
+];
+const EDGE=[
+  ["Best 10 performers",[24.5,-14.3,9.2,19.5,1.8,3.5,-2.7,12.2,2.5,2.9,12.1,0.8,-9.9,27.3,21.2,10.4,14.9]],
+  ["Biggest 10 by size",[-7.5,4.2,-1.7,-4.0,-0.3,-0.2,2.8,6.6,3.4,10.0,14.5,9.1,-3.0,12.9,2.9,4.3,-0.6]]
+];
+const ns="http://www.w3.org/2000/svg";
+const mk=(svg,t,a)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);svg.appendChild(e);return e};
+const usd=v=>"$"+Math.round(v).toLocaleString("en-US");
+function tipAt(fig,html,cx,cy){const tip=fig.querySelector(".tip");tip.innerHTML=html;const fr=fig.getBoundingClientRect(),tw=tip.offsetWidth||160;tip.style.left=Math.max(tw/2+4,Math.min(fr.width-tw/2-4,cx-fr.left))+"px";tip.style.top=(cy-fr.top-8)+"px";tip.style.opacity=1}
+function tipOff(fig){fig.querySelector(".tip").style.opacity=0}
+
+/* Growth lines */
+(()=>{
+  const W=600,H=330,L=48,R=118,T=12,B=26,ymax=350000,n=YEARS.length;
+  const X=i=>L+i*(W-L-R)/(n-1),Y=v=>T+(1-v/ymax)*(H-T-B);
+  const svg=document.createElementNS(ns,"svg");svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
+  for(let v=0;v<=300000;v+=50000){mk(svg,"line",{x1:L,x2:W-R,y1:Y(v),y2:Y(v),stroke:v?"#eef0f4":"#9aa4b2"});mk(svg,"text",{x:L-8,y:Y(v)+4,"text-anchor":"end"}).textContent=v?"$"+v/1000+"k":"$0"}
+  YEARS.forEach((y,i)=>{if(i%2===0||i===n-1){const t=mk(svg,"text",{x:X(i),y:H-6,"text-anchor":i===n-1?"end":"middle"});t.textContent=i===n-1?"Oct ’26":y}});
+  const guide=mk(svg,"line",{y1:T,y2:H-B,stroke:"#c4cad4","stroke-dasharray":"3 3",opacity:0});
+  const dots=[];
+  [...GROWTH].reverse().forEach(([name,col,w,vals])=>{
+    mk(svg,"path",{d:vals.map((v,i)=>(i?"L":"M")+X(i).toFixed(1)+","+Y(v).toFixed(1)).join(""),fill:"none",stroke:col,"stroke-width":w,"stroke-linejoin":"round","stroke-linecap":"round","stroke-dasharray":name==="Money put in"?"5 4":"none"});
+    dots.push(mk(svg,"circle",{r:4,fill:col,stroke:"#fff","stroke-width":1.5,opacity:0}));
+  });
+  const ends=[[0,-4],[1,2],[2,4],[3,-2]];
+  GROWTH.forEach(([name,col,w,vals],k)=>{
+    const v=vals[n-1],y=Y(v)+ends[k][1];
+    mk(svg,"circle",{cx:X(n-1),cy:Y(v),r:3.5,fill:col});
+    if(name==="Money put in"){mk(svg,"text",{x:X(n-1)+9,y:y+4,class:"lab"}).textContent="Put in "+usd(v);return}
+    mk(svg,"text",{x:X(n-1)+9,y:y,class:"lab"+(k===0?" hi":"")}).textContent=usd(v);
+    mk(svg,"text",{x:X(n-1)+9,y:y+13}).textContent=name==="Best 10 performers"?"Best 10":name==="Biggest 10 by size"?"Biggest 10":"SPY";
+  });
+  const hit=mk(svg,"rect",{x:L,y:T,width:W-L-R,height:H-T-B,fill:"transparent"});
+  const fig=document.getElementById("growfig");
+  const move=e=>{const r=svg.getBoundingClientRect(),sx=(e.clientX-r.left)/r.width*W;const i=Math.max(0,Math.min(n-1,Math.round((sx-L)/(W-L-R)*(n-1))));
+    guide.setAttribute("x1",X(i));guide.setAttribute("x2",X(i));guide.setAttribute("opacity",1);
+    [...GROWTH].reverse().forEach((g,k)=>{dots[k].setAttribute("cx",X(i));dots[k].setAttribute("cy",Y(g[3][i]));dots[k].setAttribute("opacity",1)});
+    const top=r.top+Y(GROWTH[0][3][i])/H*r.height;
+    tipAt(fig,`<b>${YEARS[i]==="Oct 2026"?"October 2026":"End of "+YEARS[i]}</b><br>`+GROWTH.map(([nm,c,w,v])=>`<i style="background:${c}"></i>${nm}: ${usd(v[i])}`).join("<br>"),r.left+X(i)/W*r.width,top)};
+  const leave=()=>{guide.setAttribute("opacity",0);dots.forEach(d=>d.setAttribute("opacity",0));tipOff(fig)};
+  hit.addEventListener("pointermove",move);hit.addEventListener("pointerdown",move);hit.addEventListener("pointerleave",leave);
+  document.getElementById("grow").appendChild(svg);
+})();
+
+/* Yearly edge vs SPY */
+(()=>{
+  const W=600,L=52,R=6,PH=150,GAP=46,lim=30,n=YEARS.length,band=(W-L-R)/n;
+  const H=EDGE.length*(PH+GAP)+4;
+  const svg=document.createElementNS(ns,"svg");svg.setAttribute("viewBox",`0 0 ${W} ${H}`);
+  const fig=document.getElementById("edgefig");
+  EDGE.forEach(([name,vals],p)=>{
+    const top=p*(PH+GAP)+22,mid=top+PH/2,Y=d=>mid-d/lim*(PH/2);
+    const wins=vals.filter(v=>v>0).length;
+    mk(svg,"text",{x:L,y:top-8,class:"pt"}).textContent=`${name}: ahead of SPY in ${wins} of ${n} years`;
+    [20,10,-10,-20].forEach(t=>{mk(svg,"line",{x1:L,x2:W-R,y1:Y(t),y2:Y(t),stroke:"#eef0f4"});mk(svg,"text",{x:L-8,y:Y(t)+4,"text-anchor":"end"}).textContent=(t>0?"+":"−")+Math.abs(t)});
+    mk(svg,"text",{x:L-8,y:mid+4,"text-anchor":"end"}).textContent="0";
+    vals.forEach((v,i)=>{
+      const x=L+i*band+band*.18,w=band*.64,h=Math.max(1,Math.abs(v)/lim*(PH/2));
+      const r=mk(svg,"rect",{x,y:v>0?mid-h:mid,width:w,height:h,rx:2,fill:v>0?"#005a9c":"#ef3e42",opacity:.85,tabindex:0,"aria-label":`${name}, ${YEARS[i]}: ${v>0?"+":""}${v} points vs SPY`});
+      const show=()=>{r.setAttribute("opacity",1);const b=r.getBoundingClientRect();tipAt(fig,`<b>${name}</b> · ${YEARS[i]==="Oct 2026"?"2026 (Jan–Oct)":YEARS[i]}<br>${v>0?"+":"−"}${Math.abs(v).toFixed(1)} points vs SPY`,b.left+b.width/2,b.top)};
+      const hide=()=>{r.setAttribute("opacity",.85);tipOff(fig)};
+      r.addEventListener("pointerenter",show);r.addEventListener("pointerleave",hide);r.addEventListener("focus",show);r.addEventListener("blur",hide);
+      if(i%2===0||i===n-1)mk(svg,"text",{x:L+i*band+band/2,y:top+PH+14,"text-anchor":"middle","font-size":10.5}).textContent=i===n-1?"’26*":"’"+YEARS[i].slice(2);
+    });
+    mk(svg,"line",{x1:L,x2:W-R,y1:mid,y2:mid,stroke:"#9aa4b2"});
+  });
+  document.getElementById("edge").appendChild(svg);
+})();
+</script>
+</body>
+</html>
