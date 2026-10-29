@@ -1,4 +1,4 @@
-/* PoshakOS games: a Games folder with Minesweeper and Solitaire (Klondike), plus a shortcut to Snake in the Terminal.
+/* PoshakOS games: a Games folder with Minesweeper and Solitaire (Klondike), Blackjack (blackjack.js), plus a shortcut to Snake in the Terminal.
    Loaded before the main script, which merges GAMES.icons into I and GAMES.apps into APPS.
    Everything here runs lazily, so it can use open, blip, toast and desk from the main script. */
 const GAMES=(()=>{
@@ -26,10 +26,11 @@ const TH=(()=>{
   return{
     mines:`<svg viewBox="0 0 112 84" style="stroke:none"><rect width="112" height="84" fill="#c9d3e0"/>${m}</svg>`,
     sol:`<svg viewBox="0 0 112 84" style="stroke:none"><rect width="112" height="84" fill="#17673d"/>${card(14,22,-14,'K','♠︎')}${card(39,16,-2,'Q','♥︎',1)}${card(64,20,12,'A','♦︎',1)}</svg>`,
+    bj:`<svg viewBox="0 0 112 84" style="stroke:none"><rect width="112" height="84" fill="#17673d"/><ellipse cx="56" cy="92" rx="70" ry="40" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1.2"/>${card(24,14,-10,'A','♠︎')}${card(50,12,8,'K','♥︎',1)}<g transform="translate(86 62)"><circle r="11" fill="#d23a3a"/><circle r="11" fill="none" stroke="#fff" stroke-width="3" stroke-dasharray="4 4.6"/><circle r="6.5" fill="#d23a3a" stroke="#fff" stroke-width=".8"/></g></svg>`,
     snake:`<svg viewBox="0 0 112 84" style="stroke:none"><rect width="112" height="84" fill="#0f141c"/><path d="M22 62h30V40h26V26h12" fill="none" stroke="#4ade80" stroke-width="7" stroke-linejoin="round" stroke-linecap="square"/><rect x="86" y="52" width="7" height="7" fill="#f87171"/></svg>`
   };
 })();
-const ITEMS=[['mines','Minesweeper','Clear the field'],['sol','Solitaire','Klondike, draw 1 or 3'],['snake','Snake','Plays in the Terminal']];
+const ITEMS=[['mines','Minesweeper','Clear the field'],['sol','Solitaire','Klondike, draw 1 or 3'],['bj','Blackjack','Solo or with friends'],['snake','Snake','Plays in the Terminal']];
 
 function playSnake(){
   const w=open('term');

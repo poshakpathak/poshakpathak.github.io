@@ -1387,7 +1387,7 @@ const PAL_BASE=[
   {t:'Photos',d:'Trips and moments',ic:I.photos,go:()=>open('photos')},
   {t:'Terminal',d:'Type help to start. Press ` to toggle',ic:I.term,go:()=>open('term')},
   {t:'TI-84 Plus CE',d:'Graphing calculator with Y=, tables, lists and matrices',ic:I.calc,go:()=>open('calc')},
-  {t:'Games',d:'Minesweeper, Solitaire and Snake',ic:I.games,go:()=>open('games')},
+  {t:'Games',d:'Minesweeper, Solitaire, Blackjack and Snake',ic:I.games,go:()=>open('games')},
   {t:'Minesweeper',d:'Beginner, intermediate or expert',ic:I.mines,go:()=>open('mines')},
   {t:'Solitaire',d:'Klondike, draw 1 or draw 3',ic:I.sol,go:()=>open('sol')},
   {t:'Say hello',d:'Email, LinkedIn and X',ic:I.hello,go:()=>open('hello')}
@@ -1759,7 +1759,7 @@ function wireTerm(w){
       case 'pwd':P(st.cwd.replace('~','/Users/poshak'));break;
       case 'cat':{if(!args[0]){P('cat: which file?');break;}const f=resolve(args[0]),fn=files[f]||files['~/'+args[0]];fn?P(fn()):P(`cat: ${a}: No such file`);break;}
       case 'open':{const n=(args[0]||'').toLowerCase().replace(/\/$/,'');
-        const map={about:'about',resume:'resume',music:'music',settings:'settings',tm:'tm','time-machine':'tm',timemachine:'tm',projects:'projects',research:'papers',papers:'papers',blogs:'blogs',notes:'notes',post:'post',ohtani:'post',abs:'abs',challenge:'abs',framing:'framing',sp500:'sp500',hello:'hello',contact:'hello',terminal:'term',calc:'calc',calculator:'calc',ti84:'calc','ti-84':'calc',photos:'photos',pics:'photos',games:'games',minesweeper:'mines',mines:'mines',solitaire:'sol',sol:'sol'};
+        const map={about:'about',resume:'resume',music:'music',settings:'settings',tm:'tm','time-machine':'tm',timemachine:'tm',projects:'projects',research:'papers',papers:'papers',blogs:'blogs',notes:'notes',post:'post',ohtani:'post',abs:'abs',challenge:'abs',framing:'framing',sp500:'sp500',hello:'hello',contact:'hello',terminal:'term',calc:'calc',calculator:'calc',ti84:'calc','ti-84':'calc',photos:'photos',pics:'photos',games:'games',minesweeper:'mines',mines:'mines',solitaire:'sol',sol:'sol',blackjack:'bj',bj:'bj',21:'bj'};
         if(map[n]){open(map[n]);P(`Opening ${APPS[map[n]].t}…`);}
         else if(PROJECTS.find(p=>p.id===n)){open('work',{p:n});P(`Opening ${PROJECTS.find(p=>p.id===n).name}…`);}
         else P(n?`open: can't find "${n}". Try: open projects`:'open: what should I open? Try: open about');break;}
@@ -2748,6 +2748,7 @@ if(!PHONE.matches)open('about');
 {const r={blogs:'blogs',ohtani:'post','challenge-problem':'abs',framing:'framing',sp500:'sp500',research:'papers',projects:'projects',music:'music',resume:'resume',calc:'calc',ti84:'calc',photos:'photos',games:'games',minesweeper:'mines',solitaire:'sol'}[location.hash.slice(1)];if(r)open(r);}
 </script>
 <script src="assets/os/chess.js"></script>
+<script src="assets/os/blackjack.js"></script>
 
 <script src="guestbook.js"></script>
 <script src="visitors.js"></script>
