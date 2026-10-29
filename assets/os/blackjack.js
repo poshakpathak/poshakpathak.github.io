@@ -6,7 +6,7 @@
 /* same public Firebase web config as the guestbook: the Firestore rules do the protecting */
 const FB={apiKey:'AIzaSyDkyIwps3EjWTvO1a3ULoHU_srKcqbpX2Q',projectId:'poshakos'};
 const SDK='https://www.gstatic.com/firebasejs/10.12.2/';
-const DECKS=6,START=1000,MAX=5,MIN=5,CHIPS=[5,25,100,500],TURN=30000,BETWAIT=25000,NEXTWAIT=8000;
+const DECKS=6,START=1000,MAX=5,MIN=5,CHIPS=[5,25,100,500],TURN=30000,BETWAIT=25000,NEXTWAIT=10000;
 const LS={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const sfx=f=>{try{blip(f)}catch(e){}};
@@ -173,19 +173,52 @@ const myId=(()=>{let id;try{id=sessionStorage.getItem('poshakos-bj-id')}catch(e)
 /* ---------------- the window ---------------- */
 const SOLO='poshakos-bj-solo',STATS='poshakos-bj-stats',NAME='poshakos-bj-name';
 let pending=null;
+/* table settings, kept per browser */
+const PREFS='poshakos-bj-prefs';
+/* felt: name, center, edge, rail, printing */
+const FELTS={classic:['Classic','#35a066','#0e4e2c','linear-gradient(#6a3820,#43200f 60%,#2c1409)','rgba(240,204,128,.75)'],
+  crimson:['Crimson','#c23a4c','#4a0b16','linear-gradient(#3e2a1e,#22150d 60%,#140b06)','rgba(244,210,140,.8)'],
+  royal:['Royal blue','#3b6fd4','#0f2459','linear-gradient(#5a3a22,#36200f 60%,#1f1208)','rgba(236,222,170,.8)'],
+  monaco:['Monaco','#239a92','#0a3d3b','linear-gradient(#2a2a2a,#121212 60%,#050505)','rgba(232,196,110,.85)'],
+  velvet:['Velvet','#7a46bd','#26103f','linear-gradient(#2c1a33,#170c1d 60%,#0b050e)','rgba(234,204,130,.8)'],
+  midnight:['Midnight','#36425a','#0c0f16','linear-gradient(#1c1c22,#0c0c10 60%,#040406)','rgba(200,212,232,.7)'],
+  neon:['Neon','#1f2238','#06070c','linear-gradient(#141626,#07080e)','#45f3ff']};
+const BACKS={blue:['Blue','repeating-linear-gradient(45deg,rgba(255,255,255,.13) 0 3px,transparent 3px 8px),linear-gradient(135deg,#3d6fe0,#7a4ed8)'],
+  red:['Red','repeating-linear-gradient(45deg,rgba(255,255,255,.14) 0 3px,transparent 3px 8px),linear-gradient(135deg,#d8394a,#8e1b2a)'],
+  black:['Black and gold','repeating-linear-gradient(45deg,rgba(230,190,100,.35) 0 1.5px,transparent 1.5px 9px),repeating-linear-gradient(-45deg,rgba(230,190,100,.35) 0 1.5px,transparent 1.5px 9px),#141414'],
+  green:['Green','repeating-radial-gradient(circle at 50% 50%,rgba(255,255,255,.12) 0 2px,transparent 2px 7px),linear-gradient(135deg,#2a9a5c,#11552f)'],
+  sunset:['Sunset','radial-gradient(circle at 50% 78%,#ffd27a 0 16%,transparent 17%),linear-gradient(#ff8a5c,#c4477a 50%,#3d3a8f)']};
+/* each felt and back is a set of CSS variables on .bj; eras that restyle the table still win */
+{const st=document.createElement('style');
+  st.textContent=Object.entries(FELTS).map(([k,[,c,e,r,pr]])=>`.bj[data-felt="${k}"]{--felt:var(--grain),radial-gradient(60% 70% at 50% 30%,${c},${e});--rail:${r};--print:${pr}}`).join('\n')
+    +'\n'+Object.entries(BACKS).map(([k,[,b]])=>`.bj[data-back="${k}"]{--back:${b}}`).join('\n')
+    +'\n.bj[data-felt="neon"] .bj-t:after{box-shadow:inset 0 -2px 0 #45f3ff,inset 0 -12px 30px rgba(69,243,255,.18),inset 0 30px 60px rgba(0,0,0,.25)}'
+    +'\n.bj[data-felt="neon"] .bj-felt text{filter:drop-shadow(0 0 4px #45f3ff)}.bj[data-felt="neon"] .bj-spot{box-shadow:inset 0 0 0 2px #ff4fd8,0 0 12px rgba(255,79,216,.5)}';
+  document.head.appendChild(st);}
+const SPEEDS={fast:['Quick',450],normal:['Normal',900],slow:['Slow',1500]};
 const ACTS=[['hit','Hit','H'],['stand','Stand','S'],['double','Double','D'],['split','Split','P'],['surrender','Surrender','R']];
 
 function wire(w){
   const root=w.querySelector('.bj');
   root.innerHTML=`<div class="bj-bar"><div class="bj-tabs" role="tablist"><button data-mode="solo" role="tab">Solo</button><button data-mode="mp" role="tab">With friends</button></div>
-    <span class="bj-room"></span><span class="bj-sp"></span><span class="bj-info"></span><button class="bj-pill" data-x="count" aria-pressed="false" title="Hi-Lo card counting">Count</button></div>
+    <span class="bj-room"></span><span class="bj-sp"></span><span class="bj-info"></span><button class="bj-pill" data-x="count" aria-pressed="false" title="Hi-Lo card counting">Count</button><button class="bj-pill bj-gear" data-x="set" aria-label="Table settings" aria-expanded="false"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></button></div>
+    <div class="bj-set" hidden></div>
     <div class="bj-t"><div class="bj-shoe" aria-hidden="true"><i></i></div>
-      <div class="bj-dealer"></div><div class="bj-felt">BLACKJACK PAYS 3 TO 2 · DEALER STANDS ON ALL 17s</div><div class="bj-msg" role="status"></div><div class="bj-seats"></div></div>
+      <div class="bj-dealer"></div><svg class="bj-felt" viewBox="0 0 640 100" aria-hidden="true"><path class="ln" d="M40 4Q320 80 600 4"/><path id="bjarc1" d="M90 24Q320 96 550 24"/><path id="bjarc2" d="M150 58Q320 122 490 58"/>
+        <text class="big"><textPath href="#bjarc1" startOffset="50%">BLACKJACK PAYS 3 TO 2</textPath></text><text><textPath href="#bjarc2" startOffset="50%">DEALER STANDS ON ALL 17s</textPath></text></svg><div class="bj-msg" role="status"></div><div class="bj-seats"></div></div>
     <div class="bj-ctl"></div><div class="bj-lobby" hidden></div>`;
   const $=s=>root.querySelector(s),tabs=root.querySelectorAll('[data-mode]');
   const T=$('.bj-t'),dealerEl=$('.bj-dealer'),seatsEl=$('.bj-seats'),msgEl=$('.bj-msg'),ctl=$('.bj-ctl'),lobby=$('.bj-lobby'),info=$('.bj-info'),roomEl=$('.bj-room'),cntB=$('[data-x="count"]');
   let mode='solo',S=null,me=null,ver=0,seen=Date.now(),code=null,unsub=null,busy=false,tip=null,bet=null,counting=LS.get('poshakos-bj-count',false);
   let drawn=new Set(),lastRound=-1,lastHole=false,lastPhase='';
+  let rev=null,doneShown=-1,firstPaint=true,revT=0;
+  const P=Object.assign({felt:'classic',back:'blue',speed:'normal',totals:true,autohint:false},LS.get(PREFS,{}));
+  const setEl=$('.bj-set');
+  function applyPrefs(){
+    root.dataset.felt=P.felt;root.dataset.back=P.back;root.dataset.totals=P.totals?'on':'off';
+    root.style.setProperty('--step',Math.round(SPEEDS[P.speed][1]*.3)+'ms');
+  }
+  applyPrefs();
 
   /* ----- solo ----- */
   function loadSolo(){
@@ -222,38 +255,80 @@ function wire(w){
     if(!cs.length)return'';if(hide)return String(tot([cs[0]]).t);
     const {t,soft}=tot(cs);return t>21?`${t} · bust`:cs.length===2&&t===21&&!sp?'Blackjack':soft&&t<21?`${t-10} / ${t}`:String(t);
   }
+  /* a bet as a little stack of chips, biggest at the bottom */
+  const DEN=[[500,'c500'],[100,'c100'],[25,'c25'],[5,'c5'],[1,'c1']];
+  function stack(n,cls){
+    const a=[];let r=n;for(const [v,c] of DEN)while(r>=v&&a.length<9){a.push(c);r-=v;}
+    if(r>0&&a.length<9)a.push('c1');
+    return`<span class="bj-stack${cls||''}">${a.map((c,i)=>`<i class="${c}" style="--i:${i}"></i>`).join('')}</span>`;
+  }
+  /* the circle in front of a hand: bet, then the payout or the dealer taking it */
+  function spot(h,key){
+    if(!h)return'<div class="bj-spot"></div>';
+    const fx=h.r&&!drawn.has(key)?' fx':'';if(h.r)drawn.add(key);
+    const lost=h.r==='lose'||h.r==='bust'||h.r==='sur',paid=h.r==='win'||h.r==='bj';
+    return`<div class="bj-spot">${stack(h.r==='sur'?h.b/2:h.b,lost?' take'+fx:'')}${paid?stack(h.n,' pay'+fx):''}<span class="bj-amt">${money(h.b)}</span></div>`;
+  }
   const RES={win:'Win',lose:'Lose',bust:'Bust',push:'Push',bj:'Blackjack',sur:'Surrender'};
+  /* the dealer plays one card at a time: show the finished round a step at a time before the result */
+  function view(){
+    if(S.phase!=='done'||doneShown===S.round)return S;
+    if(firstPaint||!S.dealer.c.length){doneShown=S.round;return S;}
+    if(!rev||rev.round!==S.round){rev={round:S.round,k:1};clearTimeout(revT);revT=setTimeout(stepRev,SPEEDS[P.speed][1]*.8);}
+    const V=JSON.parse(JSON.stringify(S)),n=Math.max(2,rev.k);
+    S.dealer.c.forEach((c,i)=>{if(i>=n||i===1&&rev.k<2)V.rc-=hilo(c);});
+    V.phase='play';V.turn=null;V.dealer.hole=rev.k<2;V.dealer.c=V.dealer.c.slice(0,n);V.reveal=1;
+    V.seats.forEach(s=>s.hands.forEach(h=>{if(h.r==='sur')return;s.chips-=h.n+h.b;s.net-=h.n;delete h.r;delete h.n;}));
+    return V;
+  }
+  function stepRev(){
+    if(!w.isConnected||!rev||!S||S.round!==rev.round||S.phase!=='done')return;
+    rev.k++;if(rev.k>S.dealer.c.length){doneShown=rev.round;rev=null;}
+    else revT=setTimeout(stepRev,SPEEDS[P.speed][1]);
+    paint();
+  }
   function paint(){
     if(!S)return;
-    const P=S.seats.filter(s=>s.hands.length),newRound=S.round!==lastRound;
+    const real=S;S=view();
+    try{paint_();}finally{S=real;firstPaint=false;}
+  }
+  function paint_(){
+    const PL=S.seats.filter(s=>s.hands.length),newRound=S.round!==lastRound;
     if(newRound){drawn=new Set();lastRound=S.round;}
     /* new cards fly in from the shoe; on a fresh deal they go round the table in order */
     let q=0;const d=(key,deal)=>{if(drawn.has(key))return['',0];drawn.add(key);return[' in',deal!=null&&newRound?deal:q++];};
     const flip=lastHole&&!S.dealer.hole&&!newRound;lastHole=S.dealer.hole;
-    const dc=S.dealer.c.map((c,k)=>{const [cls,dl]=d('d'+k,k*(P.length+1)+P.length);const hid=k===1&&S.dealer.hole;return card(c,hid,cls+(k===1&&flip?' flip':''),dl);}).join('');
+    const dc=S.dealer.c.map((c,k)=>{const [cls,dl]=d('d'+k,k*(PL.length+1)+PL.length);const hid=k===1&&S.dealer.hole;return card(c,hid,cls+(k===1&&flip?' flip':''),dl);}).join('');
     dealerEl.innerHTML=`<div class="bj-cards">${dc||'<div class="bj-k ghost"></div>'}</div><div class="bj-lbl">Dealer${S.dealer.c.length?` <span class="bj-tot">${totLabel(S.dealer.c,S.dealer.hole)}</span>`:''}</div>`;
     const solo=mode==='solo',turnS=S.turn&&seatOf(S,S.turn);
+    /* before the deal, show what's being bet: my chips as I click them, everyone else's once they're in */
+    {const m=mine();if(m&&m.chips>=MIN&&(bet==null||bet>m.chips))bet=Math.min(m.bet||25,Math.floor(m.chips/MIN)*MIN);}
+    const pend=s=>S.phase==='play'?0:s.id===me&&!s.ready?(bet||0):s.ready?s.bet:0;
     seatsEl.innerHTML=S.seats.map((s,j)=>{
-      const pi=P.indexOf(s);
+      const pi=PL.indexOf(s);
       const hands=s.hands.map((h,k)=>{
-        const cs=h.c.map((c,n)=>{const [cls,dl]=d(`${s.id}-${k}-${n}-${c}`,n*(P.length+1)+pi);return card(c,false,cls,dl);}).join('');
+        const cs=h.c.map((c,n)=>{const [cls,dl]=d(`${s.id}-${k}-${n}-${c}`,n*(PL.length+1)+pi);return card(c,false,cls,dl);}).join('');
         const on=S.turn===s.id&&s.hi===k&&s.hands.length>1;
-        return`<div class="bj-hand${on?' on':''}${h.r?' r-'+h.r:''}"><div class="bj-cards">${cs}</div><div class="bj-under"><span class="bj-tot">${totLabel(h.c,false,h.sp)}</span><span class="bj-chip" title="Bet">${money(h.b)}${h.d?' ×2':''}</span></div>${h.r?`<span class="bj-res">${RES[h.r]}${h.n>0?' '+signed(h.n):''}</span>`:''}</div>`;
+        return`<div class="bj-hand${on?' on':''}${h.r?' r-'+h.r:''}"><div class="bj-cards">${cs}</div><div class="bj-under"><span class="bj-tot">${totLabel(h.c,false,h.sp)}</span></div>${spot(h,`r${S.round}-${s.id}-${k}`)}${h.r?`<span class="bj-res">${RES[h.r]}${h.n>0?' '+signed(h.n):''}</span>`:''}</div>`;
       }).join('');
-      const status=S.phase==='bet'?(s.ready?`<span class="bj-st ok">Bet ${money(s.bet)}</span>`:`<span class="bj-st">Betting…</span>`):(!s.hands.length?'<span class="bj-st">Sitting out</span>':'');
+      const status=solo?'':S.phase==='bet'?(s.ready?`<span class="bj-st ok">Bet ${money(s.bet)}</span>`:`<span class="bj-st">Betting…</span>`):(!s.hands.length?'<span class="bj-st">Sitting out</span>':'');
       return`<div class="bj-seat${s.id===me?' me':''}${S.turn===s.id?' turn':''}${s.gone?' gone':''}" data-seat="${j}">
-        <div class="bj-hands">${hands||`<div class="bj-cards"><div class="bj-k ghost"></div></div>`}</div>
+        <div class="bj-hands">${hands||`<div class="bj-hand">${spot(pend(s)?{b:pend(s)}:null)}</div>`}</div>
         <div class="bj-name"><b>${solo?'You':esc(s.name)}${!solo&&s.id===me?' (you)':''}</b><span>${money(s.chips)}${!solo&&s.net?` · ${signed(s.net)}`:''}</span>${status}</div>
         ${!solo&&S.turn===s.id?'<div class="bj-timer"><i></i></div>':''}</div>`;
     }).join('')||'<p class="bj-empty">Nobody\'s sitting yet.</p>';
     seatsEl.classList.toggle('many',S.seats.length>2);
+    const my=mine(),bk=`bj${S.round}`;
+    if(S.phase==='done'&&my&&my.hands.some(h=>h.r==='bj')&&!drawn.has(bk)){drawn.add(bk);const b=document.createElement('div');b.className='bj-burst';b.innerHTML='<b>Blackjack!</b>';T.appendChild(b);setTimeout(()=>b.remove(),3200);setTimeout(()=>{sfx(988);setTimeout(()=>sfx(1318),110);},700);}
     if(q||newRound&&S.phase==='play')sfx(700);
     message();controls();infoBar();
     lastPhase=S.phase;
   }
   function message(){
     const s=mine();let m='';
-    if(tip)m=`<b>Basic strategy says ${tip[0]}.</b> ${tip[1]}`;
+    const auto=!tip&&P.autohint&&S.phase==='play'&&S.turn===me&&hint(S,s);
+    if(tip||auto)m=`<b>Basic strategy says ${(tip||auto)[0]}.</b> ${(tip||auto)[1]}`;
+    else if(S.reveal)m=S.dealer.hole?'Dealer\'s turn…':`Dealer has ${totLabel(S.dealer.c)}…`;
     else if(S.phase==='done'&&s&&s.hands.length){
       const d=tot(S.dealer.c).t,n=s.hands.reduce((a,h)=>a+h.n,0);
       const dl=S.dealer.c.length===2&&d===21?'Dealer has blackjack.':d>21?`Dealer busts with ${d}.`:`Dealer has ${d}.`;
@@ -264,7 +339,7 @@ function wire(w){
     else if(S.phase==='play'&&S.turn===me){const s2=mine();m=s2.hands.length>1?`Your move on hand ${s2.hi+1} of ${s2.hands.length}.`:'Your move.';}
     else if(S.phase==='bet'&&mode==='mp'){const w8=S.seats.filter(x=>!x.ready).length;m=!s?'You\'re watching. The table is full.':s.ready?(w8?`Waiting for ${w8} more to bet. Dealing in ${Math.max(0,Math.ceil((BETWAIT-(Date.now()-seen))/1000))}s if they don't.`:'Dealing…'):'Place your bet.';}
     else if(S.phase==='bet')m='Place your bet.';
-    msgEl.innerHTML=m;msgEl.classList.toggle('tip',!!tip);
+    msgEl.innerHTML=m;msgEl.classList.toggle('tip',!!(tip||auto));
   }
   function controls(){
     const s=mine();
@@ -292,29 +367,59 @@ function wire(w){
   }
   function soloLine(){const st=LS.get(STATS,null);if(!st||!st.hands)return'6 decks · S17 · 3:2';return`${st.hands} hand${st.hands===1?'':'s'} · ${Math.round(100*st.won/st.hands)}% won · best bank ${money(st.best)}`;}
 
+  /* ----- settings ----- */
+  function settings(open){
+    setEl.hidden=!open;root.querySelector('[data-x="set"]').setAttribute('aria-expanded',open);if(!open)return;
+    const sw=(kind,list,cur,bg)=>`<div class="bj-sw">${Object.entries(list).map(([k,v])=>`<button data-${kind}="${k}" aria-pressed="${cur===k}" title="${v[0]}"><i style="background:${bg(v)}"></i><small>${v[0]}</small></button>`).join('')}</div>`;
+    const tg=(k,l,on)=>`<label class="bj-tg"><input type="checkbox" data-pref="${k}"${on?' checked':''}><span>${l}</span></label>`;
+    setEl.innerHTML=`<div class="bj-set-h"><b>Table settings</b><button data-x="set" aria-label="Close">✕</button></div>
+      <h4>Table</h4>${sw('felt',FELTS,P.felt,v=>`radial-gradient(circle at 50% 35%,${v[1]},${v[2]})`)}
+      <h4>Card backs</h4>${sw('back',BACKS,P.back,v=>v[1])}
+      <h4>Dealer speed</h4><div class="bj-seg">${Object.entries(SPEEDS).map(([k,[l]])=>`<button data-speed="${k}" aria-pressed="${P.speed===k}">${l}</button>`).join('')}</div>
+      <h4>Help</h4>${tg('totals','Show hand totals',P.totals)}${tg('autohint','Show the best move on every hand',P.autohint)}${tg('count','Card counting readout (Hi-Lo)',counting)}
+      ${mode==='solo'?`<button class="bj-reset" data-x="reset">Reset my bank and stats</button>`:''}
+      <p class="bj-note">Saved on this device. In 1984 and 1995 the table keeps its era look.</p>`;
+  }
+  setEl.addEventListener('click',e=>{
+    const b=e.target.closest('button');if(!b)return;
+    for(const k of ['felt','back','speed'])if(b.dataset[k]){P[k]=b.dataset[k];LS.set(PREFS,P);applyPrefs();settings(true);sfx(760);e.stopPropagation();return;}
+  });
+  setEl.addEventListener('change',e=>{
+    const k=e.target.dataset.pref;if(!k)return;
+    if(k==='count'){counting=e.target.checked;LS.set('poshakos-bj-count',counting);if(S)infoBar();return;}
+    P[k]=e.target.checked;LS.set(PREFS,P);applyPrefs();if(S)paint();
+  });
+  root.addEventListener('pointerdown',e=>{if(!setEl.hidden&&!e.target.closest('.bj-set,[data-x="set"]'))settings(false);});
+
   /* ----- input ----- */
   root.addEventListener('click',e=>{
     const b=e.target.closest('button');if(!b||b.disabled)return;
     if(b.dataset.mode)return setMode(b.dataset.mode);
     if(b.dataset.a){const a=b.dataset.a;sfx(a==='stand'?520:640);play(st=>act(st,me,a));return;}
-    if(b.dataset.c){bet=Math.min((bet||0)+ +b.dataset.c,mine().chips);sfx(880);controls();return;}
+    if(b.dataset.c){bet=Math.min((bet||0)+ +b.dataset.c,mine().chips);sfx(880);paint();return;}
     const x=b.dataset.x;
-    if(x==='clear'){bet=0;controls();}
-    else if(x==='allin'){bet=mine().chips;controls();}
+    if(x==='clear'){bet=0;paint();}
+    else if(x==='allin'){bet=mine().chips;paint();}
     else if(x==='deal')deal_();
     else if(x==='unready')play(st=>unready(st,me));
     else if(x==='rebuy')play(st=>rebuy(st,me));
     else if(x==='hint'){tip=hint(S,mine());message();}
-    else if(x==='count'){counting=!counting;LS.set('poshakos-bj-count',counting);infoBar();}
+    else if(x==='count'){counting=!counting;LS.set('poshakos-bj-count',counting);infoBar();if(!setEl.hidden)settings(true);}
+    else if(x==='set')settings(setEl.hidden);
+    else if(x==='reset'){if(b.dataset.sure){S=fresh();join(S,'me','You');try{localStorage.removeItem(STATS)}catch(e){}saveSolo();bet=null;tip=null;rev=null;doneShown=-1;settings(false);paint();say('Fresh bank: $1,000.');}else{b.dataset.sure=1;b.textContent='Tap again to reset';}}
   });
   function deal_(){const s=mine();if(!s||!(bet>=MIN))return;const b=bet;play(st=>ready(st,me,b));}
-  w.addEventListener('keydown',e=>{
-    if(e.target.closest('input,textarea')||e.metaKey||e.ctrlKey||e.altKey||!S||!lobby.hidden)return;
+  /* on the document, so shortcuts keep working after the button you clicked disappears */
+  const onKey=e=>{
+    if(!w.isConnected)return document.removeEventListener('keydown',onKey);
+    if(e.key==='Escape'&&!setEl.hidden&&w.classList.contains('front')){settings(false);return;}
+    if(!w.classList.contains('front')||e.target.closest&&e.target.closest('input,textarea')||e.metaKey||e.ctrlKey||e.altKey||!S||!lobby.hidden)return;
     const k=e.key.toLowerCase(),m={h:'hit',s:'stand',d:'double',p:'split',r:'surrender'}[k];
     if(m&&options(S,mine())[m]){e.preventDefault();play(st=>act(st,me,m));}
     else if(k==='?'&&options(S,mine()).hit){tip=hint(S,mine());message();}
-    else if(k==='enter'&&(S.phase==='bet'||S.phase==='done')&&mine()&&!mine().ready&&!e.target.closest('button')){e.preventDefault();deal_();}
-  });
+    else if(k==='enter'&&(S.phase==='bet'||S.phase==='done')&&!rev&&mine()&&!mine().ready&&!(e.target.closest&&e.target.closest('button'))){e.preventDefault();deal_();}
+  };
+  document.addEventListener('keydown',onKey);
 
   /* ----- tables ----- */
   function setMode(m){
@@ -367,7 +472,7 @@ function wire(w){
     await subscribe(c);
   }
   async function subscribe(c){
-    if(unsub)unsub();code=c;me=myId;bet=null;
+    if(unsub)unsub();code=c;me=myId;bet=null;firstPaint=true;
     let first=true;
     unsub=await NET().listen(c,(st,v)=>{
       if(!w.isConnected)return;
