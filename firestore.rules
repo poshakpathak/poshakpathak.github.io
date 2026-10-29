@@ -1,5 +1,5 @@
 rules_version = '2';
-// Rules for the guestbook. Paste these into Firebase console > Firestore > Rules.
+// Rules for the guestbook and Blackjack tables. Paste these into Firebase console > Firestore > Rules.
 // Visitors can add a note (always unapproved) and read approved notes. Only the
 // owner, signed in with Google, can see pending notes, approve them or delete them.
 service cloud.firestore {
@@ -21,6 +21,18 @@ service cloud.firestore {
         && request.resource.data.approved == false
         && request.resource.data.created == request.time;
       allow update, delete: if isOwner();
+    }
+    // Blackjack tables: one doc per table, readable by code (no listing), every write bumps v by one
+    // so two players can't overwrite each other's move. exp is for an optional TTL cleanup policy.
+    function bjRoom(d) {
+      return d.keys().hasOnly(['s', 'v', 'exp'])
+        && d.s is string && d.s.size() <= 40000
+        && d.v is int && d.exp is timestamp;
+    }
+    match /bjrooms/{room} {
+      allow get: if true;
+      allow create: if room.matches('^[A-Z0-9]{6}$') && bjRoom(request.resource.data) && request.resource.data.v == 1;
+      allow update: if bjRoom(request.resource.data) && request.resource.data.v == resource.data.v + 1;
     }
     match /{document=**} {
       allow read, write: if false;
