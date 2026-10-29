@@ -96,7 +96,7 @@ body{margin:0;background:#fff;color:#1b1f27;font-family:var(--font)}
 <article class="art">
       <header><span class="tag">Investing</span><h1>Can You Beat the S&amp;P 500 With $200 a Month? I Backtested 3 Strategies Since 2010</h1><p class="dek">Yes, at least on paper. Buying last year’s ten best S&amp;P 500 stocks every January would have doubled the index. But the ride was bumpier, and the test has blind spots.</p><div class="by"><span>Poshak Pathak · <time datetime="2026-10-29">October 29, 2026</time> · 8 min read</span><button class="share" type="button" data-url="https://poshakpathak.github.io/blog/sp500/">Copy link</button></div></header>
 
-      <p>If you had put $200 a month into the S&amp;P 500’s ten best-performing stocks every year since January 2010, your $40,400 would be worth about <strong>$319,000</strong> today. The same money in SPY, the most popular S&amp;P 500 fund, would be worth about <strong>$157,000</strong>.</p>
+      <p>If you had put $200 a month into the S&amp;P 500’s ten best-performing stocks every year since January 2010, your $40,400 would be worth about $319,000 today. The same money in SPY, the most popular S&amp;P 500 fund, would be worth about $157,000.</p>
       <p>I wanted to know if a simple, rules-based stock-picking plan could beat just buying the index. So I wrote a backtest in Python and ran it on almost 17 years of monthly price data for every stock in the S&amp;P 500. I tested three plans side by side, all with the same $200 every month.</p>
       <p>The short version: both stock-picking plans won, but the bigger win came with a much bumpier ride, and the test has blind spots that probably make the results look better than they really were. Here’s what I found.</p>
 
@@ -114,14 +114,14 @@ body{margin:0;background:#fff;color:#1b1f27;font-family:var(--font)}
         <tr><td>Best 10 performers</td><td class="wrap">The 10 S&amp;P 500 stocks with the biggest price gain over the previous 12 months</td><td class="wrap">$20 into each</td><td>Every January</td></tr>
         <tr><td>Biggest 10 by size</td><td class="wrap">The 10 largest S&amp;P 500 companies by market value, like SPY’s own top 10</td><td class="wrap">By size: bigger companies get more</td><td>Every January</td></tr>
       </tbody></table></div>
-      <p>The best-performers plan is a <strong>momentum</strong> strategy: it bets that stocks that have been rising keep rising. The biggest-10 plan is a <strong>concentration</strong> bet: it owns only the giants that already dominate the index.</p>
+      <p>The best-performers plan is a momentum strategy: it bets that stocks that have been rising keep rising. The biggest-10 plan is a concentration bet: it owns only the giants that already dominate the index.</p>
 
       <h2>How the backtest works</h2>
       <p>The backtest is a Python script using <code>pandas</code> and <code>yfinance</code>. It downloads monthly prices for every current S&amp;P 500 stock and SPY, adjusted for splits and dividends, so the returns include reinvested dividends.</p>
-      <p>The most important rule is <strong>no hindsight</strong>. It’s easy to “prove” any strategy works by picking stocks you already know did well. So:</p>
+      <p>The most important rule is no hindsight. It’s easy to “prove” any strategy works by picking stocks you already know did well. So:</p>
       <ul>
-        <li>Each January, the script ranks stocks using <strong>only data available at that moment</strong>: the previous 12 months.</li>
-        <li>In the stricter version, a stock only counts if it was <strong>already in the S&amp;P 500 on the pick date</strong>. My first run skipped this check and accidentally picked stocks like Carvana in 2019, years before it joined the index. The strict version fixes that, and it’s the one I report.</li>
+        <li>Each January, the script ranks stocks using only data available at that moment: the previous 12 months.</li>
+        <li>In the stricter version, a stock only counts if it was already in the S&amp;P 500 on the pick date. My first run skipped this check and accidentally picked stocks like Carvana in 2019, years before it joined the index. The strict version fixes that, and it’s the one I report.</li>
         <li>For the biggest-10 plan, I estimated each company’s past market value as price × shares outstanding, using share-count history. Yahoo’s share data had glitches (one made Nvidia look 3–4× too big in 2022), so the script ignores sudden jumps in share counts, since real share counts change gradually.</li>
       </ul>
       <p>All three plans get the same deposits on the same dates, so the comparison is fair.</p>
@@ -144,7 +144,7 @@ body{margin:0;background:#fff;color:#1b1f27;font-family:var(--font)}
         <tr class="hl"><td>Best 10 performers</td><td class="up">$318,613</td><td class="up">~21.5%</td><td class="dn">−33%</td></tr>
       </tbody></table></div>
       <p class="tnote">Annual return is the steady yearly rate that would turn $200 a month into each ending value. Worst drop is the largest fall in portfolio value from a peak, measured month to month.</p>
-      <p>Two things stand out. First, the biggest-10 plan beat SPY <strong>without extra risk</strong>: its worst drop was about the same as the index’s. Second, the best-performers plan earned its extra return the hard way. In 2022 it fell 28% while SPY fell 18%.</p>
+      <p>Two things stand out. First, the biggest-10 plan beat SPY without extra risk: its worst drop was about the same as the index’s. Second, the best-performers plan earned its extra return the hard way. In 2022 it fell 28% while SPY fell 18%.</p>
 
       <h2>Digging deeper</h2>
       <p>The ending numbers hide how differently the two plans got there. Here are five things I found once I looked year by year and stock by stock.</p>
@@ -198,19 +198,19 @@ body{margin:0;background:#fff;color:#1b1f27;font-family:var(--font)}
       <h2>Why these results are probably too good</h2>
       <p>I tried hard to keep hindsight out, but no backtest is perfect. These are the biggest reasons the real-world results would likely be worse:</p>
       <ul>
-        <li><strong>Survivorship bias.</strong> The script only knows today’s S&amp;P 500 members. Companies that were hot, then crashed and got kicked out of the index since 2010, aren’t in the data at all. A momentum strategy would have bought some of them right before they fell. This mostly hurts the best-performers result. It barely affects the biggest-10 plan, since giant companies rarely collapse out of the index.</li>
-        <li><strong>One unusual period.</strong> 2010–2026 was an exceptional run for U.S. tech, and especially for chipmakers in the AI boom. Nvidia and Micron alone made 40% of the best-performers portfolio. A different 17 years might have no Nvidia.</li>
-        <li><strong>Rough size estimates.</strong> Yahoo’s share-count history only starts in 2015, so the biggest-10 rankings for 2010–2014 use approximate company sizes.</li>
-        <li><strong>No taxes or real-world friction.</strong> Because nothing is sold, taxes only hit when you eventually cash out. But the test assumes perfect fractional-share buying, no fees and no mistakes.</li>
-        <li><strong>Behavior.</strong> The hardest part isn’t the math. It’s holding on while your portfolio drops 33%, or while it trails SPY for a whole year, as it did in 2011.</li>
+        <li>Survivorship bias. The script only knows today’s S&amp;P 500 members. Companies that were hot, then crashed and got kicked out of the index since 2010, aren’t in the data at all. A momentum strategy would have bought some of them right before they fell. This mostly hurts the best-performers result. It barely affects the biggest-10 plan, since giant companies rarely collapse out of the index.</li>
+        <li>One unusual period. 2010–2026 was an exceptional run for U.S. tech, and especially for chipmakers in the AI boom. Nvidia and Micron alone made 40% of the best-performers portfolio. A different 17 years might have no Nvidia.</li>
+        <li>Rough size estimates. Yahoo’s share-count history only starts in 2015, so the biggest-10 rankings for 2010–2014 use approximate company sizes.</li>
+        <li>No taxes or real-world friction. Because nothing is sold, taxes only hit when you eventually cash out. But the test assumes perfect fractional-share buying, no fees and no mistakes.</li>
+        <li>Behavior. The hardest part isn’t the math. It’s holding on while your portfolio drops 33%, or while it trails SPY for a whole year, as it did in 2011.</li>
       </ul>
       <p>None of these erase the result, but they mean I’d treat the 2× figure as a best case, not a forecast.</p>
 
       <section class="src">
         <h2>Methodology and disclaimer</h2>
-        <p><strong>Data:</strong> monthly prices from Yahoo Finance via <code>yfinance</code>, January 2009 to October 2026, adjusted for splits and dividends. S&amp;P 500 membership and join dates come from <a href="https://en.wikipedia.org/wiki/List_of_S%26P_500_companies" target="_blank" rel="noopener">Wikipedia’s list of S&amp;P 500 companies</a>. Company sizes for the biggest-10 plan are price × shares outstanding, using Yahoo’s share-count history.</p>
-        <p><strong>Rules:</strong> $200 invested on the first trading day of every month from January 2010. Picks are set each January using only data available then. Positions are never sold. Fractional shares, no fees, no taxes.</p>
-        <p><strong>Code:</strong> the backtest is two short Python scripts, one for each stock-picking plan. Both compare against SPY using the same deposits.</p>
+        <p>Data: monthly prices from Yahoo Finance via <code>yfinance</code>, January 2009 to October 2026, adjusted for splits and dividends. S&amp;P 500 membership and join dates come from <a href="https://en.wikipedia.org/wiki/List_of_S%26P_500_companies" target="_blank" rel="noopener">Wikipedia’s list of S&amp;P 500 companies</a>. Company sizes for the biggest-10 plan are price × shares outstanding, using Yahoo’s share-count history.</p>
+        <p>Rules: $200 invested on the first trading day of every month from January 2010. Picks are set each January using only data available then. Positions are never sold. Fractional shares, no fees, no taxes.</p>
+        <p>Code: the backtest is two short Python scripts, one for each stock-picking plan. Both compare against SPY using the same deposits.</p>
       </section>
     </article>
 <footer class="home">Written by Poshak Pathak · <a href="https://poshakpathak.github.io/" target="_top">poshakpathak.github.io</a></footer>
