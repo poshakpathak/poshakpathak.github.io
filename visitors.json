@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-04T20:00:57.667Z",
- "total": 34,
+ "updated": "2026-11-05T20:15:55.661Z",
+ "total": 35,
  "countries": [
   [
    "US",
    "United States",
-   33
+   34
   ],
   [
    "NP",
@@ -29,6 +29,10 @@
   [
    "Mississippi",
    2
+  ],
+  [
+   "New Mexico",
+   1
   ]
  ]
 }
