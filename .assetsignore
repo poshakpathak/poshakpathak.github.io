@@ -1,0 +1,11 @@
+# Files that stay in the repo but are not published to the website
+.git
+.github
+node_modules
+.assetsignore
+wrangler.jsonc
+package.json
+package-lock.json
+firestore.rules
+_config.yml
+README.md

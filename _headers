@@ -1,0 +1,21 @@
+# Security headers for every page
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(self), camera=(), microphone=(), payment=(), usb=(), interest-cohort=()
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+
+# Scripts and styles change often and have no version in their names,
+# so browsers keep them for an hour and recheck in the background.
+/assets/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# Photos rarely change once uploaded
+/photos/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+# Visitor counts update every 6 hours
+/visitors.json
+  Cache-Control: public, max-age=600
