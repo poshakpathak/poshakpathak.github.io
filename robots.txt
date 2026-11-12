@@ -5,4 +5,4 @@ Disallow: /posts/
 Disallow: /Blogs/
 Disallow: /node_modules/
 
-Sitemap: https://poshakpathak.github.io/sitemap.xml
+Sitemap: https://poshakpathak.com/sitemap.xml

@@ -9,3 +9,5 @@ package-lock.json
 firestore.rules
 _config.yml
 README.md
+CNAME
+.wrangler
