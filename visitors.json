@@ -1,16 +1,26 @@
 {
- "updated": "2026-11-14T06:59:46.795Z",
- "total": 59,
+ "updated": "2026-11-14T18:28:54.267Z",
+ "total": 62,
  "countries": [
   [
    "US",
    "United States",
-   55
+   56
   ],
   [
    "CA",
    "Canada",
    2
+  ],
+  [
+   "GB",
+   "United Kingdom",
+   1
+  ],
+  [
+   "NL",
+   "Netherlands",
+   1
   ],
   [
    "NP",
@@ -30,7 +40,7 @@
   ],
   [
    "Georgia",
-   11
+   12
   ],
   [
    "Louisiana",
