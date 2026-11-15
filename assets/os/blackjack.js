@@ -377,8 +377,7 @@ function wire(w){
       <h4>Card backs</h4>${sw('back',BACKS,P.back,v=>v[1])}
       <h4>Dealer speed</h4><div class="bj-seg">${Object.entries(SPEEDS).map(([k,[l]])=>`<button data-speed="${k}" aria-pressed="${P.speed===k}">${l}</button>`).join('')}</div>
       <h4>Help</h4>${tg('totals','Show hand totals',P.totals)}${tg('autohint','Show the best move on every hand',P.autohint)}${tg('count','Card counting readout (Hi-Lo)',counting)}
-      ${mode==='solo'?`<button class="bj-reset" data-x="reset">Reset my bank and stats</button>`:''}
-      <p class="bj-note">Saved on this device. In 1984 and 1995 the table keeps its era look.</p>`;
+      ${mode==='solo'?`<button class="bj-reset" data-x="reset">Reset my bank and stats</button>`:''}`;
   }
   setEl.addEventListener('click',e=>{
     const b=e.target.closest('button');if(!b)return;
