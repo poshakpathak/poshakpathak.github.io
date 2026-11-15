@@ -67,6 +67,14 @@ css.textContent=`
 @keyframes chsk{to{background-position:-150% 0}}
 .chs .ft{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:12.5px;color:var(--soft)}
 .chs .ft button{all:unset;cursor:pointer;font-weight:600;color:var(--accent)}
+.chs .cpdf{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;background:linear-gradient(135deg,#1f4d3a,#2c6a50);color:#f3efe2;text-decoration:none}
+.chs .cpdf .bk{width:34px;height:34px;flex:none;display:grid;place-items:center;border-radius:9px;background:rgba(232,199,106,.18);color:#e8c76a;font-size:20px}
+.chs .cpdf b{display:block;font-weight:600;font-size:13.5px}.chs .cpdf small{display:block;font-size:12px;opacity:.75}
+.chs .cpdf .go{margin-left:auto;white-space:nowrap;font-weight:600;font-size:12.5px;color:#e8c76a}
+.chs .cpdf:hover .go{text-decoration:underline}
+#os[data-era="1995"] .chs .cpdf{border-radius:0;background:#000080}
+#os[data-era="1984"] .chs .cpdf{border-radius:0;background:#fff;color:#000;border:1px solid #000}#os[data-era="1984"] .chs .cpdf .go,#os[data-era="1984"] .chs .cpdf .bk{color:#000}
+@media (max-width:520px){.chs .cpdf .go{display:none}}
 #os[data-era="1995"] .chs .cd,#os[data-era="1995"] .chs .ct{border-radius:0;box-shadow:inset -1px -1px #fff,inset 1px 1px #808080}
 #os[data-era="1995"] .chs .ch{background:linear-gradient(90deg,#000080,#1084d0)}
 #os[data-era="1984"] .chs .cd,#os[data-era="1984"] .chs .ct{border-radius:0;border:1px solid #000;background:#fff}
@@ -78,6 +86,7 @@ document.head.appendChild(css);
 
 APPS.chess={t:"Chess",w:760,h:null,html:()=>`<div class="chs"><div class="strip"></div>
   <div class="cards"><div class="cd" id="chcc"></div><div class="cd" id="chli"></div></div>
+  <a class="cpdf" href="https://chesspdf.poshakpathak.com/" target="_blank" rel="noopener"><span class="bk">♞</span><span><b>Studying from a book?</b><small>Open the PDF in Chess PDF, a board beside the page that I built.</small></span><span class="go">Chess PDF ↗</span></a>
   <div class="ft"><span id="chup">Loading…</span><button id="chrf">Refresh</button></div>
 </div>`};
 

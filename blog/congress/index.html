@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Congress Tracker: every vote, on the record · Poshak Pathak</title>
+<script>if(window.top!==window)document.documentElement.classList.add("embedded")</script>
+<meta name="description" content="How I built a site that tracks every roll-call vote in the House and Senate, who breaks from their party, which bills die in committee, and where the money goes.">
+<link rel="canonical" href="https://poshakpathak.com/blog/congress/">
+<meta name="author" content="Poshak Pathak">
+<meta property="article:published_time" content="2026-11-15">
+<meta property="article:author" content="https://poshakpathak.com/">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Congress Tracker: every vote, on the record", "description": "How I built a site that tracks every roll-call vote in the House and Senate, who breaks from their party, which bills die in committee, and where the money goes.", "datePublished": "2026-11-15", "url": "https://poshakpathak.com/blog/congress/", "mainEntityOfPage": "https://poshakpathak.com/blog/congress/", "image": "https://poshakpathak.com/blog/congress/og.jpg", "inLanguage": "en", "about": {"@type": "WebApplication", "name": "Congress Tracker", "url": "https://congresstracker.poshakpathak.com/", "applicationCategory": "Utility"}, "author": {"@type": "Person", "@id": "https://poshakpathak.com/#me", "name": "Poshak Pathak", "url": "https://poshakpathak.com/"}, "publisher": {"@type": "Person", "@id": "https://poshakpathak.com/#me", "name": "Poshak Pathak"}}</script>
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Poshak Pathak">
+<meta property="og:title" content="Congress Tracker: every vote in Congress, on the record">
+<meta property="og:description" content="How I built a site that tracks every roll-call vote in the House and Senate, who breaks from their party, which bills die in committee, and where the money goes.">
+<meta property="og:url" content="https://poshakpathak.com/blog/congress/">
+<meta property="og:image" content="https://poshakpathak.com/blog/congress/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Congress Tracker homepage">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@PathakPoshak">
+<meta name="twitter:creator" content="@PathakPoshak">
+<meta name="twitter:title" content="Congress Tracker: every vote in Congress, on the record">
+<meta name="twitter:description" content="How I built a site that tracks every roll-call vote in the House and Senate, who breaks from their party, which bills die in committee, and where the money goes.">
+<meta name="twitter:image" content="https://poshakpathak.com/blog/congress/og.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231b1f27'/%3E%3Ctext x='32' y='44' font-family='Helvetica,Arial,sans-serif' font-size='34' font-weight='700' fill='%23fff' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap">
+<style>
+:root{--font:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:#fff;color:#1b1f27;font-family:var(--font)}
+#pb{position:fixed;top:0;left:0;height:3px;width:0;z-index:9;background:linear-gradient(90deg,#1f3cff,#000,#e34948)}
+.art{max-width:620px;margin:0 auto;padding:30px 32px 48px;font-size:15.5px;line-height:1.68;color:#1b1f27}
+.art .tag{display:inline-block;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#1f3cff;background:color-mix(in srgb,#1f3cff 10%,transparent);padding:3px 9px;border-radius:99px}
+.art h1{font-size:28px;line-height:1.2;letter-spacing:-.02em;margin:12px 0 8px;text-wrap:balance}
+.art .by{color:#667085;font-size:13px;margin:0}
+.art figure{margin:22px -12px 8px}.art figure img{width:100%;display:block;border-radius:12px;aspect-ratio:16/9;object-fit:cover;background:#f1f3f7}
+.art figcaption{font-size:12.5px;color:#667085;text-align:center;margin-top:8px}
+.art h2{font-size:19px;letter-spacing:-.01em;margin:32px 0 6px}
+.art p{margin:0 0 14px}.art ul,.art ol{margin:0 0 14px;padding-left:22px}.art li{margin:4px 0}
+.art .tw{overflow-x:auto;margin:6px 0 16px;border:1px solid #e4e7ec;border-radius:12px}
+.art table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+.art th{text-align:left;font-size:12px;font-weight:600;color:#667085;background:#f1f3f7;padding:9px 14px;white-space:nowrap}
+.art td{padding:9px 14px;border-top:1px solid #e4e7ec;white-space:nowrap}.art td:first-child{font-weight:500}
+.art td.up{color:#1f3cff;font-weight:600}
+.art .call{border-left:3px solid #1f3cff;padding:4px 0 4px 14px;color:#667085;font-style:italic}
+.art .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:10px;margin:8px 0 18px}
+.art .stats div{border:1px solid #e4e7ec;border-radius:12px;padding:12px 14px;display:grid;gap:2px}
+.art .stats b{font-size:22px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:#1f3cff}
+.art .stats span{font-size:13px;font-weight:500;line-height:1.3}.art .stats small{font-size:12px;color:#667085}
+.art .vs{display:grid;gap:10px;margin:8px 0 18px;padding:14px 16px;border:1px solid #e4e7ec;border-radius:12px}
+.art .vs div{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font-size:13.5px}.art .vs b{font-variant-numeric:tabular-nums}
+.art .vs i{grid-column:1/-1;height:8px;border-radius:99px;background:#1f3cff}.art .vs div+div i{background:#9aa4b2}
+.art blockquote{margin:26px 0 0;padding:18px 0 0;border-top:1px solid #e4e7ec;font-size:21px;font-weight:600;letter-spacing:-.01em;text-align:center;font-style:italic}
+.art .by{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}
+.share{font:500 13px var(--font);color:#1f3cff;background:none;border:1px solid color-mix(in srgb,#1f3cff 35%,transparent);border-radius:99px;padding:2px 10px;cursor:pointer}.share:hover{background:color-mix(in srgb,#1f3cff 8%,transparent)}
+.home{max-width:620px;margin:0 auto;padding:0 32px 40px;font-size:12.5px;color:#667085}.home a{color:#1f3cff}
+@media (max-width:560px){.art{padding:22px 18px 40px;font-size:15px}.art h1{font-size:23px}.art figure{margin:18px 0 8px}.home{padding:0 18px 32px}}
+.topnav{position:sticky;top:0;z-index:8;background:rgba(255,255,255,.88);backdrop-filter:saturate(1.6) blur(12px);-webkit-backdrop-filter:saturate(1.6) blur(12px);border-bottom:1px solid #e4e7ec}
+.topnav div{max-width:660px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;font:500 14px var(--font)}
+.topnav a{color:#1b1f27;text-decoration:none;display:flex;align-items:center;gap:9px}
+.topnav .me b{display:grid;place-items:center;width:26px;height:26px;border-radius:7px;background:#1b1f27;color:#fff;font-size:14px;font-weight:700}
+.topnav .all{color:#1f3cff;font-size:13px;border:1px solid color-mix(in srgb,#1f3cff 35%,transparent);border-radius:99px;padding:3px 11px}.topnav .all:hover{background:color-mix(in srgb,#1f3cff 8%,transparent)}
+.embedded .topnav{display:none}
+/* Inside a PoshakOS window, let the article fill a wide (maximized) window instead of staying a narrow column */
+@media (min-width:900px){.embedded .art,.embedded .home{max-width:none;padding-left:56px;padding-right:56px}.embedded .art img{max-height:72vh;object-fit:cover}}
+@media (max-width:560px){.topnav div{padding:9px 16px}}
+.art .note{font-size:12.5px;color:#667085;margin-top:-8px}
+.art .cta{margin:26px 0 0;padding-top:20px;border-top:1px solid #e4e7ec;text-align:center}
+.art .go{display:inline-block;font-weight:600;font-size:15px;color:#fff;background:#1f3cff;text-decoration:none;border-radius:99px;padding:9px 20px}.art .go:hover{filter:brightness(1.15)}
+.art a{color:#1f3cff}
+</style>
+</head>
+<body>
+<div id="pb"></div>
+<nav class="topnav" aria-label="Site"><div><a class="me" href="/" title="Back to the homepage"><b>P</b><span>Poshak Pathak</span></a><a class="all" href="/#blogs">All posts</a></div></nav>
+<article class="art">
+      <header><span class="tag">Projects</span><h1>Congress Tracker: every vote in Congress, on the record</h1><div class="by"><span>Poshak Pathak · <time datetime="2026-11-15">November 15, 2026</time> · 6 min read</span><button class="share" type="button" data-url="https://poshakpathak.com/blog/congress/">Copy link</button></div></header>
+      <figure><img src="../../assets/os/congress.jpg" alt="The Congress Tracker homepage" loading="lazy"><figcaption>Every page is rebuilt each day from public records.</figcaption></figure>
+      <h2>The big picture</h2>
+      <p>Almost everything Congress does is public. Every roll-call vote, every bill's history, every campaign contribution, every lobbying report and every stock trade a House member reports is published somewhere. The catch is that "somewhere" means a dozen different government sites, each with its own format.</p>
+      <p>Congress Tracker pulls those records into one place and lines them up: how each member voted, when they broke from their party, which bills never left committee, and who was spending money around them.</p>
+      <div class="stats">
+        <div><b>1,606</b><span>Roll-call votes</span><small>685 House, 921 Senate</small></div>
+        <div><b>19,962</b><span>Bills and resolutions</span><small>144 became law</small></div>
+        <div><b>82.4%</b><span>Party-line votes</span></div>
+        <div><b>11,288</b><span>Stock trades reported</span><small>by House members</small></div>
+      </div>
+      <p class="note">Counts for the 119th Congress as of November 12, 2026.</p>
+      <h2>How it works</h2>
+      <p>A Python pipeline runs every night on GitHub Actions. It loads a profile for every member, downloads each new roll-call vote from the House Clerk and the Senate, and reads the status of every bill from the government's bulk data. The results are written to the repository as JSON files. Every push publishes a fresh copy of the site, which is plain HTML, CSS and JavaScript with no framework.</p>
+      <p>Separate jobs handle the heavier sources: Federal Election Commission files weekly (they are several gigabytes), and lobbying reports and stock trade filings daily.</p>
+      <h2>Who breaks ranks</h2>
+      <p>For every vote, the party position is the side most of that party's members took. A break is a yea or nay against your own party's position. Missing a vote or voting present never counts as a break.</p>
+      <p>Loyalty alone is misleading, because many votes are close to unanimous. The more telling number is party unity: loyalty counted only on votes where most Democrats opposed most Republicans.</p>
+      <h2>Where bills go to die</h2>
+      <p>Of the 19,962 bills and resolutions introduced in this Congress, 17,617 are still sitting in committee. The committee pages show which bills had enough cosponsors to pass and never got a vote, and which organizations lobbied on the bills that stalled there.</p>
+      <h2>Money, lobbying and trades</h2>
+      <p>The money pages read FEC bulk data for the last three election cycles. The lobbying pages read quarterly reports filed under the Lobbying Disclosure Act, and the trades page reads the periodic transaction reports House members file.</p>
+      <p>Each of these comes with caveats, and the site states them next to the numbers. A lobbying report lists one amount for everything an organization worked on that quarter, so the amount next to a bill is not money spent on that bill. Reports filed on paper are scanned images, so their trades are listed without details. And money lining up with votes is correlation only: groups give to members who already agree with them.</p>
+      <h2>Built with</h2>
+      <div class="tw"><table><thead><tr><th>Part</th><th>Tools</th></tr></thead><tbody>
+        <tr><td>Pipeline</td><td>Python, GitHub Actions on a nightly schedule</td></tr>
+        <tr><td>Sources</td><td>House Clerk, Senate.gov, govinfo bulk data, FEC, Lobbying Disclosure Act reports, House financial disclosures</td></tr>
+        <tr><td>Site</td><td>Plain HTML, CSS and JavaScript</td></tr>
+        <tr><td>Data platform</td><td>Spark and Delta Lake, dbt with Postgres, Dagster, pgvector search</td></tr>
+        <tr><td>Hosting</td><td>Cloudflare Pages</td></tr>
+      </tbody></table></div>
+      <h2>What is next</h2>
+      <p>Senate stock trades are not read yet, only the House's. That is the next source to add.</p>
+      <p class="cta"><a class="go" href="https://congresstracker.poshakpathak.com/" target="_blank" rel="noopener">Open Congress Tracker ↗</a></p>
+    </article>
+<footer class="home">Written by Poshak Pathak · <a href="https://poshakpathak.com/" target="_top">poshakpathak.com</a></footer>
+<script>(()=>{const b=document.getElementById("pb");const f=()=>{const m=document.documentElement.scrollHeight-innerHeight;b.style.width=(m>0?scrollY/m*100:0)+"%"};addEventListener("scroll",f,{passive:true});f();})();</script>
+<script>document.querySelectorAll(".share").forEach(b=>{const t=b.textContent;b.onclick=async()=>{const u=b.dataset.url;if(navigator.share&&matchMedia("(pointer:coarse)").matches){try{await navigator.share({title:document.title,url:u});return}catch(e){if(e&&e.name==="AbortError")return}}try{await navigator.clipboard.writeText(u)}catch(e){const a=document.createElement("textarea");a.value=u;document.body.append(a);a.select();document.execCommand("copy");a.remove()}b.textContent="Link copied";setTimeout(()=>b.textContent=t,1800)}});</script>
+</body>
+</html>
