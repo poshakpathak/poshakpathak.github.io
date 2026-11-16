@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" data-style="scoreboard">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ABS Challenge Advisor</title>
+<meta name="description" content="Challenge or hold? The optimal MLB ABS challenge decision for any game state, from a model solved on every 2026 regular-season pitch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo+Narrow:wght@400;500;700&family=Barlow+Condensed:ital,wght@0,600;1,600;1,800&family=Barlow:wght@400;500;600&family=Big+Shoulders+Display:wght@600;800;900&family=Roboto+Condensed:wght@400;500;700&display=swap">
+<style>
+/* Three looks over one page, chosen by data-style on <html>: scoreboard (manual board, lamps),
+   card (laminated dugout card), broadcast (TV score bug). Each is a single committed theme. */
+:root {
+  --bg: #0e3a2d; --panel: #0a2a21; --line: #1d5a47; --edge: #2a6b56; --ink: #f3efe2; --ink2: #b9cdbf;
+  --btn: #0e3a2d; --sel-bg: #f3efe2; --sel-ink: #0e3a2d; --slat-bg: #f3efe2; --slat-ink: #0e3a2d;
+  --accent: #f6c744; --cur-ink: #10271f; --call-bg: #f6c744; --call-ink: #10271f; --hold-bg: #0a2a21; --hold-ink: #f3efe2;
+  --track: #1d5a47; --go: #2f8a6c; --thumb: #f3efe2; --thumb-r: 50%; --mark: #f6c744;
+  --display: "Big Shoulders Display", "Arial Narrow", sans-serif; --body: "Roboto Condensed", "Arial Narrow", Arial, sans-serif;
+  --verdict: clamp(3rem, 16vw, 4.5rem); color-scheme: dark;
+}
+:root[data-style="card"] {
+  --bg: #fdfdfb; --panel: #fdfdfb; --line: #111111; --edge: #111111; --ink: #111111; --ink2: #111111;
+  --btn: transparent; --sel-bg: #111111; --sel-ink: #ffffff; --slat-bg: transparent; --slat-ink: #111111;
+  --accent: #ffe94a; --cur-ink: #111111; --call-bg: transparent; --call-ink: #111111; --hold-bg: transparent; --hold-ink: #111111;
+  --track: #dcdcd6; --go: #ffe94a; --thumb: #111111; --thumb-r: 0; --mark: #c8102e;
+  --display: "Archivo Black", "Arial Black", sans-serif; --body: "Archivo Narrow", "Arial Narrow", Arial, sans-serif;
+  --verdict: clamp(2.2rem, 11.5vw, 3.4rem); color-scheme: light;
+}
+:root[data-style="broadcast"] {
+  --bg: #0a1230; --panel: #0a1230; --line: #1a2757; --edge: #1a2757; --ink: #ffffff; --ink2: #c3cbe6;
+  --btn: #1a2757; --sel-bg: #ffffff; --sel-ink: #0a1230; --slat-bg: transparent; --slat-ink: #ffffff;
+  --accent: #ffc72c; --cur-ink: #0a1230; --call-bg: #d8102f; --call-ink: #ffffff; --hold-bg: #1a2757; --hold-ink: #ffffff;
+  --track: #1a2757; --go: #4a5fb0; --thumb: #ffffff; --thumb-r: 0; --mark: #ffc72c;
+  --display: "Barlow Condensed", "Arial Narrow", sans-serif; --body: "Barlow", Arial, sans-serif;
+  --verdict: clamp(3rem, 17vw, 4.6rem); color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.45; padding: 0 16px 3rem; }
+main { max-width: 58rem; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; padding-top: 16px; }
+button { font: inherit; color: inherit; cursor: pointer; border-radius: 0; }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+:root[data-style="card"] button:focus-visible, :root[data-style="card"] input:focus-visible { outline-color: #c8102e; }
+.top { display: flex; justify-content: space-between; align-items: baseline; gap: 4px 12px; flex-wrap: wrap; }
+.brand { font-family: var(--display); font-weight: 800; font-size: 1.25rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0; }
+.sum { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; }
+.lab { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink2); }
+.bug { display: none; }
+.layout { display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 860px) { .layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; } }
+.state { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 14px; background: var(--panel); border: 2px solid var(--line); padding: 12px; }
+.field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.field.wide { grid-column: 1 / -1; }
+.seg { display: flex; gap: 4px; }
+.seg button { flex: 1; min-width: 0; min-height: 44px; background: var(--btn); border: 1px solid var(--edge); color: var(--ink2); font-weight: 500; font-size: 0.9rem; padding: 0 4px; }
+.seg button[aria-pressed="true"] { background: var(--sel-bg); border-color: var(--sel-bg); color: var(--sel-ink); font-weight: 700; }
+.step { display: flex; gap: 4px; }
+.step button { width: 44px; min-height: 44px; background: var(--btn); border: 1px solid var(--edge); font-size: 1.3rem; }
+.step button:disabled { opacity: 0.35; cursor: default; }
+.step output { flex: 1; min-height: 44px; display: flex; align-items: center; justify-content: center; background: var(--slat-bg); color: var(--slat-ink);
+  font-family: var(--display); font-weight: 800; font-size: 1.25rem; letter-spacing: 0.03em; text-transform: uppercase; white-space: nowrap; }
+.result { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.call { background: var(--call-bg); color: var(--call-ink); padding: 12px 16px; display: flex; flex-direction: column; gap: 2px; }
+.call.no, .call.na { background: var(--hold-bg); color: var(--hold-ink); outline: 2px solid var(--line); outline-offset: -2px; }
+.call .lab { color: inherit; }
+.verdict { font-family: var(--display); font-weight: 900; font-size: var(--verdict); line-height: 1; text-transform: uppercase; white-space: nowrap; max-width: 100%; overflow: hidden; }
+.call.na .verdict { font-size: 1.9rem; white-space: normal; }
+.why { margin: 0; font-size: 1rem; font-weight: 500; }
+.slab { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.slab b { font-family: var(--display); font-weight: 800; font-size: 1.4rem; line-height: 1; white-space: nowrap; }
+.rng { position: relative; height: 44px; }
+.rng .track { position: absolute; left: 11px; right: 11px; top: 18px; height: 8px; background: var(--track); }
+.rng .go { position: absolute; top: 0; bottom: 0; right: 0; background: var(--go); }
+.rng .mark { position: absolute; top: -10px; bottom: -10px; width: 3px; margin-left: -1.5px; background: var(--mark); }
+input[type=range] { position: absolute; inset: 0; width: 100%; height: 44px; margin: 0; background: transparent; -webkit-appearance: none; appearance: none; cursor: pointer; }
+input[type=range]::-webkit-slider-runnable-track { height: 44px; background: transparent; }
+input[type=range]::-moz-range-track { height: 44px; background: transparent; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; margin-top: 11px; border-radius: var(--thumb-r); background: var(--thumb); border: 3px solid var(--bg); }
+input[type=range]::-moz-range-thumb { width: 16px; height: 16px; border-radius: var(--thumb-r); background: var(--thumb); border: 3px solid var(--bg); }
+.note { margin: 0; font-size: 0.8rem; letter-spacing: 0.04em; color: var(--ink2); }
+.note.even { color: var(--mark); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.tile { background: var(--panel); border: 2px solid var(--line); padding: 8px 10px; display: flex; flex-direction: column; gap: 8px; justify-content: space-between; min-width: 0; }
+.tile b { font-family: var(--display); font-weight: 800; font-size: 1.7rem; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tile.gain { border-color: var(--accent); }
+.tile.gain b { color: var(--accent); }
+.counts { display: flex; flex-direction: column; gap: 4px; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { border: 1px solid var(--edge); text-align: center; height: 30px; padding: 0 4px; font-size: 0.95rem; }
+th { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink2); }
+td.cur { background: var(--accent); color: var(--cur-ink); font-weight: 700; }
+
+/* ---- scoreboard: lamps and a diamond ---- */
+:root[data-style="scoreboard"] .sum { display: none; }
+:root[data-style="scoreboard"] .seg button { font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; }
+:root[data-style="scoreboard"] .lamps { gap: 0; }
+:root[data-style="scoreboard"] .lamps button { flex: none; width: 40px; background: none; border: 0; padding: 0; font-size: 0; display: flex; align-items: center; justify-content: center; }
+:root[data-style="scoreboard"] .lamps button[data-v="0"] { display: none; }
+:root[data-style="scoreboard"] .lamps button::before { content: ""; width: 26px; height: 26px; border-radius: 50%; background: #123f32; border: 2px solid var(--edge); }
+:root[data-style="scoreboard"] .lamps button[data-lit="true"]::before { background: var(--accent); border-color: var(--accent); }
+:root[data-style="scoreboard"] .bases { display: block; position: relative; width: 104px; height: 70px; }
+:root[data-style="scoreboard"] .bases button { position: absolute; width: 30px; height: 30px; min-height: 0; flex: none; padding: 0; font-size: 0; transform: rotate(45deg); background: #123f32; border: 2px solid var(--edge); }
+:root[data-style="scoreboard"] .bases button::after { content: ""; position: absolute; inset: -8px; }
+:root[data-style="scoreboard"] .bases button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); }
+:root[data-style="scoreboard"] #b2 { left: 37px; top: 4px; }
+:root[data-style="scoreboard"] #b3 { left: 8px; top: 33px; }
+:root[data-style="scoreboard"] #b1 { left: 66px; top: 33px; }
+
+/* ---- card: ruled rows, black fill for the selection, highlighter on the answer ---- */
+:root[data-style="card"] .top { background: #111111; color: #ffffff; padding: 10px 12px; align-items: center; }
+:root[data-style="card"] .brand { font-size: 1.05rem; letter-spacing: 0.04em; }
+:root[data-style="card"] .state { grid-template-columns: minmax(0, 1fr); gap: 0; padding: 0; border: 0; border-top: 2px solid #111111; border-bottom: 1px solid #111111; background: none; }
+:root[data-style="card"] .field { flex-direction: row; align-items: stretch; gap: 0; min-height: 44px; border-bottom: 1px solid #111111; }
+:root[data-style="card"] .field > .lab { width: 96px; flex: none; display: flex; align-items: center; }
+:root[data-style="card"] .seg, :root[data-style="card"] .step { flex: 1; gap: 0; min-width: 0; }
+:root[data-style="card"] .seg button, :root[data-style="card"] .step button { border: 0; border-left: 1px solid #111111; }
+:root[data-style="card"] .step output { border-left: 1px solid #111111; font-size: 1rem; }
+:root[data-style="card"] .stylepick { border-top: 2px solid #111111; border-bottom-width: 2px; }
+:root[data-style="card"] .call { padding: 4px 0; gap: 6px; outline: 0; }
+:root[data-style="card"] .call.go .verdict { align-self: flex-start; background: #ffe94a; padding: 2px 10px 4px; letter-spacing: -0.01em; }
+:root[data-style="card"] .call.no .verdict { align-self: flex-start; border-bottom: 5px solid #c8102e; }
+:root[data-style="card"] .tiles { gap: 0; border-top: 2px solid #111111; border-bottom: 2px solid #111111; }
+:root[data-style="card"] .tile { border: 0; border-left: 1px solid #111111; background: none; }
+:root[data-style="card"] .tile:first-child { border-left: 0; padding-left: 0; }
+:root[data-style="card"] .tile b { font-size: 1.4rem; color: #111111; }
+:root[data-style="card"] .tile.gain b { align-self: flex-start; background: #ffe94a; padding: 0 4px; }
+:root[data-style="card"] .slab b { font-size: 1.1rem; }
+:root[data-style="card"] .rng .track { top: 14px; height: 16px; }
+
+/* ---- broadcast: score bug on top, verdict before the inputs, slanted type ---- */
+:root[data-style="broadcast"] .sum { display: none; }
+:root[data-style="broadcast"] .bug { display: flex; gap: 4px; padding: 0 6px; }
+:root[data-style="broadcast"] .bug span { flex: 1; min-width: 0; min-height: 48px; display: flex; align-items: center; justify-content: center; background: #1a2757; transform: skewX(-12deg); }
+:root[data-style="broadcast"] .bug span:nth-child(1) { background: #d8102f; }
+:root[data-style="broadcast"] .bug span:nth-child(2) { background: #ffffff; color: #0a1230; }
+:root[data-style="broadcast"] .bug span:nth-child(4) { color: #ffc72c; }
+:root[data-style="broadcast"] .bug i { transform: skewX(12deg); font-family: var(--display); font-style: italic; font-weight: 800; font-size: clamp(0.95rem, 4.6vw, 1.45rem); white-space: nowrap; }
+:root[data-style="broadcast"] .result { order: -1; }
+:root[data-style="broadcast"] .state { border: 0; padding: 0; gap: 8px 10px; }
+:root[data-style="broadcast"] .seg button, :root[data-style="broadcast"] .step button { border: 0; }
+:root[data-style="broadcast"] .verdict, :root[data-style="broadcast"] .tile b, :root[data-style="broadcast"] .slab b, :root[data-style="broadcast"] .step output { font-style: italic; }
+:root[data-style="broadcast"] .verdict { font-weight: 800; letter-spacing: -0.01em; line-height: 0.95; }
+:root[data-style="broadcast"] .call { padding: 16px 16px 40px; clip-path: polygon(0 0, 100% 0, 100% 84%, 0 100%); outline: 0; }
+:root[data-style="broadcast"] .why { font-family: var(--display); font-style: italic; font-weight: 600; font-size: 1.3rem; text-transform: uppercase; }
+:root[data-style="broadcast"] .rng .track { top: 14px; height: 16px; transform: skewX(-12deg); }
+:root[data-style="broadcast"] .tiles { gap: 0; border-top: 2px solid #1a2757; border-bottom: 2px solid #1a2757; }
+:root[data-style="broadcast"] .tile { border: 0; border-left: 2px solid #1a2757; flex-direction: column-reverse; justify-content: flex-end; }
+:root[data-style="broadcast"] .tile:first-child { border-left: 0; padding-left: 0; }
+:root[data-style="broadcast"] .brand { font-weight: 600; font-size: 1rem; letter-spacing: 0.18em; }
+</style>
+</head>
+<body>
+<main>
+<header class="top">
+  <h1 class="brand">ABS Challenge Advisor</h1>
+  <div class="sum" id="sum"></div>
+</header>
+
+<div class="field stylepick"><span class="lab">Style</span>
+  <div class="seg" id="style"><button data-v="scoreboard">Scoreboard</button><button data-v="card">Dugout card</button><button data-v="broadcast">Broadcast</button></div></div>
+
+<div class="bug" aria-hidden="true"><span><i id="bugInn"></i></span><span><i id="bugCount"></i></span><span><i id="bugOuts"></i></span><span><i id="bugScore"></i></span></div>
+
+<div class="layout">
+<section class="state" aria-label="Game state">
+  <div class="field wide"><span class="lab">Challenger</span>
+    <div class="seg" id="side"><button data-v="batter">Batter</button><button data-v="fielder">Catcher or pitcher</button></div></div>
+  <div class="field"><span class="lab">Inning</span>
+    <div class="step"><button id="innDn" aria-label="Earlier inning">−</button><output id="innOut"></output><button id="innUp" aria-label="Later inning">+</button></div></div>
+  <div class="field"><span class="lab">Half</span>
+    <div class="seg" id="half"><button data-v="0">Top</button><button data-v="1">Bottom</button></div></div>
+  <div class="field"><span class="lab">Balls</span>
+    <div class="seg lamps" id="balls" data-min="0"><button data-v="0">0</button><button data-v="1" aria-label="1 ball">1</button><button data-v="2" aria-label="2 balls">2</button><button data-v="3" aria-label="3 balls">3</button></div></div>
+  <div class="field"><span class="lab">Strikes</span>
+    <div class="seg lamps" id="strikes" data-min="0"><button data-v="0">0</button><button data-v="1" aria-label="1 strike">1</button><button data-v="2" aria-label="2 strikes">2</button></div></div>
+  <div class="field"><span class="lab">Outs</span>
+    <div class="seg lamps" id="outs" data-min="0"><button data-v="0">0</button><button data-v="1" aria-label="1 out">1</button><button data-v="2" aria-label="2 outs">2</button></div></div>
+  <div class="field"><span class="lab">Challenges left</span>
+    <div class="seg lamps" id="tokens" data-min="1"><button data-v="1" aria-label="1 challenge left">1</button><button data-v="2" aria-label="2 challenges left">2</button></div></div>
+  <div class="field"><span class="lab">Runners on</span>
+    <div class="seg bases"><button id="b1" aria-label="Runner on first">1st</button><button id="b2" aria-label="Runner on second">2nd</button><button id="b3" aria-label="Runner on third">3rd</button></div></div>
+  <div class="field"><span class="lab">Your team</span>
+    <div class="step"><button id="mDn" aria-label="One run worse">−</button><output id="mOut"></output><button id="mUp" aria-label="One run better">+</button></div></div>
+</section>
+
+<section class="result" aria-live="polite">
+  <div class="call" id="call">
+    <span class="lab">The call</span>
+    <div class="verdict" id="verdict"></div>
+    <p class="why" id="why"></p>
+  </div>
+  <div>
+    <div class="slab"><label class="lab" for="conf">How sure are you the call is wrong?</label><b id="confOut"></b></div>
+    <div class="rng"><div class="track"><div class="go" id="zoneGo"></div><div class="mark" id="mark"></div></div><input type="range" id="conf" min="0" max="100" step="1" value="50"></div>
+    <p class="note even" id="even"></p>
+  </div>
+  <div>
+    <div class="slab"><label class="lab" for="miss">Or: how far off did it look?</label><b id="missOut"></b></div>
+    <div class="rng"><div class="track"></div><input type="range" id="miss" min="-3" max="5" step="0.1" value="0.5"></div>
+    <p class="note" id="missHint"></p>
+  </div>
+  <div class="tiles">
+    <div class="tile"><span class="lab">Call is worth</span><b><span id="dG"></span></b></div>
+    <div class="tile"><span class="lab">Losing it costs</span><b><span id="dL"></span></b></div>
+    <div class="tile gain"><span class="lab">Expected gain</span><b><span id="dEV"></span></b></div>
+  </div>
+  <p class="note">Values are percentage points of win probability.</p>
+  <div class="counts">
+    <span class="lab">Minimum confidence by count, this situation</span>
+    <table id="countTbl" aria-label="Minimum confidence by count"></table>
+  </div>
+</section>
+</div>
+</main>
+
+<script src="advisor_data.js"></script>
+<script>
+(function () {
+  var D = window.ADVISOR_DATA, S = D.meta.S, Sx = D.meta.Sx, root = document.documentElement;
+  var st = { side: "batter", inn: 7, bot: 1, balls: 2, strikes: 2, outs: 1, tokens: 2, base: 2, margin: -1 };
+  var STYLES = ["scoreboard", "card", "broadcast"];
+  var $ = function (id) { return document.getElementById(id); };
+  var clamp = function (x, a, b) { return Math.max(a, Math.min(b, x)); };
+  var pct = function (x, d) { return (100 * x).toFixed(d == null ? 0 : d) + "%"; };
+
+  // challenger's margin -> home lead: the batting team is home in the bottom half
+  function homeLead() { var chalHome = (st.side === "batter") === (st.bot === 1); return chalHome ? st.margin : -st.margin; }
+  function gIndex(balls, strikes) {
+    return (((((st.bot * 10 + (st.inn - 1)) * 8 + st.base) * 3 + st.outs) * 4 + balls) * 3 + strikes) * 13 + (homeLead() + 6);
+  }
+  function lambda() {
+    var half = st.bot ? 0.5 : 0;
+    if (st.inn <= 9) {
+      var t = Math.min(Math.floor(((st.inn - 1) + half + st.outs / 6) * S), 9 * S - 1);
+      return D.lam[t][st.tokens - 1][clamp(st.margin, -4, 4) + 4] / 1e6;
+    }
+    return D.lamx[Math.min(Math.floor((half + st.outs / 6) * Sx), Sx - 1)][st.tokens - 1] / 1e6;
+  }
+  function breakEven(g, lam) { return g + lam > 0 ? lam / (g + lam) : 1; }
+  function posterior(y) {
+    var a = D.post[st.side], x = clamp((y - D.meta.y_grid[0]) / D.meta.y_grid[2], 0, a.length - 1), i = Math.min(Math.floor(x), a.length - 2);
+    return a[i] + (x - i) * (a[i + 1] - a[i]);
+  }
+  function live() { return !(st.bot === 1 && st.inn >= 9 && homeLead() > 0); }
+
+  function seg(id, key, num) {
+    var el = $(id), lamps = el.classList.contains("lamps");
+    el.addEventListener("click", function (e) {
+      var b = e.target.closest("button"); if (!b) return;
+      var v = num ? +b.dataset.v : b.dataset.v;
+      // a lamp row has no zero lamp: tapping the last lit lamp turns it off
+      if (lamps && root.dataset.style === "scoreboard" && v === st[key]) v = Math.max(+el.dataset.min, v - 1);
+      st[key] = v; render();
+    });
+    return function () { [].forEach.call(el.children, function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.v == st[key]));
+      if (lamps) b.dataset.lit = String(+b.dataset.v > 0 && +b.dataset.v <= st[key]);
+    }); };
+  }
+  var segs = [seg("side", "side"), seg("half", "bot", 1), seg("balls", "balls", 1), seg("strikes", "strikes", 1), seg("outs", "outs", 1), seg("tokens", "tokens", 1)];
+  function step(dn, up, key, lo, hi) {
+    $(dn).addEventListener("click", function () { st[key] = clamp(st[key] - 1, lo, hi); render(); });
+    $(up).addEventListener("click", function () { st[key] = clamp(st[key] + 1, lo, hi); render(); });
+    return function () { $(dn).disabled = st[key] <= lo; $(up).disabled = st[key] >= hi; };
+  }
+  var steps = [step("innDn", "innUp", "inn", 1, 10), step("mDn", "mUp", "margin", -6, 6)];
+  var BASES = [["b1", 1], ["b2", 2], ["b3", 4]];
+  BASES.forEach(function (p) { $(p[0]).addEventListener("click", function () { st.base ^= p[1]; render(); }); });
+  $("conf").addEventListener("input", render);
+  $("miss").addEventListener("input", function () { $("conf").value = Math.round(100 * posterior(+$("miss").value)); render(); });
+
+  function setStyle(s) {
+    if (STYLES.indexOf(s) < 0) s = STYLES[0];
+    root.dataset.style = s;
+    [].forEach.call($("style").children, function (b) { b.setAttribute("aria-pressed", String(b.dataset.v === s)); });
+    try { localStorage.setItem("absAdvisorStyle", s); } catch (e) {}
+    fit();
+  }
+  $("style").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) setStyle(b.dataset.v); });
+
+  // shrink the verdict to its box when a fallback font runs wide
+  function fit() {
+    var v = $("verdict"); v.style.fontSize = "";
+    if (v.scrollWidth > v.clientWidth) v.style.fontSize = (parseFloat(getComputedStyle(v).fontSize) * v.clientWidth / v.scrollWidth * 0.97) + "px";
+  }
+  function render() { draw(); fit(); }
+  function draw() {
+    segs.forEach(function (f) { f(); }); steps.forEach(function (f) { f(); });
+    var innTxt = st.inn === 10 ? "Extras" : String(st.inn), halfTxt = st.bot ? "Bot" : "Top";
+    var scoreTxt = st.margin === 0 ? "Tied" : (st.margin > 0 ? "Up " : "Down ") + Math.abs(st.margin);
+    var outsTxt = st.outs + (st.outs === 1 ? " out" : " outs");
+    $("innOut").textContent = innTxt; $("mOut").textContent = scoreTxt;
+    BASES.forEach(function (p) { $(p[0]).setAttribute("aria-pressed", String(!!(st.base & p[1]))); });
+    $("bugInn").textContent = (halfTxt + " " + (st.inn === 10 ? "10+" : innTxt)).toUpperCase(); $("bugCount").textContent = st.balls + "–" + st.strikes;
+    $("bugOuts").textContent = outsTxt.toUpperCase(); $("bugScore").textContent = scoreTxt.toUpperCase();
+    $("sum").textContent = (halfTxt + " " + (st.inn === 10 ? "10+" : innTxt) + " · " + st.balls + "–" + st.strikes + " · " + outsTxt).toUpperCase();
+
+    var p = +$("conf").value / 100, y = +$("miss").value, who = st.side === "batter" ? "batter" : "catcher or pitcher";
+    $("confOut").textContent = pct(p);
+    $("missOut").textContent = y === 0 ? "On the edge" : (y > 0 ? "Missed by " : "Right by ") + Math.abs(y).toFixed(1) + " in";
+    $("missHint").textContent = "A call that looks wrong by " + y.toFixed(1) + " in is wrong " + pct(posterior(y)) + " of the time for an average " + who + ". Moving this slider sets your confidence.";
+
+    var call = $("call");
+    if (!live()) {
+      call.className = "call na"; $("verdict").textContent = "Not a live game state";
+      $("why").textContent = "The home team cannot bat with a lead in the bottom of the ninth or later. Change the half, inning or score.";
+      ["dG", "dL", "dEV"].forEach(function (id) { $(id).textContent = "–"; });
+      $("even").textContent = ""; $("zoneGo").style.left = "100%"; $("mark").style.display = "none"; $("countTbl").innerHTML = ""; return;
+    }
+    var g = D.g[gIndex(st.balls, st.strikes)] / 1e6, lam = lambda(), ps = breakEven(g, lam), ev = p * g - (1 - p) * lam, go = ev > 0;
+    call.className = "call " + (go ? "go" : "no"); $("verdict").textContent = go ? "Challenge" : "Hold";
+    $("why").textContent = g === 0 ? "Flipping this call would not change the win probability."
+      : lam === 0 ? "A challenge has no value after this point. Take any chance of being right."
+      : "You need to be " + pct(ps) + " sure here. You are " + pct(p) + " sure.";
+    $("zoneGo").style.left = pct(ps, 1); $("mark").style.display = ""; $("mark").style.left = pct(ps, 1);
+    $("even").textContent = "Break-even " + pct(ps);
+    $("dG").textContent = (100 * g).toFixed(2); $("dL").textContent = (100 * lam).toFixed(2);
+    $("dEV").textContent = (ev >= 0 ? "+" : "−") + Math.abs(100 * ev).toFixed(2);
+
+    var h = "<tr><th>Balls</th><th>0 strikes</th><th>1 strike</th><th>2 strikes</th></tr>";
+    for (var b = 0; b < 4; b++) {
+      h += "<tr><th>" + b + "</th>";
+      for (var s = 0; s < 3; s++) {
+        var q = breakEven(D.g[gIndex(b, s)] / 1e6, lam);
+        h += "<td" + (b === st.balls && s === st.strikes ? ' class="cur"' : "") + ">" + pct(q) + "</td>";
+      }
+      h += "</tr>";
+    }
+    $("countTbl").innerHTML = h;
+  }
+  // small API for tests and the console: set fields on state, then call compute() or render()
+  window.ABSAdvisor = { state: st, render: render, live: live, setStyle: setStyle, compute: function () {
+    var g = D.g[gIndex(st.balls, st.strikes)] / 1e6, lam = lambda();
+    return { g: g, lam: lam, breakEven: breakEven(g, lam) };
+  } };
+  var saved = null; try { saved = localStorage.getItem("absAdvisorStyle"); } catch (e) {}
+  setStyle(saved || root.dataset.style);
+  $("conf").value = Math.round(100 * posterior(+$("miss").value));
+  render();
+  window.addEventListener("resize", fit);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+})();
+</script>
+</body>
+</html>
