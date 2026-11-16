@@ -35,6 +35,14 @@
   --display: "Barlow Condensed", "Arial Narrow", sans-serif; --body: "Barlow", Arial, sans-serif;
   --verdict: clamp(3rem, 17vw, 4.6rem); color-scheme: dark;
 }
+:root[data-style="os"] {
+  --bg: #f9fafc; --panel: #ffffff; --line: #e4e7ec; --edge: #e4e7ec; --ink: #1b1f27; --ink2: #667085;
+  --btn: #f1f3f7; --sel-bg: #2f6fec; --sel-ink: #ffffff; --slat-bg: transparent; --slat-ink: #1b1f27;
+  --accent: #2f6fec; --cur-ink: #ffffff; --call-bg: #ffffff; --call-ink: #1b1f27; --hold-bg: #ffffff; --hold-ink: #1b1f27;
+  --track: #e4e7ec; --go: #b9d0fa; --thumb: #2f6fec; --thumb-r: 50%; --mark: #1b1f27;
+  --display: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif; --body: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --verdict: clamp(2.4rem, 12vw, 3.4rem); color-scheme: light;
+}
 * { box-sizing: border-box; }
 html { background: var(--bg); }
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.45; padding: 0 16px 3rem; }
@@ -148,6 +156,25 @@ td.cur { background: var(--accent); color: var(--cur-ink); font-weight: 700; }
 :root[data-style="broadcast"] .tile { border: 0; border-left: 2px solid #1a2757; flex-direction: column-reverse; justify-content: flex-end; }
 :root[data-style="broadcast"] .tile:first-child { border-left: 0; padding-left: 0; }
 :root[data-style="broadcast"] .brand { font-weight: 600; font-size: 1rem; letter-spacing: 0.18em; }
+
+/* ---- os: the look of poshakpathak.com, used only when the page is opened with ?theme=os inside the site ---- */
+:root[data-style="os"] .sum, :root[data-style="os"] .stylepick { display: none; }
+:root[data-style="os"] .brand { font-weight: 600; font-size: 1.05rem; letter-spacing: 0; text-transform: none; }
+:root[data-style="os"] .lab { font-size: 0.8rem; font-weight: 500; letter-spacing: 0; text-transform: none; }
+:root[data-style="os"] .state { border-width: 1px; border-radius: 12px; }
+:root[data-style="os"] .seg button, :root[data-style="os"] .step button { border: 0; border-radius: 8px; color: var(--ink); }
+:root[data-style="os"] .seg button[aria-pressed="true"] { color: var(--sel-ink); }
+:root[data-style="os"] .step output { font-size: 1rem; font-weight: 600; letter-spacing: 0; text-transform: none; }
+:root[data-style="os"] .call { border: 1px solid var(--line); border-radius: 12px; outline: 0; }
+:root[data-style="os"] .verdict { font-weight: 700; letter-spacing: -0.02em; text-transform: none; line-height: 1.1; }
+:root[data-style="os"] .call.go .verdict { color: var(--accent); }
+:root[data-style="os"] .slab b { font-weight: 600; font-size: 1.1rem; }
+:root[data-style="os"] .rng .track, :root[data-style="os"] .rng .go { border-radius: 4px; }
+:root[data-style="os"] .note.even { color: var(--ink2); font-weight: 500; letter-spacing: 0; text-transform: none; }
+:root[data-style="os"] .tile { border-width: 1px; border-radius: 12px; }
+:root[data-style="os"] .tile.gain { border-color: var(--line); }
+:root[data-style="os"] .tile b { font-weight: 600; font-size: 1.4rem; }
+:root[data-style="os"] th { letter-spacing: 0; text-transform: none; font-weight: 500; font-size: 0.78rem; }
 </style>
 </head>
 <body>
@@ -334,8 +361,15 @@ td.cur { background: var(--accent); color: var(--cur-ink); font-weight: 700; }
     var g = D.g[gIndex(st.balls, st.strikes)] / 1e6, lam = lambda();
     return { g: g, lam: lam, breakEven: breakEven(g, lam) };
   } };
-  var saved = null; try { saved = localStorage.getItem("absAdvisorStyle"); } catch (e) {}
-  setStyle(saved || root.dataset.style);
+  // inside poshakpathak.com the page is opened with ?theme=os and takes the site's look; the picker is hidden
+  if (/[?&]theme=os(&|$)/.test(location.search)) {
+    var f = document.createElement("link"); f.rel = "stylesheet";
+    f.href = "https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap"; document.head.appendChild(f);
+    root.dataset.style = "os";
+  } else {
+    var saved = null; try { saved = localStorage.getItem("absAdvisorStyle"); } catch (e) {}
+    setStyle(saved || root.dataset.style);
+  }
   $("conf").value = Math.round(100 * posterior(+$("miss").value));
   render();
   window.addEventListener("resize", fit);
