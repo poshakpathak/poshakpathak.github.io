@@ -242,7 +242,7 @@ button.card.post{gap:16px;text-align:left}
 .doc ul{margin:4px 0 10px;padding-left:18px}
 .doc p{margin:2px 0 8px}
 .embed{display:flex;flex-direction:column;height:100%}.embed iframe{flex:1;width:100%;border:0;background:#fff;min-height:0}
-.win[data-app="abs"] .bd,.win[data-app="post"] .bd,.win[data-app="framing"] .bd,.win[data-app="sp500"] .bd,.win[data-app="chesspdfpost"] .bd,.win[data-app="congresspost"] .bd{overflow:hidden}
+.win[data-app="abs"] .bd,.win[data-app="absapp"] .bd,.win[data-app="post"] .bd,.win[data-app="framing"] .bd,.win[data-app="sp500"] .bd,.win[data-app="chesspdfpost"] .bd,.win[data-app="congresspost"] .bd{overflow:hidden}
 .rbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(--line);background:rgba(240,242,246,.75);font-size:13px;color:var(--soft);position:sticky;top:0}
 
 .tm{padding:22px 28px 26px;text-align:center}
@@ -768,6 +768,7 @@ html,body{margin:0;height:100%;background:#0b1626}
   <ul>
     <li><a href="https://chesspdf.poshakpathak.com/">Chess PDF</a>: open a chess book PDF, click a diagram and play the position on a board beside the page. Diagrams are read by a small model in the browser.</li>
     <li><a href="https://congresstracker.poshakpathak.com/">Congress Tracker</a>: every roll-call vote in the House and Senate, party breaks, bills that died in committee, campaign money, lobbying and stock trades, rebuilt nightly.</li>
+    <li><a href="/Projects/abs/">ABS Challenge Advisor</a>: set the game state and how sure you are, and get the optimal challenge-or-hold call from my ABS challenge paper.</li>
     <li>GAN Defense: real-time detection of poisoned client updates in federated learning.</li>
     <li><a href="https://github.com/poshakpathak/ChessEngine">Chess Engine</a>: neural network evaluation with alpha-beta search, tested over 1,562 games against Stockfish 14.</li>
     <li><a href="https://hacklytics-25.pages.dev/">BayesSurgeon</a>: statistical analysis of post-surgical breast cancer data (Hacklytics 2025, 2nd place).</li>
@@ -995,7 +996,7 @@ const I={
   music:'<svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>',
   folder:'<svg viewBox="0 0 24 24" style="width:15px;height:15px"><path d="M3 6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>'
 };
-I.post=I.notes;I.abs=I.notes;I.framing=I.notes;I.sp500=I.notes;I.chesspdfpost=I.notes;I.congresspost=I.notes;I.projects=I.folder;I.papers=I.folder;I.blogs=I.folder;
+I.post=I.notes;I.abs=I.notes;I.absapp=I.work;I.framing=I.notes;I.sp500=I.notes;I.chesspdfpost=I.notes;I.congresspost=I.notes;I.projects=I.folder;I.papers=I.folder;I.blogs=I.folder;
 Object.assign(I,GAMES.icons);
 const PAPERS=[["alphaXiv 2026","Optimal challenge policy for MLB’s ABS system"],["Int. J. Bilingualism 2026","Immersion and first-language attrition"],["Biling.: Lang. & Cog. 2025","Trilingual parallel processing"],["ITNG 2025","GAN defense against data poisoning"],["Nepalese Linguistics 2022","Bilingual Stroop effect in Nepali–English bilinguals"],["J Cult Cogn Sci 2021","Second-language instruction and L1 abilities"]];
 const FOLDERS=[["papers","Research",I.research],["projects","Projects",I.work],["blogs","Blogs",I.notes],["games","Games",I.games]];
@@ -1012,6 +1013,11 @@ const PROJECTS=[
    link:["Launch Congress Tracker ↗","https://congresstracker.poshakpathak.com/"],live:"https://congresstracker.poshakpathak.com/",post:"congress",
    stack:["Python","GitHub Actions","Spark","dbt","Postgres","Dagster","JavaScript","Cloudflare Pages"],
    shots:[["The record","1,606 roll-call votes and 19,962 bills so far.","assets/os/congress.jpg"],["This week","The last seven days, straight from the record.","assets/os/congress-2.jpg"],["Stock trades","Every trade House members reported.","assets/os/congress-3.jpg"]]},
+  {id:"absadvisor",name:"ABS Challenge Advisor",tags:"Web app · Baseball analytics · 2026",img:"abs",
+   desc:"Challenge or hold? Set the inning, count, outs, runners, score and challenges left, say how sure you are the call is wrong, and get the optimal decision from my ABS challenge paper. The model behind it was solved on all 716,792 pitches of the 2026 regular season.",
+   app:"absapp",link:["Full page ↗","/Projects/abs/"],live:"/Projects/abs/",post:"abs",
+   stack:["Python","pandas","NumPy","SciPy","JavaScript","Cloudflare Workers"],
+   shots:[["The call","Challenge or hold, with the minimum confidence you need."],["The stakes","What the call is worth against what losing a challenge costs."],["Three styles","Scoreboard, dugout card or broadcast. You pick."]]},
   {id:"gan",name:"GAN Defense",tags:"Research · Federated learning · 2025",img:null,
    desc:"A defense I designed for federated learning. A GAN learns what honest client updates look like, so poisoned data stands out in real time, for both targeted and untargeted attacks. Published at ITNG 2025.",
    link:["Read the paper","https://doi.org/10.1007/978-3-031-89063-5_1"],
@@ -1087,6 +1093,7 @@ const APPS={
   sp500:{t:"Can you beat the S&P 500 with $200 a month?",w:780,h:660,html:()=>`<div class="embed"><iframe src="blog/sp500/" title="Can you beat the S&amp;P 500 with $200 a month?" loading="lazy" allow="clipboard-write; web-share"></iframe></div>`},
   framing:{t:"What is a stolen strike worth now?",w:780,h:660,html:()=>`<div class="embed"><iframe src="blog/framing/" title="What is a stolen strike worth now?" loading="lazy" allow="clipboard-write; web-share"></iframe></div>`},
   abs:{t:"The Challenge Problem",w:820,h:680,html:()=>`<div class="embed"><iframe src="blog/challenge-problem/" title="The Challenge Problem" loading="lazy" allow="clipboard-write; web-share"></iframe></div>`},
+  absapp:{t:"ABS Challenge Advisor",w:460,h:720,html:()=>`<div class="embed"><iframe src="Projects/abs/?theme=os" title="ABS Challenge Advisor" loading="lazy"></iframe></div>`},
   post:{t:"Ohtani's impact in year 2",w:780,h:660,html:()=>`<div class="embed"><iframe src="blog/ohtani/" title="Ohtani's impact in year 2" loading="lazy" allow="clipboard-write; web-share"></iframe></div>`},
   resume:{t:"Résumé",w:720,h:620,html:()=>`<div class="rbar"><span>Poshak_Pathak_Resume.pdf</span><a class="btn ghost" href="Poshak_Pathak_Resume.pdf" download="Poshak_Pathak_Resume.pdf">Download PDF</a></div>
     <div class="doc">
@@ -1225,7 +1232,7 @@ function selectProj(id){
   side.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>open(b.dataset.o));
   const p=PROJECTS.find(x=>x.id===id);
   const shots=p.shots.length?p.shots:[["Overview",p.tags]];
-  main.innerHTML=`<div class="whead"><h2>${p.name}<small>${p.tags}</small></h2><span class="wbtns">${p.post?`<button class="btn ghost" data-o="${p.post}">Read the write-up</button>`:''}${p.link?`<a class="btn" href="${p.link[1]}" target="_blank" rel="noopener">${p.link[0]}</a>`:''}</span></div>
+  main.innerHTML=`<div class="whead"><h2>${p.name}<small>${p.tags}</small></h2><span class="wbtns">${p.post?`<button class="btn ghost" data-o="${p.post}">Read the write-up</button>`:''}${p.app?`<button class="btn" data-o="${p.app}">Open ${p.name}</button>`:''}${p.link?`<a class="btn${p.app?' ghost':''}" href="${p.link[1]}" target="_blank" rel="noopener">${p.link[0]}</a>`:''}</span></div>
     <p class="wdesc">${p.desc}</p>${p.stack?`<div class="wstack">${p.stack.map(t=>`<span>${t}</span>`).join('')}</div>`:''}
     <div class="shots">${shots.map(([h,s],i)=>`<div class="shot">${shots[i][2]?`<div class="im" style="background-image:url(${shots[i][2]});background-position:center top"></div>`:p.img?`<div class="im" style="background-image:${IMG[p.img]};background-position:${['center','left top','right bottom'][i%3]}"></div>`:`<div class="im gan">${['clients → server','GAN discriminator','+25% accuracy'][i]}</div>`}<b>${h}</b><span>${s}</span></div>`).join('')}</div>`;
   main.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>open(b.dataset.o));
