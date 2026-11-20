@@ -1005,12 +1005,12 @@ const COLORS={term:"#1d2433",calc:"#16171a",photos:"#f5a623",about:"#2f7bf5",wor
 const PROJECTS=[
   {id:"chesspdf",name:"Chess PDF",tags:"Web app · Computer vision · 2026",img:"chesspdf",
    desc:"Open a chess book or magazine PDF, click a diagram, and play through the position on a board beside the page. A 115 KB model reads diagrams right in the browser, moves in the text are linked to the positions they belong to, and scanned books are read with OCR. The PDF never leaves your computer.",
-   link:["Launch Chess PDF ↗","https://chesspdf.poshakpathak.com/"],live:"https://chesspdf.poshakpathak.com/",post:"chesspdf",
+   link:["Launch Chess PDF ↗","https://chesspdf.poshakpathak.com/"],live:"https://chesspdf.poshakpathak.com/",post:"chesspdfpost",
    stack:["React","TypeScript","Vite","PDF.js","chess.js","PyTorch","Tesseract","Stockfish","Cloudflare Workers"],
    shots:[["Click a move","The board jumps to that point in the book's line.","assets/os/chesspdf.jpg"],["Read the page","Moves in the text are found and highlighted.","assets/os/chesspdf-2.jpg"],["On a phone","The board folds into a sheet under the page.","assets/os/chesspdf-3.jpg"]]},
   {id:"congress",name:"Congress Tracker",tags:"Data pipeline · Civic data · 2026",img:"congress",
    desc:"Every roll-call vote in the House and Senate, every member, who breaks from their party, which bills die in committee, and where the money goes. A Python pipeline pulls from the House Clerk, Senate, govinfo, the FEC, lobbying reports and House stock trade filings every night.",
-   link:["Launch Congress Tracker ↗","https://congresstracker.poshakpathak.com/"],live:"https://congresstracker.poshakpathak.com/",post:"congress",
+   link:["Launch Congress Tracker ↗","https://congresstracker.poshakpathak.com/"],live:"https://congresstracker.poshakpathak.com/",post:"congresspost",
    stack:["Python","GitHub Actions","Spark","dbt","Postgres","Dagster","JavaScript","Cloudflare Pages"],
    shots:[["The record","1,606 roll-call votes and 19,962 bills so far.","assets/os/congress.jpg"],["This week","The last seven days, straight from the record.","assets/os/congress-2.jpg"],["Stock trades","Every trade House members reported.","assets/os/congress-3.jpg"]]},
   {id:"absadvisor",name:"ABS Challenge Advisor",tags:"Web app · Baseball analytics · 2026",img:"abs",
@@ -1842,7 +1842,7 @@ function wireTerm(w){
       case 'open':{const n=(args[0]||'').toLowerCase().replace(/\/$/,'');
         const map={about:'about',resume:'resume',music:'music',settings:'settings',tm:'tm','time-machine':'tm',timemachine:'tm',projects:'projects',research:'papers',papers:'papers',blogs:'blogs',notes:'notes',post:'post',ohtani:'post',abs:'abs',challenge:'abs',framing:'framing',sp500:'sp500','chesspdf-post':'chesspdfpost','congress-post':'congresspost','congresstracker-post':'congresspost',hello:'hello',contact:'hello',terminal:'term',calc:'calc',calculator:'calc',ti84:'calc','ti-84':'calc',photos:'photos',pics:'photos',games:'games',minesweeper:'mines',mines:'mines',solitaire:'sol',sol:'sol',blackjack:'bj',bj:'bj',21:'bj'};
         const site={chesspdf:'chesspdf',congress:'congress',congresstracker:'congress','congress-tracker':'congress'}[n];
-        if(site){const p=PROJECTS.find(x=>x.id===site);window.open(p.live,'_blank','noopener');P(`Opening ${p.live.replace(/^https:\/\/|\/$/g,'')} in a new tab…`);print(link('About this project →','work',{p:site})+'   '+link('Read the write-up →',p.post==='chesspdf'?'chesspdfpost':'congresspost'));}
+        if(site){const p=PROJECTS.find(x=>x.id===site);window.open(p.live,'_blank','noopener');P(`Opening ${p.live.replace(/^https:\/\/|\/$/g,'')} in a new tab…`);print(link('About this project →','work',{p:site})+'   '+link('Read the write-up →',p.post));}
         else if(map[n]){open(map[n]);P(`Opening ${APPS[map[n]].t}…`);}
         else if(PROJECTS.find(p=>p.id===n)){open('work',{p:n});P(`Opening ${PROJECTS.find(p=>p.id===n).name}…`);}
         else P(n?`open: can't find "${n}". Try: open projects`:'open: what should I open? Try: open about');break;}
