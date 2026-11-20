@@ -64,7 +64,7 @@ function wireWin(){
     ctx.clearRect(0,0,W,H);ctx.drawImage(bg,0,0,W,H);
     const max=Math.max(1,...pts.map(p=>p.n));
     for(const p of pts){const [x,y]=xy(p.lon,p.lat),rad=cell*(.55+1.6*Math.sqrt(p.n/max));p.x=x;p.y=y;p.r=rad;
-      const ph=((t/1000+p.lon/40)%2.4)/2.4;
+      const ph=(((t/1000+p.lon/40)%2.4+2.4)%2.4)/2.4; /* keep the pulse phase positive: western longitudes made it negative, the ring radius went below zero and the canvas stopped drawing */
       ctx.strokeStyle=`rgba(255,184,107,${.5*(1-ph)})`;ctx.lineWidth=1.2;ctx.beginPath();ctx.arc(x,y,rad+ph*cell*2.6,0,7);ctx.stroke();
       ctx.fillStyle='rgba(255,184,107,.25)';ctx.beginPath();ctx.arc(x,y,rad*1.9,0,7);ctx.fill();
       ctx.fillStyle='#ffb86b';ctx.beginPath();ctx.arc(x,y,rad,0,7);ctx.fill();}
