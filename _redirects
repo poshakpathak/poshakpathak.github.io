@@ -10,6 +10,10 @@
 /projects     /#projects                  302
 /calc         /#calc                      302
 
+# Projects that moved to their own subdomain
+/Projects/abs     https://abs.poshakpathak.com/        301
+/Projects/abs/*   https://abs.poshakpathak.com/:splat  301
+
 # Profiles
 /linkedin     https://www.linkedin.com/in/poshak-pathak/                   302
 /github       https://github.com/poshakpathak                              302
