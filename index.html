@@ -239,11 +239,14 @@ button.card.post{gap:16px;text-align:left}
 .doc h2{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#2f6fec;margin:22px 0 8px;border-bottom:1px solid #e4e7ec;padding-bottom:4px}
 .doc .r{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .doc .r span{color:#667085;font-variant-numeric:tabular-nums;font-size:13px}
+.doc .r span.pj{color:inherit;font-size:inherit;flex-shrink:1}
+.doc .r.d{flex-wrap:nowrap;align-items:baseline}.doc .r.d>span:last-child{flex-shrink:0;white-space:nowrap}
+.doc .r i{color:#475467}
 .doc ul{margin:4px 0 10px;padding-left:18px}
 .doc p{margin:2px 0 8px}
 .embed{display:flex;flex-direction:column;height:100%}.embed iframe{flex:1;width:100%;border:0;background:#fff;min-height:0}
 .win[data-app="abs"] .bd,.win[data-app="absapp"] .bd,.win[data-app="post"] .bd,.win[data-app="framing"] .bd,.win[data-app="sp500"] .bd,.win[data-app="chesspdfpost"] .bd,.win[data-app="congresspost"] .bd,.win[data-app="batspeed"] .bd{overflow:hidden}
-.rbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(--line);background:rgba(240,242,246,.75);font-size:13px;color:var(--soft);position:sticky;top:0}
+.rbar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(--line);background:rgba(240,242,246,.75);font-size:13px;color:var(--soft);position:sticky;top:0;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);z-index:1}
 
 .tm{padding:22px 28px 26px;text-align:center}
 .tm h2{margin:0;font-size:22px;font-weight:600}
@@ -772,7 +775,7 @@ html,body{margin:0;height:100%;background:#0b1626}
     <li><a href="https://abs.poshakpathak.com/">ABS Challenge Advisor</a>: set the game state and how sure you are, and get the optimal challenge-or-hold call from my ABS challenge paper.</li>
     <li>GAN Defense: real-time detection of poisoned client updates in federated learning.</li>
     <li><a href="https://github.com/poshakpathak/ChessEngine">Chess Engine</a>: neural network evaluation with alpha-beta search, tested over 1,562 games against Stockfish 14.</li>
-    <li><a href="https://hacklytics-25.pages.dev/">BayesSurgeon</a>: statistical analysis of post-surgical breast cancer data (Hacklytics 2025, 2nd place).</li>
+    <li><a href="https://hacklytics-25.pages.dev/">BayesSurgeon</a>: statistical analysis of post-surgical breast cancer data (Hacklytics 2025).</li>
     <li><a href="https://devpost.com/software/pictionary-pugle">Pictionary Plunge</a>: a 15-category sketch classifier tuned with Bayesian optimization.</li>
     <li><a href="/Projects/margintale.html">Martingale Simulator</a> and <a href="/Projects/imposter.html">Imposter Game</a></li>
   </ul>
@@ -1101,23 +1104,22 @@ const APPS={
   resume:{t:"Résumé",w:720,h:620,html:()=>`<div class="rbar"><span>Poshak_Pathak_Resume.pdf</span><a class="btn ghost" href="Poshak_Pathak_Resume.pdf" download="Poshak_Pathak_Resume.pdf">Download PDF</a></div>
     <div class="doc">
       <h1>Poshak Pathak</h1>
-      <p class="ct">poshakcodes@gmail.com · linkedin.com/in/poshak-pathak · github.com/poshakpathak · Open to roles in Dallas–Fort Worth</p>
+      <p class="ct">poshakcodes@gmail.com · poshakpathak.com</p>
       <h2>Education</h2>
-      <div class="r"><b>University of Louisiana Monroe</b><span>Aug 2022 – Dec 2026</span></div>
-      <p>B.S. Computer Science and B.S. Mathematics. GDSC, ACM, ULM Math Club.</p>
+      <div class="r"><b>University of Louisiana Monroe</b><span>Monroe, LA</span></div>
+      <div class="r d"><i>Bachelor of Science in Computer Science, Bachelor of Science in Mathematics</i><span>Jan 2023 – Dec 2026</span></div>
+      <p>Involvement: Google Developers Student Club, Association for Computing Machinery, ULM Math Club</p>
+      <h2>Technical Skills</h2>
+      <p>Languages: Java, Python, R, C++, SQL, JavaScript, HTML/CSS, Tableau, Node.js, Express.js, MongoDB<br>Libraries/Skills: NumPy, Pandas, scikit-learn, PyTorch, TensorFlow, Matplotlib, Agile, SCRUM, CUDA, MPI</p>
       <h2>Experience</h2>
-      <div class="r"><b>Undergraduate Research Assistant, ULM</b><span>Jan 2024 – Present</span></div>
-      <ul><li>Developed a GAN-based method to detect poisoned data in federated learning.</li><li>Built data pipelines and trained ML models, improving accuracy by 25%.</li></ul>
-      <div class="r"><b>Founder &amp; President, ULM Chess Club</b><span>2023 – Present</span></div>
-      <ul><li>Founded the university's official chess club, wrote its constitution and runs biweekly events.</li></ul>
-      <h2>Publications</h2>
-      <p>4 peer-reviewed papers, including ITNG 2025 and Bilingualism: Language and Cognition.</p>
+      <div class="r"><b>Undergraduate Research Assistant</b><span>Monroe, LA</span></div>
+      <div class="r d"><i>University of Louisiana Monroe</i><span>October 2023 – May 2024</span></div>
+      <ul><li>Proposed and developed a defense mechanism utilizing GANs to detect poisoned updates in federated learning models to handle both targeted and untargeted poisoning attacks in real-time, ensuring data privacy.</li><li>Designed and implemented data preprocessing pipelines using Python to clean, normalize, and transform large datasets.</li><li>Applied machine learning techniques like random forests, gradient boosting, and neural networks to develop predictive models, achieving a 25% improvement in prediction accuracy over our model.</li></ul>
+      <h2>Leadership &amp; Involvement</h2>
+      <ul><li>ULM Chess Club: Founder/President. Established a chess club at my university, drafted constitution and bylaws, and organized biweekly meetings, where members play games with each other, solve tactical and strategic puzzles, study classic games, and discuss the game.</li><li>Hackathons: iQuHack 2023 (MIT), TAMU Datathon 2024 (Texas A&amp;M), 2nd Place; Hacklytics 2025 (GA Tech).</li><li>Conference Presentations: Louisiana Academy of Science, Hammond, LA (2024); ULM Research Symposium, 1st place (2024); International Conference on Information Technology: New Generations, Las Vegas, NV (2025).</li></ul>
       <h2>Projects</h2>
-      <ul><li><b>Neural chess engine.</b> 90% accuracy over 1,562 games vs Stockfish 14; 15× faster search.</li><li><b>BayesSurgeon.</b> Statistical analysis of post-surgical breast cancer outcomes.</li><li><b>Pictionary Plunge.</b> 15-class sketch classifier with Bayesian optimization.</li></ul>
-      <h2>Awards</h2>
-      <ul><li>2nd place, Hacklytics 2025 (Georgia Tech)</li><li>1st place, ULM Research Symposium</li><li>Also competed at iQuHack 2023 (MIT) and TAMU Datathon 2024</li></ul>
-      <h2>Skills</h2>
-      <p>Python, R, SQL, Tableau, Pandas, scikit-learn, ggplot2, dplyr</p>
+      <div class="r d"><span class="pj"><b>Chess Engine using Neural Networks</b> | <i>Python, TensorFlow, PyTorch, CNN, Pruning</i></span><span>April 2023 – July 2023</span></div>
+      <ul><li>Developed chess engine using NN with 90% accuracy on 1562 games against Stockfish 14.</li><li>Designed and implemented a convolutional neural network for move predictions, achieving a prediction accuracy of 80% on a test set which comprised of 15,000 positions.</li><li>Employed Alpha-Beta pruning to optimize search to enhance the AI’s decision-making process, reducing search time by a factor of 15.</li></ul>
     </div>`},
   tm:{t:"Time Machine",w:620,h:null,html:()=>`<div class="tm"><h2>Time Machine</h2><p class="sub">Travel through interface design history</p>
     <div class="tmcard" id="tmcard"></div><div class="tl" id="tl"></div>
@@ -1444,7 +1446,7 @@ const PAL_BASE=[
   {t:'Research',d:'6 papers and conference talks',ic:I.research,go:()=>open('papers')},
   {t:'Blogs',d:'Baseball and cricket, by the numbers',ic:I.notes,go:()=>open('blogs')},
   {t:'Music',d:'PoshakOS Radio and my Spotify playlist',ic:I.music,go:()=>open('music')},
-  {t:'Résumé',d:'Education, experience and awards',ic:I.resume,go:()=>open('resume')},
+  {t:'Résumé',d:'Education, skills, experience and projects',ic:I.resume,go:()=>open('resume')},
   {t:'Time Machine',d:'Travel through interface design history',ic:I.tm,go:()=>open('tm')},
   {t:'Settings',d:'Time of day, weather and sound',ic:I.settings,go:()=>open('settings')},
   {t:'Photos',d:'Trips and moments',ic:I.photos,go:()=>open('photos')},
