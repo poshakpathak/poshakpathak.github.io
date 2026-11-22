@@ -3,7 +3,7 @@
    (bjrooms/CODE) and every move is a transaction, so whoever acts also deals the next card
    and plays the dealer when the last hand is done. No server and no host to lose. */
 (()=>{
-/* same public Firebase web config as the guestbook: the Firestore rules do the protecting */
+/* public Firebase web config: safe to ship, the Firestore rules do the protecting */
 const FB={apiKey:'AIzaSyDkyIwps3EjWTvO1a3ULoHU_srKcqbpX2Q',projectId:'poshakos'};
 const SDK='https://www.gstatic.com/firebasejs/10.12.2/';
 const DECKS=6,START=1000,MAX=5,MIN=5,CHIPS=[5,25,100,500],TURN=30000,BETWAIT=25000,NEXTWAIT=10000;
