@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-22T07:26:19.557Z",
- "total": 100,
+ "updated": "2026-11-23T08:12:24.799Z",
+ "total": 102,
  "countries": [
   [
    "US",
    "United States",
-   84
+   86
   ],
   [
    "CA",
@@ -51,7 +51,7 @@
  "us": [
   [
    "Texas",
-   33
+   34
   ],
   [
    "Georgia",
@@ -66,6 +66,10 @@
    5
   ],
   [
+   "California",
+   2
+  ],
+  [
    "Florida",
    2
   ],
@@ -76,10 +80,6 @@
   [
    "New York",
    2
-  ],
-  [
-   "California",
-   1
   ],
   [
    "New Mexico",
